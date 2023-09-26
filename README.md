@@ -8,3 +8,4 @@ We are focusing on creating an application in **health care** problem domain. We
 
 ## Some potential APIs
 - [Google Cloud Vision API](https://cloud.google.com/vision) that has pre-trained AI models for analyzing images
+- [Healthgraphic API](https://www.healthgraphic.com/) is a health content search and discovery API that allows developers to retrieve data about diseases, symptoms and medications.
