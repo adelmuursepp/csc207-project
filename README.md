@@ -1,5 +1,8 @@
 # Project for CSC207 course - Fall 2023
 
+## TODO
+- Add a screenshot about using a tool like Hoppscotch for API calls, some more ideas for APIs or changing project description
+
 ## Team members 
 Daniel Shi, Nivadhini, Parsh, Adel Muursepp
 
