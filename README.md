@@ -29,4 +29,4 @@ This is intended to return a string of the Obamacare page, from the content attr
 
 ## Hoppscotch Test
 This is the result of putting the url from the Java code example in Hoppscotch
-![Screenshot 2023-09-29 231157.png](..%2F..%2F..%2FDownloads%2FScreenshot%202023-09-29%20231157.png)
+![Hoppscotch-ex.png](..%2F..%2F..%2FDownloads%2FScreenshot%202023-09-29%20231157.png)
