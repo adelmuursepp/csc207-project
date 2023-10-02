@@ -24,8 +24,7 @@ which could be included to address healthcare concerns for users in the U.S.
 Need to figure out how to actually import tools like okhttp3.
 
 ## Example Java Code
-This is intended to return a string of the Obamacare page, from the content attribute of the api result
-![Screenshot 2023-09-29 230653.png](..%2F..%2F..%2FDownloads%2FScreenshot%202023-09-29%20230653.png)
+There are two examples of Java API example calls in the repository.
 
 ## Hoppscotch Test
 This is the result of putting the url from the Java code example in Hoppscotch
