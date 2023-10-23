@@ -24,11 +24,11 @@ which could be included to address healthcare concerns for users in the U.S.
 Need to figure out how to actually import tools like okhttp3.
 
 ## Example Java Code
-This is intended to return a string of the Obamacare page, from the content attribute of the api result
-![Screenshot 2023-09-29 230653.png](..%2F..%2F..%2FDownloads%2FScreenshot%202023-09-29%20230653.png)
+There are two examples of Java API example calls in the repository.
 
 ## Hoppscotch Test
 This is the result of putting the url from the Java code example in Hoppscotch
+<<<<<<< HEAD
 ![Hoppscotch-ex.png](..%2F..%2F..%2FDownloads%2FScreenshot%202023-09-29%20231157.png)
 
 
@@ -42,3 +42,8 @@ Adel - API connections, data persistence.
 Kai - Entities, views, front end.
 
 Parsh - Front end, interface inputs.
+
+
+=======
+![Hoppscotch-ex.png](Hoppscotch-ex.png)
+>>>>>>> 7fa78baab9e2d96145a63377ba5a538315596b9b
