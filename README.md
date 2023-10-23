@@ -30,3 +30,15 @@ This is intended to return a string of the Obamacare page, from the content attr
 ## Hoppscotch Test
 This is the result of putting the url from the Java code example in Hoppscotch
 ![Hoppscotch-ex.png](..%2F..%2F..%2FDownloads%2FScreenshot%202023-09-29%20231157.png)
+
+
+Nivadhini - Supervise coding. Design clean architecture.
+
+Daniel - Design clean architecture, code interface adapters,
+use case business rules.
+
+Adel - API connections, data persistence.
+
+Kai - Entities, views, front end.
+
+Parsh - Front end, interface inputs.
