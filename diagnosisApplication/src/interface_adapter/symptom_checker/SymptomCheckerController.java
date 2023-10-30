@@ -1,4 +1,4 @@
-package interface_adaptor.symptom_checker;
+package interface_adapter.symptom_checker;
 
 public class SymptomCheckerController {
 }

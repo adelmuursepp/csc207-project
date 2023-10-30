@@ -1,4 +1,4 @@
-package interface_adaptor.diagnosis;
+package interface_adapter.diagnosis;
 
 public class DiagnosisViewModel {
 }
