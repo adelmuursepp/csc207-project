@@ -1,46 +1,23 @@
 package entities;
+
 /**
- * A representation of a medically relevant symptom. The symptom has a name and state. The state indicates whether
- * the symptom is present. The default state of a symptom is not present. Symptoms can be selected and deselected.
+ * Interface for various symptoms. All implementations of symptoms must use this interface. It contains two methods that
+ * represent its most basic functions: a method to get the symptom name and a method that indicates whether this symptom
+ * is present.
  */
 
-public class Symptom {
-
-    private final String symptomName;
-    private boolean present;
+public interface Symptom {
 
     /**
-     * Creates a symptom with the specified name and sets present (state) to false.
-     * @param symptomName the name of the symptom
+     * Returns the name of this symptom.
+     * @return symptom name
      */
-    public Symptom(String symptomName) {
-        this.symptomName = symptomName;
-        this.present = false;
-    }
+    String getSymptomName();
 
     /**
-     * Returns the name of the symptom.
-     * @return value of name property
+     * Returns the state of this symptom (whether it is present)
+     * @return symptom presence
      */
-    public String getSymptomName() {
-        return symptomName;
-    }
-
-    /**
-     * Returns whether this symptom is present/state of the symptom.
-     * @return value of the present property
-     */
-    public boolean isPresent() {
-        return present;
-    }
-
-    /**
-     * Changes the state of the symptom and returns the changed value.
-     * @return new value of the present property
-     */
-    public boolean select() {
-        this.present = !present;
-        return present;
-    }
+    boolean isPresent();
 
 }
