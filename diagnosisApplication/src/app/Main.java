@@ -1,6 +1,7 @@
 package app;
 
 import interface_adapter.ViewManagerModel;
+import interface_adapter.login.LoginViewModel;
 import view.ViewManager;
 
 import javax.swing.*;

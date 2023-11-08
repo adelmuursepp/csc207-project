@@ -49,5 +49,8 @@ public class SymptomCheckerView extends JPanel {
 
         this.add(title);
         this.add(buttons);
+        JPanel checkboxes = new JPanel();
+        symptom1 = new JCheckBox(symptom1.name);
+        checkboxes.add(symptom1);
     }
 }
