@@ -3,9 +3,10 @@ package interface_adapter.diagnosis;
 
 import java.util.List;
 
-public class DiagnosisInteractor {
+public class DiagnosisInteractor implements DiagnosisInputBoundary{
     final DiagnosisInputBoundary diagnosisUseCaseInteractor;
-    public DiagnosisController(DiagnosisInputBoundary diagnosisUseCaseInteractor) {
+
+    public DiagnosisInteractor(DiagnosisInputBoundary diagnosisUseCaseInteractor) {
         this.diagnosisUseCaseInteractor = diagnosisUseCaseInteractor;
     }
 

@@ -1,6 +1,10 @@
 package app;
 
 import interface_adapter.ViewManagerModel;
+import interface_adapter.diagnosis.DiagnosisViewModel;
+import interface_adapter.login.LoginViewModel;
+import interface_adapter.signup.SignupViewModel;
+import interface_adapter.symptom_checker.SymptomCheckerViewModel;
 import view.ViewManager;
 
 import javax.swing.*;

@@ -9,4 +9,5 @@ public class DiagnosisPresenter implements DiagnosisOutputBoundary {
     @Override
     public void present(DiagnosisOutputData outputData) {
         List<String> diagnosis = outputData.getDiagnosis();
+    }
 }
