@@ -13,6 +13,7 @@ public class DiagnosisPresenter implements DiagnosisOutputBoundary {
         SymptomCheckerState symptomCheckerState = SymptomCheckerViewModel.getState();
 
         DiagnosisState diagnosisState = DiagnosisViewModel.getState();
+        //whatever changes to dianosis state
         diagnosisViewModel.setState(diagnosisState);
         diagnosisViewModel.firePropertyChanged();
 
