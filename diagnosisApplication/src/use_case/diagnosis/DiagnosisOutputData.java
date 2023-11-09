@@ -4,5 +4,6 @@ import java.util.List;
 
 public class DiagnosisOutputData {
     public List<String> getDiagnosis() {
+        return null;
     }
 }
