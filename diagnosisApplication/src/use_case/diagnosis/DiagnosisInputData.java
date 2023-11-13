@@ -2,9 +2,9 @@ package use_case.diagnosis;
 
 public class DiagnosisInputData {
 
-    final private Boolean diagnosisState;
+    final private Boolean diagnosis;
 
-    public DiagnosisInputData(Boolean diagnosisState) { this.diagnosisState = diagnosisState; }
+    public DiagnosisInputData(Boolean diagnosis) { this.diagnosis = diagnosis; }
 
-    Boolean getDiagnosisState() { return diagnosisState; }
+    Boolean getDiagnosisValue() { return diagnosis; }
 }

@@ -1,5 +1,5 @@
 package use_case.diagnosis;
 
-public abstract class DiagnosisOutputBoundary {
-    public abstract void present(DiagnosisOutputData outputData);
+public interface DiagnosisOutputBoundary {
+    void present(DiagnosisOutputData outputData);
 }
