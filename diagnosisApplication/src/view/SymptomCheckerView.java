@@ -20,6 +20,8 @@ public class SymptomCheckerView extends JPanel {
 
     private final JButton submit;
 
+    private final JCheckBox symptom1;
+
     public SymptomCheckerView(SymptomCheckerViewModel symptomCheckerViewModel,
                               SymptomCheckerController symptomCheckerController,
                               DiagnosisController diagnosisController) {
@@ -50,9 +52,19 @@ public class SymptomCheckerView extends JPanel {
         this.add(title);
         this.add(buttons);
         JPanel checkboxes = new JPanel();
-        symptom1 = new JCheckBox(symptom1.name);
+        symptom1 = new JCheckBox("symptom1");
         checkboxes.add(symptom1);
 
+        symptom1.addActionListener(
+                new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        if (e.getSource().equals(symptom1)) {
+
+                        }
+                    }
+                }
+        );
 
     }
 }
