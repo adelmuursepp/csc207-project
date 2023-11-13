@@ -18,7 +18,7 @@ public class SymptomCheckerView extends JPanel {
     private final SymptomCheckerController symptomCheckerController;
     private final DiagnosisController diagnosisController;
 
-    private final JButton diagnoses;
+    private final JButton submit;
 
     public SymptomCheckerView(SymptomCheckerViewModel symptomCheckerViewModel,
                               SymptomCheckerController symptomCheckerController,
@@ -30,15 +30,15 @@ public class SymptomCheckerView extends JPanel {
         JLabel title = new JLabel(SymptomCheckerViewModel.TITLE_LABEL);
 
         JPanel buttons = new JPanel();
-        diagnoses = new JButton(SymptomCheckerViewModel.DIAGNOSES_BUTTON_LABEL);
-        buttons.add(diagnoses);
+        submit = new JButton(SymptomCheckerViewModel.DIAGNOSES_BUTTON_LABEL);
+        buttons.add(submit);
 
-        diagnoses.addActionListener(
+        submit.addActionListener(
                 new ActionListener() {
 
                     @Override
                     public void actionPerformed(ActionEvent e) {
-                        if (e.getSource().equals(diagnoses)) {
+                        if (e.getSource().equals(submit)) {
                             SymptomCheckerState currentState = symptomCheckerViewModel.getState();
 
                             diagnosisController.execute();
@@ -52,5 +52,9 @@ public class SymptomCheckerView extends JPanel {
         JPanel checkboxes = new JPanel();
         symptom1 = new JCheckBox(symptom1.name);
         checkboxes.add(symptom1);
+
+
     }
 }
+
+

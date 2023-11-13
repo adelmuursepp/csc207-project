@@ -12,7 +12,7 @@ public class DiagnosisViewModel extends ViewModel{
     private List<String> diagnosis;
 
     public DiagnosisViewModel() {
-        super("diagnosis");
+        super("use_case/diagnosis");
     }
 
     public DiagnosisState getState() {
