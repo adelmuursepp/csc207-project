@@ -1,7 +1,7 @@
 package interface_adapter.symptom_checker;
 
-import use_case.diagnosis.SymptomCheckerInputBoundary;
-import use_case.diagnosis.SymptomCheckerInputData;
+import use_case.symptom_checker.SymptomCheckerInputBoundary;
+import use_case.symptom_checker.SymptomCheckerInputData;
 
 import java.util.List;
 
@@ -13,7 +13,7 @@ public class SymptomCheckerController {
     }
 
     public List<String> execute(Boolean diagnosisState) {
-        SymptomCheckerInputData diagnosisInputData = new SymptomCheckerInputData(diagnosisState);
+        SymptomCheckerInputData symptomCheckerInputData = new SymptomCheckerInputData(diagnosisState);
         return symptomCheckerUseCaseInteractor.execute(symptomCheckerInputData);
     }
 }
