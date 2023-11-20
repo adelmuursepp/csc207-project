@@ -43,7 +43,7 @@ public class SymptomCheckerView extends JPanel {
                         if (e.getSource().equals(submit)) {
                             SymptomCheckerState currentState = symptomCheckerViewModel.getState();
 
-                            diagnosisController.execute();
+                            diagnosisController.execute(currentState.getValue());
                         }
                     }
                 }

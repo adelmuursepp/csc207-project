@@ -1,4 +1,5 @@
 package use_case.diagnosis;
 
-public class DiagnosisOutputBoundary {
+public interface DiagnosisOutputBoundary {
+    void present(DiagnosisOutputData outputData);
 }

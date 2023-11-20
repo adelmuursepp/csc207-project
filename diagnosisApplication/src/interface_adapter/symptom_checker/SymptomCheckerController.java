@@ -1,5 +1,4 @@
 package interface_adapter.symptom_checker;
-
 import use_case.symptom_checker.SCDataAccessInterface;
 import use_case.symptom_checker.SCInteractor;
 
@@ -13,5 +12,6 @@ public class SymptomCheckerController {
     void toggleSymptom(String Symptom){
 
         symptomCheckerInteractor.toggle(Symptom);
+
     }
 }

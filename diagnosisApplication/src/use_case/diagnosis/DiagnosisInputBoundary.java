@@ -1,4 +1,7 @@
 package use_case.diagnosis;
 
-public class DiagnosisInputBoundary {
+import java.util.List;
+
+public interface DiagnosisInputBoundary {
+    List<String> execute(DiagnosisInputData diagnosisInputData);
 }

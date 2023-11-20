@@ -23,7 +23,7 @@ public class DiagnosisViewModel extends ViewModel{
         this.state = state;
     }
 
-    public List<String> showDiagnosis() {
+    public List<String> getDiagnosis() {
         return diagnosis;
     }
 
