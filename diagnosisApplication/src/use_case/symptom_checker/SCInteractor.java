@@ -8,6 +8,11 @@ public class SCInteractor implements SCInputBoundary {
         this.scDataAccessObject = scDataAccessInterface;
     }
 
+    public void toggle(String symptom) {
+
+        SCDataAccessInterface.toggle(getID(symptom));
+    }
+
     public void getID(String symptom) {
         return SCDataAccessObject.getID(symptom);
     }
