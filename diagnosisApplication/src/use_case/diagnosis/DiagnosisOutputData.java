@@ -43,7 +43,7 @@ public class DiagnosisOutputData {
         return diagnosis2;
     }
 
-    public HashMap<Integer, HashMap<String, Object>> getDiagnosis() {
+    public HashMap<Integer, HashMap<String, Object>> getDiagnosis3() {
         return diagnosis3;
     }
 }
