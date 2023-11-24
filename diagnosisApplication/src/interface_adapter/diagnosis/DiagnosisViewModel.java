@@ -9,8 +9,6 @@ import java.util.List;
 public class DiagnosisViewModel extends ViewModel{
     private DiagnosisState state = new DiagnosisState();
 
-    private List<String> diagnosis;
-
     public DiagnosisViewModel() {
         super("diagnosis");
     }
@@ -21,10 +19,6 @@ public class DiagnosisViewModel extends ViewModel{
 
     public void setState(DiagnosisState state) {
         this.state = state;
-    }
-
-    public List<String> getDiagnosis() {
-        return diagnosis;
     }
 
     public void setDiagnosis(List<String> diagnosis) {
