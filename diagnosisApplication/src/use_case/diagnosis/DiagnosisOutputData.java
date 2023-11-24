@@ -4,11 +4,11 @@ import java.util.List;
 
 public class DiagnosisOutputData {
 
-    private final List<String> diagnoses;
+    private final List<Integer> checkedSymptoms;
 
-    public DiagnosisOutputData(List<String> diagnoses) { this.diagnoses = diagnoses; }
+    public DiagnosisOutputData(List<Integer> checkedSymptoms) { this.checkedSymptoms = checkedSymptoms; }
 
-    public List<String> getDiagnosis() {
-        return diagnoses;
+    public List<Integer> getcheckedsypmtoms() {
+        return checkedSymptoms;
     }
 }

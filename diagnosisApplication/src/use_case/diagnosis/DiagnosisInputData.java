@@ -8,6 +8,6 @@ public class DiagnosisInputData {
 
     public DiagnosisInputData (ArrayList<Integer> checkedSymptoms) { this.checkedSymptoms = checkedSymptoms; }
 
-    ArrayList<Integer> getDiagnosisValue() { return checkedSymptoms; }
+    ArrayList<Integer> getCheckedSymptoms() { return checkedSymptoms; }
 
 }

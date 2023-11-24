@@ -1,9 +1,7 @@
 package use_case.diagnosis;
 
-import java.util.ArrayList;
 import java.util.List;
 //don't know entity name yet
-import entity.
 
 public class DiagnosisInteractor implements DiagnosisInputBoundary {
     //assuming existance of diagnosis data access object
@@ -18,11 +16,15 @@ public class DiagnosisInteractor implements DiagnosisInputBoundary {
 
     //
     @Override
-    public List<String> execute(DiagnosisInputData diagnosisInputData) {
-        Boolean diagnosisValue = diagnosisInputData.getDiagnosisValue();
-        List<String> diagnoses = new ArrayList<>();
+    public List<Integer> execute(DiagnosisInputData diagnosisInputData) {
 
-        if (diagnosisValue) {
+        List<Integer> checkedSymptoms = diagnosisInputData.getCheckedSymptoms();
+
+        if (! checkedSymptoms.isEmpty()) {
+
+            DiagnosisOutputData diagnosisOutputData = new DiagnosisOutputData(checkedSymptoms);
+            diagnosisPresenter.present(diagnosisOutputData);
+
             //assuming diagnosis entity function
             //need to figure out array list of ids
 
@@ -31,10 +33,13 @@ public class DiagnosisInteractor implements DiagnosisInputBoundary {
             //draft code
             //for (id: userDataAccessObject.getIds()); {
             //    diagnoses = diagnosis.getDiagnosis();
-            }
+        } else {
 
-        DiagnosisOutputData diagnosisOutputData = new DiagnosisOutputData(diagnoses);
-        diagnosisPresenter.present(diagnosisOutputData);
-        return diagnoses;
+            System.out.println("Please select symptoms");
+
+        }
+
+        return checkedSymptoms;
+
     }
 }
