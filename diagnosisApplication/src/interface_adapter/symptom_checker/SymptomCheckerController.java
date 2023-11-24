@@ -9,9 +9,10 @@ public class SymptomCheckerController {
     public SymptomCheckerController(SCInteractor symptomCheckerInteractor) {
         this.symptomCheckerInteractor = symptomCheckerInteractor;
     }
-    void toggleSymptom(String Symptom){
 
-        symptomCheckerInteractor.toggle(Symptom);
+//    void toggleSymptom(String Symptom){
+//
+//        symptomCheckerInteractor.toggle(Symptom);
 
     }
 }

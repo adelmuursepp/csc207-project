@@ -1,10 +1,13 @@
 package use_case.diagnosis;
 
+import java.util.ArrayList;
+
 public class DiagnosisInputData {
 
-    final private Boolean diagnosis;
+    final private ArrayList<Integer> checkedSymptoms;
 
-    public DiagnosisInputData(Boolean diagnosis) { this.diagnosis = diagnosis; }
+    public DiagnosisInputData (ArrayList<Integer> checkedSymptoms) { this.checkedSymptoms = checkedSymptoms; }
 
-    Boolean getDiagnosisValue() { return diagnosis; }
+    ArrayList<Integer> getDiagnosisValue() { return checkedSymptoms; }
+
 }
