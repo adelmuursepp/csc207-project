@@ -51,7 +51,7 @@ public class MedicAPIDiagnosisDataAccessObject {
 
     }
 
-    public static List<HealthDiagnosis> getDiagnoses(List<Integer> symptomsList) throws IOException, InterruptedException {
+    public static void getDiagnoses(List<Integer> symptomsList) throws IOException, InterruptedException {
         // TODO: Add gender and year
         // Create a string of symptoms list to pass to URI
         StringBuilder symptomString = new StringBuilder("[");

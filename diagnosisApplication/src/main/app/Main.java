@@ -1,8 +1,8 @@
 package main.app;
 
-import interface_adapter.ViewManagerModel;
-import interface_adapter.login.LoginViewModel;
-import view.ViewManager;
+import main.interface_adapter.ViewManagerModel;
+import main.interface_adapter.login.LoginViewModel;
+import main.view.ViewManager;
 
 import javax.swing.*;
 import java.awt.*;
