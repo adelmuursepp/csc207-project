@@ -1,4 +1,4 @@
 package main.use_case.symptom_checker;
 
-public class SymptomCheckerOutputBoundary {
+public interface SymptomCheckerOutputBoundary {
 }
