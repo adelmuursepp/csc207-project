@@ -1,13 +1,8 @@
 package main.interface_adapter.diagnosis;
 
-<<<<<<< HEAD:diagnosisApplication/src/main/interface_adapter/diagnosis/DiagnosisPresenter.java
+import main.interface_adapter.ViewManagerModel;
 import main.use_case.diagnosis.DiagnosisOutputBoundary;
 import main.use_case.diagnosis.DiagnosisOutputData;
-=======
-import interface_adapter.ViewManagerModel;
-import use_case.diagnosis.DiagnosisOutputBoundary;
-import use_case.diagnosis.DiagnosisOutputData;
->>>>>>> origin/diagnosis-interface-adapters:diagnosisApplication/src/interface_adapter/diagnosis/DiagnosisPresenter.java
 
 import java.util.List;
 

@@ -1,10 +1,8 @@
 package main.data_access;
 
-import main.use_case.symptom_checker.SCDataAccessInterface;
-
 import java.io.*;
 
-public class UserDataAccessObject implements SCDataAccessInterface {
+public class UserDataAccessObject {
 
     private File symptomList;
 
