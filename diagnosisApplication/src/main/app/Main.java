@@ -1,5 +1,9 @@
 package main.app;
 
+import interface_adapter.ViewManagerModel;
+import interface_adapter.login.LoginViewModel;
+import view.ViewManager;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -20,7 +24,13 @@ public class Main {
         application.add(views);
 
         //Track and manage which view is currently showing.
+        ViewManagerModel viewManagerModel = new ViewManagerModel();
+        new ViewManager(views,cardLayout, viewManagerModel);
 
+        LoginViewModel loginViewModel = new LoginViewModel();
+        SignupViewModel signupViewModel = new SignupViewModel();
+        SymptomCheckerViewModel symptomCheckerViewModel = new SymptomCheckerViewModel();
+        DiagnosisViewModel diagnosisViewModel = new DiagnosisViewModel();
 
     }
 }
