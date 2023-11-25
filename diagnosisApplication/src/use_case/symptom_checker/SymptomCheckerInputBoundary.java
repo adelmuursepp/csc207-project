@@ -1,4 +1,6 @@
 package use_case.symptom_checker;
 
-public class SymptomCheckerInputBoundary {
+public interface SymptomCheckerInputBoundary {
+
+    void getID(String symptom);
 }
