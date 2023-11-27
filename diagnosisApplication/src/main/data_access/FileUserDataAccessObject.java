@@ -1,10 +1,10 @@
 package diagnosisApplication.src.main.data_access;
 
-import main.entity.User;
-import main.entity.UserFactory;
-import main.use_case.clear_users.ClearUserDataAccessInterface;
-import main.use_case.login.LoginUserDataAccessInterface;
-import main.use_case.signup.SignupUserDataAccessInterface;
+import diagnosisApplication.src.main.entity.User;
+import diagnosisApplication.src.main.entity.UserFactory;
+import diagnosisApplication.src.main.entity.UserFactory;
+//import diagnosisApplication.src.main.use_case.login.LoginUserDataAccessInterface;
+import diagnosisApplication.src.main.use_case.signup.SignupUserDataAccessInterface;
 
 import java.io.*;
 import java.time.LocalDateTime;
@@ -12,8 +12,8 @@ import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-public class FileUserDataAccessObject implements SignupUserDataAccessInterface, LoginUserDataAccessInterface,
-        ClearUserDataAccessInterface {
+public class FileUserDataAccessObject implements SignupUserDataAccessInterface//, LoginUserDataAccessInterface
+    {
 
     private final File csvFile;
 
@@ -61,17 +61,10 @@ public class FileUserDataAccessObject implements SignupUserDataAccessInterface, 
         this.save();
     }
 
-    public String clear() {
-        String cleared_users = accounts.toString();
-        accounts.clear();
-        this.save();
-        return cleared_users;
-    }
-
-    @Override
-    public User get(String username) {
-        return accounts.get(username);
-    }
+//    @Override
+//    public User get(String username) {
+//        return accounts.get(username);
+//    }
 
     private void save() {
         BufferedWriter writer;
