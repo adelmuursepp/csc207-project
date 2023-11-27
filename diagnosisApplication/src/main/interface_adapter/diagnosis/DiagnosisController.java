@@ -11,7 +11,7 @@ public class DiagnosisController {
         this.diagnosisUseCaseInteractor = diagnosisUseCaseInteractor;
     }
 
-    public List<String> execute(ArrayList<Integer> checkedSymptoms) {
+    public List<Integer> execute(ArrayList<Integer> checkedSymptoms) {
         DiagnosisInputData diagnosisInputData = new DiagnosisInputData(checkedSymptoms);
         return diagnosisUseCaseInteractor.execute(diagnosisInputData);
     }

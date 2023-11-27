@@ -10,6 +10,6 @@ public class SymptomCheckerPresenter implements SymptomCheckerOutputBoundary {
     @Override
     public void present(SymptomCheckerOutputData outputData) {
 
-        List<String> symptoms = outputData.getSymptoms();
+        List<Integer> symptoms = outputData.getCheckedSymptoms();
     }
 }

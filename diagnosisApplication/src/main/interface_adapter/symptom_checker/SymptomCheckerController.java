@@ -1,10 +1,12 @@
 package main.interface_adapter.symptom_checker;
 
+import main.use_case.symptom_checker.SymptomCheckerInteractor;
+
 public class SymptomCheckerController {
 
-    SCInteractor symptomCheckerInteractor;
+    SymptomCheckerInteractor symptomCheckerInteractor;
 
-    public SymptomCheckerController(SCInteractor symptomCheckerInteractor) {
+    public SymptomCheckerController(SymptomCheckerInteractor symptomCheckerInteractor) {
         this.symptomCheckerInteractor = symptomCheckerInteractor;
     }
 
