@@ -1,8 +1,10 @@
 package main.data_access;
 
+import main.use_case.signup.SignupUserDataAccessInterface;
+
 import java.io.*;
 
-public class UserDataAccessObject {
+public class UserDataAccessObject implements SignupUserDataAccessInterface {
 
     private File symptomList;
 

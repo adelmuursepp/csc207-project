@@ -5,24 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2b592eb7-bb25-426a-9ff2-ae88983a41e8" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/diagnosisApplication/src/main/view/SignupView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_annotations_2_13_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_core_2_13_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_databind_2_13_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__commons_codec_commons_codec_1_11.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__commons_logging_commons_logging_1_2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_httpcomponents_httpclient_4_5_13.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_httpcomponents_httpcore_4_4_13.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/diagnosisApplication/src/main/interface_adapter/diagnosis/DiagnosisController.java" beforeDir="false" afterPath="$PROJECT_DIR$/diagnosisApplication/src/main/interface_adapter/diagnosis/DiagnosisController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/diagnosisApplication/src/main/interface_adapter/symptom_checker/SymptomCheckerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/diagnosisApplication/src/main/interface_adapter/symptom_checker/SymptomCheckerController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/diagnosisApplication/src/main/interface_adapter/symptom_checker/SymptomCheckerPresenter.java" beforeDir="false" afterPath="$PROJECT_DIR$/diagnosisApplication/src/main/interface_adapter/symptom_checker/SymptomCheckerPresenter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/diagnosisApplication/src/main/use_case/diagnosis/DiagnosisOutputBoundary.java" beforeDir="false" afterPath="$PROJECT_DIR$/diagnosisApplication/src/main/use_case/diagnosis/DiagnosisOutputBoundary.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/diagnosisApplication/src/main/use_case/symptom_checker/SymptomCheckerInputBoundary.java" beforeDir="false" afterPath="$PROJECT_DIR$/diagnosisApplication/src/main/use_case/symptom_checker/SymptomCheckerInputBoundary.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/diagnosisApplication/src/main/use_case/symptom_checker/SymptomCheckerInteractor.java" beforeDir="false" afterPath="$PROJECT_DIR$/diagnosisApplication/src/main/use_case/symptom_checker/SymptomCheckerInteractor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/diagnosisApplication/src/main/use_case/symptom_checker/SymptomCheckerOutputData.java" beforeDir="false" afterPath="$PROJECT_DIR$/diagnosisApplication/src/main/use_case/symptom_checker/SymptomCheckerOutputData.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/diagnosisApplication/src/main/app/SignupUseCaseFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/diagnosisApplication/src/main/use_case/signup/SignupUserDataAccessInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diagnosisApplication/src/main/data_access/UserDataAccessObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/diagnosisApplication/src/main/data_access/UserDataAccessObject.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diagnosisApplication/src/main/entity/UserProfile.java" beforeDir="false" afterPath="$PROJECT_DIR$/diagnosisApplication/src/main/entity/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diagnosisApplication/src/main/view/SignupView.java" beforeDir="false" afterPath="$PROJECT_DIR$/diagnosisApplication/src/main/view/SignupView.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,8 +20,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -97,7 +85,7 @@
       <workItem from="1700954898345" duration="3181000" />
       <workItem from="1700962306917" duration="124000" />
       <workItem from="1701024135568" duration="2391000" />
-      <workItem from="1701049115034" duration="1279000" />
+      <workItem from="1701049115034" duration="3752000" />
     </task>
     <servers />
   </component>
