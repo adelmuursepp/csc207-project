@@ -1,4 +1,4 @@
-package diagnosisApplication.src.main.data_access;
+package main.data_access;
 
 import diagnosisApplication.src.main.entity.User;
 import diagnosisApplication.src.main.entity.UserFactory;

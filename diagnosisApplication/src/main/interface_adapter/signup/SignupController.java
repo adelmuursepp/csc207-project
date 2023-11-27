@@ -1,4 +1,4 @@
-package diagnosisApplication.src.main.interface_adapter.signup;
+package main.interface_adapter.signup;
 
 import diagnosisApplication.src.main.use_case.signup.SignupInputBoundary;
 import diagnosisApplication.src.main.use_case.signup.SignupInputData;

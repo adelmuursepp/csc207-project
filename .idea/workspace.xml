@@ -5,14 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2b592eb7-bb25-426a-9ff2-ae88983a41e8" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/diagnosisApplication/src/main/app/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/diagnosisApplication/src/main/app/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/diagnosisApplication/src/main/data_access/InMemoryUserDataAccessObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/diagnosisApplication/src/main/data_access/InMemoryUserDataAccessObject.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/diagnosisApplication/src/main/interface_adapter/symptom_checker/SymptomCheckerState.java" beforeDir="false" afterPath="$PROJECT_DIR$/diagnosisApplication/src/main/interface_adapter/symptom_checker/SymptomCheckerState.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/diagnosisApplication/src/main/view/DiagnosisView.java" beforeDir="false" afterPath="$PROJECT_DIR$/diagnosisApplication/src/main/view/DiagnosisView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/diagnosisApplication/src/main/view/SymptomCheckerView.java" beforeDir="false" afterPath="$PROJECT_DIR$/diagnosisApplication/src/main/view/SymptomCheckerView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/diagnosisApplication/src/main/view/ViewManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/diagnosisApplication/src/main/view/ViewManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diagnosisApplication/src/main/app/LoginUseCaseFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/diagnosisApplication/src/main/app/LoginUseCaseFactory.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -89,7 +83,8 @@
       <workItem from="1701024135568" duration="2391000" />
       <workItem from="1701049115034" duration="3752000" />
       <workItem from="1701053236524" duration="3306000" />
-      <workItem from="1701102574690" duration="4748000" />
+      <workItem from="1701102574690" duration="4769000" />
+      <workItem from="1701107366588" duration="195000" />
     </task>
     <servers />
   </component>

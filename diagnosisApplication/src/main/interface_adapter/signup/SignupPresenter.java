@@ -1,4 +1,4 @@
-package diagnosisApplication.src.main.interface_adapter.signup;
+package main.interface_adapter.signup;
 
 import diagnosisApplication.src.main.interface_adapter.login.LoginState;
 import diagnosisApplication.src.main.interface_adapter.login.LoginViewModel;

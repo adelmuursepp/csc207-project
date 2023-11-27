@@ -1,6 +1,6 @@
-package diagnosisApplication.src.main.use_case.signup;
+package main.use_case.signup;
 
-import diagnosisApplication.src.main.entity.User;
+import main.entity.User;
 
 public interface SignupUserDataAccessInterface {
 

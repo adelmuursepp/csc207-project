@@ -1,9 +1,9 @@
-package diagnosisApplication.src.main.app;
+package main.app;
 
 import diagnosisApplication.src.main.data_access.FileUserDataAccessObject;
 import diagnosisApplication.src.main.entity.CommonUserFactory;
 import diagnosisApplication.src.main.interface_adapter.login.LoginViewModel;
-import diagnosisApplication.src.main.interface_adapter.logged_in.LoggedInViewModel;
+import main.interface_adapter.logged_in.LoggedInViewModel;
 import diagnosisApplication.src.main.interface_adapter.signup.SignupViewModel;
 import diagnosisApplication.src.main.interface_adapter.ViewManagerModel;
 import diagnosisApplication.src.main.use_case.login.LoginUserDataAccessInterface;

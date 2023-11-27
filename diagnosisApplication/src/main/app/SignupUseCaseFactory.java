@@ -1,4 +1,4 @@
-package diagnosisApplication.src.main.app;
+package main.app;
 
 import diagnosisApplication.src.main.data_access.FileUserDataAccessObject;
 import diagnosisApplication.src.main.interface_adapter.login.LoginViewModel;
@@ -8,7 +8,7 @@ import diagnosisApplication.src.main.interface_adapter.signup.SignupViewModel;
 import diagnosisApplication.src.main.use_case.signup.SignupUserDataAccessInterface;
 import diagnosisApplication.src.main.entity.CommonUserFactory;
 import diagnosisApplication.src.main.entity.UserFactory;
-import diagnosisApplication.src.main.interface_adapter.*;
+import main.interface_adapter.*;
 import diagnosisApplication.src.main.use_case.signup.SignupInputBoundary;
 import diagnosisApplication.src.main.use_case.signup.SignupInteractor;
 import diagnosisApplication.src.main.use_case.signup.SignupOutputBoundary;

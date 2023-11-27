@@ -1,4 +1,4 @@
-package diagnosisApplication.src.main.use_case.signup;
+package main.use_case.signup;
 
 public interface SignupInputBoundary {
     void execute(SignupInputData signupInputData);

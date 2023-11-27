@@ -1,4 +1,4 @@
-package diagnosisApplication.src.main.app;
+package main.app;
 
 import main.entity.CommonUserFactory;
 import main.entity.UserFactory;
