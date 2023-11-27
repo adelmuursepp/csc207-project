@@ -1,4 +1,4 @@
-package main.interface_adapter.symptom_checker;
+package diagnosisApplication.src.main.interface_adapter.symptom_checker;
 
 import java.util.ArrayList;
 

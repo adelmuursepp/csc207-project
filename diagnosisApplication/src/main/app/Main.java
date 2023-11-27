@@ -1,8 +1,16 @@
-package main.app;
+package diagnosisApplication.src.main.app;
 
-import main.interface_adapter.ViewManagerModel;
-import main.interface_adapter.login.LoginViewModel;
-import main.view.ViewManager;
+import diagnosisApplication.src.main.data_access.FileUserDataAccessObject;
+import diagnosisApplication.src.main.entity.CommonUserFactory;
+import diagnosisApplication.src.main.interface_adapter.login.LoginViewModel;
+import diagnosisApplication.src.main.interface_adapter.logged_in.LoggedInViewModel;
+import diagnosisApplication.src.main.interface_adapter.signup.SignupViewModel;
+import diagnosisApplication.src.main.interface_adapter.ViewManagerModel;
+import diagnosisApplication.src.main.use_case.login.LoginUserDataAccessInterface;
+import diagnosisApplication.src.main.view.LoggedInView;
+import diagnosisApplication.src.main.view.LoginView;
+import diagnosisApplication.src.main.view.SignupView;
+import diagnosisApplication.src.main.view.ViewManager;
 
 import javax.swing.*;
 import java.awt.*;
