@@ -5,12 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2b592eb7-bb25-426a-9ff2-ae88983a41e8" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/diagnosisApplication/src/main/app/SignupUseCaseFactory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/diagnosisApplication/src/main/use_case/signup/SignupUserDataAccessInterface.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/diagnosisApplication/src/main/app/LoginUseCaseFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/diagnosisApplication/src/main/data_access/UserDataAccessObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/diagnosisApplication/src/main/data_access/UserDataAccessObject.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/diagnosisApplication/src/main/entity/UserProfile.java" beforeDir="false" afterPath="$PROJECT_DIR$/diagnosisApplication/src/main/entity/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/diagnosisApplication/src/main/view/SignupView.java" beforeDir="false" afterPath="$PROJECT_DIR$/diagnosisApplication/src/main/view/SignupView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diagnosisApplication/src/main/app/SignupUseCaseFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/diagnosisApplication/src/main/app/SignupUseCaseFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diagnosisApplication/src/main/data_access/UserDataAccessObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/diagnosisApplication/src/main/data_access/FileUserDataAccessObject.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,8 +20,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -45,22 +45,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;api__access&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Danie/IdeaProjects/shidani2/csc207-project/diagnosisApplication/src/interface_adapter/login&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "daniel",
+    "last_opened_file_path": "C:/Users/Danie/IdeaProjects/shidani2/csc207-project/diagnosisApplication/src/interface_adapter/login",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Danie\IdeaProjects\shidani2\csc207-project\diagnosisApplication\src\interface_adapter\login" />
@@ -86,6 +86,7 @@
       <workItem from="1700962306917" duration="124000" />
       <workItem from="1701024135568" duration="2391000" />
       <workItem from="1701049115034" duration="3752000" />
+      <workItem from="1701053236524" duration="1935000" />
     </task>
     <servers />
   </component>
