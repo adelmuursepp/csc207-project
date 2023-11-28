@@ -1,20 +1,20 @@
-package main.app;
+package diagnosisApplication.src.main.app;
 
-import main.data_access.FileUserDataAccessObject;
-import main.interface_adapter.login.LoginViewModel;
-import main.interface_adapter.signup.SignupController;
-import main.interface_adapter.signup.SignupPresenter;
-import main.interface_adapter.signup.SignupViewModel;
-import main.use_case.signup.SignupUserDataAccessInterface;
-import main.entity.CommonUserFactory;
-import main.entity.UserFactory;
-import main.interface_adapter.ViewManagerModel;
-import main.interface_adapter.login.LoginViewModel;
-import main.interface_adapter.*;
-import main.use_case.signup.SignupInputBoundary;
-import main.use_case.signup.SignupInteractor;
-import main.use_case.signup.SignupOutputBoundary;
-import main.view.SignupView;
+import diagnosisApplication.src.main.data_access.FileUserDataAccessObject;
+import diagnosisApplication.src.main.interface_adapter.login.LoginViewModel;
+import diagnosisApplication.src.main.interface_adapter.signup.SignupController;
+import diagnosisApplication.src.main.interface_adapter.signup.SignupPresenter;
+import diagnosisApplication.src.main.interface_adapter.signup.SignupViewModel;
+import diagnosisApplication.src.main.use_case.signup.SignupUserDataAccessInterface;
+import diagnosisApplication.src.main.entity.CommonUserFactory;
+import diagnosisApplication.src.main.entity.UserFactory;
+import diagnosisApplication.src.main.interface_adapter.ViewManagerModel;
+import diagnosisApplication.src.main.interface_adapter.login.LoginViewModel;
+import diagnosisApplication.src.main.interface_adapter.*;
+import diagnosisApplication.src.main.use_case.signup.SignupInputBoundary;
+import diagnosisApplication.src.main.use_case.signup.SignupInteractor;
+import diagnosisApplication.src.main.use_case.signup.SignupOutputBoundary;
+import diagnosisApplication.src.main.view.SignupView;
 
 import javax.swing.*;
 import java.io.IOException;

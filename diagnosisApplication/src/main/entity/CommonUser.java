@@ -1,4 +1,5 @@
-package main.entity;
+package diagnosisApplication.src.main.entity;
+
 
 import java.time.LocalDateTime;
 

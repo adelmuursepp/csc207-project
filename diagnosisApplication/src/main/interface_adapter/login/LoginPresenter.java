@@ -1,17 +1,20 @@
-package main.interface_adapter.login;
+package diagnosisApplication.src.main.interface_adapter.login;
 
-import main.interface_adapter.symptom_checker.SymptomCheckerViewModel;
-import main.interface_adapter.symptom_checker.SymptomCheckerState;
-import main.interface_adapter.ViewManagerModel;
-import main.interface_adapter.signup.SignupState;
-import main.use_case.login.LoginOutputBoundary;
-import main.use_case.login.LoginOutputData;
-import main.use_case.signup.SignupOutputBoundary;
-import main.use_case.signup.SignupOutputData;
+import diagnosisApplication.src.main.interface_adapter.login.LoginViewModel;
+import diagnosisApplication.src.main.interface_adapter.logged_in.LoggedInState;
+import diagnosisApplication.src.main.interface_adapter.logged_in.LoggedInViewModel;
+import diagnosisApplication.src.main.interface_adapter.ViewManagerModel;
+import diagnosisApplication.src.main.interface_adapter.signup.SignupState;
+import diagnosisApplication.src.main.interface_adapter.symptom_checker.SymptomCheckerState;
+import diagnosisApplication.src.main.interface_adapter.symptom_checker.SymptomCheckerViewModel;
+import diagnosisApplication.src.main.use_case.login.LoginOutputBoundary;
+import diagnosisApplication.src.main.use_case.login.LoginOutputData;
+import diagnosisApplication.src.main.use_case.signup.SignupOutputBoundary;
+import diagnosisApplication.src.main.use_case.signup.SignupOutputData;
+
 
 public class LoginPresenter implements LoginOutputBoundary {
 
-    private final LoginViewModel loginViewModel;
     private final SymptomCheckerViewModel symptomCheckerViewModel;
     private ViewManagerModel viewManagerModel;
 
@@ -25,7 +28,6 @@ public class LoginPresenter implements LoginOutputBoundary {
 
     @Override
     public void prepareSuccessView(LoginOutputData response) {
-        // On success, switch to the logged in view.
 
         SymptomCheckerState symptomCheckerState = symptomCheckerViewModel.getState();
         this.symptomCheckerViewModel.setState(symptomCheckerState);

@@ -1,6 +1,7 @@
-package main.use_case.login;
+package diagnosisApplication.src.main.use_case.login;
 
-import main.entity.User;
+import diagnosisApplication.src.main.entity.User;
+
 
 public interface LoginUserDataAccessInterface {
     boolean existsByName(String identifier);

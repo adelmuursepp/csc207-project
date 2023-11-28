@@ -1,4 +1,5 @@
-package main.use_case.login;
+package diagnosisApplication.src.main.use_case.login;
+
 
 public interface LoginOutputBoundary {
     void prepareSuccessView(LoginOutputData user);

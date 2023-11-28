@@ -1,6 +1,6 @@
-package main.interface_adapter.symptom_checker;
+package diagnosisApplication.src.main.interface_adapter.symptom_checker;
 
-import main.interface_adapter.ViewModel;
+import diagnosisApplication.src.main.interface_adapter.ViewModel;
 
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;

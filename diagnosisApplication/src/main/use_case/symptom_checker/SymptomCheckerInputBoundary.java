@@ -1,4 +1,4 @@
-package main.use_case.symptom_checker;
+package diagnosisApplication.src.main.use_case.symptom_checker;
 
 public interface SymptomCheckerInputBoundary {}
 //
