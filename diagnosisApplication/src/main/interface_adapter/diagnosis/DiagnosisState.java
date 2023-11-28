@@ -29,6 +29,10 @@ public class DiagnosisState {
         numDiagnoses += 1;
     }
 
+    public int getNumDiagnoses() {
+        return numDiagnoses;
+    }
+
     public Object getDiagnosis1(String key) {
         return diagnosis1.get(key);
     }
