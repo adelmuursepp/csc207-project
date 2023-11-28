@@ -2,7 +2,7 @@ package main.data_access;
 
 import main.entity.User;
 import main.entity.UserFactory;
-//import diagnosisApplication.src.main.use_case.login.LoginUserDataAccessInterface;
+import main.use_case.login.LoginUserDataAccessInterface;
 import main.use_case.signup.SignupUserDataAccessInterface;
 
 import java.io.*;
@@ -11,8 +11,7 @@ import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-public class FileUserDataAccessObject implements SignupUserDataAccessInterface//, LoginUserDataAccessInterface
-    {
+public class FileUserDataAccessObject implements SignupUserDataAccessInterface, LoginUserDataAccessInterface {
 
     private final File csvFile;
 
@@ -60,10 +59,10 @@ public class FileUserDataAccessObject implements SignupUserDataAccessInterface//
         this.save();
     }
 
-//    @Override
-//    public User get(String username) {
-//        return accounts.get(username);
-//    }
+    @Override
+    public User get(String username) {
+        return accounts.get(username);
+    }
 
     private void save() {
         BufferedWriter writer;
