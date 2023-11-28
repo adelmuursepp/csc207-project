@@ -35,6 +35,7 @@ public class DiagnosisView extends JPanel {
             JPanel barChart = new JPanel();
             int[] accuracies = new int[n];
             String[] diagnoses = new String[n];
+
             accuracies[0] = (Integer) diagnosisState.getDiagnosis1("accuracy");
             diagnoses[0] = (String) diagnosisState.getDiagnosis1("name");
             if (n >= 2) {

@@ -1,4 +1,12 @@
 package main.entity;
 
-public class User {
+import java.time.LocalDateTime;
+
+public interface User {
+
+    String getName();
+
+    String getPassword();
+
+    LocalDateTime getCreationTime();
 }
