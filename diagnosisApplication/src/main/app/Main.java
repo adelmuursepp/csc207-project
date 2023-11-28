@@ -6,12 +6,13 @@ import main.interface_adapter.login.LoginViewModel;
 //import main.interface_adapter.logged_in.LoggedInViewModel;
 import main.interface_adapter.signup.SignupViewModel;
 import main.interface_adapter.ViewManagerModel;
-//import main.use_case.login.LoginUserDataAccessInterface;
+import main.use_case.login.LoginUserDataAccessInterface;
 //import main.view.LoggedInView;
 import main.view.LoginView;
 import main.view.SignupView;
 import main.view.ViewManager;
 import main.interface_adapter.symptom_checker.SymptomCheckerViewModel;
+import main.view.SymptomCheckerView;
 import main.interface_adapter.diagnosis.DiagnosisViewModel;
 
 import javax.swing.*;
@@ -54,11 +55,12 @@ public class Main {
                 userDataAccessObject);
         views.add(signupView, signupView.viewName);
 
-        LoginView loginView = LoginUseCaseFactory.create(viewManagerModel, loginViewModel, loggedInViewModel, userDataAccessObject);
+        LoginView loginView = LoginUseCaseFactory.create(viewManagerModel, loginViewModel, symptomCheckerViewModel,
+                userDataAccessObject);
         views.add(loginView, loginView.viewName);
 
-        LoggedInView loggedInView = new LoggedInView(loggedInViewModel);
-        views.add(loggedInView, loggedInView.viewName);
+        SymptomCheckerView symptomCheckerView = new SymptomCheckerView(symptomCheckerViewModel);
+        views.add(symptomCheckerView, symptomCheckerView.viewName);
 
         viewManagerModel.setActiveView(signupView.viewName);
         viewManagerModel.firePropertyChanged();

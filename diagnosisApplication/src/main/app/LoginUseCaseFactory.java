@@ -3,7 +3,7 @@ package main.app;
 import main.entity.CommonUserFactory;
 import main.entity.UserFactory;
 import main.interface_adapter.ViewManagerModel;
-import main.interface_adapter.logged_in.LoggedInViewModel;
+import main.interface_adapter.symptom_checker.SymptomCheckerViewModel;
 import main.interface_adapter.login.LoginController;
 import main.interface_adapter.login.LoginPresenter;
 import main.interface_adapter.login.LoginViewModel;
