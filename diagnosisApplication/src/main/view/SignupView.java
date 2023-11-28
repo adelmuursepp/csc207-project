@@ -22,6 +22,7 @@ public class SignupView extends JPanel implements ActionListener, PropertyChange
     private final JPasswordField repeatPasswordInputField = new JPasswordField(15);
     SpinnerModel spinnerModel = new SpinnerNumberModel(2020, 1900, 2020, 1);
     private final JSpinner spinner = new JSpinner(spinnerModel);
+    private final JRadioButton sex = new JRadioButton(male, female);
     private final SignupController signupController;
 
     private final JButton signUp;
