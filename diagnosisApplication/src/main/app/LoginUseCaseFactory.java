@@ -18,8 +18,6 @@ import java.io.IOException;
 
 public class LoginUseCaseFactory {
 
-    /** Prevent instantiation. */
-
     private LoginUseCaseFactory() {}
 
     public static LoginView create(
@@ -44,7 +42,6 @@ public class LoginUseCaseFactory {
             LoggedInViewModel loggedInViewModel,
             LoginUserDataAccessInterface userDataAccessObject) throws IOException {
 
-        // Notice how we pass this method's parameters to the Presenter.
         LoginOutputBoundary loginOutputBoundary = new LoginPresenter(viewManagerModel, loggedInViewModel, loginViewModel);
 
         UserFactory userFactory = new CommonUserFactory();

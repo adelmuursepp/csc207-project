@@ -1,4 +1,4 @@
-package main.interface_adapter;
+package diagnosisApplication.src.main.interface_adapter;
 
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="e1269c79-f89b-41a4-96aa-0480bd8e9271" name="Changes" comment="Added login use case base code">
+      <change afterPath="$PROJECT_DIR$/.idea/xx.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/diagnosisApplication/src/main/view/LabelTextPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diagnosisApplication/src/main/app/LoginUseCaseFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/diagnosisApplication/src/main/app/LoginUseCaseFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diagnosisApplication/src/main/interface_adapter/ViewManagerModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/diagnosisApplication/src/main/interface_adapter/ViewManagerModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diagnosisApplication/src/main/interface_adapter/logged_in/LoggedInState.java" beforeDir="false" afterPath="$PROJECT_DIR$/diagnosisApplication/src/main/interface_adapter/logged_in/LoggedInState.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diagnosisApplication/src/main/interface_adapter/logged_in/LoggedInViewModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/diagnosisApplication/src/main/interface_adapter/logged_in/LoggedInViewModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diagnosisApplication/src/main/interface_adapter/login/LoginPresenter.java" beforeDir="false" afterPath="$PROJECT_DIR$/diagnosisApplication/src/main/interface_adapter/login/LoginPresenter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diagnosisApplication/src/main/interface_adapter/login/LoginState.java" beforeDir="false" afterPath="$PROJECT_DIR$/diagnosisApplication/src/main/interface_adapter/login/LoginState.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diagnosisApplication/src/main/interface_adapter/login/LoginViewModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/diagnosisApplication/src/main/interface_adapter/login/LoginViewModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diagnosisApplication/src/main/interface_adapter/symptom_checker/SymptomCheckerState.java" beforeDir="false" afterPath="$PROJECT_DIR$/diagnosisApplication/src/main/interface_adapter/symptom_checker/SymptomCheckerState.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diagnosisApplication/src/main/view/SymptomCheckerView.java" beforeDir="false" afterPath="$PROJECT_DIR$/diagnosisApplication/src/main/view/SymptomCheckerView.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "kai",
+    "node.js.selected.package.tslint": "(autodetect)"
+  }
+}]]></component>
+  <component name="TaskManager">
+    <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Added login use case base code" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added login use case base code" />
+  </component>
+</project>
