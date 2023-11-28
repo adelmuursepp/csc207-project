@@ -5,6 +5,9 @@ import java.util.HashMap;
 import java.util.List;
 
 public class DiagnosisState {
+
+    private int numDiagnoses = 0;
+
     private  Integer diagnosis1Ranking = null;
     private  String diagnosis1Name = null;
     private  Integer diagnosis1Accuracy = null;
@@ -37,6 +40,7 @@ public class DiagnosisState {
         this.diagnosis1Icd = (String) diagnosis1.get("icd");
         this.diagnosis1ProfName = (String) diagnosis1.get("profName");
         this.diagnosis1Specializations = (List<String>) diagnosis1.get("specializations");
+        numDiagnoses += 1;
     }
 
     public void setDiagnosis2(HashMap<String, Object> diagnosis2) {
@@ -46,6 +50,7 @@ public class DiagnosisState {
         this.diagnosis2Icd = (String) diagnosis2.get("icd");
         this.diagnosis2ProfName = (String) diagnosis2.get("profName");
         this.diagnosis2Specializations = (List<String>) diagnosis2.get("specializations");
+        numDiagnoses += 1;
     }
 
     public void setDiagnosis3(HashMap<String, Object> diagnosis3) {
@@ -55,6 +60,11 @@ public class DiagnosisState {
         this.diagnosis3Icd = (String) diagnosis3.get("icd");
         this.diagnosis3ProfName = (String) diagnosis3.get("profName");
         this.diagnosis3Specializations = (List<String>) diagnosis3.get("specializations");
+        numDiagnoses += 1;
+    }
+
+    public int getNumDiagnoses() {
+        return numDiagnoses;
     }
 
     public Integer getDiagnosis1Ranking() {
