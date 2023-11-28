@@ -5,6 +5,8 @@ import main.interface_adapter.signup.SignupState;
 import main.interface_adapter.signup.SignupViewModel;
 
 import javax.swing.*;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -21,8 +23,9 @@ public class SignupView extends JPanel implements ActionListener, PropertyChange
     private final JPasswordField passwordInputField = new JPasswordField(15);
     private final JPasswordField repeatPasswordInputField = new JPasswordField(15);
     SpinnerModel spinnerModel = new SpinnerNumberModel(2020, 1900, 2020, 1);
-    private final JSpinner spinner = new JSpinner(spinnerModel);
-    private final JRadioButton sex = new JRadioButton(male, female);
+    private final JSpinner yearSpinner = new JSpinner(spinnerModel);
+    String[] sexes = {"male", "female"};
+    private final JComboBox sexComboBox = new JComboBox(sexes);
     private final SignupController signupController;
 
     private final JButton signUp;
@@ -49,23 +52,53 @@ public class SignupView extends JPanel implements ActionListener, PropertyChange
         buttons.add(signUp);
         cancel = new JButton(SignupViewModel.CANCEL_BUTTON_LABEL);
         buttons.add(cancel);
+        JSpinner year = new JSpinner(spinnerModel);
+        buttons.add(year);
+        JComboBox sex = new JComboBox(sexes);
+        buttons.add(sex);
 
-        signUp.addActionListener(
-                // This creates an anonymous subclass of ActionListener and instantiates it.
-                new ActionListener() {
-                    public void actionPerformed(ActionEvent evt) {
-                        if (evt.getSource().equals(signUp)) {
+        year.addChangeListener(
+                new ChangeListener() {
+                    @Override
+                    public void stateChanged(ChangeEvent e) {
+                        if (e.getSource() == year) {
                             SignupState currentState = signupViewModel.getState();
+                            currentState.setYear((Integer) year.getValue());
 
-                            signupController.execute(
-                                    currentState.getUsername(),
-                                    currentState.getPassword(),
-                                    currentState.getRepeatPassword()
-                            );
                         }
                     }
                 }
         );
+
+        sex.addActionListener(
+                new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        if (e.getSource() == sex) {
+                            SignupState currentState = signupViewModel.getState();
+                            currentState.setSex((String) sex.getSelectedItem());
+
+                        }
+                    }
+                }
+        );
+
+                signUp.addActionListener(
+                        // This creates an anonymous subclass of ActionListener and instantiates it.
+                        new ActionListener() {
+                            public void actionPerformed(ActionEvent evt) {
+                                if (evt.getSource().equals(signUp)) {
+                                    SignupState currentState = signupViewModel.getState();
+
+                                    signupController.execute(
+                                            currentState.getUsername(),
+                                            currentState.getPassword(),
+                                            currentState.getRepeatPassword()
+                                    );
+                                }
+                            }
+                        }
+                );
 
         // TODO Add the body to the actionPerformed method of the action listener below
         //      for the "clear" button. You'll need to write the controller before
@@ -150,7 +183,8 @@ public class SignupView extends JPanel implements ActionListener, PropertyChange
      * React to a button click that results in evt.
      */
     public void actionPerformed(ActionEvent evt) {
-        JOptionPane.showConfirmDialog(this, "Cancel not implemented yet.");
+        JOptionPane.showConfirmDialog(this,
+                "Cancel not implemented yet.");
     }
 
     @Override
