@@ -56,6 +56,8 @@ public class DiagnosisView extends JPanel {
             infoPanel.add(info);
             information.add(infoPanel, BorderLayout.SOUTH);
         }
+        JLabel infoPanelLabel = new JLabel(DiagnosisViewModel.INFO_PANEL_LABEL);
+        information.add(infoPanelLabel, BorderLayout.NORTH);
 
         // This is the code to create and add the bar chart on the condition that there is at least one diagnosis.
         // I will add something similar for the information panel.
