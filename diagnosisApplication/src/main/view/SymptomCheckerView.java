@@ -1,4 +1,4 @@
-package main.view;
+package diagnosisApplication.src.main.view;
 
 import main.interface_adapter.diagnosis.DiagnosisController;
 import main.interface_adapter.symptom_checker.SymptomCheckerController;

@@ -4,7 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2b592eb7-bb25-426a-9ff2-ae88983a41e8" name="Changes" comment="">
+    <list default="true" id="2b592eb7-bb25-426a-9ff2-ae88983a41e8" name="Changes" comment="added unversioned file">
+      <change afterPath="$PROJECT_DIR$/diagnosisApplication/src/main/app/LoginUseCaseFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/diagnosisApplication/src/main/interface_adapter/login/LoginController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/diagnosisApplication/src/main/interface_adapter/login/LoginPresenter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/diagnosisApplication/src/main/interface_adapter/login/LoginState.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/diagnosisApplication/src/main/use_case/login/LoginInputBoundary.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/diagnosisApplication/src/main/use_case/login/LoginInputData.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/diagnosisApplication/src/main/use_case/login/LoginInteractor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/diagnosisApplication/src/main/use_case/login/LoginOutputBoundary.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/diagnosisApplication/src/main/use_case/login/LoginOutputData.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/diagnosisApplication/src/main/use_case/login/LoginUserDataAccessInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/diagnosisApplication/src/main/interface_adapter/login/LoginPresenter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/diagnosisApplication/src/main/app/LoginUseCaseFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/diagnosisApplication/src/main/app/LoginUseCaseFactory.java" afterDir="false" />
@@ -30,7 +41,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="merge" />
+        <entry key="$PROJECT_DIR$" value="main" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -53,8 +64,8 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "daniel",
-    "last_opened_file_path": "C:/Users/Danie/IdeaProjects/shidani2/csc207-project/diagnosisApplication/src/main/use_case/login",
+    "git-widget-placeholder": "kai",
+    "last_opened_file_path": "C:/Users/Danie/IdeaProjects/shidani2/csc207-project/diagnosisApplication/src/interface_adapter/login",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -100,5 +111,9 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="added unversioned file" />
+    <option name="LAST_COMMIT_MESSAGE" value="added unversioned file" />
   </component>
 </project>

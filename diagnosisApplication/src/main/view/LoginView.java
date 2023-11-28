@@ -1,9 +1,9 @@
-package main.view;
+package diagnosisApplication.src.main.view;
 
-import main.interface_adapter.login.LoginController;
-import main.interface_adapter.login.LoginState;
-import main.interface_adapter.login.LoginViewModel;
-import main.interface_adapter.signup.SignupState;
+import diagnosisApplication.src.main.interface_adapter.login.LoginController;
+import diagnosisApplication.src.main.interface_adapter.login.LoginState;
+import diagnosisApplication.src.main.interface_adapter.login.LoginViewModel;
+import diagnosisApplication.src.main.interface_adapter.signup.SignupState;
 
 import javax.swing.*;
 import java.awt.*;
@@ -49,7 +49,8 @@ public class LoginView extends JPanel implements ActionListener, PropertyChangeL
         cancel = new JButton(loginViewModel.CANCEL_BUTTON_LABEL);
         buttons.add(cancel);
 
-        logIn.addActionListener(                // This creates an anonymous subclass of ActionListener and instantiates it.
+        logIn.addActionListener(
+
                 new ActionListener() {
                     public void actionPerformed(ActionEvent evt) {
                         if (evt.getSource().equals(logIn)) {
@@ -110,9 +111,6 @@ public class LoginView extends JPanel implements ActionListener, PropertyChangeL
         this.add(buttons);
     }
 
-    /**
-     * React to a button click that results in evt.
-     */
     public void actionPerformed(ActionEvent evt) {
         System.out.println("Click " + evt.getActionCommand());
     }

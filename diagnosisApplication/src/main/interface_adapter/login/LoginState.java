@@ -1,4 +1,5 @@
-package main.interface_adapter.login;
+package diagnosisApplication.src.main.interface_adapter.login;
+
 
 public class LoginState {
     private String username = "";
@@ -13,7 +14,7 @@ public class LoginState {
         passwordError = copy.passwordError;
     }
 
-    // Because of the previous copy constructor, the default constructor must be explicit.
+
     public LoginState() {}
 
     public String getUsername() {
