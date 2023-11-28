@@ -4,6 +4,7 @@ import main.interface_adapter.diagnosis.DiagnosisController;
 import main.interface_adapter.symptom_checker.SymptomCheckerController;
 import main.interface_adapter.symptom_checker.SymptomCheckerState;
 import main.interface_adapter.symptom_checker.SymptomCheckerViewModel;
+import main.interface_adapter.diagnosis.DiagnosisController;
 
 import javax.swing.*;
 import java.awt.*;
@@ -15,19 +16,12 @@ public class SymptomCheckerView extends JPanel {
     public final String viewName = "symptom checker";
 
     private final SymptomCheckerViewModel symptomCheckerViewModel;
-    private final SymptomCheckerController symptomCheckerController;
-    private final DiagnosisController diagnosisController;
-
     private final JButton submit;
 
     private final JCheckBox symptom1;
 
-    public SymptomCheckerView(SymptomCheckerViewModel symptomCheckerViewModel,
-                              SymptomCheckerController symptomCheckerController,
-                              DiagnosisController diagnosisController) {
+    public SymptomCheckerView(SymptomCheckerViewModel symptomCheckerViewModel, ) {
         this.symptomCheckerViewModel = symptomCheckerViewModel;
-        this.symptomCheckerController = symptomCheckerController;
-        this.diagnosisController = diagnosisController;
 
         JLabel title = new JLabel(SymptomCheckerViewModel.TITLE_LABEL);
 

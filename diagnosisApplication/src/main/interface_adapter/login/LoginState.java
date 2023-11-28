@@ -1,5 +1,6 @@
 package diagnosisApplication.src.main.interface_adapter.login;
 
+
 public class LoginState {
     private String username = "";
     private String usernameError = null;
@@ -12,6 +13,7 @@ public class LoginState {
         password = copy.password;
         passwordError = copy.passwordError;
     }
+
 
     public LoginState() {}
 

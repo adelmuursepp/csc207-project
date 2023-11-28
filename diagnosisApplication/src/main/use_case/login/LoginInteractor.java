@@ -2,6 +2,7 @@ package diagnosisApplication.src.main.use_case.login;
 
 import diagnosisApplication.src.main.entity.User;
 
+
 public class LoginInteractor implements LoginInputBoundary {
     final LoginUserDataAccessInterface userDataAccessObject;
     final LoginOutputBoundary loginPresenter;

@@ -1,5 +1,6 @@
 package diagnosisApplication.src.main.entity;
 
+
 import java.time.LocalDateTime;
 
 public interface UserFactory {

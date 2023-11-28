@@ -1,3 +1,4 @@
+
 package diagnosisApplication.src.main.app;
 
 import diagnosisApplication.src.main.entity.CommonUserFactory;
@@ -23,11 +24,14 @@ public class LoginUseCaseFactory {
     public static LoginView create(
             ViewManagerModel viewManagerModel,
             LoginViewModel loginViewModel,
+      //SymptomCheckerViewModel symptomCheckerViewModel?
             LoggedInViewModel loggedInViewModel,
             LoginUserDataAccessInterface userDataAccessObject) {
 
         try {
             LoginController loginController = createLoginUseCase(viewManagerModel, loginViewModel, loggedInViewModel, userDataAccessObject);
+
+            
             return new LoginView(loginViewModel, loginController);
         } catch (IOException e) {
             JOptionPane.showMessageDialog(null, "Could not open user data file.");
@@ -39,10 +43,12 @@ public class LoginUseCaseFactory {
     private static LoginController createLoginUseCase(
             ViewManagerModel viewManagerModel,
             LoginViewModel loginViewModel,
+            //SymptomCheckerViewModel symptomCheckerViewModel
             LoggedInViewModel loggedInViewModel,
             LoginUserDataAccessInterface userDataAccessObject) throws IOException {
 
         LoginOutputBoundary loginOutputBoundary = new LoginPresenter(viewManagerModel, loggedInViewModel, loginViewModel);
+
 
         UserFactory userFactory = new CommonUserFactory();
 

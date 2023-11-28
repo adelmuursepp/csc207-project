@@ -8,6 +8,7 @@ import diagnosisApplication.src.main.use_case.login.LoginOutputData;
 import diagnosisApplication.src.main.use_case.signup.SignupOutputBoundary;
 import diagnosisApplication.src.main.use_case.signup.SignupOutputData;
 
+
 public class LoginPresenter implements LoginOutputBoundary {
 
     private final LoginViewModel loginViewModel;
@@ -19,6 +20,16 @@ public class LoginPresenter implements LoginOutputBoundary {
                           LoginViewModel loginViewModel) {
         this.viewManagerModel = viewManagerModel;
         this.loggedInViewModel = loggedInViewModel;
+
+    //private final SymptomCheckerViewModel symptomCheckerViewModel;
+    //private ViewManagerModel viewManagerModel;
+
+    //public LoginPresenter(ViewManagerModel viewManagerModel,
+                          //SymptomCheckerViewModel symptomCheckerViewModel,
+                          //LoginViewModel loginViewModel) {
+        //this.viewManagerModel = viewManagerModel;
+        //this.symptomCheckerViewModel = symptomCheckerViewModel;
+      //?
         this.loginViewModel = loginViewModel;
     }
 
@@ -31,6 +42,15 @@ public class LoginPresenter implements LoginOutputBoundary {
         this.loggedInViewModel.firePropertyChanged();
 
         this.viewManagerModel.setActiveView(loggedInViewModel.getViewName());
+
+        // On success, switch to the logged in view.
+
+        //SymptomCheckerState symptomCheckerState = symptomCheckerViewModel.getState();
+        //this.symptomCheckerViewModel.setState(symptomCheckerState);
+        //this.symptomCheckerViewModel.firePropertyChanged();
+
+        //this.viewManagerModel.setActiveView(symptomCheckerViewModel.getViewName());
+      //?
         this.viewManagerModel.firePropertyChanged();
     }
 
