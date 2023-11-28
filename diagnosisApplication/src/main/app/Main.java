@@ -1,19 +1,22 @@
 package main.app;
 
-import diagnosisApplication.src.main.data_access.FileUserDataAccessObject;
-import diagnosisApplication.src.main.entity.CommonUserFactory;
-import diagnosisApplication.src.main.interface_adapter.login.LoginViewModel;
-import main.interface_adapter.logged_in.LoggedInViewModel;
-import diagnosisApplication.src.main.interface_adapter.signup.SignupViewModel;
-import diagnosisApplication.src.main.interface_adapter.ViewManagerModel;
-import diagnosisApplication.src.main.use_case.login.LoginUserDataAccessInterface;
-import diagnosisApplication.src.main.view.LoggedInView;
-import diagnosisApplication.src.main.view.LoginView;
-import diagnosisApplication.src.main.view.SignupView;
-import diagnosisApplication.src.main.view.ViewManager;
+import main.data_access.FileUserDataAccessObject;
+import main.entity.CommonUserFactory;
+import main.interface_adapter.login.LoginViewModel;
+//import main.interface_adapter.logged_in.LoggedInViewModel;
+import main.interface_adapter.signup.SignupViewModel;
+import main.interface_adapter.ViewManagerModel;
+//import main.use_case.login.LoginUserDataAccessInterface;
+//import main.view.LoggedInView;
+import main.view.LoginView;
+import main.view.SignupView;
+import main.view.ViewManager;
+import main.interface_adapter.symptom_checker.SymptomCheckerViewModel;
+import main.interface_adapter.diagnosis.DiagnosisViewModel;
 
 import javax.swing.*;
 import java.awt.*;
+import java.io.IOException;
 
 // Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
 // then press Enter. You can now see whitespace characters in your code.
@@ -40,5 +43,27 @@ public class Main {
         SymptomCheckerViewModel symptomCheckerViewModel = new SymptomCheckerViewModel();
         DiagnosisViewModel diagnosisViewModel = new DiagnosisViewModel();
 
+        FileUserDataAccessObject userDataAccessObject;
+        try {
+            userDataAccessObject = new FileUserDataAccessObject("./users.csv", new CommonUserFactory());
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+        SignupView signupView = SignupUseCaseFactory.create(viewManagerModel, loginViewModel, signupViewModel,
+                userDataAccessObject);
+        views.add(signupView, signupView.viewName);
+
+        LoginView loginView = LoginUseCaseFactory.create(viewManagerModel, loginViewModel, loggedInViewModel, userDataAccessObject);
+        views.add(loginView, loginView.viewName);
+
+        LoggedInView loggedInView = new LoggedInView(loggedInViewModel);
+        views.add(loggedInView, loggedInView.viewName);
+
+        viewManagerModel.setActiveView(signupView.viewName);
+        viewManagerModel.firePropertyChanged();
+
+        application.pack();
+        application.setVisible(true);
     }
 }

@@ -1,4 +1,4 @@
-package diagnosisApplication.src.main.view;
+package main.view;
 
 import javax.swing.*;
 

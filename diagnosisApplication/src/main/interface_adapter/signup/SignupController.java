@@ -1,7 +1,8 @@
 package main.interface_adapter.signup;
 
-import diagnosisApplication.src.main.use_case.signup.SignupInputBoundary;
-import diagnosisApplication.src.main.use_case.signup.SignupInputData;
+import main.use_case.signup.SignupInputBoundary;
+import main.use_case.signup.SignupInputData;
+import main.use_case.signup.SignupInputBoundary;
 
 public class SignupController {
 

@@ -1,6 +1,6 @@
-package diagnosisApplication.src.main.view;
+package main.view;
 
-import diagnosisApplication.src.main.interface_adapter.ViewManagerModel;
+import main.interface_adapter.ViewManagerModel;
 
 import javax.swing.*;
 import java.awt.*;
