@@ -1,4 +1,4 @@
-package diagnosisApplication.src.main.interface_adapter.signup;
+package main.interface_adapter.signup;
 
 import main.interface_adapter.ViewModel;
 

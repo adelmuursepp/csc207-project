@@ -5,32 +5,26 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2b592eb7-bb25-426a-9ff2-ae88983a41e8" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/diagnosisApplication/src/main/data_access/InMemoryUserDataAccessObject.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/diagnosisApplication/src/main/entity/CommonUser.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/diagnosisApplication/src/main/entity/CommonUserFactory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/diagnosisApplication/src/main/entity/PasswordValidator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/diagnosisApplication/src/main/entity/PasswordValidatorService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/diagnosisApplication/src/main/entity/UserFactory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/diagnosisApplication/src/main/interface_adapter/login/LoginState.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/diagnosisApplication/src/main/use_case/signup/SignupInputBoundary.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/diagnosisApplication/src/main/use_case/signup/SignupInputData.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/diagnosisApplication/src/main/use_case/signup/SignupInteractor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/diagnosisApplication/src/main/use_case/signup/SignupOutputBoundary.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/diagnosisApplication/src/main/use_case/signup/SignupOutputData.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/diagnosisApplication/src/main/view/LabelTextPanel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/diagnosisApplication/src/main/interface_adapter/login/LoginController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/diagnosisApplication/src/main/use_case/login/LoginInputBoundary.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/diagnosisApplication/src/main/use_case/login/LoginInputData.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/diagnosisApplication/src/main/use_case/login/LoginInteractor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/diagnosisApplication/src/main/use_case/login/LoginOutputBoundary.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/diagnosisApplication/src/main/use_case/login/LoginOutputData.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/diagnosisApplication/src/main/use_case/login/LoginUserDataAccessInterface.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diagnosisApplication/src/main/app/LoginUseCaseFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/diagnosisApplication/src/main/app/LoginUseCaseFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diagnosisApplication/src/main/app/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/diagnosisApplication/src/main/app/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/diagnosisApplication/src/main/app/SignupUseCaseFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/diagnosisApplication/src/main/app/SignupUseCaseFactory.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/diagnosisApplication/src/main/data_access/FileUserDataAccessObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/diagnosisApplication/src/main/data_access/FileUserDataAccessObject.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/diagnosisApplication/src/main/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/diagnosisApplication/src/main/entity/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/diagnosisApplication/src/main/interface_adapter/ViewManagerModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/diagnosisApplication/src/main/interface_adapter/ViewManagerModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/diagnosisApplication/src/main/interface_adapter/ViewModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/diagnosisApplication/src/main/interface_adapter/ViewModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diagnosisApplication/src/main/data_access/InMemoryUserDataAccessObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/diagnosisApplication/src/main/data_access/InMemoryUserDataAccessObject.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/diagnosisApplication/src/main/interface_adapter/login/LoginViewModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/diagnosisApplication/src/main/interface_adapter/login/LoginViewModel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/diagnosisApplication/src/main/interface_adapter/signup/SignupController.java" beforeDir="false" afterPath="$PROJECT_DIR$/diagnosisApplication/src/main/interface_adapter/signup/SignupController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/diagnosisApplication/src/main/interface_adapter/signup/SignupPresenter.java" beforeDir="false" afterPath="$PROJECT_DIR$/diagnosisApplication/src/main/interface_adapter/signup/SignupPresenter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/diagnosisApplication/src/main/interface_adapter/signup/SignupState.java" beforeDir="false" afterPath="$PROJECT_DIR$/diagnosisApplication/src/main/interface_adapter/signup/SignupState.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/diagnosisApplication/src/main/interface_adapter/signup/SignupViewModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/diagnosisApplication/src/main/interface_adapter/signup/SignupViewModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/diagnosisApplication/src/main/use_case/signup/SignupUserDataAccessInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/diagnosisApplication/src/main/use_case/signup/SignupUserDataAccessInterface.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/diagnosisApplication/src/main/view/SignupView.java" beforeDir="false" afterPath="$PROJECT_DIR$/diagnosisApplication/src/main/view/SignupView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diagnosisApplication/src/main/interface_adapter/symptom_checker/SymptomCheckerState.java" beforeDir="false" afterPath="$PROJECT_DIR$/diagnosisApplication/src/main/interface_adapter/symptom_checker/SymptomCheckerState.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diagnosisApplication/src/main/view/LabelTextPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/diagnosisApplication/src/main/view/LabelTextPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diagnosisApplication/src/main/view/SymptomCheckerView.java" beforeDir="false" afterPath="$PROJECT_DIR$/diagnosisApplication/src/main/view/SymptomCheckerView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diagnosisApplication/src/main/view/ViewManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/diagnosisApplication/src/main/view/ViewManager.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,24 +59,25 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;daniel&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Danie/IdeaProjects/shidani2/csc207-project/diagnosisApplication/src/interface_adapter/login&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "daniel",
+    "last_opened_file_path": "C:/Users/Danie/IdeaProjects/shidani2/csc207-project/diagnosisApplication/src/main/use_case/login",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Danie\IdeaProjects\shidani2\csc207-project\diagnosisApplication\src\main\use_case\login" />
       <recent name="C:\Users\Danie\IdeaProjects\shidani2\csc207-project\diagnosisApplication\src\interface_adapter\login" />
     </key>
   </component>
@@ -107,7 +102,11 @@
       <workItem from="1701024135568" duration="2391000" />
       <workItem from="1701049115034" duration="3752000" />
       <workItem from="1701053236524" duration="3306000" />
-      <workItem from="1701102574690" duration="3242000" />
+      <workItem from="1701102574690" duration="4769000" />
+      <workItem from="1701107366588" duration="195000" />
+      <workItem from="1701107602432" duration="586000" />
+      <workItem from="1701114794361" duration="1567000" />
+      <workItem from="1701134332219" duration="3437000" />
     </task>
     <servers />
   </component>
