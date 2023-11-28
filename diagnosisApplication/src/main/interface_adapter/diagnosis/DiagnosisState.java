@@ -33,16 +33,16 @@ public class DiagnosisState {
         return numDiagnoses;
     }
 
-    public Object getDiagnosis1(String key) {
-        return diagnosis1.get(key);
+    public HashMap<String, Object> getDiagnosis1() {
+        return diagnosis1;
     }
 
-    public Object getDiagnosis2(String key) {
-        return diagnosis2.get(key);
+    public HashMap<String, Object> getDiagnosis2() {
+        return diagnosis2;
     }
 
-    public Object getDiagnosis3(String key) {
-        return diagnosis3.get(key);
+    public HashMap<String, Object> getDiagnosis3() {
+        return diagnosis3;
     }
 
 }

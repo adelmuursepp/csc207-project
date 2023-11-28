@@ -7,6 +7,8 @@ import main.interface_adapter.symptom_checker.SymptomCheckerController;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.HashMap;
+import java.util.List;
 
 public class DiagnosisView extends JPanel {
 
@@ -17,6 +19,8 @@ public class DiagnosisView extends JPanel {
     private final SymptomCheckerController symptomCheckerController;
     private final DiagnosisState diagnosisState;
 
+    private final JButton symptomChecker;
+
     public DiagnosisView(DiagnosisViewModel diagnosisViewModel, DiagnosisController diagnosisController,
                          SymptomCheckerController symptomCheckerController) {
         this.diagnosisViewModel = diagnosisViewModel;
@@ -24,37 +28,65 @@ public class DiagnosisView extends JPanel {
         this.symptomCheckerController = symptomCheckerController;
         this.diagnosisState = diagnosisViewModel.getState();
 
+        int n = diagnosisState.getNumDiagnoses();
+
         JLabel title = new JLabel(DiagnosisViewModel.TITLE_LABEL);
 
         JPanel information = new JPanel();
+        for (int i = 0; i < n; i++) {
+            JPanel infoPanel = new JPanel();
+            HashMap<String, Object> currentDiagnosis;
+            if (i == 2) {
+                currentDiagnosis = diagnosisState.getDiagnosis3();
+            } else if (i == 1) {
+                currentDiagnosis = diagnosisState.getDiagnosis2();
+            } else {
+                currentDiagnosis = diagnosisState.getDiagnosis1();
+            }
+            StringBuilder builder = new StringBuilder();
+            builder.append(currentDiagnosis.get("name")).append(" (")
+                    .append(currentDiagnosis.get("accuracy")).append(" likelihood").append(")").append("\n");
+            builder.append("\t\t" + "Professional Name: ").append(currentDiagnosis.get("profName")).append("\n");
+            builder.append("\t\t" + "ICD Number: ").append(currentDiagnosis.get("icd")).append("\n");
+            builder.append("Specialists:" + "\n");
+            for (String specialist : (List<String>) currentDiagnosis.get("specialists")) {
+                builder.append("\t\t").append(specialist).append("\n");
+            }
+            JLabel info = new JLabel(builder.toString());
+            infoPanel.add(info);
+            information.add(infoPanel, BorderLayout.SOUTH);
+        }
 
         // This is the code to create and add the bar chart on the condition that there is at least one diagnosis.
         // I will add something similar for the information panel.
-        int n = diagnosisState.getNumDiagnoses();
+        JPanel barChart = new JPanel();
         if (n > 0) {
-            JPanel barChart = new JPanel();
             int[] accuracies = new int[n];
             String[] diagnoses = new String[n];
-            accuracies[0] = (Integer) diagnosisState.getDiagnosis1("accuracy");
-            diagnoses[0] = (String) diagnosisState.getDiagnosis1("name");
+            accuracies[0] = (Integer) diagnosisState.getDiagnosis1().get("accuracy");
+            diagnoses[0] = (String) diagnosisState.getDiagnosis1().get("name");
             if (n >= 2) {
-                accuracies[1] = (Integer) diagnosisState.getDiagnosis2("accuracy");
-                diagnoses[1] = (String) diagnosisState.getDiagnosis2("name");
+                accuracies[1] = (Integer) diagnosisState.getDiagnosis2().get("accuracy");
+                diagnoses[1] = (String) diagnosisState.getDiagnosis2().get("name");
             }
             if (n == 3) {
-                accuracies[2] = (Integer) diagnosisState.getDiagnosis3("accuracy");
-                diagnoses[2] = (String) diagnosisState.getDiagnosis3("name");
+                accuracies[2] = (Integer) diagnosisState.getDiagnosis3().get("accuracy");
+                diagnoses[2] = (String) diagnosisState.getDiagnosis3().get("name");
             }
 
             barChart.add(new BarChart(accuracies, diagnoses, "Diagnoses and Accuracies"));
-            this.add(barChart);
         }
+
+        JPanel buttons = new JPanel();
+        symptomChecker = new JButton(DiagnosisViewModel.SYMPTOM_CHECKER_BUTTON_LABEL);
+        buttons.add(symptomChecker);
 
         this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 
-        // The way this is currently implemented, if there are no diagnoses, no bar chart or information panel will be
-        // added. This is just a design choice that can be changed.
-        this.add(title);
+        this.add(title, BorderLayout.NORTH);
+        this.add(information, BorderLayout.EAST);
+        this.add(barChart, BorderLayout.WEST);
+        this.add(buttons);
     }
 
     private class BarChart extends JPanel {
