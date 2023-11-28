@@ -55,4 +55,76 @@ public class DiagnosisState {
         this.diagnosis3ProfName = diagnosis3.get("profName");
         this.diagnosis3Specializations = diagnosis3.get("specializations");
     }
+
+    public Integer getDiagnosis1Ranking() {
+        return diagnosis1Ranking;
+    }
+
+    public String getDiagnosis1Name() {
+        return diagnosis1Name;
+    }
+
+    public Integer getDiagnosis1Accuracy() {
+        return diagnosis1Accuracy;
+    }
+
+    public String getDiagnosis1Icd() {
+        return diagnosis1Icd;
+    }
+
+    public String getDiagnosis1ProfName() {
+        return diagnosis1ProfName;
+    }
+
+    public List<String> getDiagnosis1Specializations() {
+        return diagnosis1Specializations;
+    }
+
+    public Integer getDiagnosis2Ranking() {
+        return diagnosis1Ranking;
+    }
+
+    public String getDiagnosis2Name() {
+        return diagnosis1Name;
+    }
+
+    public Integer getDiagnosis2Accuracy() {
+        return diagnosis1Accuracy;
+    }
+
+    public String getDiagnosis2Icd() {
+        return diagnosis1Icd;
+    }
+
+    public String getDiagnosis2ProfName() {
+        return diagnosis1ProfName;
+    }
+
+    public List<String> getDiagnosis2Specializations() {
+        return diagnosis1Specializations;
+    }
+
+    public Integer getDiagnosis3Ranking() {
+        return diagnosis1Ranking;
+    }
+
+    public String getDiagnosis3Name() {
+        return diagnosis1Name;
+    }
+
+    public Integer getDiagnosis3Accuracy() {
+        return diagnosis1Accuracy;
+    }
+
+    public String getDiagnosis3Icd() {
+        return diagnosis1Icd;
+    }
+
+    public String getDiagnosis3ProfName() {
+        return diagnosis1ProfName;
+    }
+
+    public List<String> getDiagnosis3Specializations() {
+        return diagnosis1Specializations;
+    }
 }
