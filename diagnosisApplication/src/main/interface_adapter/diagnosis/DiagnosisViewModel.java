@@ -21,9 +21,6 @@ public class DiagnosisViewModel extends ViewModel{
         this.state = state;
     }
 
-    public void setDiagnosis(List<String> diagnosis) {
-        this.diagnosis = diagnosis;
-    }
     private final PropertyChangeSupport support = new PropertyChangeSupport(this);
     @Override
     public void firePropertyChanged() {
