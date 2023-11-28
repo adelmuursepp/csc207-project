@@ -7,9 +7,9 @@ import main.interface_adapter.symptom_checker.SymptomCheckerController;
 
 import javax.swing.*;
 import java.awt.*;
-import java.util.ArrayList;
 
 public class DiagnosisView extends JPanel {
+
     public final String viewName = "diagnosis";
 
     private final DiagnosisViewModel diagnosisViewModel;
@@ -35,15 +35,16 @@ public class DiagnosisView extends JPanel {
             JPanel barChart = new JPanel();
             int[] accuracies = new int[n];
             String[] diagnoses = new String[n];
-            accuracies[0] = diagnosisState.getDiagnosis1Accuracy();
-            diagnoses[0] = diagnosisState.getDiagnosis1Name();
+
+            accuracies[0] = (Integer) diagnosisState.getDiagnosis1("accuracy");
+            diagnoses[0] = (String) diagnosisState.getDiagnosis1("name");
             if (n >= 2) {
-                accuracies[1] = diagnosisState.getDiagnosis2Accuracy();
-                diagnoses[1] = diagnosisState.getDiagnosis2Name();
+                accuracies[1] = (Integer) diagnosisState.getDiagnosis2("accuracy");
+                diagnoses[1] = (String) diagnosisState.getDiagnosis2("name");
             }
             if (n == 3) {
-                accuracies[2] = diagnosisState.getDiagnosis3Accuracy();
-                diagnoses[2] = diagnosisState.getDiagnosis3Name();
+                accuracies[2] = (Integer) diagnosisState.getDiagnosis3("accuracy");
+                diagnoses[2] = (String) diagnosisState.getDiagnosis3("name");
             }
 
             barChart.add(new BarChart(accuracies, diagnoses, "Diagnoses and Accuracies"));
