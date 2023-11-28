@@ -1,4 +1,4 @@
-package main.entity;
+package diagnosisApplication.src.main.entity;
 
 /**
  * Interface for various symptoms. All implementations of symptoms must use this interface. It contains two methods that

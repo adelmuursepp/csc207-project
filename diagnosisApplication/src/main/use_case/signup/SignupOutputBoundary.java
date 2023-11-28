@@ -1,4 +1,4 @@
-package main.use_case.signup;
+package diagnosisApplication.src.main.use_case.signup;
 
 public interface SignupOutputBoundary {
     void prepareSuccessView(SignupOutputData user);

@@ -1,4 +1,4 @@
-package main.entity;
+package diagnosisApplication.src.main.entity;
 /**
  * A representation of a medically relevant common symptom. An implementation of Symptom interface. The symptom has a
  * name, an ID number (corresponding to its ID number given by the healthgprahic API), and state. The state indicates

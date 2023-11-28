@@ -1,4 +1,4 @@
-package main.entity;
+package diagnosisApplication.src.main.entity;
 
 public class PasswordValidatorService implements PasswordValidator {
     public boolean passwordIsValid(String password) {

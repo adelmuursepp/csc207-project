@@ -1,8 +1,8 @@
-package main.data_access;
+package diagnosisApplication.src.main.data_access;
 
-import main.entity.DiagnosedIssue;
-import main.entity.DiagnosedSpecialization;
-import main.entity.HealthDiagnosis;
+import diagnosisApplication.src.main.entity.DiagnosedIssue;
+import diagnosisApplication.src.main.entity.DiagnosedSpecialization;
+import diagnosisApplication.src.main.entity.HealthDiagnosis;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 

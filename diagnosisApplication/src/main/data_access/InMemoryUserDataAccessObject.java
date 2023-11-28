@@ -1,7 +1,7 @@
-package main.data_access;
+package diagnosisApplication.src.main.data_access;
 
-import main.entity.User;
-import main.use_case.signup.SignupUserDataAccessInterface;
+import diagnosisApplication.src.main.entity.User;
+import diagnosisApplication.src.main.use_case.signup.SignupUserDataAccessInterface;
 
 import java.util.HashMap;
 import java.util.Map;

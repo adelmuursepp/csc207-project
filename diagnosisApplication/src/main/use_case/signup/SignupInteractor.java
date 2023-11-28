@@ -1,7 +1,7 @@
-package main.use_case.signup;
+package diagnosisApplication.src.main.use_case.signup;
 
-import main.entity.User;
-import main.entity.UserFactory;
+import diagnosisApplication.src.main.entity.User;
+import diagnosisApplication.src.main.entity.UserFactory;
 
 import java.time.LocalDateTime;
 
