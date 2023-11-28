@@ -1,4 +1,4 @@
-package diagnosisApplication.src.main.interface_adapter.diagnosis;
+package main.interface_adapter.diagnosis;
 
 import java.util.ArrayList;
 import java.util.HashMap;

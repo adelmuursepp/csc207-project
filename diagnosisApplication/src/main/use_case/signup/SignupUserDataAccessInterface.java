@@ -1,4 +1,6 @@
-package diagnosisApplication.src.main.use_case.signup;
+package main.use_case.signup;
+
+import main.entity.User;
 
 public interface SignupUserDataAccessInterface {
 

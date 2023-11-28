@@ -1,4 +1,4 @@
-package diagnosisApplication.src.main.use_case.diagnosis;
+package main.use_case.diagnosis;
 
 import java.util.HashMap;
 

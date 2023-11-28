@@ -1,18 +1,18 @@
 
-package diagnosisApplication.src.main.app;
+package main.app;
 
-import diagnosisApplication.src.main.entity.CommonUserFactory;
-import diagnosisApplication.src.main.entity.UserFactory;
-import diagnosisApplication.src.main.interface_adapter.ViewManagerModel;
-import diagnosisApplication.src.main.interface_adapter.logged_in.LoggedInViewModel;
-import diagnosisApplication.src.main.interface_adapter.login.LoginController;
-import diagnosisApplication.src.main.interface_adapter.login.LoginPresenter;
-import diagnosisApplication.src.main.interface_adapter.login.LoginViewModel;
-import diagnosisApplication.src.main.use_case.login.LoginInputBoundary;
-import diagnosisApplication.src.main.use_case.login.LoginOutputBoundary;
-import diagnosisApplication.src.main.use_case.login.LoginInteractor;
-import diagnosisApplication.src.main.use_case.login.LoginUserDataAccessInterface;
-import diagnosisApplication.src.main.view.LoginView;
+import main.entity.CommonUserFactory;
+import main.entity.UserFactory;
+import main.interface_adapter.ViewManagerModel;
+import main.interface_adapter.logged_in.LoggedInViewModel;
+import main.interface_adapter.login.LoginController;
+import main.interface_adapter.login.LoginPresenter;
+import main.interface_adapter.login.LoginViewModel;
+import main.use_case.login.LoginInputBoundary;
+import main.use_case.login.LoginOutputBoundary;
+import main.use_case.login.LoginInteractor;
+import main.use_case.login.LoginUserDataAccessInterface;
+import main.view.LoginView;
 
 import javax.swing.*;
 import java.io.IOException;

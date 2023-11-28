@@ -1,8 +1,8 @@
-package diagnosisApplication.src.main.view;
+package main.view;
 
-import diagnosisApplication.src.main.interface_adapter.signup.SignupController;
-import diagnosisApplication.src.main.interface_adapter.signup.SignupState;
-import diagnosisApplication.src.main.interface_adapter.signup.SignupViewModel;
+import main.interface_adapter.signup.SignupController;
+import main.interface_adapter.signup.SignupState;
+import main.interface_adapter.signup.SignupViewModel;
 
 import javax.swing.*;
 import java.awt.*;

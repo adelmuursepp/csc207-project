@@ -1,19 +1,19 @@
-package diagnosisApplication.src.main.app;
+package main.app;
 
-import diagnosisApplication.src.main.data_access.FileUserDataAccessObject;
-import diagnosisApplication.src.main.entity.CommonUserFactory;
-import diagnosisApplication.src.main.interface_adapter.login.LoginViewModel;
-//import diagnosisApplication.src.main.interface_adapter.logged_in.LoggedInViewModel;
-import diagnosisApplication.src.main.interface_adapter.signup.SignupViewModel;
-import diagnosisApplication.src.main.interface_adapter.ViewManagerModel;
-import diagnosisApplication.src.main.use_case.login.LoginUserDataAccessInterface;
-//import diagnosisApplication.src.main.view.LoggedInView;
-import diagnosisApplication.src.main.view.LoginView;
-import diagnosisApplication.src.main.view.SignupView;
-import diagnosisApplication.src.main.view.ViewManager;
-import diagnosisApplication.src.main.interface_adapter.symptom_checker.SymptomCheckerViewModel;
-import diagnosisApplication.src.main.view.SymptomCheckerView;
-import diagnosisApplication.src.main.interface_adapter.diagnosis.DiagnosisViewModel;
+import main.data_access.FileUserDataAccessObject;
+import main.entity.CommonUserFactory;
+import main.interface_adapter.login.LoginViewModel;
+//import main.interface_adapter.logged_in.LoggedInViewModel;
+import main.interface_adapter.signup.SignupViewModel;
+import main.interface_adapter.ViewManagerModel;
+import main.use_case.login.LoginUserDataAccessInterface;
+//import main.view.LoggedInView;
+import main.view.LoginView;
+import main.view.SignupView;
+import main.view.ViewManager;
+import main.interface_adapter.symptom_checker.SymptomCheckerViewModel;
+import main.view.SymptomCheckerView;
+import main.interface_adapter.diagnosis.DiagnosisViewModel;
 
 import javax.swing.*;
 import java.awt.*;

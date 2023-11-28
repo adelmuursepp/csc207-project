@@ -1,7 +1,7 @@
-package diagnosisApplication.src.main.interface_adapter.diagnosis;
+package main.interface_adapter.diagnosis;
 
-import diagnosisApplication.src.main.use_case.diagnosis.DiagnosisInputBoundary;
-import diagnosisApplication.src.main.use_case.diagnosis.DiagnosisInputData;
+import main.use_case.diagnosis.DiagnosisInputBoundary;
+import main.use_case.diagnosis.DiagnosisInputData;
 
 import java.util.ArrayList;
 import java.util.List;

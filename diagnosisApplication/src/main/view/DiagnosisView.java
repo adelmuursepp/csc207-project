@@ -1,9 +1,9 @@
-package diagnosisApplication.src.main.view;
+package main.view;
 
-import diagnosisApplication.src.main.interface_adapter.diagnosis.DiagnosisController;
-import diagnosisApplication.src.main.interface_adapter.diagnosis.DiagnosisState;
-import diagnosisApplication.src.main.interface_adapter.diagnosis.DiagnosisViewModel;
-import diagnosisApplication.src.main.interface_adapter.symptom_checker.SymptomCheckerController;
+import main.interface_adapter.diagnosis.DiagnosisController;
+import main.interface_adapter.diagnosis.DiagnosisState;
+import main.interface_adapter.diagnosis.DiagnosisViewModel;
+import main.interface_adapter.symptom_checker.SymptomCheckerController;
 
 import javax.swing.*;
 import java.awt.*;

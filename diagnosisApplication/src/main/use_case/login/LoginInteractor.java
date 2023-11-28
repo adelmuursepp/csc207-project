@@ -1,6 +1,6 @@
-package diagnosisApplication.src.main.use_case.login;
+package main.use_case.login;
 
-import diagnosisApplication.src.main.entity.User;
+import main.entity.User;
 
 
 public class LoginInteractor implements LoginInputBoundary {

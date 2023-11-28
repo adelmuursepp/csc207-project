@@ -1,4 +1,4 @@
-package diagnosisApplication.src.main.entity;
+package main.entity;
 
 import java.util.AbstractMap;
 import java.util.HashMap;

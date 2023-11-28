@@ -1,9 +1,10 @@
-package diagnosisApplication.src.main.view;
+package main.view;
 
-import diagnosisApplication.src.main.interface_adapter.login.LoginController;
-import diagnosisApplication.src.main.interface_adapter.login.LoginState;
-import diagnosisApplication.src.main.interface_adapter.login.LoginViewModel;
-import diagnosisApplication.src.main.interface_adapter.signup.SignupState;
+import main.interface_adapter.login.LoginController;
+import main.interface_adapter.login.LoginState;
+import main.interface_adapter.login.LoginViewModel;
+import main.interface_adapter.signup.SignupState;
+import main.view.LabelTextPanel;
 
 import javax.swing.*;
 import java.awt.*;

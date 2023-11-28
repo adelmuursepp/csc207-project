@@ -1,4 +1,4 @@
-package diagnosisApplication.src.main.use_case.login;
+package main.use_case.login;
 
 
 public class LoginOutputData {

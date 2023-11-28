@@ -1,9 +1,9 @@
-package diagnosisApplication.src.main.data_access;
+package main.data_access;
 
-import diagnosisApplication.src.main.entity.User;
-import diagnosisApplication.src.main.entity.UserFactory;
-import diagnosisApplication.src.main.use_case.login.LoginUserDataAccessInterface;
-import diagnosisApplication.src.main.use_case.signup.SignupUserDataAccessInterface;
+import main.entity.User;
+import main.entity.UserFactory;
+import main.use_case.login.LoginUserDataAccessInterface;
+import main.use_case.signup.SignupUserDataAccessInterface;
 
 import java.io.*;
 import java.time.LocalDateTime;

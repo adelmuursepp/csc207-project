@@ -1,4 +1,4 @@
-package diagnosisApplication.src.main.entity;
+package main.entity;
 
 public class DiagnosedSpecialization {
     private int id;

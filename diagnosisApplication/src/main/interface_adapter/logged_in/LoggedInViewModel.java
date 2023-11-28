@@ -1,7 +1,7 @@
-package diagnosisApplication.src.main.interface_adapter.logged_in;
+package main.interface_adapter.logged_in;
 
-import diagnosisApplication.src.main.interface_adapter.ViewModel;
-import diagnosisApplication.src.main.interface_adapter.login.LoginState;
+import main.interface_adapter.ViewModel;
+import main.interface_adapter.login.LoginState;
 
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;

@@ -1,5 +1,4 @@
-package diagnosisApplication.src.main.interface_adapter.login;
-
+package main.interface_adapter.login;
 
 public class LoginState {
     private String username = "";

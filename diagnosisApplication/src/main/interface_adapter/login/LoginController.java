@@ -1,9 +1,9 @@
-package diagnosisApplication.src.main.interface_adapter.login;
+package main.interface_adapter.login;
 
-import diagnosisApplication.src.main.use_case.login.LoginInputData;
-import diagnosisApplication.src.main.use_case.login.LoginInputBoundary;
-import diagnosisApplication.src.main.use_case.signup.SignupInputBoundary;
-import diagnosisApplication.src.main.use_case.signup.SignupInputData;
+import main.use_case.login.LoginInputData;
+import main.use_case.login.LoginInputBoundary;
+import main.use_case.signup.SignupInputBoundary;
+import main.use_case.signup.SignupInputData;
 
 public class LoginController {
 

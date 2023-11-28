@@ -1,8 +1,8 @@
-package diagnosisApplication.src.main.view;
+package main.view;
 
-import diagnosisApplication.src.main.interface_adapter.logged_in.LoggedInState;
-import diagnosisApplication.src.main.interface_adapter.logged_in.LoggedInViewModel;
-import diagnosisApplication.src.main.interface_adapter.login.LoginState;
+import main.interface_adapter.logged_in.LoggedInState;
+import main.interface_adapter.logged_in.LoggedInViewModel;
+import main.interface_adapter.login.LoginState;
 
 import javax.swing.*;
 import java.awt.*;
