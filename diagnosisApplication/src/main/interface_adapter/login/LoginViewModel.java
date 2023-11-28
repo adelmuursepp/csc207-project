@@ -1,6 +1,6 @@
 package diagnosisApplication.src.main.interface_adapter.login;
 
-import main.interface_adapter.ViewModel;
+import diagnosisApplication.src.main.interface_adapter.ViewModel;
 
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;

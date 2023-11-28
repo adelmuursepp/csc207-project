@@ -1,7 +1,7 @@
-package main.interface_adapter.symptom_checker;
+package diagnosisApplication.src.main.interface_adapter.symptom_checker;
 
-import main.use_case.symptom_checker.SymptomCheckerOutputBoundary;
-import main.use_case.symptom_checker.SymptomCheckerOutputData;
+import diagnosisApplication.src.main.use_case.symptom_checker.SymptomCheckerOutputBoundary;
+import diagnosisApplication.src.main.use_case.symptom_checker.SymptomCheckerOutputData;
 
 import java.util.List;
 

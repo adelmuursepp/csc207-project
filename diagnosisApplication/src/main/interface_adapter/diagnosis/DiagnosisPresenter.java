@@ -1,8 +1,8 @@
-package main.interface_adapter.diagnosis;
+package diagnosisApplication.src.main.interface_adapter.diagnosis;
 
-import main.interface_adapter.ViewManagerModel;
-import main.use_case.diagnosis.DiagnosisOutputBoundary;
-import main.use_case.diagnosis.DiagnosisOutputData;
+import diagnosisApplication.src.main.interface_adapter.ViewManagerModel;
+import diagnosisApplication.src.main.use_case.diagnosis.DiagnosisOutputBoundary;
+import diagnosisApplication.src.main.use_case.diagnosis.DiagnosisOutputData;
 
 import java.util.List;
 
