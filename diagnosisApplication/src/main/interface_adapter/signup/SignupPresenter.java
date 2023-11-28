@@ -1,10 +1,10 @@
-package diagnosisApplication.src.main.interface_adapter.signup;
+package main.interface_adapter.signup;
 
-import diagnosisApplication.src.main.interface_adapter.login.LoginState;
-import diagnosisApplication.src.main.interface_adapter.login.LoginViewModel;
-import diagnosisApplication.src.main.interface_adapter.ViewManagerModel;
-import diagnosisApplication.src.main.use_case.signup.SignupOutputBoundary;
-import diagnosisApplication.src.main.use_case.signup.SignupOutputData;
+import main.interface_adapter.login.LoginState;
+import main.interface_adapter.login.LoginViewModel;
+import main.interface_adapter.ViewManagerModel;
+import main.use_case.signup.SignupOutputBoundary;
+import main.use_case.signup.SignupOutputData;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;

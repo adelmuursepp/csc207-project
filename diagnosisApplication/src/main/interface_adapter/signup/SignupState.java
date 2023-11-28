@@ -1,4 +1,4 @@
-package diagnosisApplication.src.main.interface_adapter.signup;
+package main.interface_adapter.signup;
 
 public class SignupState {
     private String username = "";
