@@ -63,7 +63,7 @@ public class SignupView extends JPanel implements ActionListener, PropertyChange
                     public void stateChanged(ChangeEvent e) {
                         if (e.getSource() == year) {
                             SignupState currentState = signupViewModel.getState();
-                            currentState.setYear((Integer) year.getValue());
+                            currentState.setYearOfBirth((Integer) year.getValue());
 
                         }
                     }
