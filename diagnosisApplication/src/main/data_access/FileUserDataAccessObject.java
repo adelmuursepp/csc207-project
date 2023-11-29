@@ -1,10 +1,9 @@
-package diagnosisApplication.src.main.data_access;
+package main.data_access;
 
-import diagnosisApplication.src.main.entity.User;
-import diagnosisApplication.src.main.entity.UserFactory;
-import diagnosisApplication.src.main.entity.UserFactory;
-//import diagnosisApplication.src.main.use_case.login.LoginUserDataAccessInterface;
-import diagnosisApplication.src.main.use_case.signup.SignupUserDataAccessInterface;
+import main.entity.User;
+import main.entity.UserFactory;
+import main.use_case.login.LoginUserDataAccessInterface;
+import main.use_case.signup.SignupUserDataAccessInterface;
 
 import java.io.*;
 import java.time.LocalDateTime;
@@ -12,8 +11,7 @@ import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-public class FileUserDataAccessObject implements SignupUserDataAccessInterface//, LoginUserDataAccessInterface
-    {
+public class FileUserDataAccessObject implements SignupUserDataAccessInterface, LoginUserDataAccessInterface {
 
     private final File csvFile;
 
@@ -29,7 +27,9 @@ public class FileUserDataAccessObject implements SignupUserDataAccessInterface//
         csvFile = new File(csvPath);
         headers.put("username", 0);
         headers.put("password", 1);
-        headers.put("creation_time", 2);
+        headers.put("sex", 2);
+        headers.put("yearOfBirth", 3);
+        headers.put("creation_time", 4);
 
         if (csvFile.length() == 0) {
             save();
@@ -46,9 +46,11 @@ public class FileUserDataAccessObject implements SignupUserDataAccessInterface//
                     String[] col = row.split(",");
                     String username = String.valueOf(col[headers.get("username")]);
                     String password = String.valueOf(col[headers.get("password")]);
+                    String sex = String.valueOf(col[headers.get("sex")]);
+                    Integer yearOfBirth = Integer.valueOf(col[headers.get("yearOfBirth")]);
                     String creationTimeText = String.valueOf(col[headers.get("creation_time")]);
                     LocalDateTime ldt = LocalDateTime.parse(creationTimeText);
-                    User user = userFactory.create(username, password, ldt);
+                    User user = userFactory.create(username, password, sex, yearOfBirth, ldt);
                     accounts.put(username, user);
                 }
             }
@@ -61,10 +63,10 @@ public class FileUserDataAccessObject implements SignupUserDataAccessInterface//
         this.save();
     }
 
-//    @Override
-//    public User get(String username) {
-//        return accounts.get(username);
-//    }
+    @Override
+    public User get(String username) {
+        return accounts.get(username);
+    }
 
     private void save() {
         BufferedWriter writer;
@@ -74,8 +76,9 @@ public class FileUserDataAccessObject implements SignupUserDataAccessInterface//
             writer.newLine();
 
             for (User user : accounts.values()) {
-                String line = String.format("%s,%s,%s",
-                        user.getName(), user.getPassword(), user.getCreationTime());
+                String line = String.format("%s,%s,%s,%s,%s",
+                        user.getName(), user.getPassword(), user.getSex(), user.getYearOfBirth(),
+                        user.getCreationTime());
                 writer.write(line);
                 writer.newLine();
             }

@@ -1,7 +1,7 @@
-package diagnosisApplication.src.main.use_case.signup;
+package main.use_case.signup;
 
-import diagnosisApplication.src.main.entity.User;
-import diagnosisApplication.src.main.entity.UserFactory;
+import main.entity.User;
+import main.entity.UserFactory;
 
 import java.time.LocalDateTime;
 
@@ -27,7 +27,8 @@ public class SignupInteractor implements SignupInputBoundary {
         } else {
 
             LocalDateTime now = LocalDateTime.now();
-            User user = userFactory.create(signupInputData.getUsername(), signupInputData.getPassword(), now);
+            User user = userFactory.create(signupInputData.getUsername(), signupInputData.getPassword(),
+                    signupInputData.getSex(), signupInputData.getYearOfBirth(), now);
             userDataAccessObject.save(user);
 
             SignupOutputData signupOutputData = new SignupOutputData(user.getName(), now.toString(), false);

@@ -3,6 +3,7 @@ package main.interface_adapter.symptom_checker;
 import java.util.ArrayList;
 
 public class SymptomCheckerState {
+
     private Boolean showSymptoms = false;
 
     private ArrayList<Integer> checkedSymptoms = new ArrayList<Integer>();
