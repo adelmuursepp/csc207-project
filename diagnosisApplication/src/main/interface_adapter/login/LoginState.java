@@ -13,7 +13,7 @@ public class LoginState {
         passwordError = copy.passwordError;
     }
 
-    // Because of the previous copy constructor, the default constructor must be explicit.
+
     public LoginState() {}
 
     public String getUsername() {
