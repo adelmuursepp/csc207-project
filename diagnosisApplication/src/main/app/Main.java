@@ -59,7 +59,8 @@ public class Main {
                 userDataAccessObject);
         views.add(loginView, loginView.viewName);
 
-        SymptomCheckerView symptomCheckerView = new SymptomCheckerView(symptomCheckerViewModel);
+        SymptomCheckerView symptomCheckerView = SymptomCheckerUseCaseFactory.create(symptomCheckerViewModel,
+                diagnosisViewModel);
         views.add(symptomCheckerView, symptomCheckerView.viewName);
 
         viewManagerModel.setActiveView(signupView.viewName);
