@@ -1,4 +1,3 @@
-
 package main.app;
 
 import main.entity.CommonUserFactory;
@@ -24,7 +23,6 @@ public class LoginUseCaseFactory {
     public static LoginView create(
             ViewManagerModel viewManagerModel,
             LoginViewModel loginViewModel,
-            //SymptomCheckerViewModel symptomCheckerViewModel?
             SymptomCheckerViewModel symptomCheckerViewModel,
             LoginUserDataAccessInterface userDataAccessObject) {
 
@@ -43,11 +41,10 @@ public class LoginUseCaseFactory {
     private static LoginController createLoginUseCase(
             ViewManagerModel viewManagerModel,
             LoginViewModel loginViewModel,
-            //SymptomCheckerViewModel symptomCheckerViewModel
-            SymptomCheckerViewModel loggedInViewModel,
+            SymptomCheckerViewModel symptomCheckerViewModel,
             LoginUserDataAccessInterface userDataAccessObject) throws IOException {
 
-        LoginOutputBoundary loginOutputBoundary = new LoginPresenter(viewManagerModel, loggedInViewModel, loginViewModel);
+        LoginOutputBoundary loginOutputBoundary = new LoginPresenter(viewManagerModel, symptomCheckerViewModel, loginViewModel);
 
 
         UserFactory userFactory = new CommonUserFactory();

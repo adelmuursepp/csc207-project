@@ -4,7 +4,6 @@ import main.interface_adapter.diagnosis.DiagnosisController;
 import main.interface_adapter.symptom_checker.SymptomCheckerController;
 import main.interface_adapter.symptom_checker.SymptomCheckerState;
 import main.interface_adapter.symptom_checker.SymptomCheckerViewModel;
-import main.interface_adapter.diagnosis.DiagnosisController;
 
 import javax.swing.*;
 import java.awt.*;

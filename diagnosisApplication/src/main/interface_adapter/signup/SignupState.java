@@ -1,8 +1,5 @@
 package main.interface_adapter.signup;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-
 public class SignupState {
     private String username = "";
     private String usernameError = null;

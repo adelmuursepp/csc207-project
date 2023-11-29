@@ -51,7 +51,7 @@ public class MedicAPIDiagnosisDataAccessObject {
 
     }
 
-    public static void getDiagnoses(List<Integer> symptomsList) throws IOException, InterruptedException {
+    public static List<HealthDiagnosis> getDiagnoses(List<Integer> symptomsList) throws IOException, InterruptedException {
         // TODO: Add gender and year
         // Create a string of symptoms list to pass to URI
         StringBuilder symptomString = new StringBuilder("[");
@@ -105,6 +105,7 @@ public class MedicAPIDiagnosisDataAccessObject {
                 for (HealthDiagnosis diagnosis : healthDiagnosisList) {
                     System.out.println(diagnosis);
                 }
+                return healthDiagnosisList;
             } else {
                 throw new RuntimeException("Failed to process the request. Server responded with: " + response.body());
             }

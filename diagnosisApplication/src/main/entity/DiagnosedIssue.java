@@ -18,4 +18,31 @@ public class DiagnosedIssue {
         this.id = id;
         this.name = name;
     }
+
+    public String getIcd() {
+        return this.icd;
+    }
+
+    public String getIcdName() {
+        return this.icdName;
+    }
+
+    public String getProfName() {
+        return this.profName;
+    }
+
+    public float getAccuracy() {
+        return this.accuracy;
+    }
+
+    public float getRanking() {
+        return this.ranking;
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+
 }
+

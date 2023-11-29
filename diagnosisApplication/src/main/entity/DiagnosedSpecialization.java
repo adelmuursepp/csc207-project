@@ -15,4 +15,8 @@ public class DiagnosedSpecialization {
         this.ranking = ranking;
     }
 
+    public String getName() {
+        return this.name;
+    }
+
 }

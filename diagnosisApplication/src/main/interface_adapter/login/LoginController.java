@@ -2,8 +2,6 @@ package main.interface_adapter.login;
 
 import main.use_case.login.LoginInputData;
 import main.use_case.login.LoginInputBoundary;
-import main.use_case.signup.SignupInputBoundary;
-import main.use_case.signup.SignupInputData;
 
 public class LoginController {
 
