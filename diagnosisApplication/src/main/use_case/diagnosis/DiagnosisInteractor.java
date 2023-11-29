@@ -8,8 +8,7 @@ public class DiagnosisInteractor implements DiagnosisInputBoundary {
 //    final DiagnosisUserDataAccessObject userDataAccessObject;
     final DiagnosisOutputBoundary diagnosisPresenter;
 
-    public DiagnosisInteractor(
-                               DiagnosisOutputBoundary diagnosisOutputBoundary) {
+    public DiagnosisInteractor(DiagnosisOutputBoundary diagnosisOutputBoundary) {
 //        this.userDataAccessObject = userDataAccessObject;
         this.diagnosisPresenter = diagnosisOutputBoundary;
     }

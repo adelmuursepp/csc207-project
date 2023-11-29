@@ -5,24 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2b592eb7-bb25-426a-9ff2-ae88983a41e8" name="Changes" comment="added unversioned file">
-      <change afterPath="$PROJECT_DIR$/diagnosisApplication/src/main/app/LoginUseCaseFactory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/diagnosisApplication/src/main/interface_adapter/login/LoginController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/diagnosisApplication/src/main/interface_adapter/login/LoginPresenter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/diagnosisApplication/src/main/interface_adapter/login/LoginState.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/diagnosisApplication/src/main/use_case/login/LoginInputBoundary.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/diagnosisApplication/src/main/use_case/login/LoginInputData.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/diagnosisApplication/src/main/use_case/login/LoginInteractor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/diagnosisApplication/src/main/use_case/login/LoginOutputBoundary.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/diagnosisApplication/src/main/use_case/login/LoginOutputData.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/diagnosisApplication/src/main/use_case/login/LoginUserDataAccessInterface.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/diagnosisApplication/src/main/interface_adapter/login/LoginPresenter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/diagnosisApplication/src/main/app/LoginUseCaseFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/diagnosisApplication/src/main/app/LoginUseCaseFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/diagnosisApplication/src/main/app/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/diagnosisApplication/src/main/app/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/diagnosisApplication/src/main/data_access/FileUserDataAccessObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/diagnosisApplication/src/main/data_access/FileUserDataAccessObject.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/diagnosisApplication/src/main/view/DiagnosisView.java" beforeDir="false" afterPath="$PROJECT_DIR$/diagnosisApplication/src/main/view/DiagnosisView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/diagnosisApplication/src/main/view/SignupView.java" beforeDir="false" afterPath="$PROJECT_DIR$/diagnosisApplication/src/main/view/SignupView.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/diagnosisApplication/src/main/app/SymptomCheckerUseCaseFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diagnosisApplication/src/main/use_case/diagnosis/DiagnosisInteractor.java" beforeDir="false" afterPath="$PROJECT_DIR$/diagnosisApplication/src/main/use_case/diagnosis/DiagnosisInteractor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/diagnosisApplication/src/main/view/SymptomCheckerView.java" beforeDir="false" afterPath="$PROJECT_DIR$/diagnosisApplication/src/main/view/SymptomCheckerView.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -64,7 +49,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "kai",
+    "git-widget-placeholder": "SymptomCheckerViewFix",
     "last_opened_file_path": "C:/Users/Danie/IdeaProjects/shidani2/csc207-project/diagnosisApplication/src/interface_adapter/login",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -78,6 +63,9 @@
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Danie\IdeaProjects\shidani2\csc207-project\diagnosisApplication\src\main\use_case\login" />
       <recent name="C:\Users\Danie\IdeaProjects\shidani2\csc207-project\diagnosisApplication\src\interface_adapter\login" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="main.app" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />

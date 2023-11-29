@@ -17,11 +17,13 @@ public class SymptomCheckerView extends JPanel {
 
     private final SymptomCheckerViewModel symptomCheckerViewModel;
     private final JButton submit;
-
     private final JCheckBox symptom1;
+    private final DiagnosisController diagnosisController;
 
-    public SymptomCheckerView(SymptomCheckerViewModel symptomCheckerViewModel, ) {
+    public SymptomCheckerView(SymptomCheckerViewModel symptomCheckerViewModel, DiagnosisController diagnosisController)
+    {
         this.symptomCheckerViewModel = symptomCheckerViewModel;
+        this.diagnosisController = diagnosisController;
 
         JLabel title = new JLabel(SymptomCheckerViewModel.TITLE_LABEL);
 
