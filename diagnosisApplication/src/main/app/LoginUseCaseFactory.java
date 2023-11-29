@@ -1,4 +1,3 @@
-
 package main.app;
 
 import main.entity.CommonUserFactory;
@@ -8,6 +7,7 @@ import main.interface_adapter.logged_in.LoggedInViewModel;
 import main.interface_adapter.login.LoginController;
 import main.interface_adapter.login.LoginPresenter;
 import main.interface_adapter.login.LoginViewModel;
+import main.interface_adapter.symptom_checker.SymptomCheckerViewModel;
 import main.use_case.login.LoginInputBoundary;
 import main.use_case.login.LoginOutputBoundary;
 import main.use_case.login.LoginInteractor;
@@ -24,12 +24,11 @@ public class LoginUseCaseFactory {
     public static LoginView create(
             ViewManagerModel viewManagerModel,
             LoginViewModel loginViewModel,
-      //SymptomCheckerViewModel symptomCheckerViewModel?
-            LoggedInViewModel loggedInViewModel,
+            SymptomCheckerViewModel symptomCheckerViewModel,
             LoginUserDataAccessInterface userDataAccessObject) {
 
         try {
-            LoginController loginController = createLoginUseCase(viewManagerModel, loginViewModel, loggedInViewModel, userDataAccessObject);
+            LoginController loginController = createLoginUseCase(viewManagerModel, loginViewModel, symptomCheckerViewModel, userDataAccessObject);
 
             
             return new LoginView(loginViewModel, loginController);
@@ -43,11 +42,10 @@ public class LoginUseCaseFactory {
     private static LoginController createLoginUseCase(
             ViewManagerModel viewManagerModel,
             LoginViewModel loginViewModel,
-            //SymptomCheckerViewModel symptomCheckerViewModel
-            LoggedInViewModel loggedInViewModel,
+            SymptomCheckerViewModel symptomCheckerViewModel,
             LoginUserDataAccessInterface userDataAccessObject) throws IOException {
 
-        LoginOutputBoundary loginOutputBoundary = new LoginPresenter(viewManagerModel, loggedInViewModel, loginViewModel);
+        LoginOutputBoundary loginOutputBoundary = new LoginPresenter(viewManagerModel, symptomCheckerViewModel, loginViewModel);
 
 
         UserFactory userFactory = new CommonUserFactory();

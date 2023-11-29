@@ -8,8 +8,6 @@ import java.beans.PropertyChangeSupport;
 public class LoginViewModel extends ViewModel {
 
     public final String TITLE_LABEL = "Log In View";
-
-
     public final String USERNAME_LABEL = "Enter username";
     public final String PASSWORD_LABEL = "Enter password";
 
@@ -26,6 +24,10 @@ public class LoginViewModel extends ViewModel {
         this.state = state;
     }
 
+    private final PropertyChangeSupport support = new PropertyChangeSupport(this);
+
+    // This is what the Signup Presenter will call to let the ViewModel know
+    // to alert the View
     public void firePropertyChanged() {
         support.firePropertyChange("state", null, this.state);
     }
