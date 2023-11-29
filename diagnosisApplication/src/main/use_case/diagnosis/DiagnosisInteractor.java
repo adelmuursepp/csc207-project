@@ -21,7 +21,7 @@ public class DiagnosisInteractor implements DiagnosisInputBoundary {
 
         if (! checkedSymptoms.isEmpty()) {
 
-            DiagnosisOutputData diagnosisOutputData = new DiagnosisOutputData(checkedSymptoms);
+            DiagnosisOutputData diagnosisOutputData = new DiagnosisOutputData();
             diagnosisPresenter.present(diagnosisOutputData);
 
             //assuming diagnosis entity function
