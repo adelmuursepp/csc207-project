@@ -4,12 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2b592eb7-bb25-426a-9ff2-ae88983a41e8" name="Changes" comment="added unversioned file">
-      <change afterPath="$PROJECT_DIR$/diagnosisApplication/src/main/app/SymptomCheckerUseCaseFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/diagnosisApplication/src/main/use_case/diagnosis/DiagnosisInteractor.java" beforeDir="false" afterPath="$PROJECT_DIR$/diagnosisApplication/src/main/use_case/diagnosis/DiagnosisInteractor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/diagnosisApplication/src/main/view/SymptomCheckerView.java" beforeDir="false" afterPath="$PROJECT_DIR$/diagnosisApplication/src/main/view/SymptomCheckerView.java" afterDir="false" />
-    </list>
+    <list default="true" id="2b592eb7-bb25-426a-9ff2-ae88983a41e8" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -26,7 +21,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="main" />
+        <entry key="$PROJECT_DIR$" value="merge" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -43,29 +38,26 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "SymptomCheckerViewFix",
-    "last_opened_file_path": "C:/Users/Danie/IdeaProjects/shidani2/csc207-project/diagnosisApplication/src/interface_adapter/login",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;daniel&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Danie/IdeaProjects/shidani2/csc207-project/diagnosisApplication/src/main/use_case/login&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Danie\IdeaProjects\shidani2\csc207-project\diagnosisApplication\src\main\use_case\login" />
       <recent name="C:\Users\Danie\IdeaProjects\shidani2\csc207-project\diagnosisApplication\src\interface_adapter\login" />
-    </key>
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="main.app" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -93,15 +85,17 @@
       <workItem from="1701107366588" duration="195000" />
       <workItem from="1701107602432" duration="586000" />
       <workItem from="1701114794361" duration="1567000" />
-      <workItem from="1701134332219" duration="7040000" />
+      <workItem from="1701134332219" duration="13664000" />
+      <workItem from="1701202053373" duration="227000" />
+      <workItem from="1701224399592" duration="732000" />
+      <workItem from="1701225257240" duration="3637000" />
+      <workItem from="1701229703759" duration="2000" />
+      <workItem from="1701229765070" duration="951000" />
+      <workItem from="1701238797303" duration="10000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
-  </component>
-  <component name="VcsManagerConfiguration">
-    <MESSAGE value="added unversioned file" />
-    <option name="LAST_COMMIT_MESSAGE" value="added unversioned file" />
   </component>
 </project>

@@ -11,10 +11,11 @@ public class SignupController {
         this.userSignupUseCaseInteractor = userSignupUseCaseInteractor;
     }
 
-    public void execute(String username, String password1, String password2) {
+    public void execute(String username, String password1, String password2, String sex, Integer yearOfBirth) {
         SignupInputData signupInputData = new SignupInputData(
-                username, password1, password2);
+                username, password1, password2, sex, yearOfBirth);
 
         userSignupUseCaseInteractor.execute(signupInputData);
     }
+
 }
