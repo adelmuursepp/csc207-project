@@ -1,11 +1,23 @@
 package main.app;
 
-import main.interface_adapter.ViewManagerModel;
+import main.data_access.FileUserDataAccessObject;
+import main.entity.CommonUserFactory;
 import main.interface_adapter.login.LoginViewModel;
+//import main.interface_adapter.logged_in.LoggedInViewModel;
+import main.interface_adapter.signup.SignupViewModel;
+import main.interface_adapter.ViewManagerModel;
+import main.use_case.login.LoginUserDataAccessInterface;
+//import main.view.LoggedInView;
+import main.view.LoginView;
+import main.view.SignupView;
 import main.view.ViewManager;
+import main.interface_adapter.symptom_checker.SymptomCheckerViewModel;
+import main.view.SymptomCheckerView;
+import main.interface_adapter.diagnosis.DiagnosisViewModel;
 
 import javax.swing.*;
 import java.awt.*;
+import java.io.IOException;
 
 // Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
 // then press Enter. You can now see whitespace characters in your code.
@@ -32,5 +44,29 @@ public class Main {
         SymptomCheckerViewModel symptomCheckerViewModel = new SymptomCheckerViewModel();
         DiagnosisViewModel diagnosisViewModel = new DiagnosisViewModel();
 
+        FileUserDataAccessObject userDataAccessObject;
+        try {
+            userDataAccessObject = new FileUserDataAccessObject("./users.csv", new CommonUserFactory());
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+        SignupView signupView = SignupUseCaseFactory.create(viewManagerModel, loginViewModel, signupViewModel,
+                userDataAccessObject);
+        views.add(signupView, signupView.viewName);
+
+        LoginView loginView = LoginUseCaseFactory.create(viewManagerModel, loginViewModel, symptomCheckerViewModel,
+                userDataAccessObject);
+        views.add(loginView, loginView.viewName);
+
+        SymptomCheckerView symptomCheckerView = SymptomCheckerUseCaseFactory.create(symptomCheckerViewModel,
+                diagnosisViewModel);
+        views.add(symptomCheckerView, symptomCheckerView.viewName);
+
+        viewManagerModel.setActiveView(signupView.viewName);
+        viewManagerModel.firePropertyChanged();
+
+        application.pack();
+        application.setVisible(true);
     }
 }

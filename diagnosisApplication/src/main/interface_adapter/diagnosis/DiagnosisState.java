@@ -1,5 +1,6 @@
 package main.interface_adapter.diagnosis;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -11,8 +12,7 @@ public class DiagnosisState {
     private HashMap<String, Object> diagnosis2;
     private HashMap<String, Object> diagnosis3;
 
-    public DiagnosisState() {
-    }
+    public DiagnosisState() {}
 
     public void setDiagnosis1(HashMap<String, Object> diagnosis1) {
         this.diagnosis1 = diagnosis1;

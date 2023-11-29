@@ -65,6 +65,7 @@ public class DiagnosisView extends JPanel {
         if (n > 0) {
             int[] accuracies = new int[n];
             String[] diagnoses = new String[n];
+
             accuracies[0] = (Integer) diagnosisState.getDiagnosis1().get("accuracy");
             diagnoses[0] = (String) diagnosisState.getDiagnosis1().get("name");
             if (n >= 2) {
