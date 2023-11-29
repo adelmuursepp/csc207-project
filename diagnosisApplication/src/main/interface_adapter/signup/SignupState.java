@@ -12,7 +12,7 @@ public class SignupState {
     private String repeatPasswordError = null;
 
     private String sex = "male";
-    private Integer yearOfBirth;
+    private Integer yearOfBirth = 2020;
 
     public SignupState(SignupState copy) {
         username = copy.username;

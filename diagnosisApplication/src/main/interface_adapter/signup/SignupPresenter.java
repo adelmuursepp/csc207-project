@@ -5,6 +5,7 @@ import main.interface_adapter.login.LoginViewModel;
 import main.interface_adapter.ViewManagerModel;
 import main.use_case.signup.SignupOutputBoundary;
 import main.use_case.signup.SignupOutputData;
+import main.interface_adapter.symptom_checker.SymptomCheckerViewModel;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -13,14 +14,16 @@ public class SignupPresenter implements SignupOutputBoundary {
 
     private final SignupViewModel signupViewModel;
     private final LoginViewModel loginViewModel;
+    private final SymptomCheckerViewModel symptomCheckerViewModel;
     private ViewManagerModel viewManagerModel;
 
     public SignupPresenter(ViewManagerModel viewManagerModel,
                            SignupViewModel signupViewModel,
-                           LoginViewModel loginViewModel) {
+                           LoginViewModel loginViewModel, SymptomCheckerViewModel symptomCheckerViewModel) {
         this.viewManagerModel = viewManagerModel;
         this.signupViewModel = signupViewModel;
         this.loginViewModel = loginViewModel;
+        this.symptomCheckerViewModel = symptomCheckerViewModel;
     }
 
     @Override
@@ -34,7 +37,7 @@ public class SignupPresenter implements SignupOutputBoundary {
         this.loginViewModel.setState(loginState);
         loginViewModel.firePropertyChanged();
 
-        viewManagerModel.setActiveView(loginViewModel.getViewName());
+        viewManagerModel.setActiveView(symptomCheckerViewModel.getViewName());
         viewManagerModel.firePropertyChanged();
     }
 
@@ -43,5 +46,10 @@ public class SignupPresenter implements SignupOutputBoundary {
         SignupState signupState = signupViewModel.getState();
         signupState.setUsernameError(error);
         signupViewModel.firePropertyChanged();
+    }
+
+    public void prepareLoginView() {
+        viewManagerModel.setActiveView(loginViewModel.getViewName());
+        viewManagerModel.firePropertyChanged();
     }
 }

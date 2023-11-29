@@ -26,6 +26,8 @@ public class LoginViewModel extends ViewModel {
         this.state = state;
     }
 
+    private final PropertyChangeSupport support = new PropertyChangeSupport(this);
+
     public void firePropertyChanged() {
         support.firePropertyChange("state", null, this.state);
     }
