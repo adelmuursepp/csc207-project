@@ -1,9 +1,11 @@
 package main.app;
 
+import main.data_access.MedicAPIDiagnosisDataAccessObject;
 import main.entity.CommonUserFactory;
 import main.entity.UserFactory;
 import main.interface_adapter.diagnosis.DiagnosisPresenter;
 import main.interface_adapter.symptom_checker.SymptomCheckerViewModel;
+import main.use_case.diagnosis.DiagnosisUserDataAccessInterface;
 import main.view.SymptomCheckerView;
 import main.interface_adapter.diagnosis.DiagnosisController;
 import main.use_case.diagnosis.DiagnosisOutputBoundary;
@@ -39,10 +41,13 @@ public class SymptomCheckerUseCaseFactory {
 
         // Notice how we pass this method's parameters to the Presenter.
         DiagnosisOutputBoundary diagnosisOutputBoundary = new DiagnosisPresenter(diagnosisViewModel);
+        DiagnosisUserDataAccessInterface medicAPIDiagnosisDataAccessInterface = new MedicAPIDiagnosisDataAccessObject();
 
         UserFactory userFactory = new CommonUserFactory();
 
-        DiagnosisInputBoundary diagnosisInteractor = new DiagnosisInteractor(diagnosisOutputBoundary);
+        DiagnosisInputBoundary diagnosisInteractor = new DiagnosisInteractor(diagnosisOutputBoundary,
+                medicAPIDiagnosisDataAccessInterface);
+
 
         return new DiagnosisController(diagnosisInteractor);
     }
