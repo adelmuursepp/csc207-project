@@ -1,5 +1,6 @@
 package main.view;
 
+import main.interface_adapter.login.LoginViewModel;
 import main.interface_adapter.signup.SignupController;
 import main.interface_adapter.signup.SignupState;
 import main.interface_adapter.signup.SignupViewModel;
@@ -29,7 +30,7 @@ public class SignupView extends JPanel implements ActionListener, PropertyChange
     private final SignupController signupController;
 
     private final JButton signUp;
-    private final JButton cancel;
+    private final JButton login;
 
     public SignupView(SignupController controller, SignupViewModel signupViewModel) {
 
@@ -50,17 +51,31 @@ public class SignupView extends JPanel implements ActionListener, PropertyChange
         JPanel buttons = new JPanel();
         signUp = new JButton(SignupViewModel.SIGNUP_BUTTON_LABEL);
         buttons.add(signUp);
-        cancel = new JButton(SignupViewModel.CANCEL_BUTTON_LABEL);
-        buttons.add(cancel);
         JSpinner year = new JSpinner(spinnerModel);
         buttons.add(year);
+        JLabel spinnerLabel = new JLabel();
+        buttons.add(spinnerLabel);
         JComboBox sex = new JComboBox(sexes);
         buttons.add(sex);
+        login = new JButton(LoginViewModel.LOGIN_BUTTON_LABEL);
+        buttons.add(login);
+
+        login.addActionListener(
+                new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        if (e.getSource() == login) {
+                            signupController.switchLogin();
+                        }
+                    }
+                }
+        );
 
         year.addChangeListener(
                 new ChangeListener() {
                     @Override
                     public void stateChanged(ChangeEvent e) {
+                        spinnerLabel.setText("Year of Birth " + ((JSpinner)e.getSource()).getValue() );
                         if (e.getSource() == year) {
                             SignupState currentState = signupViewModel.getState();
                             currentState.setYearOfBirth((Integer) year.getValue());
@@ -85,28 +100,29 @@ public class SignupView extends JPanel implements ActionListener, PropertyChange
 
                 signUp.addActionListener(
                         // This creates an anonymous subclass of ActionListener and instantiates it.
-                        new ActionListener() {
+                        new ActionListener(){
                             public void actionPerformed(ActionEvent evt) {
                                 if (evt.getSource().equals(signUp)) {
                                     SignupState currentState = signupViewModel.getState();
-
-                                    signupController.execute(
-                                            currentState.getUsername(),
-                                            currentState.getPassword(),
-                                            currentState.getRepeatPassword(),
-                                            currentState.getSex(),
-                                            currentState.getYearOfBirth()
-                                    );
+                                    if (usernameInputField.getText().isEmpty() ) {
+                                        JOptionPane.showMessageDialog(null,
+                                                "Please enter a username");
+                                    } else if(passwordInputField.getText().isEmpty()) {
+                                        JOptionPane.showMessageDialog(null,
+                                                "Please enter a password");
+                                    } else {
+                                        signupController.execute(
+                                                currentState.getUsername(),
+                                                currentState.getPassword(),
+                                                currentState.getRepeatPassword(),
+                                                currentState.getSex(),
+                                                currentState.getYearOfBirth()
+                                        );
+                                    }
                                 }
                             }
                         }
                 );
-
-        // TODO Add the body to the actionPerformed method of the action listener below
-        //      for the "clear" button. You'll need to write the controller before
-        //      you can complete this.
-
-        cancel.addActionListener(this);
 
         // This makes a new KeyListener implementing class, instantiates it, and
         // makes it listen to keystrokes in the usernameInputField.
@@ -117,7 +133,7 @@ public class SignupView extends JPanel implements ActionListener, PropertyChange
                     @Override
                     public void keyTyped(KeyEvent e) {
                         SignupState currentState = signupViewModel.getState();
-                        String text = usernameInputField.getText() + e.getKeyChar();
+                        currentState.setUsername(usernameInputField.getText() + e.getKeyChar());
                         signupViewModel.setState(currentState);
                     }
 
