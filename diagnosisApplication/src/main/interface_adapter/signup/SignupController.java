@@ -18,4 +18,8 @@ public class SignupController {
         userSignupUseCaseInteractor.execute(signupInputData);
     }
 
+    public void switchLogin() {
+        userSignupUseCaseInteractor.switchLogin();
+    }
+
 }
