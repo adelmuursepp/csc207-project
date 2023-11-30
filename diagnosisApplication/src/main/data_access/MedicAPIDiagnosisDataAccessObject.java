@@ -52,7 +52,7 @@ public class MedicAPIDiagnosisDataAccessObject implements DiagnosisUserDataAcces
 
     //}
 
-    public List<HealthDiagnosis> getDiagnoses(List<Integer> symptomsList) throws IOException, InterruptedException {
+    public List<HealthDiagnosis> getDiagnoses(List<Integer> symptomsList) throws RuntimeException {
         // TODO: Add gender and year
         // Create a string of symptoms list to pass to URI
         StringBuilder symptomString = new StringBuilder("[");
@@ -110,7 +110,9 @@ public class MedicAPIDiagnosisDataAccessObject implements DiagnosisUserDataAcces
             } else {
                 throw new RuntimeException("Failed to process the request. Server responded with: " + response.body());
             }
-        } catch (Exception e) {
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
     }
