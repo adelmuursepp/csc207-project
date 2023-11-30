@@ -2,6 +2,7 @@ package main.interface_adapter.diagnosis;
 
 import main.use_case.diagnosis.DiagnosisInputBoundary;
 import main.use_case.diagnosis.DiagnosisInputData;
+import main.use_case.diagnosis.DiagnosisUserDataAccessInterface;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,8 +12,9 @@ public class DiagnosisController {
         this.diagnosisUseCaseInteractor = diagnosisUseCaseInteractor;
     }
 
-    public List<Integer> execute(ArrayList<Integer> checkedSymptoms) {
+    public void execute(ArrayList<Integer> checkedSymptoms) {
+        System.out.println("Controller works");
         DiagnosisInputData diagnosisInputData = new DiagnosisInputData(checkedSymptoms);
-        return diagnosisUseCaseInteractor.execute(diagnosisInputData);
+        diagnosisUseCaseInteractor.execute(diagnosisInputData);
     }
 }
