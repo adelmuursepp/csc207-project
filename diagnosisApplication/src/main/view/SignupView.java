@@ -25,7 +25,7 @@ public class SignupView extends JPanel implements ActionListener, PropertyChange
     private final JPasswordField repeatPasswordInputField = new JPasswordField(15);
     SpinnerModel spinnerModel = new SpinnerNumberModel(2020, 1900, 2020, 1);
     private final JSpinner yearSpinner = new JSpinner(spinnerModel);
-    String[] sexes = {"male", "female"};
+    String[] sexes = {"Male", "Female"};
     private final JComboBox sexComboBox = new JComboBox(sexes);
     private final SignupController signupController;
 
@@ -75,7 +75,7 @@ public class SignupView extends JPanel implements ActionListener, PropertyChange
                 new ChangeListener() {
                     @Override
                     public void stateChanged(ChangeEvent e) {
-                        spinnerLabel.setText("Year of Birth " + ((JSpinner)e.getSource()).getValue() );
+                        spinnerLabel.setText("Year of Birth: " + ((JSpinner)e.getSource()).getValue() );
                         if (e.getSource() == year) {
                             SignupState currentState = signupViewModel.getState();
                             currentState.setYearOfBirth((Integer) year.getValue());
