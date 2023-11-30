@@ -16,19 +16,23 @@ public class DiagnosisInteractor implements DiagnosisInputBoundary {
     //assuming existance of diagnosis data access object
 //    final DiagnosisUserDataAccessObject userDataAccessObject;
     final DiagnosisOutputBoundary diagnosisPresenter;
-    private final MedicAPIDiagnosisDataAccessObject medicAPIDiagnosisDataAccessObject;
+    private final DiagnosisUserDataAccessInterface medicAPIDiagnosisDataAccessObject;
 
     public DiagnosisInteractor(
-            DiagnosisOutputBoundary diagnosisOutputBoundary) {
+            DiagnosisOutputBoundary diagnosisOutputBoundary, DiagnosisUserDataAccessInterface medicAPIDiagnosisDataAccessObject) {
 //        this.userDataAccessObject = userDataAccessObject;
         this.medicAPIDiagnosisDataAccessObject = medicAPIDiagnosisDataAccessObject;
         this.diagnosisPresenter = diagnosisOutputBoundary;
     }
 
-
-    public void execute(DiagnosisInputData diagnosisInputData) throws IOException, InterruptedException {
+    public void execute(DiagnosisInputData diagnosisInputData) {
         List<Integer> checkedSymptoms = diagnosisInputData.getCheckedSymptoms();
-        List<HealthDiagnosis> healthDiagnosisList = this.medicAPIDiagnosisDataAccessObject.getDiagnoses(checkedSymptoms);
+        List<HealthDiagnosis> healthDiagnosisList;
+        try {
+            healthDiagnosisList = this.medicAPIDiagnosisDataAccessObject.getDiagnoses(checkedSymptoms);
+        } catch (Exception e) {
+            throw new RuntimeException();
+        }
 
         if (healthDiagnosisList.size() == 0) {
             DiagnosisOutputData diagnosisOutputData = new DiagnosisOutputData();
@@ -170,4 +174,5 @@ public class DiagnosisInteractor implements DiagnosisInputBoundary {
         }
 
     }
+
 }

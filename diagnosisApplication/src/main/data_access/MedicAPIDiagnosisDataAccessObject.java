@@ -5,6 +5,7 @@ import main.entity.DiagnosedSpecialization;
 import main.entity.HealthDiagnosis;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import main.use_case.diagnosis.DiagnosisUserDataAccessInterface;
 
 import java.io.IOException;
 import java.net.URI;
@@ -16,20 +17,20 @@ import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MedicAPIDiagnosisDataAccessObject {
+public class MedicAPIDiagnosisDataAccessObject implements DiagnosisUserDataAccessInterface {
     private static final HttpClient httpClient = HttpClient.newBuilder()
             .version(HttpClient.Version.HTTP_1_1)
             .connectTimeout(Duration.ofSeconds(10))
             .build();
 
-    public static void main(String[] args) throws IOException, InterruptedException {
-        List<Integer> symptomsList = new ArrayList<>();
-
-        // Add integers to the list
-        symptomsList.add(5);
-        symptomsList.add(10);
-
-        getDiagnoses(symptomsList);
+    //public static void main(String[] args) throws IOException, InterruptedException {
+    //    List<Integer> symptomsList = new ArrayList<>();
+    //
+    //    // Add integers to the list
+    //    symptomsList.add(5);
+    //    symptomsList.add(10);
+    //
+    //   getDiagnoses(symptomsList);
 //        String token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImFkZWwubXV1cnNlcHBAZ21haWwuY29tIiwicm9sZSI6IlVzZXIiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9zaWQiOiIxMDM1OCIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvdmVyc2lvbiI6IjEwOSIsImh0dHA6Ly9leGFtcGxlLm9yZy9jbGFpbXMvbGltaXQiOiIxMDAiLCJodHRwOi8vZXhhbXBsZS5vcmcvY2xhaW1zL21lbWJlcnNoaXAiOiJCYXNpYyIsImh0dHA6Ly9leGFtcGxlLm9yZy9jbGFpbXMvbGFuZ3VhZ2UiOiJlbi1nYiIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvZXhwaXJhdGlvbiI6IjIwOTktMTItMzEiLCJodHRwOi8vZXhhbXBsZS5vcmcvY2xhaW1zL21lbWJlcnNoaXBzdGFydCI6IjIwMjMtMTAtMDIiLCJpc3MiOiJodHRwczovL2F1dGhzZXJ2aWNlLnByaWFpZC5jaCIsImF1ZCI6Imh0dHBzOi8vaGVhbHRoc2VydmljZS5wcmlhaWQuY2giLCJleHAiOjE2OTg2ODkzMTQsIm5iZiI6MTY5ODY4MjExNH0.LNsuW1zXz522pHUn_6N9vd9EwmtXHzbhCe-P_TLLsPU";
 //        HttpRequest request = HttpRequest.newBuilder()
 //                .GET()
@@ -49,9 +50,9 @@ public class MedicAPIDiagnosisDataAccessObject {
 //        // print response body
 //        System.out.println(response.body());
 
-    }
+    //}
 
-    public static List<HealthDiagnosis> getDiagnoses(List<Integer> symptomsList) throws RuntimeException {
+    public List<HealthDiagnosis> getDiagnoses(List<Integer> symptomsList) throws RuntimeException {
         // TODO: Add gender and year
         // Create a string of symptoms list to pass to URI
         StringBuilder symptomString = new StringBuilder("[");
@@ -109,7 +110,9 @@ public class MedicAPIDiagnosisDataAccessObject {
             } else {
                 throw new RuntimeException("Failed to process the request. Server responded with: " + response.body());
             }
-        } catch (Exception e) {
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
     }

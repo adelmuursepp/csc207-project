@@ -32,10 +32,5 @@ public class DiagnosisPresenter implements DiagnosisOutputBoundary {
        this.viewManagerModel.firePropertyChanged();
     }
 
-    @Override
-    public void present(DiagnosisOutputData diagnosisOutputData) {
-
-    }
-
     // possibly add a view for if all three diagnoses are null; ex. "No diagnosis match; refer to doctor" or something
 }
