@@ -57,6 +57,7 @@ public class Main {
         views.add(signupView, signupView.viewName);
 
         LoginView loginView = LoginUseCaseFactory.create(viewManagerModel, loginViewModel, symptomCheckerViewModel,
+                signupViewModel,
                 userDataAccessObject);
         views.add(loginView, loginView.viewName);
 
