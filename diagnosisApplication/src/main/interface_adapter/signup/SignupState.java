@@ -8,6 +8,9 @@ public class SignupState {
     private String repeatPassword = "";
     private String repeatPasswordError = null;
 
+    private String sex = "male";
+    private Integer yearOfBirth;
+
     public SignupState(SignupState copy) {
         username = copy.username;
         usernameError = copy.usernameError;
@@ -68,6 +71,11 @@ public class SignupState {
     public void setRepeatPasswordError(String repeatPasswordError) {
         this.repeatPasswordError = repeatPasswordError;
     }
+    public void setSex(String sex) { this.sex = sex; }
+    public String getSex() { return sex; }
+    public void setYearOfBirth(Integer yearOfBirth) {this.yearOfBirth = yearOfBirth; }
+    public Integer getYearOfBirth() { return yearOfBirth; }
+
 
     @Override
     public String toString() {

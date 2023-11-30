@@ -8,5 +8,9 @@ public interface User {
 
     String getPassword();
 
+    String getSex();
+
+    Integer getYearOfBirth();
+
     LocalDateTime getCreationTime();
 }

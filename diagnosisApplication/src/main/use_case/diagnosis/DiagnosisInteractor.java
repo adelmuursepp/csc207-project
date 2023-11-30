@@ -19,16 +19,14 @@ public class DiagnosisInteractor implements DiagnosisInputBoundary {
     private final MedicAPIDiagnosisDataAccessObject medicAPIDiagnosisDataAccessObject;
 
     public DiagnosisInteractor(
-                               DiagnosisOutputBoundary diagnosisOutputBoundary, MedicAPIDiagnosisDataAccessObject medicAPIDiagnosisDataAccessObject) {
+            DiagnosisOutputBoundary diagnosisOutputBoundary) {
 //        this.userDataAccessObject = userDataAccessObject;
         this.medicAPIDiagnosisDataAccessObject = medicAPIDiagnosisDataAccessObject;
         this.diagnosisPresenter = diagnosisOutputBoundary;
     }
 
 
-    this.medicAPIDiagnosisDataAccessObject.getDiagnoses(List<Integer> symptomsList)
-
-    public void execute((DiagnosisInputData diagnosisInputData) throws IOException, InterruptedException {
+    public void execute(DiagnosisInputData diagnosisInputData) throws IOException, InterruptedException {
         List<Integer> checkedSymptoms = diagnosisInputData.getCheckedSymptoms();
         List<HealthDiagnosis> healthDiagnosisList = this.medicAPIDiagnosisDataAccessObject.getDiagnoses(checkedSymptoms);
 
@@ -57,7 +55,7 @@ public class DiagnosisInteractor implements DiagnosisInputBoundary {
 
             diagnosis1Hash.put(1, issue1Hash);
 
-            DiagnosisOutputData diagnosisOutputData = new DiagnosisOutputData(diagnosis1Hash);
+            DiagnosisOutputData diagnosisOutputData = new DiagnosisOutputData(issue1Hash);
             diagnosisPresenter.prepareDiagnosisView(diagnosisOutputData);
         }
         else if (healthDiagnosisList.size() == 2) {
@@ -102,7 +100,7 @@ public class DiagnosisInteractor implements DiagnosisInputBoundary {
 
             diagnosis1Hash.put(2, issue2Hash);
 
-            DiagnosisOutputData diagnosisOutputData = new DiagnosisOutputData(diagnosis1Hash, diagnosis2Hash);
+            DiagnosisOutputData diagnosisOutputData = new DiagnosisOutputData(issue1Hash, issue2Hash);
             diagnosisPresenter.prepareDiagnosisView(diagnosisOutputData);
         } else if (healthDiagnosisList.size() == 3) {
             HealthDiagnosis diagnosis1 = healthDiagnosisList.get(0);
@@ -167,37 +165,9 @@ public class DiagnosisInteractor implements DiagnosisInputBoundary {
 
             diagnosis1Hash.put(3, issue2Hash);
 
-            DiagnosisOutputData diagnosisOutputData = new DiagnosisOutputData(diagnosis1Hash, diagnosis2Hash, diagnosis3Hash);
+            DiagnosisOutputData diagnosisOutputData = new DiagnosisOutputData(issue1Hash, issue2Hash, issue3Hash);
             diagnosisPresenter.prepareDiagnosisView(diagnosisOutputData);
         }
-
-    }
-
-    @Override
-    public List<Integer> execute(DiagnosisInputData diagnosisInputData) {
-
-        List<Integer> checkedSymptoms = diagnosisInputData.getCheckedSymptoms();
-
-        if (! checkedSymptoms.isEmpty()) {
-
-            DiagnosisOutputData diagnosisOutputData = new DiagnosisOutputData(checkedSymptoms);
-            diagnosisPresenter.present(diagnosisOutputData);
-
-            //assuming diagnosis entity function
-            //need to figure out array list of ids
-
-
-
-            //draft code
-            //for (id: userDataAccessObject.getIds()); {
-            //    diagnoses = diagnosis.getDiagnosis();
-        } else {
-
-            System.out.println("Please select symptoms");
-
-        }
-
-        return checkedSymptoms;
 
     }
 }

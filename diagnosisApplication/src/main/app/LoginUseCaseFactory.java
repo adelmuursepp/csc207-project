@@ -3,7 +3,7 @@ package main.app;
 import main.entity.CommonUserFactory;
 import main.entity.UserFactory;
 import main.interface_adapter.ViewManagerModel;
-import main.interface_adapter.symptom_checker.SymptomCheckerViewModel;
+import main.interface_adapter.logged_in.LoggedInViewModel;
 import main.interface_adapter.login.LoginController;
 import main.interface_adapter.login.LoginPresenter;
 import main.interface_adapter.login.LoginViewModel;
@@ -19,7 +19,6 @@ import java.io.IOException;
 
 public class LoginUseCaseFactory {
 
-    /** Prevent instantiation. */
     private LoginUseCaseFactory() {}
 
     public static LoginView create(
@@ -30,6 +29,8 @@ public class LoginUseCaseFactory {
 
         try {
             LoginController loginController = createLoginUseCase(viewManagerModel, loginViewModel, symptomCheckerViewModel, userDataAccessObject);
+
+            
             return new LoginView(loginViewModel, loginController);
         } catch (IOException e) {
             JOptionPane.showMessageDialog(null, "Could not open user data file.");
@@ -44,8 +45,8 @@ public class LoginUseCaseFactory {
             SymptomCheckerViewModel symptomCheckerViewModel,
             LoginUserDataAccessInterface userDataAccessObject) throws IOException {
 
-        // Notice how we pass this method's parameters to the Presenter.
         LoginOutputBoundary loginOutputBoundary = new LoginPresenter(viewManagerModel, symptomCheckerViewModel, loginViewModel);
+
 
         UserFactory userFactory = new CommonUserFactory();
 
