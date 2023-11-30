@@ -2,18 +2,8 @@ package main.app;
 
 import main.entity.CommonUserFactory;
 import main.entity.UserFactory;
-import main.interface_adapter.ViewManagerModel;
 import main.interface_adapter.diagnosis.DiagnosisPresenter;
-import main.interface_adapter.login.LoginViewModel;
-import main.interface_adapter.signup.SignupController;
-import main.interface_adapter.signup.SignupPresenter;
-import main.interface_adapter.signup.SignupViewModel;
 import main.interface_adapter.symptom_checker.SymptomCheckerViewModel;
-import main.use_case.signup.SignupInputBoundary;
-import main.use_case.signup.SignupInteractor;
-import main.use_case.signup.SignupOutputBoundary;
-import main.use_case.signup.SignupUserDataAccessInterface;
-import main.view.SignupView;
 import main.view.SymptomCheckerView;
 import main.interface_adapter.diagnosis.DiagnosisController;
 import main.use_case.diagnosis.DiagnosisOutputBoundary;

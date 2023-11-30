@@ -1,16 +1,11 @@
 package main.interface_adapter.login;
 
 import main.interface_adapter.login.LoginViewModel;
-import main.interface_adapter.logged_in.LoggedInState;
-import main.interface_adapter.logged_in.LoggedInViewModel;
 import main.interface_adapter.ViewManagerModel;
-import main.interface_adapter.signup.SignupState;
 import main.interface_adapter.symptom_checker.SymptomCheckerState;
 import main.interface_adapter.symptom_checker.SymptomCheckerViewModel;
 import main.use_case.login.LoginOutputBoundary;
 import main.use_case.login.LoginOutputData;
-import main.use_case.signup.SignupOutputBoundary;
-import main.use_case.signup.SignupOutputData;
 
 
 public class LoginPresenter implements LoginOutputBoundary {
