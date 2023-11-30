@@ -51,10 +51,12 @@ public class SignupView extends JPanel implements ActionListener, PropertyChange
         JPanel buttons = new JPanel();
         signUp = new JButton(SignupViewModel.SIGNUP_BUTTON_LABEL);
         buttons.add(signUp);
+        JLabel spinnerLabel = new JLabel("Year of birth: ");
+        buttons.add(spinnerLabel);
         JSpinner year = new JSpinner(spinnerModel);
         buttons.add(year);
-        JLabel spinnerLabel = new JLabel();
-        buttons.add(spinnerLabel);
+        JLabel sexLabel = new JLabel("Sex: ");
+        buttons.add(sexLabel);
         JComboBox sex = new JComboBox(sexes);
         buttons.add(sex);
         login = new JButton(LoginViewModel.LOGIN_BUTTON_LABEL);
@@ -75,7 +77,8 @@ public class SignupView extends JPanel implements ActionListener, PropertyChange
                 new ChangeListener() {
                     @Override
                     public void stateChanged(ChangeEvent e) {
-                        spinnerLabel.setText("Year of Birth: " + ((JSpinner)e.getSource()).getValue() );
+                        //commented out the part of the code that made the "Year of Birth" label dynamic
+                        //spinnerLabel.setText("Year of Birth: " + ((JSpinner)e.getSource()).getValue() );
                         if (e.getSource() == year) {
                             SignupState currentState = signupViewModel.getState();
                             currentState.setYearOfBirth((Integer) year.getValue());
