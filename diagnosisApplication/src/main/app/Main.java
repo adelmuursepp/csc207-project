@@ -8,11 +8,8 @@ import main.interface_adapter.signup.SignupViewModel;
 import main.interface_adapter.ViewManagerModel;
 import main.use_case.login.LoginUserDataAccessInterface;
 //import main.view.LoggedInView;
-import main.view.LoginView;
-import main.view.SignupView;
-import main.view.ViewManager;
+import main.view.*;
 import main.interface_adapter.symptom_checker.SymptomCheckerViewModel;
-import main.view.SymptomCheckerView;
 import main.interface_adapter.diagnosis.DiagnosisViewModel;
 
 import javax.swing.*;
@@ -64,6 +61,10 @@ public class Main {
         SymptomCheckerView symptomCheckerView = SymptomCheckerUseCaseFactory.create(symptomCheckerViewModel,
                 diagnosisViewModel, viewManagerModel);
         views.add(symptomCheckerView, symptomCheckerView.viewName);
+
+        DiagnosisView diagnosisView = DiagnosisUseCaseFactory.create(diagnosisViewModel, symptomCheckerViewModel,
+                viewManagerModel);
+        views.add(diagnosisView, diagnosisView.viewName);
 
         viewManagerModel.setActiveView(signupView.viewName);
         viewManagerModel.firePropertyChanged();
