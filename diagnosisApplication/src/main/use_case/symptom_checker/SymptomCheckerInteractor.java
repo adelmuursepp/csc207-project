@@ -9,14 +9,4 @@ public class SymptomCheckerInteractor implements SymptomCheckerInputBoundary {
     public SymptomCheckerInteractor(SymptomCheckerDataAccessInterface symptomCheckerDataAccessInterface) {
         this.symptomCheckerDataAccessObject = symptomCheckerDataAccessInterface;
     }
-
-//    public void toggle(String symptom) {
-//
-//        symptomCheckerDataAccessObject.toggle(getID(symptom));
-//    }
-//
-//    public void getID(String symptom) {
-//        return symptomCheckerDataAccessObject.getID(symptom);
-//    }
-
 }
