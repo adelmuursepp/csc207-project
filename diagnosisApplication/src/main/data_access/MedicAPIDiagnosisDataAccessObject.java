@@ -89,19 +89,62 @@ public class MedicAPIDiagnosisDataAccessObject implements DiagnosisUserDataAcces
                 List<HealthDiagnosis> healthDiagnosisList = new ArrayList<>();
 
                 for (JsonNode diagnosisNode : jsonNode) {
+                    System.out.println("Following is one jsonNode");
+                    System.out.println(diagnosisNode);
                     JsonNode issueNode = diagnosisNode.get("Issue");
+//                    JsonNode specializationNode = diagnosisNode.get("Specialisation");
+//                    System.out.println(specializationNode);
+                    // diganosed issue is a problem
+                    System.out.println(issueNode.toString());
+
+                    String icd = issueNode.get("Icd").toString();
+                    System.out.println("Got icd string");
+                    System.out.println(icd);
+                    String icdName = issueNode.get("IcdName").toString();
+                    System.out.println("Got icdname string");
+                    String profName = issueNode.get("ProfName").toString();
+                    System.out.println("Got profname string");
+                    float accuracy = Float.parseFloat(issueNode.get("Accuracy").toString());
+                    System.out.println("Got accuracy float");
+                    float ranking = Float.parseFloat(issueNode.get("Ranking").toString());
+                    System.out.println("Got ranking float");
+                    int id = Integer.parseInt(issueNode.get("ID").toString());
+                    System.out.println("Got id int");
+                    String name = issueNode.get("Name").toString();
+                    System.out.println("Got name string");
+                    DiagnosedIssue diagnosedIssue = new DiagnosedIssue(icd, icdName, profName, accuracy, ranking, id, name);
+
+
+//                            DiagnosedIssue diagnosedIssue = objectMapper.readValue(issueNode.toString(), DiagnosedIssue.class);
+//                    List<DiagnosedSpecialization> specializationList = objectMapper.readValue(specializationNode.toString(),
+//                            objectMapper.getTypeFactory().constructCollectionType(List.class, DiagnosedSpecialization.class));
+//                    String specializationNode = objectMapper.readTree(jsonString).at("/Specialisation").toString();
+                    System.out.println(diagnosedIssue);
+                    System.out.println("After creating diagnosedIssue");
+                    // Deserialize the Specialisation array into a List<DiagnosedSpecialization>
+//                    List<DiagnosedSpecialization> specializationList = objectMapper.readValue(specializationNode.toString(),
+//                            objectMapper.getTypeFactory().constructCollectionType(List.class, DiagnosedSpecialization.class));
+                    List<DiagnosedSpecialization> specializationList = new ArrayList<>();
+
                     JsonNode specializationNode = diagnosisNode.get("Specialisation");
-
-                    DiagnosedIssue diagnosedIssue = objectMapper.readValue(issueNode.toString(), DiagnosedIssue.class);
-                    List<DiagnosedSpecialization> specializationList = objectMapper.readValue(specializationNode.toString(),
-                            objectMapper.getTypeFactory().constructCollectionType(List.class, DiagnosedSpecialization.class));
-
+                    for (JsonNode specialization : specializationNode) {
+                        int specializationId = Integer.parseInt(specialization.get("ID").toString());
+                        System.out.println("Got id int");
+                        String specializationName = specialization.get("Name").toString();
+                        System.out.println("Got name string");
+                        int specialistId = Integer.parseInt(specialization.get("ID").toString());
+                        System.out.println("Got id int");
+                        DiagnosedSpecialization newSpecialization = new DiagnosedSpecialization(specializationId, specializationName, specialistId);
+                        specializationList.add(newSpecialization);
+                    }
+                    System.out.println("Before creating a health diagnosis");
                     HealthDiagnosis healthDiagnosis = new HealthDiagnosis();
                     healthDiagnosis.setIssue(diagnosedIssue);
                     healthDiagnosis.setSpecializationList(specializationList);
-
+                    System.out.println("After creating a health diagnosis");
                     healthDiagnosisList.add(healthDiagnosis);
                 }
+                System.out.println(healthDiagnosisList);
 
                 // Now you have a list of HealthDiagnosis entities
                 for (HealthDiagnosis diagnosis : healthDiagnosisList) {
@@ -121,7 +164,7 @@ public class MedicAPIDiagnosisDataAccessObject implements DiagnosisUserDataAcces
 
     private static String getAPIToken() {
         // For now, hardcoded but TODO: implement the auth method
-        return "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6InRoZWluZmVybmFsa25pZ2h0QGhvdG1haWwuY29tIiwicm9sZSI6IlVzZXIiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9zaWQiOiIxMDY1NiIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvdmVyc2lvbiI6IjEwOSIsImh0dHA6Ly9leGFtcGxlLm9yZy9jbGFpbXMvbGltaXQiOiIxMDAiLCJodHRwOi8vZXhhbXBsZS5vcmcvY2xhaW1zL21lbWJlcnNoaXAiOiJCYXNpYyIsImh0dHA6Ly9leGFtcGxlLm9yZy9jbGFpbXMvbGFuZ3VhZ2UiOiJlbi1nYiIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvZXhwaXJhdGlvbiI6IjIwOTktMTItMzEiLCJodHRwOi8vZXhhbXBsZS5vcmcvY2xhaW1zL21lbWJlcnNoaXBzdGFydCI6IjIwMjMtMTEtMzAiLCJpc3MiOiJodHRwczovL2F1dGhzZXJ2aWNlLnByaWFpZC5jaCIsImF1ZCI6Imh0dHBzOi8vaGVhbHRoc2VydmljZS5wcmlhaWQuY2giLCJleHAiOjE3MDEzMjcxMDksIm5iZiI6MTcwMTMxOTkwOX0.gWvPW-Z5BtL9Klx4ZVBEzZj6I-rptS0-qh8ewIcT6B8";
+        return "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6InRoZWluZmVybmFsa25pZ2h0QGhvdG1haWwuY29tIiwicm9sZSI6IlVzZXIiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9zaWQiOiIxMDY1NiIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvdmVyc2lvbiI6IjEwOSIsImh0dHA6Ly9leGFtcGxlLm9yZy9jbGFpbXMvbGltaXQiOiIxMDAiLCJodHRwOi8vZXhhbXBsZS5vcmcvY2xhaW1zL21lbWJlcnNoaXAiOiJCYXNpYyIsImh0dHA6Ly9leGFtcGxlLm9yZy9jbGFpbXMvbGFuZ3VhZ2UiOiJlbi1nYiIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvZXhwaXJhdGlvbiI6IjIwOTktMTItMzEiLCJodHRwOi8vZXhhbXBsZS5vcmcvY2xhaW1zL21lbWJlcnNoaXBzdGFydCI6IjIwMjMtMTEtMzAiLCJpc3MiOiJodHRwczovL2F1dGhzZXJ2aWNlLnByaWFpZC5jaCIsImF1ZCI6Imh0dHBzOi8vaGVhbHRoc2VydmljZS5wcmlhaWQuY2giLCJleHAiOjE3MDEzNzg0NjcsIm5iZiI6MTcwMTM3MTI2N30.wIalVFeZRioCTw7ueJGi9UCrSXyguPu-1_mRC9D8H3A";
     }
 
 }

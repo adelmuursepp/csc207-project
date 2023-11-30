@@ -10,6 +10,7 @@ public class DiagnosedIssue {
     private String name;
 
     public DiagnosedIssue(String icd, String icdName, String profName, float accuracy, float ranking, int id, String name) {
+        System.out.println("Inside issue constructor");
         this.icd = icd;
         this.icdName = icdName;
         this.profName = profName;
