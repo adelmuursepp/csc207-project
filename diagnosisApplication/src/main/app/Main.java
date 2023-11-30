@@ -62,7 +62,7 @@ public class Main {
         views.add(loginView, loginView.viewName);
 
         SymptomCheckerView symptomCheckerView = SymptomCheckerUseCaseFactory.create(symptomCheckerViewModel,
-                diagnosisViewModel);
+                diagnosisViewModel, viewManagerModel);
         views.add(symptomCheckerView, symptomCheckerView.viewName);
 
         viewManagerModel.setActiveView(signupView.viewName);
