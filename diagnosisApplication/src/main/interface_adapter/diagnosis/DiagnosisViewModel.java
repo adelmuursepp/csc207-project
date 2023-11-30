@@ -27,6 +27,7 @@ public class DiagnosisViewModel extends ViewModel{
     }
 
     private final PropertyChangeSupport support = new PropertyChangeSupport(this);
+
     @Override
     public void firePropertyChanged() {
         support.firePropertyChange("state", null, this.state);
