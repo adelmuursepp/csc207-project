@@ -9,11 +9,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-//don't know entity name yet
-
 
 public class DiagnosisInteractor implements DiagnosisInputBoundary {
-    //assuming existance of diagnosis data access object
 //    final DiagnosisUserDataAccessObject userDataAccessObject;
     final DiagnosisOutputBoundary diagnosisPresenter;
     private final DiagnosisUserDataAccessInterface medicAPIDiagnosisDataAccessObject;

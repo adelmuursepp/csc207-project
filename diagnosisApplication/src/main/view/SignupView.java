@@ -18,7 +18,6 @@ import java.beans.PropertyChangeListener;
 
 public class SignupView extends JPanel implements ActionListener, PropertyChangeListener {
     public final String viewName = "sign up";
-
     private final SignupViewModel signupViewModel;
     private final JTextField usernameInputField = new JTextField(15);
     private final JPasswordField passwordInputField = new JPasswordField(15);
@@ -42,6 +41,7 @@ public class SignupView extends JPanel implements ActionListener, PropertyChange
         this.signupViewModel = signupViewModel;
         signupViewModel.addPropertyChangeListener(this);
 
+        //title and label initializations
         JLabel title = new JLabel(SignupViewModel.TITLE_LABEL);
         title.setAlignmentX(Component.CENTER_ALIGNMENT);
 
@@ -53,54 +53,79 @@ public class SignupView extends JPanel implements ActionListener, PropertyChange
                 new JLabel(SignupViewModel.REPEAT_PASSWORD_LABEL), repeatPasswordInputField);
 
 
-        //added initializations
+        //button initializations
         signUp = new JButton(SignupViewModel.SIGNUP_BUTTON_LABEL);
         login = new JButton(LoginViewModel.LOGIN_BUTTON_LABEL);
 
+        //year spinner initialization
         SpinnerModel spinnerModel = new SpinnerNumberModel(2020, 1900, 2020, 1);
         year = new JSpinner(spinnerModel);
 
+        //sex combo initialization
         String[] sexes = {"Male", "Female"};
         sex = new JComboBox<>(sexes);
 
-        //panel initialization 1 row, 2 columns, 10px gaps
-        GridLayout buttons = new GridLayout(1, 2, 10, 10);
-
         //set preferred sizes for components
-        usernameInputField.setPreferredSize(new Dimension(150, 20));
+        /*usernameInputField.setPreferredSize(new Dimension(150, 20));
         passwordInputField.setPreferredSize(new Dimension(150, 20));
         repeatPasswordInputField.setPreferredSize(new Dimension(150, 20));
-        //`year.setPreferredSize(new Dimension(80, 10));
-        sex.setPreferredSize(new Dimension(80, 10));
+        year.setPreferredSize(new Dimension(80, 10));
+        sex.setPreferredSize(new Dimension(80, 10));*/
 
-
-        //main panel layout
-        this.setLayout(buttons);
+        //main panel layout initialization
+        GridLayout layout = new GridLayout(3, 0, 10, 10);
+        this.setLayout(layout);
+        this.add(title);
 
         //left panel for username and password
-        JPanel leftPanel = new JPanel();
+        /*JPanel leftPanel = new JPanel();
         leftPanel.setLayout(new BoxLayout(leftPanel, BoxLayout.Y_AXIS));
         leftPanel.add(usernameInfo);
         leftPanel.add(passwordInfo);
         leftPanel.add(repeatPasswordInfo);
-        leftPanel.add(signUp);
+        leftPanel.add(signUp);*/
+        JPanel topPanel = new JPanel();
+        topPanel.setLayout(new BoxLayout(topPanel, BoxLayout.Y_AXIS));
+        topPanel.add(usernameInfo);
+        topPanel.add(passwordInfo);
+        topPanel.add(repeatPasswordInfo);
+        topPanel.add(signUp);
+
 
         //right panel for year, sex, and login
-        JPanel rightPanel = new JPanel();
+        /*JPanel rightPanel = new JPanel();
         rightPanel.setLayout(new BoxLayout(rightPanel, BoxLayout.Y_AXIS));
         rightPanel.add(new JLabel("Year of birth: "));
         rightPanel.add(year);
         rightPanel.add(new JLabel("Sex: "));
         rightPanel.add(sex);
-        rightPanel.add(login);
+        rightPanel.add(login);*/
+        JPanel midPanel = new JPanel();
+        midPanel.setLayout(new BoxLayout(midPanel, BoxLayout.Y_AXIS));
+        midPanel.add(new JLabel("Year of birth: "));
+        midPanel.add(year);
+        midPanel.add(new JLabel("Sex: "));
+        midPanel.add(sex);
+        midPanel.add(login);
+
+        JPanel bottomPanel = new JPanel();
+        bottomPanel.setLayout(new BoxLayout(bottomPanel, BoxLayout.Y_AXIS));
+        bottomPanel.add(new JLabel("Year of birth: "));
+        bottomPanel.add(year);
+        bottomPanel.add(new JLabel("Sex: "));
+        bottomPanel.add(sex);
+        bottomPanel.add(login);
 
         //add subpanels to main panel
-        this.add(leftPanel);
-        this.add(rightPanel);
+        /*this.add(leftPanel);
+        this.add(rightPanel);*/
+        this.add(topPanel);
+        this.add(midPanel);
+        this.add(bottomPanel);
 
         //set minimum and preferred size for the main panel
-        this.setMinimumSize(new Dimension(100, 100));
-        this.setPreferredSize(new Dimension(150, 150));
+        /*this.setMinimumSize(new Dimension(100, 100));
+        this.setPreferredSize(new Dimension(150, 150));*/
 
         /*
         PREVIOUS CODE
