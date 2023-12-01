@@ -6,8 +6,7 @@ import main.interface_adapter.symptom_checker.SymptomCheckerController;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.event.*;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.util.HashMap;
@@ -23,6 +22,8 @@ public class DiagnosisView extends JPanel implements ActionListener, PropertyCha
     private final JButton symptomChecker;
 
     public DiagnosisView(DiagnosisViewModel diagnosisViewModel, SymptomCheckerController symptomCheckerController) {
+        super(new GridLayout(1, 1));
+
         this.diagnosisViewModel = diagnosisViewModel;
         this.symptomCheckerController = symptomCheckerController;
         diagnosisViewModel.addPropertyChangeListener(this);
@@ -44,8 +45,6 @@ public class DiagnosisView extends JPanel implements ActionListener, PropertyCha
                 }
         );
 
-        this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
-
         this.add(title);
         this.add(buttons);
     }
@@ -60,49 +59,13 @@ public class DiagnosisView extends JPanel implements ActionListener, PropertyCha
         DiagnosisState currentState = (DiagnosisState) evt.getNewValue();
 
         int n = currentState.getNumDiagnoses();
-        System.out.println(n);
         if (n == 0) {
             JOptionPane.showMessageDialog(this, currentState.getNoDiagnosesError());
         }
         else {
-            JPanel information = new JPanel();
-            information.setLayout(new BoxLayout(information, BoxLayout.Y_AXIS));
-            JLabel infoPanelLabel = new JLabel(DiagnosisViewModel.INFO_PANEL_LABEL);
-            information.add(infoPanelLabel, BorderLayout.NORTH);
+            JTabbedPane tabbedPane = new JTabbedPane();
 
-            JPanel barChart = new JPanel();
-            JTextArea infoPanel = new JTextArea();
-
-            for (int i = 0; i < n; i++) {
-
-                HashMap<String, Object> currentDiagnosis;
-                if (i == 2) {
-                    currentDiagnosis = currentState.getDiagnosis3();
-                } else if (i == 1) {
-                    currentDiagnosis = currentState.getDiagnosis2();
-                    System.out.println(currentState.getDiagnosis2());
-                } else {
-                    currentDiagnosis = currentState.getDiagnosis1();
-                }
-                infoPanel.append(currentDiagnosis.get("Name").toString().toUpperCase() + " (" +
-                        currentDiagnosis.get("Accuracy") + "% likelihood".toUpperCase() + ")" + "\n");
-                infoPanel.append("       -" + "Professional Name: " + currentDiagnosis.get("ProfName") + "\n");
-                infoPanel.append("       -" + "ICD Number: " + currentDiagnosis.get("Icd") + "\n");
-                infoPanel.append("       -" + "ICD Name: " + currentDiagnosis.get("IcdName") + "\n");
-                infoPanel.append("   ~SPECIALISTS:" + "\n");
-                for (String specialist : (List<String>) currentDiagnosis.get("Specializations")) {
-                    infoPanel.append("       -" + specialist + "\n");
-                }
-                infoPanel.append("\n");
-            }
-            information.add(infoPanel, BorderLayout.SOUTH);
-            this.add(information);
-
-
-        // This is the code to create and add the bar chart on the condition that there is at least one diagnosis.
-        // I will add something similar for the information panel.
-
-
+            // This is the code to create and add the bar chart.
             Float[] accuracies = new Float[n];
             String[] diagnoses = new String[n];
 
@@ -116,9 +79,46 @@ public class DiagnosisView extends JPanel implements ActionListener, PropertyCha
                 accuracies[2] = (Float) currentState.getDiagnosis3().get("Accuracy");
                 diagnoses[2] = (String) currentState.getDiagnosis3().get("Name");
             }
+            BarChart barChart = new BarChart(accuracies, diagnoses, "Diagnoses and Accuracies");
+            barChart.setSize(new Dimension(100, 100));
+            tabbedPane.addTab("Bar Chart", barChart);
 
-            barChart.add(new BarChart(accuracies, diagnoses, "Diagnoses and Accuracies"));
-           // this.add(barChart);
+            // This is the code that adds the information panels.
+            // JPanel information = new JPanel();
+            // information.setLayout(new BoxLayout(information, BoxLayout.Y_AXIS));
+            // JLabel infoPanelLabel = new JLabel(DiagnosisViewModel.INFO_PANEL_LABEL);
+            // information.add(infoPanelLabel, BorderLayout.NORTH);
+            // JTextArea infoPanel = new JTextArea();
+
+            for (int i = 0; i < n; i++) {
+                // JPanel information = new JPanel(false);
+                JTextArea infoPanel = new JTextArea();
+                infoPanel.setEnabled(false);
+
+                HashMap<String, Object> currentDiagnosis;
+                if (i == 2) {
+                    currentDiagnosis = currentState.getDiagnosis3();
+                } else if (i == 1) {
+                    currentDiagnosis = currentState.getDiagnosis2();
+                } else {
+                    currentDiagnosis = currentState.getDiagnosis1();
+                }
+                infoPanel.append(currentDiagnosis.get("Name").toString().toUpperCase() + " (" +
+                        currentDiagnosis.get("Accuracy") + "% likelihood".toUpperCase() + ")" + "\n");
+                infoPanel.append("       -" + "Professional Name: " + currentDiagnosis.get("ProfName") + "\n");
+                infoPanel.append("       -" + "ICD Number: " + currentDiagnosis.get("Icd") + "\n");
+                infoPanel.append("       -" + "ICD Name: " + currentDiagnosis.get("IcdName") + "\n");
+                infoPanel.append("   ~RECOMMENDED SPECIALISTS:" + "\n");
+                for (String specialist : (List<String>) currentDiagnosis.get("Specializations")) {
+                    infoPanel.append("       -" + specialist + "\n");
+                }
+                // infoPanel.append("\n");
+                // information.add(infoPanel);
+                tabbedPane.addTab(currentDiagnosis.get("Name").toString().toUpperCase(), infoPanel);
+            }
+            // information.add(infoPanel, BorderLayout.SOUTH);
+            // this.add(information);
+            this.add(tabbedPane);
         }
     }
 
@@ -152,49 +152,49 @@ public class DiagnosisView extends JPanel implements ActionListener, PropertyCha
 
             // Create variables for the dimensions of the bar chart
             Dimension dim = getSize();
-            int width = dim.width;
-            int height = dim.height;
-            int barWidth = width / accuracies.length;
+            int clientWidth = dim.width;
+            int clientHeight = dim.height;
+            int barWidth = clientWidth / accuracies.length;
 
             // Change to whatever font and/or size (this just creates font objects)
-            Font titleFont = new Font("Book Antiqua", Font.BOLD, 15);
+            Font titleFont = new Font("Book Antiqua", Font.BOLD, 10);
             FontMetrics titleFontMetrics = graphics.getFontMetrics(titleFont);
-            Font labelFont = new Font("Book Antiqua", Font.PLAIN, 10);
+            Font labelFont = new Font("Book Antiqua", Font.PLAIN, 15);
             FontMetrics labelFontMetrics = graphics.getFontMetrics(labelFont);
 
             // Set the title and label size and set the fonts; position title
             int titleWidth = titleFontMetrics.stringWidth(title);
             int q = titleFontMetrics.getAscent();
-            int p = (width - titleWidth) / 2;
+            int p = (clientWidth - titleWidth) / 2;
             graphics.setFont(titleFont);
             graphics.drawString(title, p, q);
             int top = titleFontMetrics.getHeight();
             int bottom = labelFontMetrics.getHeight();
-            if (min == max) {
+            if (max == min) {
                 return;
             }
 
             // Setting the label font and positioning; setting the bar dimensions
-            double scale = (double) (height - top - bottom) / (max - min);
-            q = height - labelFontMetrics.getDescent();
+            double scale = (double) (clientHeight - top - bottom) / (max - min);
+            q = clientHeight - labelFontMetrics.getDescent();
             graphics.setFont(labelFont);
             for (int j = 0; j < accuracies.length; j++) {
 
-                int r = j * barWidth + 1;
-                int s = top;
-                int barHeight = (int) (accuracies[j] * scale);
+                int valueP = j * barWidth + 1;
+                int valueQ = top;
+                int height = (int) (accuracies[j] * scale);
                 if (accuracies[j] >= 0) {
-                    s += (int) ((max - accuracies[j]) * scale);
+                    valueQ += (int) ((max - accuracies[j]) * scale);
                 } else {
-                    s = (int) (max * scale);
-                    barHeight = -barHeight;
+                    valueQ = (int) (max * scale);
+                    height = -height;
                 }
                 // set colour of bars (fill)
                 graphics.setColor(Color.cyan);
-                graphics.fillRect(r, s, barWidth - 2, barHeight);
+                graphics.fillRect(valueP, valueQ, barWidth - 2, height);
                 // set colour of bars (outline)
                 graphics.setColor(Color.black);
-                graphics.drawRect(r, s, barWidth - 2, barHeight);
+                graphics.drawRect(valueP, valueQ, barWidth - 2, height);
                 int labelWidth = labelFontMetrics.stringWidth(diagnoses[j]);
                 p = j * barWidth + (barWidth - labelWidth) / 2;
                 graphics.drawString(diagnoses[j], p, q);

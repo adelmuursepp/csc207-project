@@ -6,6 +6,7 @@ import main.interface_adapter.login.LoginViewModel;
 //import main.interface_adapter.logged_in.LoggedInViewModel;
 import main.interface_adapter.signup.SignupViewModel;
 import main.interface_adapter.ViewManagerModel;
+import main.interface_adapter.symptom_checker.SymptomCheckerController;
 import main.use_case.login.LoginUserDataAccessInterface;
 //import main.view.LoggedInView;
 import main.view.*;
@@ -65,7 +66,6 @@ public class Main {
         DiagnosisView diagnosisView = DiagnosisUseCaseFactory.create(diagnosisViewModel, symptomCheckerViewModel,
                 viewManagerModel);
         views.add(diagnosisView, diagnosisView.viewName);
-
 
         viewManagerModel.setActiveView(signupView.viewName);
         viewManagerModel.firePropertyChanged();

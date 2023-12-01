@@ -16,7 +16,6 @@ public class DiagnosisPresenter implements DiagnosisOutputBoundary {
     }
     @Override
     public void prepareDiagnosisView(DiagnosisOutputData outputData) {
-        System.out.println("preparing diagnosis view");
        DiagnosisState diagnosisState = diagnosisViewModel.getState();
 
        diagnosisState.setDiagnosis1(outputData.getDiagnosis1());
