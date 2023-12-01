@@ -27,8 +27,7 @@ public class SymptomCheckerUseCaseFactory {
             ViewManagerModel viewManagerModel) {
 
         try {
-            DiagnosisController diagnosisController = createDiagnosisUseCase(symptomCheckerViewModel,
-                    diagnosisViewModel, viewManagerModel);
+            DiagnosisController diagnosisController = createDiagnosisUseCase(diagnosisViewModel, viewManagerModel);
             return new SymptomCheckerView(symptomCheckerViewModel, diagnosisController);
         } catch (IOException e) {
             JOptionPane.showMessageDialog(null, "Could not open user data file.");
@@ -37,8 +36,7 @@ public class SymptomCheckerUseCaseFactory {
         return null;
     }
 
-    private static DiagnosisController createDiagnosisUseCase(SymptomCheckerViewModel symptomCheckerViewModel,
-                                                              DiagnosisViewModel diagnosisViewModel,
+    private static DiagnosisController createDiagnosisUseCase(DiagnosisViewModel diagnosisViewModel,
                                                               ViewManagerModel viewManagerModel)
             throws IOException {
 

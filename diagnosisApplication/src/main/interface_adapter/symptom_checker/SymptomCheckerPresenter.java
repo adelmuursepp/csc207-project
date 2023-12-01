@@ -11,7 +11,6 @@ public class SymptomCheckerPresenter implements SymptomCheckerOutputBoundary {
     private final ViewManagerModel viewManagerModel;
 
     public SymptomCheckerPresenter(SymptomCheckerViewModel symptomCheckerViewModel, ViewManagerModel viewManagerModel) {
-        System.out.println("presenter initialized");
         this.symptomCheckerViewModel = symptomCheckerViewModel;
         this.viewManagerModel = viewManagerModel;
     }

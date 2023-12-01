@@ -9,7 +9,6 @@ public class SymptomCheckerController {
     SymptomCheckerInputBoundary symptomCheckerInteractor;
 
     public SymptomCheckerController(SymptomCheckerInputBoundary symptomCheckerInteractor) {
-        System.out.println("controller initialized");
         this.symptomCheckerInteractor = symptomCheckerInteractor;
     }
 

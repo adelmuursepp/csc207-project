@@ -5,7 +5,6 @@ public class SymptomCheckerInteractor implements SymptomCheckerInputBoundary {
     final SymptomCheckerOutputBoundary symptomCheckerPresenter;
 
     public SymptomCheckerInteractor(SymptomCheckerOutputBoundary symptomCheckerPresenter) {
-        System.out.println("interactor initialized");
         this.symptomCheckerPresenter = symptomCheckerPresenter;
     }
 

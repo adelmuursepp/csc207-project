@@ -15,7 +15,7 @@ public class DiagnosisViewModel extends ViewModel{
     private DiagnosisState state = new DiagnosisState();
 
     public DiagnosisViewModel() {
-        super("main/use_case/diagnosis");
+        super("diagnosis");
     }
 
     public DiagnosisState getState() {
