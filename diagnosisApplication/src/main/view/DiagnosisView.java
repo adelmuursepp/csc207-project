@@ -66,9 +66,15 @@ public class DiagnosisView extends JPanel implements ActionListener, PropertyCha
         }
         else {
             JPanel information = new JPanel();
+            information.setLayout(new BoxLayout(information, BoxLayout.Y_AXIS));
+            JLabel infoPanelLabel = new JLabel(DiagnosisViewModel.INFO_PANEL_LABEL);
+            information.add(infoPanelLabel, BorderLayout.NORTH);
+
             JPanel barChart = new JPanel();
+            JTextArea infoPanel = new JTextArea();
+
             for (int i = 0; i < n; i++) {
-                JPanel infoPanel = new JPanel();
+
                 HashMap<String, Object> currentDiagnosis;
                 if (i == 2) {
                     currentDiagnosis = currentState.getDiagnosis3();
@@ -78,24 +84,18 @@ public class DiagnosisView extends JPanel implements ActionListener, PropertyCha
                 } else {
                     currentDiagnosis = currentState.getDiagnosis1();
                 }
-                StringBuilder builder = new StringBuilder();
-                builder.append(currentDiagnosis.get("Name")).append(" (")
-                        .append(currentDiagnosis.get("Accuracy")).append("% likelihood").append(")").append("\n");
-                builder.append("\t\t" + "Professional Name: ").append(currentDiagnosis.get("ProfName")).append("\n");
-                builder.append("\t\t" + "ICD Number: ").append(currentDiagnosis.get("Icd")).append("\n");
-                builder.append("\t\t" + "ICD Name: ").append(currentDiagnosis.get("IcdName")).append("\n");
-                builder.append("Specialists:" + "\n");
-                System.out.println(builder);
+                infoPanel.append(currentDiagnosis.get("Name").toString().toUpperCase() + " (" +
+                        currentDiagnosis.get("Accuracy") + "% likelihood".toUpperCase() + ")" + "\n");
+                infoPanel.append("       -" + "Professional Name: " + currentDiagnosis.get("ProfName") + "\n");
+                infoPanel.append("       -" + "ICD Number: " + currentDiagnosis.get("Icd") + "\n");
+                infoPanel.append("       -" + "ICD Name: " + currentDiagnosis.get("IcdName") + "\n");
+                infoPanel.append("   ~SPECIALISTS:" + "\n");
                 for (String specialist : (List<String>) currentDiagnosis.get("Specializations")) {
-                    builder.append("\t\t").append(specialist).append("\n");
+                    infoPanel.append("       -" + specialist + "\n");
                 }
-                System.out.println(builder);
-                JLabel info = new JLabel(builder.toString());
-                infoPanel.add(info);
-                information.add(infoPanel, BorderLayout.SOUTH);
+                infoPanel.append("\n");
             }
-            JLabel infoPanelLabel = new JLabel(DiagnosisViewModel.INFO_PANEL_LABEL);
-            information.add(infoPanelLabel);
+            information.add(infoPanel, BorderLayout.SOUTH);
             this.add(information);
 
 
