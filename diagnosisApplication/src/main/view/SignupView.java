@@ -29,8 +29,12 @@ public class SignupView extends JPanel implements ActionListener, PropertyChange
     private final JComboBox sexComboBox = new JComboBox(sexes);
     private final SignupController signupController;
 
+
     private final JButton signUp;
     private final JButton login;
+    private final JSpinner year;
+    private final JComboBox<String> sex;
+
 
     public SignupView(SignupController controller, SignupViewModel signupViewModel) {
 
@@ -48,6 +52,58 @@ public class SignupView extends JPanel implements ActionListener, PropertyChange
         LabelTextPanel repeatPasswordInfo = new LabelTextPanel(
                 new JLabel(SignupViewModel.REPEAT_PASSWORD_LABEL), repeatPasswordInputField);
 
+
+        //added initializations
+        signUp = new JButton(SignupViewModel.SIGNUP_BUTTON_LABEL);
+        login = new JButton(LoginViewModel.LOGIN_BUTTON_LABEL);
+
+        SpinnerModel spinnerModel = new SpinnerNumberModel(2020, 1900, 2020, 1);
+        year = new JSpinner(spinnerModel);
+
+        String[] sexes = {"Male", "Female"};
+        sex = new JComboBox<>(sexes);
+
+        //panel initialization 1 row, 2 columns, 10px gaps
+        GridLayout buttons = new GridLayout(1, 2, 10, 10);
+
+        //set preferred sizes for components
+        usernameInputField.setPreferredSize(new Dimension(150, 20));
+        passwordInputField.setPreferredSize(new Dimension(150, 20));
+        repeatPasswordInputField.setPreferredSize(new Dimension(150, 20));
+        //`year.setPreferredSize(new Dimension(80, 10));
+        sex.setPreferredSize(new Dimension(80, 10));
+
+
+        //main panel layout
+        this.setLayout(buttons);
+
+        //left panel for username and password
+        JPanel leftPanel = new JPanel();
+        leftPanel.setLayout(new BoxLayout(leftPanel, BoxLayout.Y_AXIS));
+        leftPanel.add(usernameInfo);
+        leftPanel.add(passwordInfo);
+        leftPanel.add(repeatPasswordInfo);
+        leftPanel.add(signUp);
+
+        //right panel for year, sex, and login
+        JPanel rightPanel = new JPanel();
+        rightPanel.setLayout(new BoxLayout(rightPanel, BoxLayout.Y_AXIS));
+        rightPanel.add(new JLabel("Year of birth: "));
+        rightPanel.add(year);
+        rightPanel.add(new JLabel("Sex: "));
+        rightPanel.add(sex);
+        rightPanel.add(login);
+
+        //add subpanels to main panel
+        this.add(leftPanel);
+        this.add(rightPanel);
+
+        //set minimum and preferred size for the main panel
+        this.setMinimumSize(new Dimension(100, 100));
+        this.setPreferredSize(new Dimension(150, 150));
+
+        /*
+        PREVIOUS CODE
         JPanel buttons = new JPanel();
         signUp = new JButton(SignupViewModel.SIGNUP_BUTTON_LABEL);
         buttons.add(signUp);
@@ -61,6 +117,16 @@ public class SignupView extends JPanel implements ActionListener, PropertyChange
         buttons.add(sex);
         login = new JButton(LoginViewModel.LOGIN_BUTTON_LABEL);
         buttons.add(login);
+
+        this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
+
+        this.add(title);
+        this.add(usernameInfo);
+        this.add(passwordInfo);
+        this.add(repeatPasswordInfo);
+        this.add(buttons);
+        */
+
 
         login.addActionListener(
                 new ActionListener() {
@@ -190,14 +256,6 @@ public class SignupView extends JPanel implements ActionListener, PropertyChange
                     }
                 }
         );
-
-        this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
-
-        this.add(title);
-        this.add(usernameInfo);
-        this.add(passwordInfo);
-        this.add(repeatPasswordInfo);
-        this.add(buttons);
     }
 
     /**

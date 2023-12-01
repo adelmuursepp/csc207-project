@@ -35,6 +35,10 @@ public class Main {
         JPanel views = new JPanel(cardLayout);
         application.add(views);
 
+        //can adjust the size as needed
+        application.setPreferredSize(new Dimension(500, 200));
+
+
         //Track and manage which view is currently showing.
         ViewManagerModel viewManagerModel = new ViewManagerModel();
         new ViewManager(views,cardLayout, viewManagerModel);
@@ -69,6 +73,8 @@ public class Main {
         viewManagerModel.firePropertyChanged();
 
         application.pack();
+        //centers the frame on the screen
+        application.setLocationRelativeTo(null);
         application.setVisible(true);
     }
 }
