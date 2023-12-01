@@ -27,6 +27,7 @@ public class DiagnosisView extends JPanel implements ActionListener, PropertyCha
     public DiagnosisView(DiagnosisViewModel diagnosisViewModel, SymptomCheckerController symptomCheckerController) {
         this.diagnosisViewModel = diagnosisViewModel;
         this.symptomCheckerController = symptomCheckerController;
+        diagnosisViewModel.addPropertyChangeListener(this);
         this.diagnosisState = diagnosisViewModel.getState();
 
         int n = diagnosisState.getNumDiagnoses();
@@ -100,7 +101,10 @@ public class DiagnosisView extends JPanel implements ActionListener, PropertyCha
 
     @Override
     public void propertyChange(PropertyChangeEvent evt) {
-
+        DiagnosisState state = (DiagnosisState) evt.getNewValue();
+        if (state.getDiagnosis1() == null) {
+            JOptionPane.showMessageDialog(this, "No diagnoses match symptoms selected");
+        }
     }
 
     private class BarChart extends JPanel {

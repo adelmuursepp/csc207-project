@@ -66,6 +66,7 @@ public class Main {
                 viewManagerModel);
         views.add(diagnosisView, diagnosisView.viewName);
 
+
         viewManagerModel.setActiveView(signupView.viewName);
         viewManagerModel.firePropertyChanged();
 

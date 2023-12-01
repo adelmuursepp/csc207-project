@@ -8,7 +8,7 @@ import java.util.List;
 
 public class DiagnosisPresenter implements DiagnosisOutputBoundary {
     private final DiagnosisViewModel diagnosisViewModel;
-    private ViewManagerModel viewManagerModel;
+    private final ViewManagerModel viewManagerModel;
 
     public DiagnosisPresenter(DiagnosisViewModel diagnosisViewModel, ViewManagerModel viewManagerModel) {
         this.diagnosisViewModel = diagnosisViewModel;
@@ -27,6 +27,7 @@ public class DiagnosisPresenter implements DiagnosisOutputBoundary {
        if (outputData.getDiagnosis3() != null) {
            diagnosisState.setDiagnosis3(outputData.getDiagnosis3());
        }
+
         this.diagnosisViewModel.firePropertyChanged();
 
        viewManagerModel.setActiveView(diagnosisViewModel.getViewName());

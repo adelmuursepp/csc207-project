@@ -147,8 +147,6 @@ public class DiagnosisInteractor implements DiagnosisInputBoundary {
             issue3Hash.put("Specializations", specialization3NameList);
 
             DiagnosisOutputData diagnosisOutputData = new DiagnosisOutputData(issue1Hash, issue2Hash, issue3Hash);
-            //Check if 3 diagnoses work
-            System.out.println(issue3Hash);
             diagnosisPresenter.prepareDiagnosisView(diagnosisOutputData);
         }
 
