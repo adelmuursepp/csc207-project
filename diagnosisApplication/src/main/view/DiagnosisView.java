@@ -3,6 +3,7 @@ package main.view;
 import main.interface_adapter.diagnosis.DiagnosisController;
 import main.interface_adapter.diagnosis.DiagnosisState;
 import main.interface_adapter.diagnosis.DiagnosisViewModel;
+import main.interface_adapter.login.LoginState;
 import main.interface_adapter.symptom_checker.SymptomCheckerController;
 
 import javax.swing.*;
@@ -85,6 +86,17 @@ public class DiagnosisView extends JPanel implements ActionListener, PropertyCha
         JPanel buttons = new JPanel();
         symptomChecker = new JButton(DiagnosisViewModel.SYMPTOM_CHECKER_BUTTON_LABEL);
         buttons.add(symptomChecker);
+
+        symptomChecker.addActionListener(
+
+                new ActionListener() {
+                    public void actionPerformed(ActionEvent evt) {
+                        if (evt.getSource().equals(symptomChecker)) {
+                            symptomCheckerController.execute();
+                        }
+                    }
+                }
+        );
 
         this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 
