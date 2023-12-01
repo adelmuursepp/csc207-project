@@ -1,6 +1,7 @@
 package main.view;
 
 import main.interface_adapter.diagnosis.DiagnosisController;
+import main.interface_adapter.proposed_symptoms.ProposedSymptomsController;
 import main.interface_adapter.symptom_checker.SymptomCheckerController;
 import main.interface_adapter.symptom_checker.SymptomCheckerState;
 import main.interface_adapter.symptom_checker.SymptomCheckerViewModel;
@@ -16,6 +17,7 @@ public class SymptomCheckerView extends JPanel {
 
     private final SymptomCheckerViewModel symptomCheckerViewModel;
     private final JButton submit;
+    private final JButton proposedSymptoms;
     private final JCheckBox cough;
     private final JCheckBox diarrhea;
     private final JCheckBox dizziness;
@@ -38,16 +40,21 @@ public class SymptomCheckerView extends JPanel {
     private final JCheckBox pallor;
     private final DiagnosisController diagnosisController;
 
-    public SymptomCheckerView(SymptomCheckerViewModel symptomCheckerViewModel, DiagnosisController diagnosisController)
+    private final ProposedSymptomsController proposedSymptomsController;
+
+    public SymptomCheckerView(SymptomCheckerViewModel symptomCheckerViewModel, DiagnosisController diagnosisController, ProposedSymptomsController proposedSymptomsController)
     {
         this.symptomCheckerViewModel = symptomCheckerViewModel;
         this.diagnosisController = diagnosisController;
+        this.proposedSymptomsController = proposedSymptomsController;
 
         JLabel title = new JLabel(SymptomCheckerViewModel.TITLE_LABEL);
 
         JPanel buttons = new JPanel();
         submit = new JButton(SymptomCheckerViewModel.DIAGNOSES_BUTTON_LABEL);
         buttons.add(submit);
+        proposedSymptoms = new JButton(SymptomCheckerViewModel.PROPOSED_SYMPTOMS_BUTTON_LABEL);
+        buttons.add(proposedSymptoms);
 
         submit.addActionListener(
                 new ActionListener() {
@@ -58,6 +65,18 @@ public class SymptomCheckerView extends JPanel {
                             SymptomCheckerState currentState = symptomCheckerViewModel.getState();
 
                             diagnosisController.execute(currentState.getCheckedSymptoms());
+                        }
+                    }
+                }
+        );
+
+        proposedSymptoms.addActionListener(
+                new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        if (e.getSource().equals(proposedSymptoms)) {
+                            SymptomCheckerState currentState = symptomCheckerViewModel.getState();
+                            proposedSymptomsController.execute(currentState.getCheckedSymptoms());
                         }
                     }
                 }

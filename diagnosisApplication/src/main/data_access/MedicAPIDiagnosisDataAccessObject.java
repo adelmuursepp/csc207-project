@@ -1,11 +1,13 @@
 package main.data_access;
 
+import main.entity.CommonSymptom;
 import main.entity.DiagnosedIssue;
 import main.entity.DiagnosedSpecialization;
 import main.entity.HealthDiagnosis;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import main.use_case.diagnosis.DiagnosisUserDataAccessInterface;
+import main.use_case.proposed_symptoms.ProposedSymptomsAPIDataAccessInterface;
 
 import java.io.IOException;
 import java.net.URI;
@@ -17,7 +19,7 @@ import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MedicAPIDiagnosisDataAccessObject implements DiagnosisUserDataAccessInterface {
+public class MedicAPIDiagnosisDataAccessObject implements DiagnosisUserDataAccessInterface, ProposedSymptomsAPIDataAccessInterface {
     private static final HttpClient httpClient = HttpClient.newBuilder()
             .version(HttpClient.Version.HTTP_1_1)
             .connectTimeout(Duration.ofSeconds(10))
@@ -51,6 +53,56 @@ public class MedicAPIDiagnosisDataAccessObject implements DiagnosisUserDataAcces
 //        System.out.println(response.body());
 
     //}
+
+    public List<CommonSymptom> getProposedSymptoms(List<Integer> symptomsList) throws RuntimeException {
+        StringBuilder symptomString = new StringBuilder("[");
+        for (int i = 0; i < symptomsList.size(); i++) {
+            symptomString.append(symptomsList.get(i));
+            if (i < symptomsList.size() - 1) {
+                symptomString.append(",");
+            }
+        }
+        symptomString.append("]");
+        // Retrieve API token
+        String APIToken = getAPIToken();
+
+        // Create a request object
+        String uri = String.format("https://healthservice.priaid.ch/symptoms/proposed?symptoms=%s&gender=female&year_of_birth=1990&token=%s&format=json&language=en-gb", symptomString, APIToken);
+
+        HttpRequest request = HttpRequest.newBuilder()
+                .GET()
+                .uri(URI.create(uri))
+                .setHeader("User-Agent", "Java 11 HttpClient Bot") // add request header
+                .build();
+        try {
+            HttpResponse<String> response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
+            // print response body
+            System.out.println(response.body());
+            System.out.println(response.statusCode());
+            if (response.statusCode() == 200) {
+                // Parse JSON using Jackson
+                ObjectMapper objectMapper = new ObjectMapper();
+                JsonNode jsonNode = objectMapper.readTree(response.body());
+
+                // Convert JSON to a list of HealthDiagnosis entities
+                List<CommonSymptom> proposedSymptomsList = new ArrayList<>();
+                for (JsonNode symptomNode : jsonNode) {
+                    String name = symptomNode.get("Name").toString();
+                    int id = Integer.parseInt(symptomNode.get("ID").toString());
+                    CommonSymptom newSymptom = new CommonSymptom(name, id);
+                    proposedSymptomsList.add(newSymptom);
+                }
+
+                return proposedSymptomsList;
+            } else {
+                throw new RuntimeException("Failed to process the request. Server responded with: " + response.body());
+            }
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+    }
 
     public List<HealthDiagnosis> getDiagnoses(List<Integer> symptomsList) throws RuntimeException {
         // TODO: Add gender and year
