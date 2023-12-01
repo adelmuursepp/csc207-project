@@ -1,6 +1,7 @@
 package main.app;
 
 import main.data_access.FileUserDataAccessObject;
+import main.interface_adapter.glossary.GlossaryViewModel;
 import main.interface_adapter.login.LoginViewModel;
 import main.interface_adapter.signup.SignupController;
 import main.interface_adapter.signup.SignupPresenter;
@@ -26,11 +27,12 @@ public class SignupUseCaseFactory {
     public static SignupView create(
             ViewManagerModel viewManagerModel, LoginViewModel loginViewModel, SignupViewModel signupViewModel,
             SymptomCheckerViewModel symptomCheckerViewModel,
+            GlossaryViewModel glossaryViewModel,
             SignupUserDataAccessInterface userDataAccessObject) {
 
         try {
             SignupController signupController = createUserSignupUseCase(viewManagerModel, signupViewModel,
-                    loginViewModel, symptomCheckerViewModel, userDataAccessObject);
+                    loginViewModel, symptomCheckerViewModel, glossaryViewModel, userDataAccessObject);
             return new SignupView(signupController, signupViewModel);
         } catch (IOException e) {
             JOptionPane.showMessageDialog(null, "Could not open user data file.");
@@ -43,12 +45,13 @@ public class SignupUseCaseFactory {
                                                             SignupViewModel signupViewModel,
                                                             LoginViewModel loginViewModel,
                                                             SymptomCheckerViewModel symptomCheckerViewModel,
+                                                            GlossaryViewModel glossaryViewModel,
                                                             SignupUserDataAccessInterface userDataAccessObject)
             throws IOException {
 
         // Notice how we pass this method's parameters to the Presenter.
         SignupOutputBoundary signupOutputBoundary = new SignupPresenter(viewManagerModel, signupViewModel,
-                loginViewModel, symptomCheckerViewModel);
+                loginViewModel, symptomCheckerViewModel, glossaryViewModel);
 
         UserFactory userFactory = new CommonUserFactory();
 

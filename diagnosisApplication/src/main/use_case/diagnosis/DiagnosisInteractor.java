@@ -175,4 +175,5 @@ public class DiagnosisInteractor implements DiagnosisInputBoundary {
 
     }
 
+
 }

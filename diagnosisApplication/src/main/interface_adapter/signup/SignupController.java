@@ -22,4 +22,7 @@ public class SignupController {
         userSignupUseCaseInteractor.switchLogin();
     }
 
+    public void switchGlossary() {
+        userSignupUseCaseInteractor.switchGlossary();
+    }
 }

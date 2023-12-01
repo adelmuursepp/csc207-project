@@ -31,6 +31,7 @@ public class SignupView extends JPanel implements ActionListener, PropertyChange
 
     private final JButton signUp;
     private final JButton login;
+    private final JButton glossary;
 
     public SignupView(SignupController controller, SignupViewModel signupViewModel) {
 
@@ -66,6 +67,20 @@ public class SignupView extends JPanel implements ActionListener, PropertyChange
                     public void actionPerformed(ActionEvent e) {
                         if (e.getSource() == login) {
                             signupController.switchLogin();
+                        }
+                    }
+                }
+        );
+
+        glossary = new JButton("Glossary");
+        buttons.add(glossary);
+
+        glossary.addActionListener(
+                new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        if (e.getSource().equals(glossary)) {
+                            signupController.switchGlossary();
                         }
                     }
                 }

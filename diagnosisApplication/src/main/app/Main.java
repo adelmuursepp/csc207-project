@@ -2,6 +2,7 @@ package main.app;
 
 import main.data_access.FileUserDataAccessObject;
 import main.entity.CommonUserFactory;
+import main.interface_adapter.glossary.GlossaryViewModel;
 import main.interface_adapter.login.LoginViewModel;
 //import main.interface_adapter.logged_in.LoggedInViewModel;
 import main.interface_adapter.signup.SignupViewModel;
@@ -40,6 +41,7 @@ public class Main {
         new ViewManager(views,cardLayout, viewManagerModel);
 
         LoginViewModel loginViewModel = new LoginViewModel();
+        GlossaryViewModel glossaryViewModel = new GlossaryViewModel();
         SignupViewModel signupViewModel = new SignupViewModel();
         SymptomCheckerViewModel symptomCheckerViewModel = new SymptomCheckerViewModel();
         DiagnosisViewModel diagnosisViewModel = new DiagnosisViewModel();
@@ -53,6 +55,7 @@ public class Main {
 
         SignupView signupView = SignupUseCaseFactory.create(viewManagerModel, loginViewModel, signupViewModel,
                 symptomCheckerViewModel,
+                glossaryViewModel,
                 userDataAccessObject);
         views.add(signupView, signupView.viewName);
 

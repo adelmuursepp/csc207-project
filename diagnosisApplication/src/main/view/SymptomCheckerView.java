@@ -1,6 +1,7 @@
 package main.view;
 
 import main.interface_adapter.diagnosis.DiagnosisController;
+import main.interface_adapter.signup.SignupViewModel;
 import main.interface_adapter.symptom_checker.SymptomCheckerController;
 import main.interface_adapter.symptom_checker.SymptomCheckerState;
 import main.interface_adapter.symptom_checker.SymptomCheckerViewModel;
@@ -44,6 +45,7 @@ public class SymptomCheckerView extends JPanel {
         this.diagnosisController = diagnosisController;
 
         JLabel title = new JLabel(SymptomCheckerViewModel.TITLE_LABEL);
+        title.setAlignmentX(Component.CENTER_ALIGNMENT);
 
         JPanel buttons = new JPanel();
         submit = new JButton(SymptomCheckerViewModel.DIAGNOSES_BUTTON_LABEL);
