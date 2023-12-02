@@ -19,7 +19,6 @@ public class SymptomCheckerView extends JPanel {
     public final String viewName = "symptom checker";
 
     private final SymptomCheckerViewModel symptomCheckerViewModel;
-    private final SymptomCheckerController symptomCheckerController;
     private  final GlossaryController glossaryController;
     private final JButton submit;
     private final JButton glossary;
@@ -46,12 +45,10 @@ public class SymptomCheckerView extends JPanel {
     private final DiagnosisController diagnosisController;
 
     public SymptomCheckerView(SymptomCheckerViewModel symptomCheckerViewModel,
-                              SymptomCheckerController symptomCheckerController,
                               DiagnosisController diagnosisController,
                               GlossaryController glossaryController)
     {
         this.symptomCheckerViewModel = symptomCheckerViewModel;
-        this.symptomCheckerController = symptomCheckerController;
         this.diagnosisController = diagnosisController;
         this.glossaryController = glossaryController;
 

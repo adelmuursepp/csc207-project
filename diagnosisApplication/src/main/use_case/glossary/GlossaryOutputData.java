@@ -1,4 +1,4 @@
-package main.use_case.glossary_topics;
+package main.use_case.glossary;
 
 import java.util.List;
 

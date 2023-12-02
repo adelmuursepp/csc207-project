@@ -1,16 +1,14 @@
 package main.app;
 
+import main.data_access.GlossaryDataAccessObject;
 import main.interface_adapter.ViewManagerModel;
-import main.interface_adapter.glossary.GlossaryController;
 import main.interface_adapter.glossary.GlossaryViewModel;
 import main.interface_adapter.glossary_search.GlossarySearchController;
-import main.interface_adapter.glossary_search.GlossarySearchViewModel;
+import main.interface_adapter.glossary_search.GlossarySearchPresenter;
 import main.interface_adapter.symptom_checker.SymptomCheckerController;
 import main.interface_adapter.symptom_checker.SymptomCheckerPresenter;
 import main.interface_adapter.symptom_checker.SymptomCheckerViewModel;
-import main.use_case.glossary_search.GlossarySearchDataAccessInterface;
-import main.use_case.glossary_search.GlossarySearchInputBoundary;
-import main.use_case.glossary_search.GlossarySearchInteractor;
+import main.use_case.glossary_search.*;
 import main.use_case.symptom_checker.SymptomCheckerInputBoundary;
 import main.use_case.symptom_checker.SymptomCheckerInteractor;
 import main.use_case.symptom_checker.SymptomCheckerOutputBoundary;
@@ -24,23 +22,25 @@ public class GlossaryUseCaseFactory {
 
     public static GlossaryView create(ViewManagerModel viewManagerModel,
                                       GlossaryViewModel glossaryViewModel,
-                                      GlossarySearchViewModel glossarySearchViewModel,
-                                      SymptomCheckerViewModel symptomCheckerViewModel,
-                                      GlossarySearchDataAccessInterface glossarySearchDataAccessObject) {
+                                      SymptomCheckerViewModel symptomCheckerViewModel) {
         try {
-            GlossarySearchController glossarySearchController = createGlossarySearchUseCase(glossarySearchDataAccessObject);
+            GlossarySearchController glossarySearchController = createGlossarySearchUseCase(glossaryViewModel);
             SymptomCheckerController symptomCheckerController = createSymptomCheckerUseCase(symptomCheckerViewModel, viewManagerModel);
-            return new GlossaryView(glossaryViewModel, glossarySearchController, glossarySearchViewModel, symptomCheckerController);
+            return new GlossaryView(glossaryViewModel, glossarySearchController, symptomCheckerController);
         } catch (IOException e) {
             JOptionPane.showMessageDialog(null, "Could not retrieve glossary");
         }
         return null;
     }
 
-    public static GlossarySearchController createGlossarySearchUseCase(
-            GlossarySearchDataAccessInterface glossaryDataAccessObject) throws IOException {
+    public static GlossarySearchController createGlossarySearchUseCase(GlossaryViewModel glossarySearchViewModel)
+            throws IOException {
 
-        GlossarySearchInputBoundary glossaryUseCaseInteractor = new GlossarySearchInteractor(glossaryDataAccessObject);
+        GlossarySearchOutputBoundary glossarySearchPresenter = new GlossarySearchPresenter(glossarySearchViewModel);
+        GlossarySearchDataAccessInterface glossarySearchDataAccessObject = new GlossaryDataAccessObject();
+
+        GlossarySearchInputBoundary glossaryUseCaseInteractor = new GlossarySearchInteractor(glossarySearchDataAccessObject,
+                glossarySearchPresenter);
 
         return new GlossarySearchController(glossaryUseCaseInteractor);
     }

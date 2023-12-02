@@ -1,10 +1,8 @@
 package main.interface_adapter.glossary;
 
 import main.interface_adapter.ViewManagerModel;
-import main.interface_adapter.login.LoginState;
-import main.interface_adapter.symptom_checker.SymptomCheckerState;
-import main.use_case.glossary_topics.GlossaryOuputBoundary;
-import main.use_case.glossary_topics.GlossaryOutputData;
+import main.use_case.glossary.GlossaryOuputBoundary;
+import main.use_case.glossary.GlossaryOutputData;
 
 public class GlossaryPresenter implements GlossaryOuputBoundary {
     private final GlossaryViewModel glossaryViewModel;

@@ -4,6 +4,7 @@ import main.interface_adapter.ViewModel;
 
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
+import java.util.List;
 
 public class GlossaryViewModel extends ViewModel {
 
@@ -19,8 +20,6 @@ public class GlossaryViewModel extends ViewModel {
         super("glossary");
     }
 
-    public void setState(GlossaryState state) { this.state = state; }
-
     @Override
     public void firePropertyChanged() {
         support.firePropertyChange("state", null, this.state);
@@ -33,5 +32,9 @@ public class GlossaryViewModel extends ViewModel {
 
     public GlossaryState getState() {
         return state;
+    }
+
+    public void setState(GlossaryState currentState) {
+        this.state = currentState;
     }
 }

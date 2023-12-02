@@ -1,9 +1,8 @@
 package main.interface_adapter.glossary;
 
-import main.use_case.glossary_topics.GlossaryInputBoundary;
+import main.use_case.glossary.GlossaryInputBoundary;
 
 import java.io.IOException;
-import java.util.List;
 
 public class GlossaryController {
 

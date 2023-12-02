@@ -4,7 +4,7 @@ import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import main.use_case.glossary_search.GlossarySearchDataAccessInterface;
-import main.use_case.glossary_topics.GlossaryDataAccessInterface;
+import main.use_case.glossary.GlossaryDataAccessInterface;
 
 import java.io.IOException;
 import java.net.URI;
@@ -23,7 +23,7 @@ public class GlossaryDataAccessObject implements GlossarySearchDataAccessInterfa
             .build();
 
     @Override
-    public String search(String search) {
+    public String search(String search) throws IOException, InterruptedException {
 
         String lowerCaseSearch = search.toLowerCase();
         String formattedSearch = lowerCaseSearch.replace(' ', '-');
@@ -45,11 +45,7 @@ public class GlossaryDataAccessObject implements GlossarySearchDataAccessInterfa
 
                 return content;
             }
-        } catch (JsonMappingException e) {
-            throw new RuntimeException(e);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        } catch (InterruptedException e) {
+        } catch (IOException | InterruptedException e) {
             throw new RuntimeException(e);
         }
         return "Make sure the topic is spelled correctly with spaces";
