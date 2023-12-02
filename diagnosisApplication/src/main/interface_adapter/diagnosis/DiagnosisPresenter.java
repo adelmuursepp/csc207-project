@@ -1,7 +1,6 @@
 package main.interface_adapter.diagnosis;
 
 import main.interface_adapter.ViewManagerModel;
-import main.interface_adapter.glossary.GlossaryViewModel;
 import main.use_case.diagnosis.DiagnosisOutputBoundary;
 import main.use_case.diagnosis.DiagnosisOutputData;
 

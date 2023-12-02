@@ -19,6 +19,8 @@ import main.interface_adapter.symptom_checker.SymptomCheckerController;
 
 public class GlossaryView extends JPanel implements ActionListener, PropertyChangeListener {
 
+    public final String viewName = "glossary";
+
     private final GlossaryViewModel glossaryViewModel;
     private final GlossarySearchController glossarySearchController;
     private final SymptomCheckerController symptomCheckerController;

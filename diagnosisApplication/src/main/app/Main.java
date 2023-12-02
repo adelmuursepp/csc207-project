@@ -4,11 +4,8 @@ import main.data_access.FileUserDataAccessObject;
 import main.entity.CommonUserFactory;
 import main.interface_adapter.glossary.GlossaryViewModel;
 import main.interface_adapter.login.LoginViewModel;
-//import main.interface_adapter.logged_in.LoggedInViewModel;
 import main.interface_adapter.signup.SignupViewModel;
 import main.interface_adapter.ViewManagerModel;
-import main.use_case.login.LoginUserDataAccessInterface;
-//import main.view.LoggedInView;
 import main.view.*;
 import main.interface_adapter.symptom_checker.SymptomCheckerViewModel;
 import main.interface_adapter.diagnosis.DiagnosisViewModel;
@@ -52,7 +49,6 @@ public class Main {
 
         SignupView signupView = SignupUseCaseFactory.create(viewManagerModel, loginViewModel, signupViewModel,
                 symptomCheckerViewModel,
-                glossaryViewModel,
                 userDataAccessObject);
         views.add(signupView, signupView.viewName);
 
@@ -62,12 +58,16 @@ public class Main {
         views.add(loginView, loginView.viewName);
 
         SymptomCheckerView symptomCheckerView = SymptomCheckerUseCaseFactory.create(symptomCheckerViewModel,
-                diagnosisViewModel, viewManagerModel);
+                diagnosisViewModel, glossaryViewModel, viewManagerModel);
         views.add(symptomCheckerView, symptomCheckerView.viewName);
 
         DiagnosisView diagnosisView = DiagnosisUseCaseFactory.create(diagnosisViewModel, symptomCheckerViewModel,
                 viewManagerModel);
         views.add(diagnosisView, diagnosisView.viewName);
+
+        GlossaryView glossaryView = GlossaryUseCaseFactory.create(viewManagerModel, glossaryViewModel,
+                symptomCheckerViewModel);
+        views.add(glossaryView, glossaryView.viewName);
 
         viewManagerModel.setActiveView(signupView.viewName);
         viewManagerModel.firePropertyChanged();
