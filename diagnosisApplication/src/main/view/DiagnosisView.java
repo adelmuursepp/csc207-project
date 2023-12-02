@@ -22,7 +22,8 @@ public class DiagnosisView extends JPanel implements ActionListener, PropertyCha
     private final JButton symptomChecker;
 
     public DiagnosisView(DiagnosisViewModel diagnosisViewModel, SymptomCheckerController symptomCheckerController) {
-        super(new GridLayout(1, 1));
+//        super(new GridLayout(1, 1));
+        setLayout(new GridLayout(0, 1));
 
         this.diagnosisViewModel = diagnosisViewModel;
         this.symptomCheckerController = symptomCheckerController;
