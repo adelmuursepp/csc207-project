@@ -7,10 +7,11 @@ import main.use_case.diagnosis.DiagnosisOutputData;
 
 public class DiagnosisPresenter implements DiagnosisOutputBoundary {
     private final DiagnosisViewModel diagnosisViewModel;
-    private ViewManagerModel viewManagerModel;
+    private final ViewManagerModel viewManagerModel;
 
-    public DiagnosisPresenter(DiagnosisViewModel diagnosisViewModel) {
+    public DiagnosisPresenter(DiagnosisViewModel diagnosisViewModel, ViewManagerModel viewManagerModel) {
         this.diagnosisViewModel = diagnosisViewModel;
+        this.viewManagerModel = viewManagerModel;
     }
     @Override
     public void prepareDiagnosisView(DiagnosisOutputData outputData) {

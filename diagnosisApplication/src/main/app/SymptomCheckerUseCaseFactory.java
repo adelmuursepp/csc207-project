@@ -3,6 +3,7 @@ package main.app;
 import main.data_access.MedicAPIDiagnosisDataAccessObject;
 import main.entity.CommonUserFactory;
 import main.entity.UserFactory;
+import main.interface_adapter.ViewManagerModel;
 import main.interface_adapter.diagnosis.DiagnosisPresenter;
 import main.interface_adapter.symptom_checker.SymptomCheckerViewModel;
 import main.use_case.diagnosis.DiagnosisUserDataAccessInterface;
@@ -22,11 +23,11 @@ public class SymptomCheckerUseCaseFactory {
     private SymptomCheckerUseCaseFactory() {}
 
     public static SymptomCheckerView create(
-            SymptomCheckerViewModel symptomCheckerViewModel, DiagnosisViewModel diagnosisViewModel) {
+            SymptomCheckerViewModel symptomCheckerViewModel, DiagnosisViewModel diagnosisViewModel,
+            ViewManagerModel viewManagerModel) {
 
         try {
-            DiagnosisController diagnosisController = createDiagnosisUseCase(symptomCheckerViewModel,
-                    diagnosisViewModel);
+            DiagnosisController diagnosisController = createDiagnosisUseCase(diagnosisViewModel, viewManagerModel);
             return new SymptomCheckerView(symptomCheckerViewModel, diagnosisController);
         } catch (IOException e) {
             JOptionPane.showMessageDialog(null, "Could not open user data file.");
@@ -35,12 +36,12 @@ public class SymptomCheckerUseCaseFactory {
         return null;
     }
 
-    private static DiagnosisController createDiagnosisUseCase(SymptomCheckerViewModel symptomCheckerViewModel,
-                                                           DiagnosisViewModel diagnosisViewModel)
+    private static DiagnosisController createDiagnosisUseCase(DiagnosisViewModel diagnosisViewModel,
+                                                              ViewManagerModel viewManagerModel)
             throws IOException {
 
         // Notice how we pass this method's parameters to the Presenter.
-        DiagnosisOutputBoundary diagnosisOutputBoundary = new DiagnosisPresenter(diagnosisViewModel);
+        DiagnosisOutputBoundary diagnosisOutputBoundary = new DiagnosisPresenter(diagnosisViewModel, viewManagerModel);
         DiagnosisUserDataAccessInterface medicAPIDiagnosisDataAccessInterface = new MedicAPIDiagnosisDataAccessObject();
 
         UserFactory userFactory = new CommonUserFactory();

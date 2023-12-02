@@ -13,7 +13,6 @@ public class DiagnosisController {
     }
 
     public void execute(ArrayList<Integer> checkedSymptoms) {
-        System.out.println("Controller works");
         DiagnosisInputData diagnosisInputData = new DiagnosisInputData(checkedSymptoms);
         diagnosisUseCaseInteractor.execute(diagnosisInputData);
     }
