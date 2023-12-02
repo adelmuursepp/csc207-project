@@ -11,7 +11,7 @@ public class ProposedSymptomsViewModel extends ViewModel {
     private ProposedSymptomsState state = new ProposedSymptomsState();
 
     public ProposedSymptomsViewModel() {
-        super("proposed symptoms");
+        super("proposed-symptoms");
     }
 
     public ProposedSymptomsState getState() {

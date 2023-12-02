@@ -3,6 +3,7 @@ package main.app;
 import main.data_access.MedicAPIDiagnosisDataAccessObject;
 import main.entity.CommonUserFactory;
 import main.entity.UserFactory;
+import main.interface_adapter.ViewManagerModel;
 import main.interface_adapter.diagnosis.DiagnosisPresenter;
 import main.interface_adapter.proposed_symptoms.ProposedSymptomsController;
 import main.interface_adapter.proposed_symptoms.ProposedSymptomsPresenter;
@@ -30,13 +31,14 @@ public class SymptomCheckerUseCaseFactory {
 
     public static SymptomCheckerView create(
             SymptomCheckerViewModel symptomCheckerViewModel, DiagnosisViewModel diagnosisViewModel, ProposedSymptomsViewModel
-            proposedSymptomsViewModel) {
+            proposedSymptomsViewModel, ViewManagerModel viewManagerModel) {
 
         try {
             DiagnosisController diagnosisController = createDiagnosisUseCase(symptomCheckerViewModel,
-                    diagnosisViewModel);
-            ProposedSymptomsController proposedSymptomsController = createProposedSymptomsUseCase(proposedSymptomsViewModel);
+                    diagnosisViewModel, viewManagerModel);
+            ProposedSymptomsController proposedSymptomsController = createProposedSymptomsUseCase(proposedSymptomsViewModel,viewManagerModel);
             return new SymptomCheckerView(symptomCheckerViewModel, diagnosisController, proposedSymptomsController);
+
         } catch (IOException e) {
             JOptionPane.showMessageDialog(null, "Could not open user data file.");
         }
@@ -45,11 +47,12 @@ public class SymptomCheckerUseCaseFactory {
     }
 
     private static DiagnosisController createDiagnosisUseCase(SymptomCheckerViewModel symptomCheckerViewModel,
-                                                           DiagnosisViewModel diagnosisViewModel)
+                                                              DiagnosisViewModel diagnosisViewModel,
+                                                              ViewManagerModel viewManagerModel)
             throws IOException {
 
         // Notice how we pass this method's parameters to the Presenter.
-        DiagnosisOutputBoundary diagnosisOutputBoundary = new DiagnosisPresenter(diagnosisViewModel);
+        DiagnosisOutputBoundary diagnosisOutputBoundary = new DiagnosisPresenter(diagnosisViewModel, viewManagerModel);
         DiagnosisUserDataAccessInterface medicAPIDiagnosisDataAccessInterface = new MedicAPIDiagnosisDataAccessObject();
 
         UserFactory userFactory = new CommonUserFactory();
@@ -61,9 +64,10 @@ public class SymptomCheckerUseCaseFactory {
         return new DiagnosisController(diagnosisInteractor);
     }
 
-    private static ProposedSymptomsController createProposedSymptomsUseCase(ProposedSymptomsViewModel proposedSymptomsViewModel)
+    private static ProposedSymptomsController createProposedSymptomsUseCase(ProposedSymptomsViewModel proposedSymptomsViewModel,
+                                                                            ViewManagerModel viewManagerModel)
         throws IOException {
-        ProposedSymptomsOutputBoundary proposedSymptomsOutputBoundary = new ProposedSymptomsPresenter(proposedSymptomsViewModel);
+        ProposedSymptomsOutputBoundary proposedSymptomsOutputBoundary = new ProposedSymptomsPresenter(proposedSymptomsViewModel, viewManagerModel);
         ProposedSymptomsAPIDataAccessInterface medicAPIProposedSymptomsDataAccessInterface = new MedicAPIDiagnosisDataAccessObject();
 
         ProposedSymptomsInputBoundary proposedSymptomsInteractor = new ProposedSymptomsInteractor(proposedSymptomsOutputBoundary,

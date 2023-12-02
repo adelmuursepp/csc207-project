@@ -24,7 +24,7 @@ public class ProposedSymptomsInteractor implements ProposedSymptomsInputBoundary
 
     public void execute(ProposedSymptomsInputData proposedSymptomsInputData) {
         List<Integer> checkedSymptoms = proposedSymptomsInputData.getCheckedSymptoms();
-        List<CommonSymptom> proposedSymptomsList = new ArrayList<>();
+        List<CommonSymptom> proposedSymptomsList;
         List<String> proposedSymptomsNames = new ArrayList<>();
         try {
             proposedSymptomsList = this.medicAPIDiagnosisDataAccessObject.getProposedSymptoms(checkedSymptoms);
@@ -34,6 +34,7 @@ public class ProposedSymptomsInteractor implements ProposedSymptomsInputBoundary
         } catch (Exception e) {
             throw new RuntimeException();
         }
+        System.out.println("Inside interactor before presenter");
         ProposedSymptomsOutputData proposedSymptomsOutputData = new ProposedSymptomsOutputData(proposedSymptomsNames);
         proposedSymptomsPresenter.prepareProposedSymptomsView(proposedSymptomsOutputData);
     }

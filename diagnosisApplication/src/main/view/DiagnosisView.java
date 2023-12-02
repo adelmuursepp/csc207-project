@@ -7,25 +7,27 @@ import main.interface_adapter.symptom_checker.SymptomCheckerController;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
 import java.util.HashMap;
 import java.util.List;
 
-public class DiagnosisView extends JPanel {
+public class DiagnosisView extends JPanel implements ActionListener, PropertyChangeListener {
 
     public final String viewName = "diagnosis";
 
     private final DiagnosisViewModel diagnosisViewModel;
-    private final DiagnosisController diagnosisController;
     private final SymptomCheckerController symptomCheckerController;
     private final DiagnosisState diagnosisState;
 
     private final JButton symptomChecker;
 
-    public DiagnosisView(DiagnosisViewModel diagnosisViewModel, DiagnosisController diagnosisController,
-                         SymptomCheckerController symptomCheckerController) {
+    public DiagnosisView(DiagnosisViewModel diagnosisViewModel, SymptomCheckerController symptomCheckerController) {
         this.diagnosisViewModel = diagnosisViewModel;
-        this.diagnosisController = diagnosisController;
         this.symptomCheckerController = symptomCheckerController;
+        diagnosisViewModel.addPropertyChangeListener(this);
         this.diagnosisState = diagnosisViewModel.getState();
 
         int n = diagnosisState.getNumDiagnoses();
@@ -90,6 +92,19 @@ public class DiagnosisView extends JPanel {
         this.add(information, BorderLayout.EAST);
         this.add(barChart, BorderLayout.WEST);
         this.add(buttons);
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+
+    }
+
+    @Override
+    public void propertyChange(PropertyChangeEvent evt) {
+        DiagnosisState state = (DiagnosisState) evt.getNewValue();
+        if (state.getDiagnosis1() == null) {
+            JOptionPane.showMessageDialog(this, "No diagnoses match symptoms selected");
+        }
     }
 
     private class BarChart extends JPanel {

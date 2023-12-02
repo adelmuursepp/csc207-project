@@ -10,10 +10,9 @@ import java.util.ArrayList;
 
 public class ProposedSymptomsController {
     final ProposedSymptomsInputBoundary proposedSymptomsUseCaseInteractor;
-    private final ViewManagerModel viewManagerModel;
 
-    public ProposedSymptomsController(ViewManagerModel viewManagerModel, ProposedSymptomsInputBoundary proposedSymptomsUseCaseInteractor) {
-        this.viewManagerModel = viewManagerModel;
+
+    public ProposedSymptomsController(ProposedSymptomsInputBoundary proposedSymptomsUseCaseInteractor) {
         this.proposedSymptomsUseCaseInteractor = proposedSymptomsUseCaseInteractor;
     }
 

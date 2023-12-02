@@ -13,9 +13,12 @@ public class ViewManagerModel {
         return activeViewName;
     }
 
-    public void setActiveView(String activeView){this.activeViewName = activeView;}
+    public void setActiveView(String activeView) {
+        this.activeViewName = activeView;
+    }
 
-    public void firePropertyChanged() {watcher.firePropertyChange("main/view", null, this.activeViewName);
+    public void firePropertyChanged() {
+        watcher.firePropertyChange("main/view", null, this.activeViewName);
     }
 
     public void addPropertyChangeListener(PropertyChangeListener listener) {

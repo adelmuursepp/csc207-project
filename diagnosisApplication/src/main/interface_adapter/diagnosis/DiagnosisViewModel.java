@@ -15,7 +15,7 @@ public class DiagnosisViewModel extends ViewModel{
     private DiagnosisState state = new DiagnosisState();
 
     public DiagnosisViewModel() {
-        super("main/use_case/diagnosis");
+        super("diagnosis");
     }
 
     public DiagnosisState getState() {
@@ -27,6 +27,7 @@ public class DiagnosisViewModel extends ViewModel{
     }
 
     private final PropertyChangeSupport support = new PropertyChangeSupport(this);
+
     @Override
     public void firePropertyChanged() {
         support.firePropertyChange("state", null, this.state);
