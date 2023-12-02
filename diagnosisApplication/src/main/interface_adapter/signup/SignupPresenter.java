@@ -1,6 +1,5 @@
 package main.interface_adapter.signup;
 
-import main.interface_adapter.glossary_search.GlossarySearchViewModel;
 import main.interface_adapter.login.LoginState;
 import main.interface_adapter.login.LoginViewModel;
 import main.interface_adapter.ViewManagerModel;
@@ -15,19 +14,16 @@ public class SignupPresenter implements SignupOutputBoundary {
 
     private final SignupViewModel signupViewModel;
     private final LoginViewModel loginViewModel;
-    private final GlossarySearchViewModel glossarySearchViewModel;
     private final SymptomCheckerViewModel symptomCheckerViewModel;
     private ViewManagerModel viewManagerModel;
 
     public SignupPresenter(ViewManagerModel viewManagerModel,
                            SignupViewModel signupViewModel,
-                           LoginViewModel loginViewModel, SymptomCheckerViewModel symptomCheckerViewModel,
-                           GlossarySearchViewModel glossarySearchViewModel) {
+                           LoginViewModel loginViewModel, SymptomCheckerViewModel symptomCheckerViewModel) {
         this.viewManagerModel = viewManagerModel;
         this.signupViewModel = signupViewModel;
         this.loginViewModel = loginViewModel;
         this.symptomCheckerViewModel = symptomCheckerViewModel;
-        this.glossarySearchViewModel = glossarySearchViewModel;
     }
 
     @Override
