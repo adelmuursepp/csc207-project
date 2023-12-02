@@ -1,6 +1,5 @@
 package main.view;
 
-import java.awt.*;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -9,28 +8,35 @@ import java.awt.event.KeyListener;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
-import main.interface_adapter.glossary.GlossaryController;
-import main.interface_adapter.glossary.GlossaryState;
 import main.interface_adapter.glossary.GlossaryViewModel;
-import main.interface_adapter.login.LoginState;
-import main.interface_adapter.signup.SignupState;
-import main.interface_adapter.signup.SignupViewModel;
+import main.interface_adapter.glossary_search.GlossarySearchController;
+import main.interface_adapter.glossary_search.GlossarySearchState;
+import main.interface_adapter.glossary_search.GlossarySearchViewModel;
+import main.interface_adapter.glossary.GlossaryController;
+import main.interface_adapter.symptom_checker.SymptomCheckerController;
 
 public class GlossaryView extends JPanel implements ActionListener, PropertyChangeListener {
 
-    private final GlossaryController glossaryController;
     private final GlossaryViewModel glossaryViewModel;
+    private final GlossarySearchViewModel glossarySearchViewModel;
+    private final GlossarySearchController glossarySearchController;
+    private final SymptomCheckerController symptomCheckerController;
     private final JButton topics;
     private final JTextField searchInputField = new JTextField(20);
     private final JButton search;
-    public GlossaryView(GlossaryController controller, GlossaryViewModel glossaryViewModel) {
+    private final JButton back;
 
-        this.glossaryController = controller;
+    public GlossaryView(GlossaryViewModel glossaryViewModel, GlossarySearchController glossarySearchController,
+                        GlossarySearchViewModel glossarySearchViewModel,
+                        SymptomCheckerController symptomCheckerController) {
+
         this.glossaryViewModel = glossaryViewModel;
-        glossaryViewModel.addPropertyChangeListener(this);
+        this.glossarySearchController = glossarySearchController;
+        this.glossarySearchViewModel = glossarySearchViewModel;
+        this.symptomCheckerController = symptomCheckerController;
+        glossarySearchViewModel.addPropertyChangeListener(this);
 
         JLabel title = new JLabel("Glossary");
         title.setAlignmentX(CENTER_ALIGNMENT);
@@ -39,22 +45,24 @@ public class GlossaryView extends JPanel implements ActionListener, PropertyChan
                 new JLabel("Type a topic from the list"), searchInputField);
 
         JPanel buttons = new JPanel();
-        topics = new JButton("Click to get topics");
+        topics = new JButton(GlossaryViewModel.TOPICS_BUTTON_LABEL);
         buttons.add(topics);
-        search = new JButton("Search");
+        search = new JButton(GlossaryViewModel.SEARCH_BUTTON_LABEL);
         buttons.add(search);
+        back = new JButton(GlossaryViewModel.BACK_BUTTON_LABEL);
+        buttons.add(back);
 
         search.addActionListener(
                 new ActionListener() {
                     @Override
                     public void actionPerformed(ActionEvent e) {
                         if (e.getSource() == search) {
-                            GlossaryState currentState = glossaryViewModel.getState();
+                            GlossarySearchState currentState = glossarySearchViewModel.getState();
                             if (searchInputField.getText().isEmpty() ) {
                                 JOptionPane.showMessageDialog(null,
                                         "Please enter a topic");
                             } else {
-                                String contents = glossaryController.execute(
+                                String contents = glossarySearchController.execute(
                                         currentState.getSearch()
                                 );
                                 JOptionPane.showMessageDialog(null, contents);
@@ -69,9 +77,9 @@ public class GlossaryView extends JPanel implements ActionListener, PropertyChan
                 new KeyListener() {
                     @Override
                     public void keyTyped(KeyEvent e) {
-                        GlossaryState currentState = glossaryViewModel.getState();
+                        GlossarySearchState currentState = glossarySearchViewModel.getState();
                         currentState.setSearch(searchInputField.getText() + e.getKeyChar());
-                        glossaryViewModel.setState(currentState);
+                        glossarySearchViewModel.setState(currentState);
                     }
 
                     @Override
@@ -87,20 +95,16 @@ public class GlossaryView extends JPanel implements ActionListener, PropertyChan
                 new ActionListener() {
                     @Override
                     public void actionPerformed(ActionEvent e) {
-                        if (e.getSource() == topics) {
-                            List<String> topicList = null;
-                            try {
-                                topicList = glossaryController.getTopics();
-                            } catch (IOException ex) {
-                                throw new RuntimeException(ex);
-                            } catch (InterruptedException ex) {
-                                throw new RuntimeException(ex);
-                            }
-                            String topicString = "";
-                            for (String s : topicList) {
-                                topicString += s + ", ";
-                            }
-                            JOptionPane.showMessageDialog(null, topicString);
+                        // TODO: implement
+                    }
+                }
+        );
+
+        back.addActionListener(
+                new ActionListener() {
+                    public void actionPerformed(ActionEvent evt) {
+                        if (evt.getSource().equals(back)) {
+                            symptomCheckerController.execute();
                         }
                     }
                 }
@@ -121,6 +125,6 @@ public class GlossaryView extends JPanel implements ActionListener, PropertyChan
 
     @Override
     public void propertyChange(PropertyChangeEvent evt) {
-        GlossaryState state = (GlossaryState) evt.getNewValue();
+        GlossarySearchState state = (GlossarySearchState) evt.getNewValue();
     }
 }

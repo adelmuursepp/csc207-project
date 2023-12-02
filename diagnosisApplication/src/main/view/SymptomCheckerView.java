@@ -1,6 +1,7 @@
 package main.view;
 
 import main.interface_adapter.diagnosis.DiagnosisController;
+import main.interface_adapter.glossary.GlossaryController;
 import main.interface_adapter.signup.SignupViewModel;
 import main.interface_adapter.symptom_checker.SymptomCheckerController;
 import main.interface_adapter.symptom_checker.SymptomCheckerState;
@@ -10,13 +11,18 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
+import java.util.List;
 
 
 public class SymptomCheckerView extends JPanel {
     public final String viewName = "symptom checker";
 
     private final SymptomCheckerViewModel symptomCheckerViewModel;
+    private final SymptomCheckerController symptomCheckerController;
+    private  final GlossaryController glossaryController;
     private final JButton submit;
+    private final JButton glossary;
     private final JCheckBox cough;
     private final JCheckBox diarrhea;
     private final JCheckBox dizziness;
@@ -39,10 +45,15 @@ public class SymptomCheckerView extends JPanel {
     private final JCheckBox pallor;
     private final DiagnosisController diagnosisController;
 
-    public SymptomCheckerView(SymptomCheckerViewModel symptomCheckerViewModel, DiagnosisController diagnosisController)
+    public SymptomCheckerView(SymptomCheckerViewModel symptomCheckerViewModel,
+                              SymptomCheckerController symptomCheckerController,
+                              DiagnosisController diagnosisController,
+                              GlossaryController glossaryController)
     {
         this.symptomCheckerViewModel = symptomCheckerViewModel;
+        this.symptomCheckerController = symptomCheckerController;
         this.diagnosisController = diagnosisController;
+        this.glossaryController = glossaryController;
 
         JLabel title = new JLabel(SymptomCheckerViewModel.TITLE_LABEL);
         title.setAlignmentX(Component.CENTER_ALIGNMENT);
@@ -50,16 +61,33 @@ public class SymptomCheckerView extends JPanel {
         JPanel buttons = new JPanel();
         submit = new JButton(SymptomCheckerViewModel.DIAGNOSES_BUTTON_LABEL);
         buttons.add(submit);
+        glossary = new JButton("Glossary");
+        buttons.add(glossary);
 
         submit.addActionListener(
                 new ActionListener() {
-
-                    @Override
                     public void actionPerformed(ActionEvent e) {
                         if (e.getSource().equals(submit)) {
                             SymptomCheckerState currentState = symptomCheckerViewModel.getState();
 
                             diagnosisController.execute(currentState.getCheckedSymptoms());
+                        }
+                    }
+                }
+        );
+
+        glossary.addActionListener(
+                new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        if (e.getSource() == glossary) {
+                            try {
+                                glossaryController.execute();
+                            } catch (IOException ex) {
+                                throw new RuntimeException(ex);
+                            } catch (InterruptedException ex) {
+                                throw new RuntimeException(ex);
+                            }
                         }
                     }
                 }

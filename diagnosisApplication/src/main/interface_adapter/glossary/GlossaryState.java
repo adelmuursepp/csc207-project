@@ -1,11 +1,17 @@
 package main.interface_adapter.glossary;
 
+import java.util.List;
+
 public class GlossaryState {
-    private String search = "";
+    private List<String> topics;
 
-    public String getSearch() { return search; }
+    public GlossaryState() {}
 
-    public void setSearch(String search) {
-        this.search = search;
+    public void setTopics(List<String> topics) {
+        this.topics = topics;
+    }
+
+    public List<String> getTopics() {
+        return topics;
     }
 }

@@ -1,13 +1,10 @@
 package main.data_access;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import main.entity.DiagnosedIssue;
-import main.entity.DiagnosedSpecialization;
-import main.entity.HealthDiagnosis;
-import main.use_case.glossary.GlossaryDataAccessInterface;
+import main.use_case.glossary_search.GlossarySearchDataAccessInterface;
+import main.use_case.glossary_topics.GlossaryDataAccessInterface;
 
 import java.io.IOException;
 import java.net.URI;
@@ -18,7 +15,7 @@ import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
 
-public class GlossaryDataAccessObject implements GlossaryDataAccessInterface {
+public class GlossaryDataAccessObject implements GlossarySearchDataAccessInterface, GlossaryDataAccessInterface {
 
     private static final HttpClient httpClient = HttpClient.newBuilder()
             .version(HttpClient.Version.HTTP_1_1)

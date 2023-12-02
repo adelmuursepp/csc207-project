@@ -6,6 +6,4 @@ public interface SignupOutputBoundary {
     void prepareFailView(String error);
 
     void prepareLoginView();
-
-    void prepareGlossaryView();
 }
