@@ -7,4 +7,10 @@ public class SymptomCheckerInteractor implements SymptomCheckerInputBoundary {
     public SymptomCheckerInteractor(SymptomCheckerOutputBoundary symptomCheckerPresenter) {
         this.symptomCheckerPresenter = symptomCheckerPresenter;
     }
+
+    @Override
+    public void execute(SymptomCheckerInputData symptomCheckerInputData) {
+        SymptomCheckerOutputData symptomCheckerOutputData = new SymptomCheckerOutputData();
+        symptomCheckerPresenter.present(symptomCheckerOutputData);
+    }
 }

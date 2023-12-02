@@ -76,7 +76,7 @@ public class DiagnosisInteractor implements DiagnosisInputBoundary {
             issue1Hash.put("Specializations", specialization1NameList);
 
             // Diagnosis 2
-            HealthDiagnosis diagnosis2 = healthDiagnosisList.get(0);
+            HealthDiagnosis diagnosis2 = healthDiagnosisList.get(1);
             DiagnosedIssue issue2 = diagnosis2.getIssue();
             List<String> specialization2NameList = new ArrayList<>();
             List<DiagnosedSpecialization> specializations2 = diagnosis2.getSpecializations();
@@ -113,7 +113,7 @@ public class DiagnosisInteractor implements DiagnosisInputBoundary {
             issue1Hash.put("Specializations", specialization1NameList);
 
             // Diagnosis 2
-            HealthDiagnosis diagnosis2 = healthDiagnosisList.get(0);
+            HealthDiagnosis diagnosis2 = healthDiagnosisList.get(1);
             DiagnosedIssue issue2 = diagnosis2.getIssue();
             List<String> specialization2NameList = new ArrayList<>();
             List<DiagnosedSpecialization> specializations2 = diagnosis2.getSpecializations();
@@ -130,7 +130,7 @@ public class DiagnosisInteractor implements DiagnosisInputBoundary {
             issue2Hash.put("Specializations", specialization2NameList);
 
             // Diagnosis 3
-            HealthDiagnosis diagnosis3 = healthDiagnosisList.get(0);
+            HealthDiagnosis diagnosis3 = healthDiagnosisList.get(2);
             DiagnosedIssue issue3 = diagnosis3.getIssue();
             List<String> specialization3NameList = new ArrayList<>();
             List<DiagnosedSpecialization> specializations3 = diagnosis3.getSpecializations();

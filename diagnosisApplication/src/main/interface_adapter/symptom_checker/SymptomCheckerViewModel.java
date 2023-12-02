@@ -32,7 +32,6 @@ public class SymptomCheckerViewModel extends ViewModel {
     }
 
     public SymptomCheckerState getState() {
-        System.out.println("ViewModel works");
         return state;
     }
 }

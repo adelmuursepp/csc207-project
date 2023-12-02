@@ -7,6 +7,8 @@ import java.util.List;
 public class DiagnosisState {
 
     private int numDiagnoses = 0;
+    private static final String noDiagnosesMatchError = "No diagnoses match your current selected symptoms! " +
+            "Try again with less symptoms or refer to a healthcare practitioner!";
 
     private HashMap<String, Object> diagnosis1;
     private HashMap<String, Object> diagnosis2;
@@ -45,4 +47,7 @@ public class DiagnosisState {
         return diagnosis3;
     }
 
+    public String getNoDiagnosesError() {
+        return noDiagnosesMatchError;
+    }
 }

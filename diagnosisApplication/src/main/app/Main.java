@@ -7,6 +7,7 @@ import main.interface_adapter.login.LoginViewModel;
 import main.interface_adapter.proposed_symptoms.ProposedSymptomsViewModel;
 import main.interface_adapter.signup.SignupViewModel;
 import main.interface_adapter.ViewManagerModel;
+import main.interface_adapter.symptom_checker.SymptomCheckerController;
 import main.use_case.login.LoginUserDataAccessInterface;
 //import main.view.LoggedInView;
 import main.view.*;
