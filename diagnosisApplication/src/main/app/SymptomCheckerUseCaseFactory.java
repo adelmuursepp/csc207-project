@@ -5,8 +5,23 @@ import main.entity.CommonUserFactory;
 import main.entity.UserFactory;
 import main.interface_adapter.ViewManagerModel;
 import main.interface_adapter.diagnosis.DiagnosisPresenter;
+import main.interface_adapter.login.LoginController;
+import main.interface_adapter.login.LoginPresenter;
+import main.interface_adapter.login.LoginViewModel;
+import main.interface_adapter.profile.ProfileController;
+import main.interface_adapter.profile.ProfilePresenter;
+import main.interface_adapter.profile.ProfileViewModel;
+import main.interface_adapter.signup.SignupViewModel;
 import main.interface_adapter.symptom_checker.SymptomCheckerViewModel;
 import main.use_case.diagnosis.DiagnosisUserDataAccessInterface;
+import main.use_case.login.LoginInputBoundary;
+import main.use_case.login.LoginInteractor;
+import main.use_case.login.LoginOutputBoundary;
+import main.use_case.login.LoginUserDataAccessInterface;
+import main.use_case.profile.ProfileInputBoundary;
+import main.use_case.profile.ProfileInteractor;
+import main.use_case.profile.ProfileOutputBoundary;
+import main.use_case.profile.ProfileUserDataAccessInterface;
 import main.view.SymptomCheckerView;
 import main.interface_adapter.diagnosis.DiagnosisController;
 import main.use_case.diagnosis.DiagnosisOutputBoundary;
@@ -23,12 +38,13 @@ public class SymptomCheckerUseCaseFactory {
     private SymptomCheckerUseCaseFactory() {}
 
     public static SymptomCheckerView create(
-            SymptomCheckerViewModel symptomCheckerViewModel, DiagnosisViewModel diagnosisViewModel,
-            ViewManagerModel viewManagerModel) {
+            SymptomCheckerViewModel symptomCheckerViewModel, DiagnosisViewModel diagnosisViewModel, ProfileViewModel profileViewModel,
+            ViewManagerModel viewManagerModel, ProfileUserDataAccessInterface profileUserDataAccessObject) {
 
         try {
             DiagnosisController diagnosisController = createDiagnosisUseCase(diagnosisViewModel, viewManagerModel);
-            return new SymptomCheckerView(symptomCheckerViewModel, diagnosisController);
+            ProfileController profileController = createProfileUseCase(profileViewModel, viewManagerModel, ProfileUserDataAccessInterface profileUserDataAccessObject);
+            return new SymptomCheckerView(symptomCheckerViewModel, diagnosisController, profileController);
         } catch (IOException e) {
             JOptionPane.showMessageDialog(null, "Could not open user data file.");
         }
@@ -51,6 +67,14 @@ public class SymptomCheckerUseCaseFactory {
 
 
         return new DiagnosisController(diagnosisInteractor);
+    }
+
+    private static ProfileController createProfileUseCase(ProfileViewModel profileViewModel,
+                                                          ViewManagerModel viewManagerModel,
+                                                          ProfileUserDataAccessInterface profileUserDataAccessObject) {
+        ProfileOutputBoundary profileOutputBoundary = new ProfilePresenter(viewManagerModel, profileViewModel);
+        ProfileInputBoundary profileInteractor = new ProfileInteractor(profileUserDataAccessObject, profileOutputBoundary);
+        return new ProfileController(profileInteractor);
     }
 
 }

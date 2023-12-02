@@ -3,6 +3,7 @@ package main.data_access;
 import main.entity.User;
 import main.entity.UserFactory;
 import main.use_case.login.LoginUserDataAccessInterface;
+import main.use_case.profile.ProfileUserDataAccessInterface;
 import main.use_case.signup.SignupUserDataAccessInterface;
 
 import java.io.*;
@@ -11,18 +12,21 @@ import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-public class FileUserDataAccessObject implements SignupUserDataAccessInterface, LoginUserDataAccessInterface {
+public class FileUserDataAccessObject implements SignupUserDataAccessInterface, LoginUserDataAccessInterface,
+        ProfileUserDataAccessInterface {
 
     private final File csvFile;
 
     private final Map<String, Integer> headers = new LinkedHashMap<>();
 
     private final Map<String, User> accounts = new HashMap<>();
+    private String currentUser;
 
     private UserFactory userFactory;
 
     public FileUserDataAccessObject(String csvPath, UserFactory userFactory) throws IOException {
         this.userFactory = userFactory;
+        this.currentUser = null; // If no one is logged in, null, otherwise, username
 
         csvFile = new File(csvPath);
         headers.put("username", 0);
@@ -62,6 +66,12 @@ public class FileUserDataAccessObject implements SignupUserDataAccessInterface, 
         accounts.put(user.getName(), user);
         this.save();
     }
+
+    public void setCurrentUser(String username) {
+        this.currentUser = username;
+    }
+
+    public String getCurrentUser() {return this.currentUser;}
 
     @Override
     public User get(String username) {

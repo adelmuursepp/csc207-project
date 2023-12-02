@@ -1,6 +1,7 @@
 package main.view;
 
 import main.interface_adapter.diagnosis.DiagnosisController;
+import main.interface_adapter.profile.ProfileController;
 import main.interface_adapter.symptom_checker.SymptomCheckerController;
 import main.interface_adapter.symptom_checker.SymptomCheckerState;
 import main.interface_adapter.symptom_checker.SymptomCheckerViewModel;
@@ -16,6 +17,7 @@ public class SymptomCheckerView extends JPanel {
 
     private final SymptomCheckerViewModel symptomCheckerViewModel;
     private final JButton submit;
+    private final JButton profile;
     private final JCheckBox cough;
     private final JCheckBox diarrhea;
     private final JCheckBox dizziness;
@@ -37,12 +39,15 @@ public class SymptomCheckerView extends JPanel {
     private final JCheckBox cramps;
     private final JCheckBox pallor;
     private final DiagnosisController diagnosisController;
+    private final ProfileController profileController;
 
-    public SymptomCheckerView(SymptomCheckerViewModel symptomCheckerViewModel, DiagnosisController diagnosisController)
+    public SymptomCheckerView(SymptomCheckerViewModel symptomCheckerViewModel, DiagnosisController diagnosisController, ProfileController profileController)
     {
         this.symptomCheckerViewModel = symptomCheckerViewModel;
         this.diagnosisController = diagnosisController;
+        this.profileController = profileController;
 
+        profile = new JButton(SymptomCheckerViewModel.PROFILE_BUTTON_LABEL);
         JLabel title = new JLabel(SymptomCheckerViewModel.TITLE_LABEL);
 
         JPanel buttons = new JPanel();
@@ -63,6 +68,19 @@ public class SymptomCheckerView extends JPanel {
                 }
         );
 
+        profile.addActionListener(
+                new ActionListener() {
+
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        if (e.getSource().equals(profile)) {
+                            profileController.execute();
+                        }
+                    }
+                }
+        );
+
+        this.add(profile);
         this.add(title);
         this.add(buttons);
         JPanel checkboxes1 = new JPanel();
