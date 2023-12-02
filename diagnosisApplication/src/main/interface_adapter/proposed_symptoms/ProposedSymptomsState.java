@@ -9,4 +9,8 @@ public class ProposedSymptomsState {
     public void setProposedSymptomsList(List<String> proposedSymptomsList) {
         this.proposedSymptomsList = proposedSymptomsList;
     }
+
+    public List<String> getProposedSymptomsList() {
+        return this.proposedSymptomsList;
+    }
 }
