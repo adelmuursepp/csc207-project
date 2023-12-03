@@ -4,6 +4,7 @@ import main.data_access.FileUserDataAccessObject;
 import main.entity.CommonUserFactory;
 import main.interface_adapter.login.LoginViewModel;
 //import main.interface_adapter.logged_in.LoggedInViewModel;
+import main.interface_adapter.proposed_symptoms.ProposedSymptomsViewModel;
 import main.interface_adapter.signup.SignupViewModel;
 import main.interface_adapter.ViewManagerModel;
 import main.interface_adapter.symptom_checker.SymptomCheckerController;
@@ -26,8 +27,8 @@ public class Main {
         //Main Application Window.
         JFrame application = new JFrame("Bootleg WebMD");
         application.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        application.setPreferredSize(new Dimension(600, 400));
-        application.setMinimumSize(new Dimension(600, 400));
+        application.setPreferredSize(new Dimension(700, 415));
+        application.setMinimumSize(new Dimension(700, 415));
 
         CardLayout cardLayout = new CardLayout();
 
@@ -43,6 +44,7 @@ public class Main {
         SignupViewModel signupViewModel = new SignupViewModel();
         SymptomCheckerViewModel symptomCheckerViewModel = new SymptomCheckerViewModel();
         DiagnosisViewModel diagnosisViewModel = new DiagnosisViewModel();
+        ProposedSymptomsViewModel proposedSymptomsViewModel = new ProposedSymptomsViewModel();
 
         FileUserDataAccessObject userDataAccessObject;
         try {
@@ -62,12 +64,16 @@ public class Main {
         views.add(loginView, loginView.viewName);
 
         SymptomCheckerView symptomCheckerView = SymptomCheckerUseCaseFactory.create(symptomCheckerViewModel,
-                diagnosisViewModel, viewManagerModel);
+                diagnosisViewModel, proposedSymptomsViewModel, viewManagerModel);
         views.add(symptomCheckerView, symptomCheckerView.viewName);
 
         DiagnosisView diagnosisView = DiagnosisUseCaseFactory.create(diagnosisViewModel, symptomCheckerViewModel,
                 viewManagerModel);
         views.add(diagnosisView, diagnosisView.viewName);
+
+        ProposedSymptomsView proposedSymptomsView = ProposedSymptomsUseCaseFactory.create(proposedSymptomsViewModel, symptomCheckerViewModel,
+                viewManagerModel);
+        views.add(proposedSymptomsView, proposedSymptomsView.viewName);
 
         viewManagerModel.setActiveView(signupView.viewName);
         viewManagerModel.firePropertyChanged();
