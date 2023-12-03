@@ -47,12 +47,58 @@ public class SymptomCheckerView extends JPanel {
         this.diagnosisController = diagnosisController;
         this.profileController = profileController;
 
+        //main panel
+        this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
+        this.add(Box.createVerticalStrut(50));
+
+        //inner box to hold in place
+        Box innerBox = Box.createVerticalBox();
+        innerBox.add(Box.createVerticalStrut(20));
+        innerBox.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+        innerBox.setPreferredSize(new Dimension(530, 250));
+        innerBox.setMinimumSize(new Dimension(530, 250));
+        innerBox.setMaximumSize(new Dimension(530, 250));
+
+        //title
         profile = new JButton(SymptomCheckerViewModel.PROFILE_BUTTON_LABEL);
         JLabel title = new JLabel(SymptomCheckerViewModel.TITLE_LABEL);
+        title.setAlignmentX(Component.CENTER_ALIGNMENT);
+        innerBox.add(title);
+        innerBox.add(Box.createVerticalStrut(20));
 
+        //checkboxes
+        Box symptomsBox = Box.createHorizontalBox();
+        symptomsBox.add(Box.createVerticalStrut(30));
+
+        JPanel checkboxes1 = new JPanel();
+        checkboxes1.setLayout(new BoxLayout(checkboxes1, BoxLayout.Y_AXIS));
+        symptomsBox.add(checkboxes1);
+
+        JPanel checkboxes2 = new JPanel();
+        symptomsBox.add(checkboxes2);
+        checkboxes2.setLayout(new BoxLayout(checkboxes2, BoxLayout.Y_AXIS));
+
+        JPanel checkboxes3 = new JPanel();
+        symptomsBox.add(checkboxes3);
+        checkboxes3.setLayout(new BoxLayout(checkboxes3, BoxLayout.Y_AXIS));
+
+        JPanel checkboxes4 = new JPanel();
+        symptomsBox.add(checkboxes4);
+        checkboxes4.setLayout(new BoxLayout(checkboxes4, BoxLayout.Y_AXIS));
+
+        symptomsBox.add(Box.createVerticalStrut(30));
+
+        innerBox.add(symptomsBox);
+        innerBox.add(Box.createVerticalStrut(20));
+
+        //submit button
         JPanel buttons = new JPanel();
         submit = new JButton(SymptomCheckerViewModel.DIAGNOSES_BUTTON_LABEL);
         buttons.add(submit);
+        innerBox.add(buttons);
+        innerBox.add(Box.createVerticalStrut(0));
+
+        this.add(innerBox);
 
         submit.addActionListener(
                 new ActionListener() {
@@ -83,10 +129,6 @@ public class SymptomCheckerView extends JPanel {
         this.add(profile);
         this.add(title);
         this.add(buttons);
-        JPanel checkboxes1 = new JPanel();
-        JPanel checkboxes2 = new JPanel();
-        JPanel checkboxes3 = new JPanel();
-        JPanel checkboxes4 = new JPanel();
         cough = new JCheckBox("Cough");
         checkboxes1.add(cough);
 
@@ -341,7 +383,7 @@ public class SymptomCheckerView extends JPanel {
         );
 
          nosebleed = new JCheckBox("Nosebleed");
-        checkboxes3.add(nosebleed);
+        checkboxes4.add(nosebleed);
 
         nosebleed.addActionListener(
                 new ActionListener() {
@@ -424,11 +466,6 @@ public class SymptomCheckerView extends JPanel {
                 }
             }
         );
-        this.add(checkboxes1);
-        this.add(checkboxes2);
-        this.add(checkboxes3);
-        this.add(checkboxes4);
-
     }
 }
 
