@@ -40,6 +40,7 @@ public class SignupView extends JPanel implements ActionListener, PropertyChange
 
         //main panel
         this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
+        this.add(Box.createVerticalStrut(30));
 
         //testing inner box
         Box innerBox = Box.createVerticalBox();

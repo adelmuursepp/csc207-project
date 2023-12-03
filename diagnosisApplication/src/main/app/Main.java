@@ -26,6 +26,7 @@ public class Main {
         //Main Application Window.
         JFrame application = new JFrame("Bootleg WebMD");
         application.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        application.setPreferredSize(new Dimension(500, 400)); // Set the preferred size
 
         CardLayout cardLayout = new CardLayout();
 
@@ -71,6 +72,7 @@ public class Main {
         viewManagerModel.firePropertyChanged();
 
         application.pack();
+        application.setLocationRelativeTo(null);
         application.setVisible(true);
     }
 }
