@@ -74,15 +74,15 @@ public class SymptomCheckerView extends JPanel {
 
         //main panel
         this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
-        this.add(Box.createVerticalStrut(30));
+        this.add(Box.createVerticalStrut(20));
 
         //inner box to hold in place
         Box innerBox = Box.createVerticalBox();
         innerBox.add(Box.createVerticalStrut(20));
         innerBox.setBorder(BorderFactory.createLineBorder(Color.WHITE));
-        innerBox.setPreferredSize(new Dimension(635, 325));
-        innerBox.setMinimumSize(new Dimension(635, 325));
-        innerBox.setMaximumSize(new Dimension(635, 325));
+        innerBox.setPreferredSize(new Dimension(655, 355));
+        innerBox.setMinimumSize(new Dimension(655, 355));
+        innerBox.setMaximumSize(new Dimension(655, 355));
         innerBox.setBackground(hexToColor("#B8D2E4"));
 
         //title
@@ -91,7 +91,7 @@ public class SymptomCheckerView extends JPanel {
         title.setFont(titleFont);
         title.setAlignmentX(CENTER_ALIGNMENT);
         innerBox.add(title);
-        innerBox.add(Box.createVerticalStrut(20));
+        innerBox.add(Box.createVerticalStrut(0));
 
         JLabel description = new JLabel(SymptomCheckerViewModel.DESCRIPTION_LABEL);
         Font descriptionFont = new Font(description.getFont().getName(), Font.ITALIC,
@@ -104,7 +104,7 @@ public class SymptomCheckerView extends JPanel {
 
         //checkboxes
         Box symptomsBox = Box.createHorizontalBox();
-        symptomsBox.add(Box.createVerticalStrut(30));
+        symptomsBox.add(Box.createVerticalStrut(40));
 
         JPanel checkboxes1 = new JPanel();
         checkboxes1.setBackground(hexToColor("#B8D2E4"));
@@ -126,17 +126,7 @@ public class SymptomCheckerView extends JPanel {
         symptomsBox.add(checkboxes4);
         checkboxes4.setLayout(new BoxLayout(checkboxes4, BoxLayout.Y_AXIS));
 
-        JPanel checkboxes5 = new JPanel();
-        checkboxes5.setBackground(hexToColor("#B8D2E4"));
-        symptomsBox.add(checkboxes5);
-        checkboxes5.setLayout(new BoxLayout(checkboxes5, BoxLayout.Y_AXIS));
-
-        JPanel checkboxes6 = new JPanel();
-        checkboxes6.setBackground(hexToColor("#B8D2E4"));
-        symptomsBox.add(checkboxes6);
-        checkboxes6.setLayout(new BoxLayout(checkboxes6, BoxLayout.Y_AXIS));
-
-        symptomsBox.add(Box.createVerticalStrut(30));
+        symptomsBox.add(Box.createVerticalStrut(40));
         symptomsBox.setBackground(hexToColor("#B8D2E4"));
 
         innerBox.add(symptomsBox);
@@ -590,7 +580,7 @@ public class SymptomCheckerView extends JPanel {
         );
 
         nosebleed = new JCheckBox("Nosebleed");
-        checkboxes5.add(nosebleed);
+        checkboxes1.add(nosebleed);
 
         nosebleed.addActionListener(
                 new ActionListener() {
@@ -607,7 +597,7 @@ public class SymptomCheckerView extends JPanel {
         );
 
         palpitations = new JCheckBox("Palpitations");
-        checkboxes5.add(palpitations);
+        checkboxes1.add(palpitations);
 
         palpitations.addActionListener(
                 new ActionListener() {
@@ -624,7 +614,7 @@ public class SymptomCheckerView extends JPanel {
         );
 
         pallor = new JCheckBox("Pallor");
-        checkboxes5.add(pallor);
+        checkboxes1.add(pallor);
 
         pallor.addActionListener(
             new ActionListener() {
@@ -641,7 +631,7 @@ public class SymptomCheckerView extends JPanel {
         );
 
         skinRash = new JCheckBox("Rash");
-        checkboxes5.add(skinRash);
+        checkboxes2.add(skinRash);
 
         skinRash.addActionListener(
                 new ActionListener() {
@@ -658,7 +648,7 @@ public class SymptomCheckerView extends JPanel {
         );
 
         sneezing = new JCheckBox("Sneezing");
-        checkboxes5.add(sneezing);
+        checkboxes2.add(sneezing);
 
         sneezing.addActionListener(
                 new ActionListener() {
@@ -675,7 +665,7 @@ public class SymptomCheckerView extends JPanel {
         );
 
         soreThroat = new JCheckBox("Sore Throat");
-        checkboxes5.add(soreThroat);
+        checkboxes2.add(soreThroat);
 
         soreThroat.addActionListener(
                 new ActionListener() {
@@ -692,7 +682,7 @@ public class SymptomCheckerView extends JPanel {
         );
 
         stuffyNose = new JCheckBox("Stuffy Nose");
-        checkboxes6.add(stuffyNose);
+        checkboxes3.add(stuffyNose);
 
         stuffyNose.addActionListener(
                 new ActionListener() {
@@ -709,7 +699,7 @@ public class SymptomCheckerView extends JPanel {
         );
 
         tiredness = new JCheckBox("Tiredness");
-        checkboxes6.add(tiredness);
+        checkboxes3.add(tiredness);
 
         tiredness.addActionListener(
                 new ActionListener() {
@@ -726,7 +716,7 @@ public class SymptomCheckerView extends JPanel {
         );
 
         toothAche = new JCheckBox("Toothache");
-        checkboxes6.add(toothAche);
+        checkboxes3.add(toothAche);
 
         toothAche.addActionListener(
                 new ActionListener() {
@@ -743,7 +733,7 @@ public class SymptomCheckerView extends JPanel {
         );
 
         wheezing = new JCheckBox("Wheezing");
-        checkboxes6.add(wheezing);
+        checkboxes4.add(wheezing);
 
         wheezing.addActionListener(
                 new ActionListener() {
@@ -760,7 +750,7 @@ public class SymptomCheckerView extends JPanel {
         );
 
         wound = new JCheckBox("Wound");
-        checkboxes6.add(wound);
+        checkboxes4.add(wound);
 
         wound.addActionListener(
                 new ActionListener() {
@@ -777,7 +767,7 @@ public class SymptomCheckerView extends JPanel {
         );
 
         vomiting = new JCheckBox("Vomiting");
-        checkboxes6.add(vomiting);
+        checkboxes4.add(vomiting);
 
         vomiting.addActionListener(
                 new ActionListener() {
