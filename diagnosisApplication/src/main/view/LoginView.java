@@ -38,35 +38,33 @@ public class LoginView extends JPanel implements ActionListener, PropertyChangeL
 
         //main panel
         this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
-        this.add(Box.createVerticalStrut(30));
+        this.add(Box.createVerticalStrut(40));
 
         //inner box to hold in place
         Box innerBox = Box.createVerticalBox();
         innerBox.setBorder(BorderFactory.createLineBorder(Color.BLACK));
         innerBox.setPreferredSize(new Dimension(350, 150));
-        innerBox.setMinimumSize(new Dimension(350, 150));
-        innerBox.setMaximumSize(new Dimension(350, 150));
+        innerBox.setMinimumSize(new Dimension(350, 200));
+        innerBox.setMaximumSize(new Dimension(350, 200));
 
         //title
-        innerBox.add(Box.createVerticalStrut(10));
+        innerBox.add(Box.createVerticalStrut(15));
         JLabel title = new JLabel("Login");
         title.setAlignmentX(Component.CENTER_ALIGNMENT);
         innerBox.add(title);
-        innerBox.add(Box.createVerticalStrut(15));
+        innerBox.add(Box.createVerticalStrut(20));
 
         //username and password
         LabelTextPanel usernameInfo = new LabelTextPanel(
                 new JLabel("Username"), usernameInputField);
-        usernameInfo.setBorder(BorderFactory.createLineBorder(Color.BLACK));
         innerBox.add(usernameInfo);
         innerBox.add(usernameErrorField);
 
         LabelTextPanel passwordInfo = new LabelTextPanel(
                 new JLabel("Password"), passwordInputField);
-        passwordInfo.setBorder(BorderFactory.createLineBorder(Color.BLACK));
         innerBox.add(passwordInfo);
         innerBox.add(passwordErrorField);
-        innerBox.add(Box.createVerticalStrut(5));
+        innerBox.add(Box.createVerticalStrut(15));
 
         //buttons
         JPanel buttons = new JPanel();
@@ -74,8 +72,8 @@ public class LoginView extends JPanel implements ActionListener, PropertyChangeL
         buttons.add(logIn);
         cancel = new JButton(loginViewModel.CANCEL_BUTTON_LABEL);
         buttons.add(cancel);
-        buttons.setBorder(BorderFactory.createLineBorder(Color.BLACK));
         innerBox.add(buttons);
+        innerBox.add(Box.createVerticalStrut(20));
 
         this.add(innerBox);
 
