@@ -41,43 +41,55 @@ public class SignupView extends JPanel implements ActionListener, PropertyChange
         //main panel
         this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 
+        //testing inner box
+        Box innerBox = Box.createVerticalBox();
+        innerBox.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+        innerBox.setPreferredSize(new Dimension(350, 285));
+        innerBox.setMinimumSize(new Dimension(350, 285));   // Minimum size
+        innerBox.setMaximumSize(new Dimension(350, 285));   // Maximum size
+
         //title
+        innerBox.add(Box.createVerticalStrut(10));
         JLabel title = new JLabel(SignupViewModel.TITLE_LABEL);
         title.setAlignmentX(Component.CENTER_ALIGNMENT);
-        this.add(title);
-        this.add(Box.createVerticalStrut(5));
+        innerBox.add(title);
+        innerBox.add(Box.createVerticalStrut(15));
 
         //input fields
         LabelTextPanel usernameInfo = new LabelTextPanel(
                 new JLabel(SignupViewModel.USERNAME_LABEL), usernameInputField);
-        this.add(usernameInfo);
-        this.add(Box.createVerticalStrut(5));
+        usernameInputField.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
+        innerBox.add(usernameInfo);
+        innerBox.add(Box.createVerticalStrut(0));
         LabelTextPanel passwordInfo = new LabelTextPanel(
                 new JLabel(SignupViewModel.PASSWORD_LABEL), passwordInputField);
-        this.add(passwordInfo);
-        this.add(Box.createVerticalStrut(5));
+        passwordInputField.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
+        innerBox.add(passwordInfo);
+        innerBox.add(Box.createVerticalStrut(0));
         LabelTextPanel repeatPasswordInfo = new LabelTextPanel(
                 new JLabel(SignupViewModel.REPEAT_PASSWORD_LABEL), repeatPasswordInputField);
-        this.add(repeatPasswordInfo);
-        this.add(Box.createVerticalStrut(5));
+        repeatPasswordInputField.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
+        innerBox.add(repeatPasswordInfo);
+        innerBox.add(Box.createVerticalStrut(5));
+
 
         //panel for year and sex
         JPanel buttons = new JPanel();
-        //buttons.setLayout(new BoxLayout(buttons, BoxLayout.Y_AXIS));
+        buttons.add(Box.createVerticalStrut(5));
 
         JLabel spinnerLabel = new JLabel("Year of birth:");
         buttons.add(spinnerLabel);
         JSpinner year = new JSpinner(spinnerModel);
         buttons.add(year);
-        buttons.add(Box.createVerticalStrut(5));
 
         JLabel sexLabel = new JLabel("Sex:");
         buttons.add(sexLabel);
         JComboBox sex = new JComboBox(sexes);
         buttons.add(sex);
 
-        this.add(buttons);
-        this.add(Box.createVerticalStrut(10));
+        innerBox.add(buttons);
+
+        innerBox.add(Box.createVerticalStrut(5));
 
         //panel for buttons
         JPanel buttons1 = new JPanel();
@@ -85,6 +97,7 @@ public class SignupView extends JPanel implements ActionListener, PropertyChange
 
         signUp = new JButton(SignupViewModel.SIGNUP_BUTTON_LABEL);
         buttons1.add(signUp);
+        buttons1.add(Box.createVerticalStrut(15));
         signUp.setAlignmentX(Component.CENTER_ALIGNMENT);
 
         JLabel loginLabel = new JLabel("Already have an account?");
@@ -94,7 +107,11 @@ public class SignupView extends JPanel implements ActionListener, PropertyChange
         buttons1.add(login);
         login.setAlignmentX(Component.CENTER_ALIGNMENT);
 
-        this.add(buttons1);
+        innerBox.add(buttons1);
+
+        innerBox.add(Box.createVerticalStrut(25));
+
+        this.add(innerBox);
 
 
         login.addActionListener(
