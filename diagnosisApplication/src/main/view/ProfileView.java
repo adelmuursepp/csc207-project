@@ -17,7 +17,7 @@ public class ProfileView extends JPanel implements ActionListener, PropertyChang
     public final String viewName = "profile";
     private final ProfileViewModel profileViewModel;
     private final SymptomCheckerController symptomCheckerController;
-    private final PastDiagnosesController pastDiagnosisController;
+    private final PastDiagnosesController pastDiagnosesController;
     private final JButton symptomChecker;
     private final JButton pastDiagnoses;
 
@@ -25,7 +25,7 @@ public class ProfileView extends JPanel implements ActionListener, PropertyChang
                        PastDiagnosesController pastDiagnosisController) {
         this.profileViewModel = profileViewModel;
         this.symptomCheckerController = symptomCheckerController;
-        this.pastDiagnosisController = pastDiagnosisController;
+        this.pastDiagnosesController = pastDiagnosisController;
         setLayout(new BorderLayout());
 
         ProfileState profileState = this.profileViewModel.getState();

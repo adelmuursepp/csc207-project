@@ -3,6 +3,7 @@ package main.app;
 import main.interface_adapter.ViewManagerModel;
 import main.interface_adapter.diagnosis.DiagnosisViewModel;
 import main.interface_adapter.past_diagnoses.PastDiagnosesController;
+import main.interface_adapter.past_diagnoses.PastDiagnosesPresenter;
 import main.interface_adapter.past_diagnoses.PastDiagnosesViewModel;
 import main.interface_adapter.profile.ProfileViewModel;
 import main.interface_adapter.symptom_checker.SymptomCheckerController;
@@ -10,6 +11,7 @@ import main.interface_adapter.symptom_checker.SymptomCheckerPresenter;
 import main.interface_adapter.symptom_checker.SymptomCheckerViewModel;
 import main.use_case.past_diagnoses.PastDiagnosesInputBoundary;
 import main.use_case.past_diagnoses.PastDiagnosesOutputBoundary;
+import main.use_case.past_diagnoses.PastDiagnosesInteractor;
 import main.use_case.symptom_checker.SymptomCheckerInputBoundary;
 import main.use_case.symptom_checker.SymptomCheckerInteractor;
 import main.use_case.symptom_checker.SymptomCheckerOutputBoundary;
@@ -25,12 +27,14 @@ public class ProfileUseCaseFactory {
 
     public static ProfileView create(ProfileViewModel profileViewModel,
                                      SymptomCheckerViewModel symptomCheckerViewModel,
+                                     PastDiagnosesViewModel pastDiagnosesViewModel,
                                      ViewManagerModel viewManagerModel) {
 
         try {
             SymptomCheckerController symptomCheckerController = createSymptomCheckerUseCase(symptomCheckerViewModel,
                     viewManagerModel);
-            PastDiagnosesController pastDiagnosesController =
+            PastDiagnosesController pastDiagnosesController = createPastDiagnosesUseCase(pastDiagnosesViewModel,
+                    viewManagerModel);
             return new ProfileView(profileViewModel,
                     symptomCheckerController, pastDiagnosesController);
         } catch (IOException e) {

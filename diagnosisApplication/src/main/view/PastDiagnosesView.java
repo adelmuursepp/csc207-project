@@ -4,6 +4,7 @@ import main.interface_adapter.past_diagnoses.PastDiagnosesPresenter;
 import main.interface_adapter.past_diagnoses.PastDiagnosesState;
 import main.interface_adapter.past_diagnoses.PastDiagnosesViewModel;
 import main.interface_adapter.profile.ProfileViewModel;
+import main.interface_adapter.symptom_checker.SymptomCheckerController;
 
 import javax.swing.*;
 import java.awt.*;
@@ -11,6 +12,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
+import java.util.List;
 
 public class PastDiagnosesView extends JPanel implements ActionListener, PropertyChangeListener {
     public final String viewName = "past-diagnoses";

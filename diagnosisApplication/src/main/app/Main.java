@@ -5,6 +5,7 @@ import main.data_access.FileUserDataAccessObject;
 import main.entity.CommonUserFactory;
 import main.interface_adapter.login.LoginViewModel;
 //import main.interface_adapter.logged_in.LoggedInViewModel;
+import main.interface_adapter.past_diagnoses.PastDiagnosesViewModel;
 import main.interface_adapter.profile.ProfileViewModel;
 import main.interface_adapter.signup.SignupViewModel;
 import main.interface_adapter.ViewManagerModel;
@@ -44,6 +45,7 @@ public class Main {
         LoginViewModel loginViewModel = new LoginViewModel();
         SignupViewModel signupViewModel = new SignupViewModel();
         SymptomCheckerViewModel symptomCheckerViewModel = new SymptomCheckerViewModel();
+        PastDiagnosesViewModel pastDiagnosesViewModel = new PastDiagnosesViewModel();
         DiagnosisViewModel diagnosisViewModel = new DiagnosisViewModel();
         ProfileViewModel profileViewModel = new ProfileViewModel();
 
@@ -79,7 +81,7 @@ public class Main {
                 viewManagerModel);
         views.add(diagnosisView, diagnosisView.viewName);
 
-        ProfileView profileView = ProfileUseCaseFactory.create(profileViewModel, symptomCheckerViewModel, viewManagerModel);
+        ProfileView profileView = ProfileUseCaseFactory.create(profileViewModel, symptomCheckerViewModel, pastDiagnosesViewModel, viewManagerModel);
         views.add(profileView, profileView.viewName);
 
         viewManagerModel.setActiveView(signupView.viewName);

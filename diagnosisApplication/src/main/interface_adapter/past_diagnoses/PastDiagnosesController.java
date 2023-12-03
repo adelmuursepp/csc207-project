@@ -1,5 +1,7 @@
 package main.interface_adapter.past_diagnoses;
 
+import main.use_case.past_diagnoses.PastDiagnosesInputBoundary;
+
 public class PastDiagnosesController {
     final PastDiagnosesInputBoundary pastDiagnosesUseCaseInteractor;
 
