@@ -16,7 +16,7 @@ public class DiagnosisPresenter implements DiagnosisOutputBoundary {
     }
     @Override
     public void prepareDiagnosisView(DiagnosisOutputData outputData) {
-       DiagnosisState diagnosisState = diagnosisViewModel.getState();
+       DiagnosisState diagnosisState = new DiagnosisState();
 
        diagnosisState.setDiagnosis1(outputData.getDiagnosis1());
 
@@ -28,7 +28,8 @@ public class DiagnosisPresenter implements DiagnosisOutputBoundary {
            diagnosisState.setDiagnosis3(outputData.getDiagnosis3());
        }
 
-        this.diagnosisViewModel.firePropertyChanged();
+       diagnosisViewModel.setState(diagnosisState);
+       this.diagnosisViewModel.firePropertyChanged();
 
        viewManagerModel.setActiveView(diagnosisViewModel.getViewName());
        this.viewManagerModel.firePropertyChanged();
