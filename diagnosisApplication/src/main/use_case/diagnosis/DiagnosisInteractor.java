@@ -17,11 +17,13 @@ public class DiagnosisInteractor implements DiagnosisInputBoundary {
 //    final DiagnosisUserDataAccessObject userDataAccessObject;
     final DiagnosisOutputBoundary diagnosisPresenter;
     private final DiagnosisUserDataAccessInterface medicAPIDiagnosisDataAccessObject;
-
+    private final DiagnosisFileDataAccessInterface diagnosisFileDataAccessObject;
     public DiagnosisInteractor(
-            DiagnosisOutputBoundary diagnosisOutputBoundary, DiagnosisUserDataAccessInterface medicAPIDiagnosisDataAccessObject) {
+            DiagnosisOutputBoundary diagnosisOutputBoundary, DiagnosisUserDataAccessInterface medicAPIDiagnosisDataAccessObject,
+            DiagnosisFileDataAccessInterface diagnosisFileDataAccessObject) {
 //        this.userDataAccessObject = userDataAccessObject;
         this.medicAPIDiagnosisDataAccessObject = medicAPIDiagnosisDataAccessObject;
+        this.diagnosisFileDataAccessObject = diagnosisFileDataAccessObject;
         this.diagnosisPresenter = diagnosisOutputBoundary;
     }
 
@@ -41,6 +43,8 @@ public class DiagnosisInteractor implements DiagnosisInputBoundary {
         else if (healthDiagnosisList.size() == 1) {
             HealthDiagnosis diagnosis1 = healthDiagnosisList.get(0);
             DiagnosedIssue issue1 = diagnosis1.getIssue();
+            // Saving diagnosis to the csv file
+            diagnosisFileDataAccessObject.save(issue1);
             List<String> specializationNameList = new ArrayList<>();
             List<DiagnosedSpecialization> specializations1 = diagnosis1.getSpecializations();
             for (DiagnosedSpecialization specialization: specializations1) {
@@ -61,6 +65,7 @@ public class DiagnosisInteractor implements DiagnosisInputBoundary {
         else if (healthDiagnosisList.size() == 2) {
             HealthDiagnosis diagnosis1 = healthDiagnosisList.get(0);
             DiagnosedIssue issue1 = diagnosis1.getIssue();
+            diagnosisFileDataAccessObject.save(issue1);
             List<String> specialization1NameList = new ArrayList<>();
             List<DiagnosedSpecialization> specializations1 = diagnosis1.getSpecializations();
             for (DiagnosedSpecialization specialization: specializations1) {
@@ -78,6 +83,7 @@ public class DiagnosisInteractor implements DiagnosisInputBoundary {
             // Diagnosis 2
             HealthDiagnosis diagnosis2 = healthDiagnosisList.get(1);
             DiagnosedIssue issue2 = diagnosis2.getIssue();
+            diagnosisFileDataAccessObject.save(issue2);
             List<String> specialization2NameList = new ArrayList<>();
             List<DiagnosedSpecialization> specializations2 = diagnosis2.getSpecializations();
             for (DiagnosedSpecialization specialization: specializations2) {
@@ -98,6 +104,7 @@ public class DiagnosisInteractor implements DiagnosisInputBoundary {
         } else if (healthDiagnosisList.size() == 3) {
             HealthDiagnosis diagnosis1 = healthDiagnosisList.get(0);
             DiagnosedIssue issue1 = diagnosis1.getIssue();
+            diagnosisFileDataAccessObject.save(issue1);
             List<String> specialization1NameList = new ArrayList<>();
             List<DiagnosedSpecialization> specializations1 = diagnosis1.getSpecializations();
             for (DiagnosedSpecialization specialization: specializations1) {
@@ -115,6 +122,7 @@ public class DiagnosisInteractor implements DiagnosisInputBoundary {
             // Diagnosis 2
             HealthDiagnosis diagnosis2 = healthDiagnosisList.get(1);
             DiagnosedIssue issue2 = diagnosis2.getIssue();
+            diagnosisFileDataAccessObject.save(issue2);
             List<String> specialization2NameList = new ArrayList<>();
             List<DiagnosedSpecialization> specializations2 = diagnosis2.getSpecializations();
             for (DiagnosedSpecialization specialization: specializations2) {
@@ -132,6 +140,7 @@ public class DiagnosisInteractor implements DiagnosisInputBoundary {
             // Diagnosis 3
             HealthDiagnosis diagnosis3 = healthDiagnosisList.get(2);
             DiagnosedIssue issue3 = diagnosis3.getIssue();
+            diagnosisFileDataAccessObject.save(issue3);
             List<String> specialization3NameList = new ArrayList<>();
             List<DiagnosedSpecialization> specializations3 = diagnosis3.getSpecializations();
             for (DiagnosedSpecialization specialization: specializations3) {

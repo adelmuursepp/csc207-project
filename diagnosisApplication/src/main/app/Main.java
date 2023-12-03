@@ -1,5 +1,6 @@
 package main.app;
 
+import main.data_access.FileDiagnosisDataAccessObject;
 import main.data_access.FileUserDataAccessObject;
 import main.entity.CommonUserFactory;
 import main.interface_adapter.login.LoginViewModel;
@@ -8,6 +9,7 @@ import main.interface_adapter.profile.ProfileViewModel;
 import main.interface_adapter.signup.SignupViewModel;
 import main.interface_adapter.ViewManagerModel;
 import main.interface_adapter.symptom_checker.SymptomCheckerController;
+import main.use_case.diagnosis.DiagnosisFileDataAccessInterface;
 import main.use_case.login.LoginUserDataAccessInterface;
 //import main.view.LoggedInView;
 import main.use_case.profile.ProfileUserDataAccessInterface;
@@ -52,6 +54,13 @@ public class Main {
             throw new RuntimeException(e);
         }
 
+        FileDiagnosisDataAccessObject fileDiagnosisDataAccessObject;
+        try {
+            fileDiagnosisDataAccessObject = new FileDiagnosisDataAccessObject("./diagnoses.csv", userDataAccessObject);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
         SignupView signupView = SignupUseCaseFactory.create(viewManagerModel, loginViewModel, signupViewModel,
                 symptomCheckerViewModel,
                 userDataAccessObject);
@@ -63,14 +72,14 @@ public class Main {
         views.add(loginView, loginView.viewName);
 
         SymptomCheckerView symptomCheckerView = SymptomCheckerUseCaseFactory.create(symptomCheckerViewModel,
-                diagnosisViewModel, profileViewModel, viewManagerModel, userDataAccessObject);
+                diagnosisViewModel, profileViewModel, viewManagerModel, userDataAccessObject, fileDiagnosisDataAccessObject);
         views.add(symptomCheckerView, symptomCheckerView.viewName);
 
         DiagnosisView diagnosisView = DiagnosisUseCaseFactory.create(diagnosisViewModel, symptomCheckerViewModel,
                 viewManagerModel);
         views.add(diagnosisView, diagnosisView.viewName);
 
-        ProfileView profileView = ProfileUseCaseFactory.create(profileViewModel, viewManagerModel);
+        ProfileView profileView = ProfileUseCaseFactory.create(profileViewModel, symptomCheckerViewModel, viewManagerModel);
         views.add(profileView, profileView.viewName);
 
         viewManagerModel.setActiveView(signupView.viewName);

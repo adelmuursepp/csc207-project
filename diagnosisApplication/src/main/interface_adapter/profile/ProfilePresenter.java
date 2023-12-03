@@ -15,11 +15,15 @@ public class ProfilePresenter implements ProfileOutputBoundary {
 
     public void prepareProfileView(ProfileOutputData profileOutputData) {
         ProfileState profileState = profileViewModel.getState();
+        System.out.println("Username in presenter in profileoutputdata");
+        System.out.println(profileOutputData.getUsername());
         profileState.setUsername(profileOutputData.getUsername());
         profileState.setUserSex(profileOutputData.getUserSex());
         profileState.setUserYearOfBirth(profileOutputData.getUserYearOfBirth());
         profileState.setUserCreationTime(profileOutputData.getUserCreationTime());
         profileViewModel.firePropertyChanged();
+        System.out.println("Username from state");
+        System.out.println(profileState.getUsername());
 
         viewManagerModel.setActiveView(profileViewModel.getViewName());
         viewManagerModel.firePropertyChanged();

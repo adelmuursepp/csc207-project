@@ -21,6 +21,22 @@ public class ProfileState {
         this.userCreationTime = userCreationTime;
     }
 
+    public String getUsername() {
+        return username;
+    }
+
+    public String getUserSex() {
+        return userSex;
+    }
+
+    public Integer getUserYearOfBirth() {
+        return userYearOfBirth;
+    }
+
+    public LocalDateTime getUserCreationTime() {
+        return userCreationTime;
+    }
+
     private String username = "";
     private String userSex = "";
     private Integer userYearOfBirth = null;
