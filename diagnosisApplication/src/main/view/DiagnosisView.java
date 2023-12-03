@@ -22,16 +22,18 @@ public class DiagnosisView extends JPanel implements ActionListener, PropertyCha
     private final JButton symptomChecker;
 
     public DiagnosisView(DiagnosisViewModel diagnosisViewModel, SymptomCheckerController symptomCheckerController) {
-//        super(new GridLayout(1, 1));
-        setLayout(new GridLayout(0, 1));
 
         this.diagnosisViewModel = diagnosisViewModel;
         this.symptomCheckerController = symptomCheckerController;
         diagnosisViewModel.addPropertyChangeListener(this);
 
         JLabel title = new JLabel(DiagnosisViewModel.TITLE_LABEL);
+        title.setAlignmentX(CENTER_ALIGNMENT);
+        title.setAlignmentY(TOP_ALIGNMENT);
 
         JPanel buttons = new JPanel();
+        buttons.setLayout(new BoxLayout(buttons, BoxLayout.LINE_AXIS));
+        buttons.setAlignmentX(CENTER_ALIGNMENT);
         symptomChecker = new JButton(DiagnosisViewModel.SYMPTOM_CHECKER_BUTTON_LABEL);
         buttons.add(symptomChecker);
 
@@ -46,8 +48,9 @@ public class DiagnosisView extends JPanel implements ActionListener, PropertyCha
                 }
         );
 
+        this.setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));
         this.add(title);
-        this.add(buttons);
+        this.add(buttons, BorderLayout.PAGE_END);
     }
 
     @Override
@@ -71,17 +74,20 @@ public class DiagnosisView extends JPanel implements ActionListener, PropertyCha
             String[] diagnoses = new String[n];
 
             accuracies[0] = (Float) currentState.getDiagnosis1().get("Accuracy");
-            diagnoses[0] = (String) currentState.getDiagnosis1().get("Name");
+            diagnoses[0] = (String) currentState.getDiagnosis1().get("Name") + " " +
+                    currentState.getDiagnosis1().get("Accuracy").toString() + "%";
             if (n >= 2) {
                 accuracies[1] = (Float) currentState.getDiagnosis2().get("Accuracy");
-                diagnoses[1] = (String) currentState.getDiagnosis2().get("Name");
+                diagnoses[1] = (String) currentState.getDiagnosis2().get("Name") + " " +
+                        currentState.getDiagnosis1().get("Accuracy").toString() + "%";
             }
             if (n == 3) {
                 accuracies[2] = (Float) currentState.getDiagnosis3().get("Accuracy");
-                diagnoses[2] = (String) currentState.getDiagnosis3().get("Name");
+                diagnoses[2] = (String) currentState.getDiagnosis3().get("Name") + " " +
+                        currentState.getDiagnosis1().get("Accuracy").toString() + "%";
             }
             BarChart barChart = new BarChart(accuracies, diagnoses, "Diagnoses and Accuracies");
-            barChart.setSize(new Dimension(100, 100));
+            barChart.setPreferredSize(new Dimension(250, 300));
             tabbedPane.addTab("Bar Chart", barChart);
 
             // This is the code that adds the information panels.
@@ -113,12 +119,15 @@ public class DiagnosisView extends JPanel implements ActionListener, PropertyCha
                 for (String specialist : (List<String>) currentDiagnosis.get("Specializations")) {
                     infoPanel.append("       -" + specialist + "\n");
                 }
-                // infoPanel.append("\n");
-                // information.add(infoPanel);
                 tabbedPane.addTab(currentDiagnosis.get("Name").toString().toUpperCase(), infoPanel);
             }
-            // information.add(infoPanel, BorderLayout.SOUTH);
-            // this.add(information);
+
+            if (this.getComponentCount() == 3) {
+                this.remove(this.getComponent(2));
+            }
+            tabbedPane.setAlignmentX(CENTER_ALIGNMENT);
+            tabbedPane.setAlignmentY(CENTER_ALIGNMENT);
+            tabbedPane.setPreferredSize(new Dimension(350, 400));
             this.add(tabbedPane);
         }
     }
