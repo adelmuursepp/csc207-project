@@ -2,10 +2,14 @@ package main.app;
 
 import main.interface_adapter.ViewManagerModel;
 import main.interface_adapter.diagnosis.DiagnosisViewModel;
+import main.interface_adapter.past_diagnoses.PastDiagnosesController;
+import main.interface_adapter.past_diagnoses.PastDiagnosesViewModel;
 import main.interface_adapter.profile.ProfileViewModel;
 import main.interface_adapter.symptom_checker.SymptomCheckerController;
 import main.interface_adapter.symptom_checker.SymptomCheckerPresenter;
 import main.interface_adapter.symptom_checker.SymptomCheckerViewModel;
+import main.use_case.past_diagnoses.PastDiagnosesInputBoundary;
+import main.use_case.past_diagnoses.PastDiagnosesOutputBoundary;
 import main.use_case.symptom_checker.SymptomCheckerInputBoundary;
 import main.use_case.symptom_checker.SymptomCheckerInteractor;
 import main.use_case.symptom_checker.SymptomCheckerOutputBoundary;
@@ -26,7 +30,9 @@ public class ProfileUseCaseFactory {
         try {
             SymptomCheckerController symptomCheckerController = createSymptomCheckerUseCase(symptomCheckerViewModel,
                     viewManagerModel);
-            return new ProfileView(profileViewModel, symptomCheckerController);
+            PastDiagnosesController pastDiagnosesController =
+            return new ProfileView(profileViewModel,
+                    symptomCheckerController, pastDiagnosesController);
         } catch (IOException e) {
             JOptionPane.showMessageDialog(null, "Could not get the profile");
         }
@@ -45,5 +51,16 @@ public class ProfileUseCaseFactory {
 
 
         return new SymptomCheckerController(symptomCheckerInteractor);
+    }
+
+    private static PastDiagnosesController createPastDiagnosesUseCase(PastDiagnosesViewModel pastDiagnosesViewModel,
+                                                                      ViewManagerModel viewManagerModel) {
+
+        PastDiagnosesOutputBoundary pastDiagnosesPresenter = new PastDiagnosesPresenter(pastDiagnosesViewModel,
+                viewManagerModel);
+
+        PastDiagnosesInputBoundary pastDiagnosesInteractor = new PastDiagnosesInteractor(pastDiagnosesPresenter);
+
+        return new PastDiagnosesController(pastDiagnosesInteractor);
     }
 }

@@ -91,5 +91,6 @@ public class FileDiagnosisDataAccessObject implements DiagnosisFileDataAccessInt
         } catch (IOException e) {
             e.printStackTrace();
         }
+        return pastDiagnoses;
     }
 }

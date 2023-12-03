@@ -1,6 +1,7 @@
 package main.view;
 
 import main.interface_adapter.diagnosis.DiagnosisViewModel;
+import main.interface_adapter.past_diagnoses.PastDiagnosesController;
 import main.interface_adapter.profile.ProfileState;
 import main.interface_adapter.profile.ProfileViewModel;
 import main.interface_adapter.symptom_checker.SymptomCheckerController;
