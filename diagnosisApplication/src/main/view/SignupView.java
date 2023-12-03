@@ -38,31 +38,48 @@ public class SignupView extends JPanel implements ActionListener, PropertyChange
         this.signupViewModel = signupViewModel;
         signupViewModel.addPropertyChangeListener(this);
 
+        //main panel
+        this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
+
+        //title
         JLabel title = new JLabel(SignupViewModel.TITLE_LABEL);
         title.setAlignmentX(Component.CENTER_ALIGNMENT);
+        this.add(title);
+        this.add(Box.createVerticalStrut(5));
 
+        //input fields
         LabelTextPanel usernameInfo = new LabelTextPanel(
                 new JLabel(SignupViewModel.USERNAME_LABEL), usernameInputField);
+        this.add(usernameInfo);
+        this.add(Box.createVerticalStrut(5));
         LabelTextPanel passwordInfo = new LabelTextPanel(
                 new JLabel(SignupViewModel.PASSWORD_LABEL), passwordInputField);
+        this.add(passwordInfo);
+        this.add(Box.createVerticalStrut(5));
         LabelTextPanel repeatPasswordInfo = new LabelTextPanel(
                 new JLabel(SignupViewModel.REPEAT_PASSWORD_LABEL), repeatPasswordInputField);
+        this.add(repeatPasswordInfo);
+        this.add(Box.createVerticalStrut(5));
 
+        //panel for year and sex
         JPanel buttons = new JPanel();
         //buttons.setLayout(new BoxLayout(buttons, BoxLayout.Y_AXIS));
-        //buttons.add(Box.createVerticalStrut(10));
-        //buttons.add(Box.createRigidArea(new Dimension(0, 10)));
 
         JLabel spinnerLabel = new JLabel("Year of birth:");
         buttons.add(spinnerLabel);
         JSpinner year = new JSpinner(spinnerModel);
         buttons.add(year);
+        buttons.add(Box.createVerticalStrut(5));
 
         JLabel sexLabel = new JLabel("Sex:");
         buttons.add(sexLabel);
         JComboBox sex = new JComboBox(sexes);
         buttons.add(sex);
 
+        this.add(buttons);
+        this.add(Box.createVerticalStrut(10));
+
+        //panel for buttons
         JPanel buttons1 = new JPanel();
         buttons1.setLayout(new BoxLayout(buttons1, BoxLayout.Y_AXIS));
 
@@ -77,13 +94,6 @@ public class SignupView extends JPanel implements ActionListener, PropertyChange
         buttons1.add(login);
         login.setAlignmentX(Component.CENTER_ALIGNMENT);
 
-        this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
-
-        this.add(title);
-        this.add(usernameInfo);
-        this.add(passwordInfo);
-        this.add(repeatPasswordInfo);
-        this.add(buttons);
         this.add(buttons1);
 
 
