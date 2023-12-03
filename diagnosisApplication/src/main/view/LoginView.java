@@ -38,7 +38,7 @@ public class LoginView extends JPanel implements ActionListener, PropertyChangeL
 
         //main panel
         this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
-        this.add(Box.createVerticalStrut(40));
+        this.add(Box.createVerticalStrut(60));
 
         //inner box to hold in place
         Box innerBox = Box.createVerticalBox();
