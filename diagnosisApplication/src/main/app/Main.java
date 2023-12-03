@@ -81,8 +81,13 @@ public class Main {
                 viewManagerModel);
         views.add(diagnosisView, diagnosisView.viewName);
 
-        ProfileView profileView = ProfileUseCaseFactory.create(profileViewModel, symptomCheckerViewModel, pastDiagnosesViewModel, viewManagerModel);
+        ProfileView profileView = ProfileUseCaseFactory.create(profileViewModel, symptomCheckerViewModel, pastDiagnosesViewModel,
+                viewManagerModel, fileDiagnosisDataAccessObject);
         views.add(profileView, profileView.viewName);
+
+        PastDiagnosesView pastDiagnosesView = PastDiagnosesUseCaseFactory.create(pastDiagnosesViewModel,
+                symptomCheckerViewModel, viewManagerModel);
+        views.add(pastDiagnosesView, pastDiagnosesView.viewName);
 
         viewManagerModel.setActiveView(signupView.viewName);
         viewManagerModel.firePropertyChanged();

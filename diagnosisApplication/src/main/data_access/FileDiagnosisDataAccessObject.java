@@ -14,7 +14,6 @@ public class FileDiagnosisDataAccessObject implements DiagnosisFileDataAccessInt
 
     private final Map<String, Integer> headers = new LinkedHashMap<>();
     private final List<DiagnosedIssue> diagnoses = new ArrayList<>();
-    private String currentUser;
     private FileUserDataAccessObject fileUserDataAccessObject;
     private final String csvPath;
 
@@ -76,6 +75,7 @@ public class FileDiagnosisDataAccessObject implements DiagnosisFileDataAccessInt
         HashMap<String, LocalDateTime> pastDiagnoses = new HashMap<>();
         try (BufferedReader br = new BufferedReader(new FileReader(this.csvPath))) {
             String line;
+            String currentUser = fileUserDataAccessObject.getCurrentUser();
             while ((line = br.readLine()) != null) {
                 String[] data = line.split(",");
 
