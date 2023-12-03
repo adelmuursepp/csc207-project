@@ -74,15 +74,16 @@ public class SymptomCheckerView extends JPanel {
 
         //main panel
         this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
-        this.add(Box.createVerticalStrut(50));
+        this.add(Box.createVerticalStrut(30));
 
         //inner box to hold in place
         Box innerBox = Box.createVerticalBox();
         innerBox.add(Box.createVerticalStrut(20));
-        innerBox.setBorder(BorderFactory.createLineBorder(Color.BLACK));
-        innerBox.setPreferredSize(new Dimension(530, 250));
-        innerBox.setMinimumSize(new Dimension(530, 250));
-        innerBox.setMaximumSize(new Dimension(530, 250));
+        innerBox.setBorder(BorderFactory.createLineBorder(Color.WHITE));
+        innerBox.setPreferredSize(new Dimension(635, 325));
+        innerBox.setMinimumSize(new Dimension(635, 325));
+        innerBox.setMaximumSize(new Dimension(635, 325));
+        innerBox.setBackground(hexToColor("#B8D2E4"));
 
         //title
         JLabel title = new JLabel(SymptomCheckerViewModel.TITLE_LABEL);
@@ -111,17 +112,17 @@ public class SymptomCheckerView extends JPanel {
         symptomsBox.add(checkboxes1);
 
         JPanel checkboxes2 = new JPanel();
-        checkboxes1.setBackground(hexToColor("#B8D2E4"));
+        checkboxes2.setBackground(hexToColor("#B8D2E4"));
         symptomsBox.add(checkboxes2);
         checkboxes2.setLayout(new BoxLayout(checkboxes2, BoxLayout.Y_AXIS));
 
         JPanel checkboxes3 = new JPanel();
-        checkboxes1.setBackground(hexToColor("#B8D2E4"));
+        checkboxes3.setBackground(hexToColor("#B8D2E4"));
         symptomsBox.add(checkboxes3);
         checkboxes3.setLayout(new BoxLayout(checkboxes3, BoxLayout.Y_AXIS));
 
         JPanel checkboxes4 = new JPanel();
-        checkboxes1.setBackground(hexToColor("#B8D2E4"));
+        checkboxes4.setBackground(hexToColor("#B8D2E4"));
         symptomsBox.add(checkboxes4);
         checkboxes4.setLayout(new BoxLayout(checkboxes4, BoxLayout.Y_AXIS));
 
@@ -136,13 +137,13 @@ public class SymptomCheckerView extends JPanel {
         checkboxes6.setLayout(new BoxLayout(checkboxes6, BoxLayout.Y_AXIS));
 
         symptomsBox.add(Box.createVerticalStrut(30));
+        symptomsBox.setBackground(hexToColor("#B8D2E4"));
 
         innerBox.add(symptomsBox);
         innerBox.add(Box.createVerticalStrut(20));
 
         //buttons
         JPanel buttons = new JPanel();
-
         buttons.setBackground(hexToColor("#B8D2E4"));
         submit = new JButton(SymptomCheckerViewModel.DIAGNOSES_BUTTON_LABEL);
         buttons.add(submit);
@@ -180,16 +181,50 @@ public class SymptomCheckerView extends JPanel {
                 }
         );
 
-        cough = new JCheckBox("Cough");
-        checkboxes1.add(cough);
+        abdominalPain = new JCheckBox("Abdominal pain");
+        checkboxes1.add(abdominalPain);
 
-        cough.addActionListener(
+        abdominalPain.addActionListener(
                 new ActionListener() {
                     @Override
                     public void actionPerformed(ActionEvent e) {
-                        if (e.getSource().equals(cough)) {
+                        if (e.getSource().equals(abdominalPain)) {
                             SymptomCheckerState currentState = symptomCheckerViewModel.getState();
-                            currentState.togglesymptom(15);
+                            currentState.togglesymptom(10);
+                            symptomCheckerViewModel.setState(currentState);
+
+                        }
+                    }
+                }
+        );
+
+        backPain = new JCheckBox("Back pain");
+        checkboxes1.add(backPain);
+
+        backPain.addActionListener(
+                new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        if (e.getSource().equals(backPain)) {
+                            SymptomCheckerState currentState = symptomCheckerViewModel.getState();
+                            currentState.togglesymptom(104);
+                            symptomCheckerViewModel.setState(currentState);
+
+                        }
+                    }
+                }
+        );
+
+        chestPain = new JCheckBox("Chest pain");
+        checkboxes1.add(chestPain);
+
+        chestPain.addActionListener(
+                new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        if (e.getSource().equals(chestPain)) {
+                            SymptomCheckerState currentState = symptomCheckerViewModel.getState();
+                            currentState.togglesymptom(17);
                             symptomCheckerViewModel.setState(currentState);
 
                         }
@@ -214,8 +249,59 @@ public class SymptomCheckerView extends JPanel {
                 }
         );
 
+        chills = new JCheckBox("Chills");
+        checkboxes1.add(chills);
+
+        chills.addActionListener(
+                new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        if (e.getSource().equals(chills)) {
+                            SymptomCheckerState currentState = symptomCheckerViewModel.getState();
+                            currentState.togglesymptom(175);
+                            symptomCheckerViewModel.setState(currentState);
+
+                        }
+                    }
+                }
+        );
+
+        cough = new JCheckBox("Cough");
+        checkboxes1.add(cough);
+
+        cough.addActionListener(
+                new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        if (e.getSource().equals(cough)) {
+                            SymptomCheckerState currentState = symptomCheckerViewModel.getState();
+                            currentState.togglesymptom(15);
+                            symptomCheckerViewModel.setState(currentState);
+
+                        }
+                    }
+                }
+        );
+
+        cramps = new JCheckBox("Cramps");
+        checkboxes2.add(cramps);
+
+        cramps.addActionListener(
+                new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        if (e.getSource().equals(cramps)) {
+                            SymptomCheckerState currentState = symptomCheckerViewModel.getState();
+                            currentState.togglesymptom(94);
+                            symptomCheckerViewModel.setState(currentState);
+
+                        }
+                    }
+                }
+        );
+
         diarrhea = new JCheckBox("Diarrhea");
-        checkboxes1.add(diarrhea);
+        checkboxes2.add(diarrhea);
 
         diarrhea.addActionListener(
                 new ActionListener() {
@@ -230,8 +316,26 @@ public class SymptomCheckerView extends JPanel {
                     }
                 }
         );
+
+        earAche = new JCheckBox("Earache");
+        checkboxes2.add(earAche);
+
+        earAche.addActionListener(
+                new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        if (e.getSource().equals(earAche)) {
+                            SymptomCheckerState currentState = symptomCheckerViewModel.getState();
+                            currentState.togglesymptom(87);
+                            symptomCheckerViewModel.setState(currentState);
+
+                        }
+                    }
+                }
+        );
+
         dizziness = new JCheckBox("Dizziness");
-        checkboxes1.add(dizziness);
+        checkboxes2.add(dizziness);
 
         dizziness.addActionListener(
                 new ActionListener() {
@@ -248,7 +352,7 @@ public class SymptomCheckerView extends JPanel {
         );
 
         drowsiness = new JCheckBox("Drowsiness");
-        checkboxes1.add(drowsiness);
+        checkboxes2.add(drowsiness);
 
         drowsiness.addActionListener(
                 new ActionListener() {
@@ -257,57 +361,6 @@ public class SymptomCheckerView extends JPanel {
                         if (e.getSource().equals(drowsiness)) {
                             SymptomCheckerState currentState = symptomCheckerViewModel.getState();
                             currentState.togglesymptom(43);
-                            symptomCheckerViewModel.setState(currentState);
-
-                        }
-                    }
-                }
-        );
-
-        fever = new JCheckBox("Fever");
-        checkboxes1.add(fever);
-
-        fever.addActionListener(
-                new ActionListener() {
-                    @Override
-                    public void actionPerformed(ActionEvent e) {
-                        if (e.getSource().equals(fever)) {
-                            SymptomCheckerState currentState = symptomCheckerViewModel.getState();
-                            currentState.togglesymptom(11);
-                            symptomCheckerViewModel.setState(currentState);
-
-                        }
-                    }
-                }
-        );
-
-        headache = new JCheckBox("Headache");
-        checkboxes2.add(headache);
-
-        headache.addActionListener(
-                new ActionListener() {
-                    @Override
-                    public void actionPerformed(ActionEvent e) {
-                        if (e.getSource().equals(headache)) {
-                            SymptomCheckerState currentState = symptomCheckerViewModel.getState();
-                            currentState.togglesymptom(9);
-                            symptomCheckerViewModel.setState(currentState);
-
-                        }
-                    }
-                }
-        );
-
-        jointPain = new JCheckBox("Joint Pain");
-        checkboxes2.add(jointPain);
-
-        jointPain.addActionListener(
-                new ActionListener() {
-                    @Override
-                    public void actionPerformed(ActionEvent e) {
-                        if (e.getSource().equals(jointPain)) {
-                            SymptomCheckerState currentState = symptomCheckerViewModel.getState();
-                            currentState.togglesymptom(27);
                             symptomCheckerViewModel.setState(currentState);
 
                         }
@@ -332,8 +385,178 @@ public class SymptomCheckerView extends JPanel {
                 }
         );
 
+        fever = new JCheckBox("Fever");
+        checkboxes3.add(fever);
+
+        fever.addActionListener(
+                new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        if (e.getSource().equals(fever)) {
+                            SymptomCheckerState currentState = symptomCheckerViewModel.getState();
+                            currentState.togglesymptom(11);
+                            symptomCheckerViewModel.setState(currentState);
+
+                        }
+                    }
+                }
+        );
+
+        hairLoss = new JCheckBox("Hair loss");
+        checkboxes3.add(hairLoss);
+
+        hairLoss.addActionListener(
+                new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        if (e.getSource().equals(hairLoss)) {
+                            SymptomCheckerState currentState = symptomCheckerViewModel.getState();
+                            currentState.togglesymptom(152);
+                            symptomCheckerViewModel.setState(currentState);
+
+                        }
+                    }
+                }
+        );
+
+        headache = new JCheckBox("Headache");
+        checkboxes3.add(headache);
+
+        headache.addActionListener(
+                new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        if (e.getSource().equals(headache)) {
+                            SymptomCheckerState currentState = symptomCheckerViewModel.getState();
+                            currentState.togglesymptom(9);
+                            symptomCheckerViewModel.setState(currentState);
+
+                        }
+                    }
+                }
+        );
+
+        hearingLoss = new JCheckBox("Hearing loss");
+        checkboxes3.add(hearingLoss);
+
+        hearingLoss.addActionListener(
+                new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        if (e.getSource().equals(hearingLoss)) {
+                            SymptomCheckerState currentState = symptomCheckerViewModel.getState();
+                            currentState.togglesymptom(206);
+                            symptomCheckerViewModel.setState(currentState);
+
+                        }
+                    }
+                }
+        );
+
+        heartBurn = new JCheckBox("Heartburn");
+        checkboxes3.add(heartBurn);
+
+        heartBurn.addActionListener(
+                new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        if (e.getSource().equals(heartBurn)) {
+                            SymptomCheckerState currentState = symptomCheckerViewModel.getState();
+                            currentState.togglesymptom(45);
+                            symptomCheckerViewModel.setState(currentState);
+
+                        }
+                    }
+                }
+        );
+
+        impairedBalance = new JCheckBox("Impaired Balance");
+        checkboxes3.add(impairedBalance);
+
+        impairedBalance.addActionListener(
+                new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        if (e.getSource().equals(impairedBalance)) {
+                            SymptomCheckerState currentState = symptomCheckerViewModel.getState();
+                            currentState.togglesymptom(120);
+                            symptomCheckerViewModel.setState(currentState);
+
+                        }
+                    }
+                }
+        );
+
+        itchingEyes = new JCheckBox("Itching eyes");
+        checkboxes4.add(itchingEyes);
+
+        itchingEyes.addActionListener(
+                new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        if (e.getSource().equals(itchingEyes)) {
+                            SymptomCheckerState currentState = symptomCheckerViewModel.getState();
+                            currentState.togglesymptom(73);
+                            symptomCheckerViewModel.setState(currentState);
+
+                        }
+                    }
+                }
+        );
+
+        jointPain = new JCheckBox("Joint Pain");
+        checkboxes4.add(jointPain);
+
+        jointPain.addActionListener(
+                new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        if (e.getSource().equals(jointPain)) {
+                            SymptomCheckerState currentState = symptomCheckerViewModel.getState();
+                            currentState.togglesymptom(27);
+                            symptomCheckerViewModel.setState(currentState);
+
+                        }
+                    }
+                }
+        );
+
+        moodSwings = new JCheckBox("Mood swings");
+        checkboxes4.add(moodSwings);
+
+        moodSwings.addActionListener(
+                new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        if (e.getSource().equals(moodSwings)) {
+                            SymptomCheckerState currentState = symptomCheckerViewModel.getState();
+                            currentState.togglesymptom(85);
+                            symptomCheckerViewModel.setState(currentState);
+
+                        }
+                    }
+                }
+        );
+
+        muscleWeakness = new JCheckBox("Muscle Weakness");
+        checkboxes4.add(muscleWeakness);
+
+        muscleWeakness.addActionListener(
+                new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        if (e.getSource().equals(muscleWeakness)) {
+                            SymptomCheckerState currentState = symptomCheckerViewModel.getState();
+                            currentState.togglesymptom(987);
+                            symptomCheckerViewModel.setState(currentState);
+
+                        }
+                    }
+                }
+        );
+
         nausea = new JCheckBox("Nausea");
-        checkboxes2.add(nausea);
+        checkboxes4.add(nausea);
 
         nausea.addActionListener(
                 new ActionListener() {
@@ -349,8 +572,76 @@ public class SymptomCheckerView extends JPanel {
                 }
         );
 
+        nightSweats = new JCheckBox("Night sweats");
+        checkboxes4.add(nightSweats);
+
+        nightSweats.addActionListener(
+                new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        if (e.getSource().equals(nightSweats)) {
+                            SymptomCheckerState currentState = symptomCheckerViewModel.getState();
+                            currentState.togglesymptom(1004);
+                            symptomCheckerViewModel.setState(currentState);
+
+                        }
+                    }
+                }
+        );
+
+        nosebleed = new JCheckBox("Nosebleed");
+        checkboxes5.add(nosebleed);
+
+        nosebleed.addActionListener(
+                new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        if (e.getSource().equals(nosebleed)) {
+                            SymptomCheckerState currentState = symptomCheckerViewModel.getState();
+                            currentState.togglesymptom(38);
+                            symptomCheckerViewModel.setState(currentState);
+
+                        }
+                    }
+                }
+        );
+
+        palpitations = new JCheckBox("Palpitations");
+        checkboxes5.add(palpitations);
+
+        palpitations.addActionListener(
+                new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        if (e.getSource().equals(palpitations)) {
+                            SymptomCheckerState currentState = symptomCheckerViewModel.getState();
+                            currentState.togglesymptom(37);
+                            symptomCheckerViewModel.setState(currentState);
+
+                        }
+                    }
+                }
+        );
+
+        pallor = new JCheckBox("Pallor");
+        checkboxes5.add(pallor);
+
+        pallor.addActionListener(
+            new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    if (e.getSource().equals(pallor)) {
+                        SymptomCheckerState currentState = symptomCheckerViewModel.getState();
+                        currentState.togglesymptom(150);
+                        symptomCheckerViewModel.setState(currentState);
+
+                    }
+                }
+            }
+        );
+
         skinRash = new JCheckBox("Rash");
-        checkboxes2.add(skinRash);
+        checkboxes5.add(skinRash);
 
         skinRash.addActionListener(
                 new ActionListener() {
@@ -367,7 +658,7 @@ public class SymptomCheckerView extends JPanel {
         );
 
         sneezing = new JCheckBox("Sneezing");
-        checkboxes2.add(sneezing);
+        checkboxes5.add(sneezing);
 
         sneezing.addActionListener(
                 new ActionListener() {
@@ -384,7 +675,7 @@ public class SymptomCheckerView extends JPanel {
         );
 
         soreThroat = new JCheckBox("Sore Throat");
-        checkboxes3.add(soreThroat);
+        checkboxes5.add(soreThroat);
 
         soreThroat.addActionListener(
                 new ActionListener() {
@@ -400,42 +691,8 @@ public class SymptomCheckerView extends JPanel {
                 }
         );
 
-        vomiting = new JCheckBox("Vomiting");
-        checkboxes3.add(vomiting);
-
-        vomiting.addActionListener(
-                new ActionListener() {
-                    @Override
-                    public void actionPerformed(ActionEvent e) {
-                        if (e.getSource().equals(vomiting)) {
-                            SymptomCheckerState currentState = symptomCheckerViewModel.getState();
-                            currentState.togglesymptom(101);
-                            symptomCheckerViewModel.setState(currentState);
-
-                        }
-                    }
-                }
-        );
-
-        wheezing = new JCheckBox("Wheezing");
-        checkboxes3.add(wheezing);
-
-        wheezing.addActionListener(
-                new ActionListener() {
-                    @Override
-                    public void actionPerformed(ActionEvent e) {
-                        if (e.getSource().equals(wheezing)) {
-                            SymptomCheckerState currentState = symptomCheckerViewModel.getState();
-                            currentState.togglesymptom(30);
-                            symptomCheckerViewModel.setState(currentState);
-
-                        }
-                    }
-                }
-        );
-
         stuffyNose = new JCheckBox("Stuffy Nose");
-        checkboxes3.add(stuffyNose);
+        checkboxes6.add(stuffyNose);
 
         stuffyNose.addActionListener(
                 new ActionListener() {
@@ -451,227 +708,8 @@ public class SymptomCheckerView extends JPanel {
                 }
         );
 
-        palpitations = new JCheckBox("Palpitations");
-        checkboxes3.add(palpitations);
-
-        palpitations.addActionListener(
-                new ActionListener() {
-                    @Override
-                    public void actionPerformed(ActionEvent e) {
-                        if (e.getSource().equals(palpitations)) {
-                            SymptomCheckerState currentState = symptomCheckerViewModel.getState();
-                            currentState.togglesymptom(37);
-                            symptomCheckerViewModel.setState(currentState);
-
-                        }
-                    }
-                }
-        );
-
-         nosebleed = new JCheckBox("Nosebleed");
-        checkboxes4.add(nosebleed);
-
-        nosebleed.addActionListener(
-                new ActionListener() {
-                    @Override
-                    public void actionPerformed(ActionEvent e) {
-                        if (e.getSource().equals(nosebleed)) {
-                            SymptomCheckerState currentState = symptomCheckerViewModel.getState();
-                            currentState.togglesymptom(38);
-                            symptomCheckerViewModel.setState(currentState);
-
-                        }
-                    }
-                }
-        );
-
-        muscleWeakness = new JCheckBox("Muscle Weakness");
-        checkboxes4.add(muscleWeakness);
-
-        muscleWeakness.addActionListener(
-            new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    if (e.getSource().equals(muscleWeakness)) {
-                        SymptomCheckerState currentState = symptomCheckerViewModel.getState();
-                        currentState.togglesymptom(987);
-                        symptomCheckerViewModel.setState(currentState);
-
-                    }
-                }
-            }
-        );
-
-        impairedBalance = new JCheckBox("Impaired Balance");
-        checkboxes4.add(impairedBalance);
-
-        impairedBalance.addActionListener(
-            new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    if (e.getSource().equals(impairedBalance)) {
-                        SymptomCheckerState currentState = symptomCheckerViewModel.getState();
-                        currentState.togglesymptom(120);
-                        symptomCheckerViewModel.setState(currentState);
-
-                    }
-                }
-            }
-        );
-
-        cramps = new JCheckBox("Cramps");
-        checkboxes4.add(cramps);
-
-        cramps.addActionListener(
-            new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    if (e.getSource().equals(cramps)) {
-                        SymptomCheckerState currentState = symptomCheckerViewModel.getState();
-                        currentState.togglesymptom(94);
-                        symptomCheckerViewModel.setState(currentState);
-
-                    }
-                }
-            }
-        );
-
-        pallor = new JCheckBox("Pallor");
-        checkboxes4.add(pallor);
-
-        pallor.addActionListener(
-            new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    if (e.getSource().equals(pallor)) {
-                        SymptomCheckerState currentState = symptomCheckerViewModel.getState();
-                        currentState.togglesymptom(150);
-                        symptomCheckerViewModel.setState(currentState);
-
-                    }
-                }
-            }
-        );
-
-        chestPain = new JCheckBox("Chest pain");
-        checkboxes4.add(chestPain);
-
-        chestPain.addActionListener(
-                new ActionListener() {
-                    @Override
-                    public void actionPerformed(ActionEvent e) {
-                        if (e.getSource().equals(chestPain)) {
-                            SymptomCheckerState currentState = symptomCheckerViewModel.getState();
-                            currentState.togglesymptom(17);
-                            symptomCheckerViewModel.setState(currentState);
-
-                        }
-                    }
-                }
-        );
-
-        chills = new JCheckBox("Chills");
-        checkboxes4.add(chills);
-
-        chills.addActionListener(
-                new ActionListener() {
-                    @Override
-                    public void actionPerformed(ActionEvent e) {
-                        if (e.getSource().equals(chills)) {
-                            SymptomCheckerState currentState = symptomCheckerViewModel.getState();
-                            currentState.togglesymptom(175);
-                            symptomCheckerViewModel.setState(currentState);
-
-                        }
-                    }
-                }
-        );
-        earAche = new JCheckBox("Earache");
-        checkboxes5.add(earAche);
-
-        earAche.addActionListener(
-                new ActionListener() {
-                    @Override
-                    public void actionPerformed(ActionEvent e) {
-                        if (e.getSource().equals(earAche)) {
-                            SymptomCheckerState currentState = symptomCheckerViewModel.getState();
-                            currentState.togglesymptom(87);
-                            symptomCheckerViewModel.setState(currentState);
-
-                        }
-                    }
-                }
-        );
-
-        hairLoss = new JCheckBox("Hair loss");
-        checkboxes5.add(hairLoss);
-
-        hairLoss.addActionListener(
-                new ActionListener() {
-                    @Override
-                    public void actionPerformed(ActionEvent e) {
-                        if (e.getSource().equals(hairLoss)) {
-                            SymptomCheckerState currentState = symptomCheckerViewModel.getState();
-                            currentState.togglesymptom(152);
-                            symptomCheckerViewModel.setState(currentState);
-
-                        }
-                    }
-                }
-        );
-        heartBurn = new JCheckBox("Heartburn");
-        checkboxes5.add(heartBurn);
-
-        heartBurn.addActionListener(
-                new ActionListener() {
-                    @Override
-                    public void actionPerformed(ActionEvent e) {
-                        if (e.getSource().equals(heartBurn)) {
-                            SymptomCheckerState currentState = symptomCheckerViewModel.getState();
-                            currentState.togglesymptom(45);
-                            symptomCheckerViewModel.setState(currentState);
-
-                        }
-                    }
-                }
-        );
-
-        moodSwings = new JCheckBox("Mood swings");
-        checkboxes5.add(moodSwings);
-
-        moodSwings.addActionListener(
-                new ActionListener() {
-                    @Override
-                    public void actionPerformed(ActionEvent e) {
-                        if (e.getSource().equals(moodSwings)) {
-                            SymptomCheckerState currentState = symptomCheckerViewModel.getState();
-                            currentState.togglesymptom(85);
-                            symptomCheckerViewModel.setState(currentState);
-
-                        }
-                    }
-                }
-        );
-
-        nightSweats = new JCheckBox("Night sweats");
-        checkboxes5.add(nightSweats);
-
-        nightSweats.addActionListener(
-                new ActionListener() {
-                    @Override
-                    public void actionPerformed(ActionEvent e) {
-                        if (e.getSource().equals(nightSweats)) {
-                            SymptomCheckerState currentState = symptomCheckerViewModel.getState();
-                            currentState.togglesymptom(1004);
-                            symptomCheckerViewModel.setState(currentState);
-
-                        }
-                    }
-                }
-        );
-
         tiredness = new JCheckBox("Tiredness");
-        checkboxes5.add(tiredness);
+        checkboxes6.add(tiredness);
 
         tiredness.addActionListener(
                 new ActionListener() {
@@ -704,6 +742,23 @@ public class SymptomCheckerView extends JPanel {
                 }
         );
 
+        wheezing = new JCheckBox("Wheezing");
+        checkboxes6.add(wheezing);
+
+        wheezing.addActionListener(
+                new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        if (e.getSource().equals(wheezing)) {
+                            SymptomCheckerState currentState = symptomCheckerViewModel.getState();
+                            currentState.togglesymptom(30);
+                            symptomCheckerViewModel.setState(currentState);
+
+                        }
+                    }
+                }
+        );
+
         wound = new JCheckBox("Wound");
         checkboxes6.add(wound);
 
@@ -721,81 +776,22 @@ public class SymptomCheckerView extends JPanel {
                 }
         );
 
-        abdominalPain = new JCheckBox("Abdominal pain");
-        checkboxes6.add(abdominalPain);
+        vomiting = new JCheckBox("Vomiting");
+        checkboxes6.add(vomiting);
 
-        abdominalPain.addActionListener(
+        vomiting.addActionListener(
                 new ActionListener() {
                     @Override
                     public void actionPerformed(ActionEvent e) {
-                        if (e.getSource().equals(abdominalPain)) {
+                        if (e.getSource().equals(vomiting)) {
                             SymptomCheckerState currentState = symptomCheckerViewModel.getState();
-                            currentState.togglesymptom(10);
+                            currentState.togglesymptom(101);
                             symptomCheckerViewModel.setState(currentState);
 
                         }
                     }
                 }
         );
-
-        backPain = new JCheckBox("Back pain");
-        checkboxes6.add(backPain);
-
-        backPain.addActionListener(
-                new ActionListener() {
-                    @Override
-                    public void actionPerformed(ActionEvent e) {
-                        if (e.getSource().equals(backPain)) {
-                            SymptomCheckerState currentState = symptomCheckerViewModel.getState();
-                            currentState.togglesymptom(104);
-                            symptomCheckerViewModel.setState(currentState);
-
-                        }
-                    }
-                }
-        );
-
-        hearingLoss = new JCheckBox("Hearing loss");
-        checkboxes6.add(hearingLoss);
-
-        hearingLoss.addActionListener(
-                new ActionListener() {
-                    @Override
-                    public void actionPerformed(ActionEvent e) {
-                        if (e.getSource().equals(hearingLoss)) {
-                            SymptomCheckerState currentState = symptomCheckerViewModel.getState();
-                            currentState.togglesymptom(206);
-                            symptomCheckerViewModel.setState(currentState);
-
-                        }
-                    }
-                }
-        );
-
-        itchingEyes = new JCheckBox("Itching eyes");
-        checkboxes6.add(itchingEyes);
-
-        itchingEyes.addActionListener(
-                new ActionListener() {
-                    @Override
-                    public void actionPerformed(ActionEvent e) {
-                        if (e.getSource().equals(itchingEyes)) {
-                            SymptomCheckerState currentState = symptomCheckerViewModel.getState();
-                            currentState.togglesymptom(73);
-                            symptomCheckerViewModel.setState(currentState);
-
-                        }
-                    }
-                }
-        );
-
-        this.add(checkboxes1);
-        this.add(checkboxes2);
-        this.add(checkboxes3);
-        this.add(checkboxes4);
-        this.add(checkboxes5);
-        this.add(checkboxes6);
-        this.add(buttons);
 
     }
 }

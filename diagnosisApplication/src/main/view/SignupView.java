@@ -16,6 +16,8 @@ import java.awt.event.KeyListener;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 
+import static main.view.SymptomCheckerView.hexToColor;
+
 public class SignupView extends JPanel implements ActionListener, PropertyChangeListener {
     public final String viewName = "sign up";
 
@@ -34,21 +36,28 @@ public class SignupView extends JPanel implements ActionListener, PropertyChange
 
     public SignupView(SignupController controller, SignupViewModel signupViewModel) {
 
+        setBackground(hexToColor("#B8D2E4"));
         this.signupController = controller;
         this.signupViewModel = signupViewModel;
         signupViewModel.addPropertyChangeListener(this);
 
         JLabel title = new JLabel(SignupViewModel.TITLE_LABEL);
+        Font titleFont = new Font(title.getFont().getName(), Font.BOLD, title.getFont().getSize() + 1);
+        title.setFont(titleFont);
         title.setAlignmentX(Component.CENTER_ALIGNMENT);
 
         LabelTextPanel usernameInfo = new LabelTextPanel(
                 new JLabel(SignupViewModel.USERNAME_LABEL), usernameInputField);
+        usernameInfo.setBackground(hexToColor("#B8D2E4"));
         LabelTextPanel passwordInfo = new LabelTextPanel(
                 new JLabel(SignupViewModel.PASSWORD_LABEL), passwordInputField);
+        passwordInfo.setBackground(hexToColor("#B8D2E4"));
         LabelTextPanel repeatPasswordInfo = new LabelTextPanel(
                 new JLabel(SignupViewModel.REPEAT_PASSWORD_LABEL), repeatPasswordInputField);
+        repeatPasswordInfo.setBackground(hexToColor("#B8D2E4"));
 
         JPanel buttons = new JPanel();
+        buttons.setBackground(hexToColor("#B8D2E4"));
         signUp = new JButton(SignupViewModel.SIGNUP_BUTTON_LABEL);
         buttons.add(signUp);
         JSpinner year = new JSpinner(spinnerModel);
