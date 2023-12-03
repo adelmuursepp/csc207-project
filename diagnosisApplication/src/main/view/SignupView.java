@@ -8,6 +8,7 @@ import main.interface_adapter.signup.SignupViewModel;
 import javax.swing.*;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
+import javax.swing.text.NumberFormatter;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -15,6 +16,8 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
 
 public class SignupView extends JPanel implements ActionListener, PropertyChangeListener {
     public final String viewName = "sign up";
@@ -24,13 +27,47 @@ public class SignupView extends JPanel implements ActionListener, PropertyChange
     private final JPasswordField passwordInputField = new JPasswordField(15);
     private final JPasswordField repeatPasswordInputField = new JPasswordField(15);
     SpinnerModel spinnerModel = new SpinnerNumberModel(2020, 1900, 2020, 1);
-    private final JSpinner yearSpinner = new JSpinner(spinnerModel);
+
+    private final JSpinner yearSpinner = createNoCommaJSpinner();
     String[] sexes = {"Male", "Female"};
     private final JComboBox sexComboBox = new JComboBox(sexes);
     private final SignupController signupController;
 
     private final JButton signUp;
     private final JButton login;
+
+    private static JSpinner createNoCommaJSpinner() {
+        SpinnerNumberModel model = new SpinnerNumberModel(2000, 1900, 2020, 1); // Adjust the range as needed
+        JSpinner spinner = new JSpinner(model);
+
+        JFormattedTextField textField = ((JSpinner.DefaultEditor) spinner.getEditor()).getTextField();
+
+        // Set a custom formatter without commas
+        textField.setFormatterFactory(new NoCommaFormatterFactory());
+
+        return spinner;
+    }
+
+    private static class NoCommaFormatterFactory extends JFormattedTextField.AbstractFormatterFactory {
+        @Override
+        public JFormattedTextField.AbstractFormatter getFormatter(JFormattedTextField tf) {
+            return new NoCommaFormatter();
+        }
+    }
+
+    private static class NoCommaFormatter extends JFormattedTextField.AbstractFormatter {
+        @Override
+        public Object stringToValue(String text) {
+            // Remove commas from the input text
+            return text.replaceAll(",", "");
+        }
+
+        @Override
+        public String valueToString(Object value) {
+            // Convert the value to a string
+            return value.toString();
+        }
+    }
 
     public SignupView(SignupController controller, SignupViewModel signupViewModel) {
 
@@ -80,8 +117,7 @@ public class SignupView extends JPanel implements ActionListener, PropertyChange
 
         JLabel spinnerLabel = new JLabel("Year of birth:");
         buttons.add(spinnerLabel);
-        JSpinner year = new JSpinner(spinnerModel);
-        buttons.add(year);
+        buttons.add(yearSpinner);
 
         JLabel sexLabel = new JLabel("Sex:");
         buttons.add(sexLabel);
@@ -126,15 +162,15 @@ public class SignupView extends JPanel implements ActionListener, PropertyChange
                 }
         );
 
-        year.addChangeListener(
+        yearSpinner.addChangeListener(
                 new ChangeListener() {
                     @Override
                     public void stateChanged(ChangeEvent e) {
                         //commented out the part that made year label dynamic
                         //spinnerLabel.setText("Year of birth: " + ((JSpinner)e.getSource()).getValue() );
-                        if (e.getSource() == year) {
+                        if (e.getSource() == yearSpinner) {
                             SignupState currentState = signupViewModel.getState();
-                            currentState.setYearOfBirth((Integer) year.getValue());
+                            currentState.setYearOfBirth((Integer) yearSpinner.getValue());
 
                         }
                     }
