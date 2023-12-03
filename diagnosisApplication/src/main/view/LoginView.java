@@ -36,19 +36,46 @@ public class LoginView extends JPanel implements ActionListener, PropertyChangeL
         this.loginViewModel = loginViewModel;
         this.loginViewModel.addPropertyChangeListener(this);
 
-        JLabel title = new JLabel("Login Screen");
-        title.setAlignmentX(Component.CENTER_ALIGNMENT);
+        //main panel
+        this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
+        this.add(Box.createVerticalStrut(60));
 
+        //inner box to hold in place
+        Box innerBox = Box.createVerticalBox();
+        innerBox.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+        innerBox.setPreferredSize(new Dimension(350, 150));
+        innerBox.setMinimumSize(new Dimension(350, 200));
+        innerBox.setMaximumSize(new Dimension(350, 200));
+
+        //title
+        innerBox.add(Box.createVerticalStrut(15));
+        JLabel title = new JLabel("Login");
+        title.setAlignmentX(Component.CENTER_ALIGNMENT);
+        innerBox.add(title);
+        innerBox.add(Box.createVerticalStrut(20));
+
+        //username and password
         LabelTextPanel usernameInfo = new LabelTextPanel(
                 new JLabel("Username"), usernameInputField);
+        innerBox.add(usernameInfo);
+        innerBox.add(usernameErrorField);
+
         LabelTextPanel passwordInfo = new LabelTextPanel(
                 new JLabel("Password"), passwordInputField);
+        innerBox.add(passwordInfo);
+        innerBox.add(passwordErrorField);
+        innerBox.add(Box.createVerticalStrut(15));
 
+        //buttons
         JPanel buttons = new JPanel();
         logIn = new JButton(loginViewModel.LOGIN_BUTTON_LABEL);
         buttons.add(logIn);
         cancel = new JButton(loginViewModel.CANCEL_BUTTON_LABEL);
         buttons.add(cancel);
+        innerBox.add(buttons);
+        innerBox.add(Box.createVerticalStrut(20));
+
+        this.add(innerBox);
 
         logIn.addActionListener(
 
@@ -111,13 +138,6 @@ public class LoginView extends JPanel implements ActionListener, PropertyChangeL
                     public void keyReleased(KeyEvent e) {
                     }
                 });
-
-        this.add(title);
-        this.add(usernameInfo);
-        this.add(usernameErrorField);
-        this.add(passwordInfo);
-        this.add(passwordErrorField);
-        this.add(buttons);
     }
 
     public void actionPerformed(ActionEvent evt) {
