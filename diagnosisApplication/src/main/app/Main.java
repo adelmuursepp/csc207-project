@@ -73,7 +73,7 @@ public class Main {
                 viewManagerModel);
         views.add(proposedSymptomsView, proposedSymptomsView.viewName);
 
-        viewManagerModel.setActiveView(diagnosisView.viewName);
+        viewManagerModel.setActiveView(signupView.viewName);
         viewManagerModel.firePropertyChanged();
 
         application.pack();

@@ -8,6 +8,7 @@ import java.beans.PropertyChangeSupport;
 public class SymptomCheckerViewModel extends ViewModel {
 
     public static final String TITLE_LABEL = "Symptom Checker View";
+    public static final String DESCRIPTION_LABEL = "Check the symptoms you have been experiencing recently:";
     public static final String DIAGNOSES_BUTTON_LABEL = "Check for diagnoses";
     public static final String PROPOSED_SYMPTOMS_BUTTON_LABEL = "See proposed symptoms";
     private SymptomCheckerState state = new SymptomCheckerState();

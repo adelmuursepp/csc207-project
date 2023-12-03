@@ -60,7 +60,7 @@ public class SymptomCheckerView extends JPanel {
     private final ProposedSymptomsController proposedSymptomsController;
 
     // Convert hex color code to Color object
-    private static Color hexToColor(String hex) {
+    public static Color hexToColor(String hex) {
         int intValue = Integer.parseInt(hex.substring(1), 16);
         return new Color(intValue);
     }
@@ -68,12 +68,24 @@ public class SymptomCheckerView extends JPanel {
     public SymptomCheckerView(SymptomCheckerViewModel symptomCheckerViewModel, DiagnosisController diagnosisController, ProposedSymptomsController proposedSymptomsController)
     {
         setBackground(hexToColor("#B8D2E4"));
-        setLayout(new GridLayout(0, 1));
+        // setLayout(new GridLayout(0, 1));
         this.symptomCheckerViewModel = symptomCheckerViewModel;
         this.diagnosisController = diagnosisController;
         this.proposedSymptomsController = proposedSymptomsController;
 
+        this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
+
         JLabel title = new JLabel(SymptomCheckerViewModel.TITLE_LABEL);
+        Font titleFont = new Font(title.getFont().getName(), Font.BOLD, title.getFont().getSize() + 1);
+        title.setFont(titleFont);
+        title.setAlignmentX(CENTER_ALIGNMENT);
+
+        JLabel description = new JLabel(SymptomCheckerViewModel.DESCRIPTION_LABEL);
+        Font descriptionFont = new Font(description.getFont().getName(), Font.ITALIC,
+                description.getFont().getSize() - 1);
+        description.setFont(descriptionFont);
+        description.setBorder(BorderFactory.createEmptyBorder(5,5,5,5));
+        description.setAlignmentX(CENTER_ALIGNMENT);
 
         JPanel buttons = new JPanel();
 
@@ -110,6 +122,7 @@ public class SymptomCheckerView extends JPanel {
         );
 
         this.add(title);
+        this.add(description);
         JPanel checkboxes1 = new JPanel();
         checkboxes1.setBackground(hexToColor("#B8D2E4"));
         JPanel checkboxes2 = new JPanel();
