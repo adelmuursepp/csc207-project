@@ -89,6 +89,8 @@ public class SignupView extends JPanel implements ActionListener, PropertyChange
         JLabel spinnerLabel = new JLabel("Year of birth:");
         buttons.add(spinnerLabel);
         JSpinner year = new JSpinner(spinnerModel);
+        JSpinner.NumberEditor editor = new JSpinner.NumberEditor(year, "#");
+        year.setEditor(editor);//removes comma hooray!
         buttons.add(year);
 
         JLabel sexLabel = new JLabel("Sex:");
