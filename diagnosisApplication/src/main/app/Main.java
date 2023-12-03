@@ -27,8 +27,8 @@ public class Main {
         //Main Application Window.
         JFrame application = new JFrame("Bootleg WebMD");
         application.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        application.setPreferredSize(new Dimension(700, 415));
-        application.setMinimumSize(new Dimension(700, 415));
+        application.setPreferredSize(new Dimension(700, 420));
+        application.setMinimumSize(new Dimension(700, 420));
 
         CardLayout cardLayout = new CardLayout();
 
