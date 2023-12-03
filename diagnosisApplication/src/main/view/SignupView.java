@@ -25,7 +25,7 @@ public class SignupView extends JPanel implements ActionListener, PropertyChange
     private final JPasswordField repeatPasswordInputField = new JPasswordField(15);
     SpinnerModel spinnerModel = new SpinnerNumberModel(2020, 1900, 2020, 1);
     private final JSpinner yearSpinner = new JSpinner(spinnerModel);
-    String[] sexes = {"male", "female"};
+    String[] sexes = {"Male", "Female"};
     private final JComboBox sexComboBox = new JComboBox(sexes);
     private final SignupController signupController;
 
@@ -51,14 +51,24 @@ public class SignupView extends JPanel implements ActionListener, PropertyChange
         JPanel buttons = new JPanel();
         signUp = new JButton(SignupViewModel.SIGNUP_BUTTON_LABEL);
         buttons.add(signUp);
+        JLabel spinnerLabel = new JLabel("Year of birth:");
+        buttons.add(spinnerLabel);
         JSpinner year = new JSpinner(spinnerModel);
         buttons.add(year);
-        JLabel spinnerLabel = new JLabel();
-        buttons.add(spinnerLabel);
+        JLabel sexLabel = new JLabel("Sex:");
+        buttons.add(sexLabel);
         JComboBox sex = new JComboBox(sexes);
         buttons.add(sex);
         login = new JButton(LoginViewModel.LOGIN_BUTTON_LABEL);
         buttons.add(login);
+
+        this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
+
+        this.add(title);
+        this.add(usernameInfo);
+        this.add(passwordInfo);
+        this.add(repeatPasswordInfo);
+        this.add(buttons);
 
         login.addActionListener(
                 new ActionListener() {
@@ -75,7 +85,8 @@ public class SignupView extends JPanel implements ActionListener, PropertyChange
                 new ChangeListener() {
                     @Override
                     public void stateChanged(ChangeEvent e) {
-                        spinnerLabel.setText("Year of Birth " + ((JSpinner)e.getSource()).getValue() );
+                        //commented out the part that made year label dynamic
+                        //spinnerLabel.setText("Year of birth: " + ((JSpinner)e.getSource()).getValue() );
                         if (e.getSource() == year) {
                             SignupState currentState = signupViewModel.getState();
                             currentState.setYearOfBirth((Integer) year.getValue());
@@ -187,14 +198,6 @@ public class SignupView extends JPanel implements ActionListener, PropertyChange
                     }
                 }
         );
-
-        this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
-
-        this.add(title);
-        this.add(usernameInfo);
-        this.add(passwordInfo);
-        this.add(repeatPasswordInfo);
-        this.add(buttons);
     }
 
     /**
