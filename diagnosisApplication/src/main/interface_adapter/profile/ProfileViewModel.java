@@ -1,9 +1,8 @@
 package main.interface_adapter.profile;
 
-import main.interface_adapter.ViewModel;
-
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
+import main.interface_adapter.ViewModel;
 
 public class ProfileViewModel extends ViewModel {
     public static final String TITLE_LABEL = "Profile View";
