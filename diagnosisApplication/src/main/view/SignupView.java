@@ -49,18 +49,33 @@ public class SignupView extends JPanel implements ActionListener, PropertyChange
                 new JLabel(SignupViewModel.REPEAT_PASSWORD_LABEL), repeatPasswordInputField);
 
         JPanel buttons = new JPanel();
-        signUp = new JButton(SignupViewModel.SIGNUP_BUTTON_LABEL);
-        buttons.add(signUp);
+        //buttons.setLayout(new BoxLayout(buttons, BoxLayout.Y_AXIS));
+        //buttons.add(Box.createVerticalStrut(10));
+        //buttons.add(Box.createRigidArea(new Dimension(0, 10)));
+
         JLabel spinnerLabel = new JLabel("Year of birth:");
         buttons.add(spinnerLabel);
         JSpinner year = new JSpinner(spinnerModel);
         buttons.add(year);
+
         JLabel sexLabel = new JLabel("Sex:");
         buttons.add(sexLabel);
         JComboBox sex = new JComboBox(sexes);
         buttons.add(sex);
+
+        JPanel buttons1 = new JPanel();
+        buttons1.setLayout(new BoxLayout(buttons1, BoxLayout.Y_AXIS));
+
+        signUp = new JButton(SignupViewModel.SIGNUP_BUTTON_LABEL);
+        buttons1.add(signUp);
+        signUp.setAlignmentX(Component.CENTER_ALIGNMENT);
+
+        JLabel loginLabel = new JLabel("Already have an account?");
+        buttons1.add(loginLabel);
+        loginLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
         login = new JButton(LoginViewModel.LOGIN_BUTTON_LABEL);
-        buttons.add(login);
+        buttons1.add(login);
+        login.setAlignmentX(Component.CENTER_ALIGNMENT);
 
         this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 
@@ -69,6 +84,8 @@ public class SignupView extends JPanel implements ActionListener, PropertyChange
         this.add(passwordInfo);
         this.add(repeatPasswordInfo);
         this.add(buttons);
+        this.add(buttons1);
+
 
         login.addActionListener(
                 new ActionListener() {

@@ -9,12 +9,12 @@ public class SignupViewModel extends ViewModel {
 
     public static final String CLEAR_BUTTON_LABEL = "Clear";
     public static final String TITLE_LABEL = "User Sign Up";
-    public static final String USERNAME_LABEL = "Username";
-    public static final String PASSWORD_LABEL = "Password";
-    public static final String REPEAT_PASSWORD_LABEL = "Repeat Password";
+    public static final String USERNAME_LABEL = "Username:";
+    public static final String PASSWORD_LABEL = "Password:";
+    public static final String REPEAT_PASSWORD_LABEL = "Repeat Password:";
 
     public static final String SIGNUP_BUTTON_LABEL = "Sign up";
-    public static final String CANCEL_BUTTON_LABEL = "Back";
+    public static final String CANCEL_BUTTON_LABEL = "Cancel";
 
     private SignupState state = new SignupState();
 
