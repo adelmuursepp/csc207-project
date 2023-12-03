@@ -36,19 +36,48 @@ public class LoginView extends JPanel implements ActionListener, PropertyChangeL
         this.loginViewModel = loginViewModel;
         this.loginViewModel.addPropertyChangeListener(this);
 
-        JLabel title = new JLabel("Login Screen");
-        title.setAlignmentX(Component.CENTER_ALIGNMENT);
+        //main panel
+        this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
+        this.add(Box.createVerticalStrut(30));
 
+        //inner box to hold in place
+        Box innerBox = Box.createVerticalBox();
+        innerBox.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+        innerBox.setPreferredSize(new Dimension(350, 150));
+        innerBox.setMinimumSize(new Dimension(350, 150));
+        innerBox.setMaximumSize(new Dimension(350, 150));
+
+        //title
+        innerBox.add(Box.createVerticalStrut(10));
+        JLabel title = new JLabel("Login");
+        title.setAlignmentX(Component.CENTER_ALIGNMENT);
+        innerBox.add(title);
+        innerBox.add(Box.createVerticalStrut(15));
+
+        //username and password
         LabelTextPanel usernameInfo = new LabelTextPanel(
                 new JLabel("Username"), usernameInputField);
+        usernameInfo.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+        innerBox.add(usernameInfo);
+        innerBox.add(usernameErrorField);
+
         LabelTextPanel passwordInfo = new LabelTextPanel(
                 new JLabel("Password"), passwordInputField);
+        passwordInfo.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+        innerBox.add(passwordInfo);
+        innerBox.add(passwordErrorField);
+        innerBox.add(Box.createVerticalStrut(5));
 
+        //buttons
         JPanel buttons = new JPanel();
         logIn = new JButton(loginViewModel.LOGIN_BUTTON_LABEL);
         buttons.add(logIn);
         cancel = new JButton(loginViewModel.CANCEL_BUTTON_LABEL);
         buttons.add(cancel);
+        buttons.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+        innerBox.add(buttons);
+
+        this.add(innerBox);
 
         logIn.addActionListener(
 
@@ -111,13 +140,6 @@ public class LoginView extends JPanel implements ActionListener, PropertyChangeL
                     public void keyReleased(KeyEvent e) {
                     }
                 });
-
-        this.add(title);
-        this.add(usernameInfo);
-        this.add(usernameErrorField);
-        this.add(passwordInfo);
-        this.add(passwordErrorField);
-        this.add(buttons);
     }
 
     public void actionPerformed(ActionEvent evt) {

@@ -42,12 +42,12 @@ public class SignupView extends JPanel implements ActionListener, PropertyChange
         this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
         this.add(Box.createVerticalStrut(30));
 
-        //testing inner box
+        //inner box to hold in place
         Box innerBox = Box.createVerticalBox();
         innerBox.setBorder(BorderFactory.createLineBorder(Color.BLACK));
         innerBox.setPreferredSize(new Dimension(350, 285));
-        innerBox.setMinimumSize(new Dimension(350, 285));   // Minimum size
-        innerBox.setMaximumSize(new Dimension(350, 285));   // Maximum size
+        innerBox.setMinimumSize(new Dimension(350, 285));
+        innerBox.setMaximumSize(new Dimension(350, 285));
 
         //title
         innerBox.add(Box.createVerticalStrut(10));
