@@ -79,12 +79,12 @@ public class DiagnosisView extends JPanel implements ActionListener, PropertyCha
             if (n >= 2) {
                 accuracies[1] = (Float) currentState.getDiagnosis2().get("Accuracy");
                 diagnoses[1] = (String) currentState.getDiagnosis2().get("Name") + " " +
-                        currentState.getDiagnosis1().get("Accuracy").toString() + "%";
+                        currentState.getDiagnosis2().get("Accuracy").toString() + "%";
             }
             if (n == 3) {
                 accuracies[2] = (Float) currentState.getDiagnosis3().get("Accuracy");
                 diagnoses[2] = (String) currentState.getDiagnosis3().get("Name") + " " +
-                        currentState.getDiagnosis1().get("Accuracy").toString() + "%";
+                        currentState.getDiagnosis3().get("Accuracy").toString() + "%";
             }
             BarChart barChart = new BarChart(accuracies, diagnoses, "Diagnoses and Accuracies");
             barChart.setPreferredSize(new Dimension(250, 300));
