@@ -16,11 +16,15 @@ public class ProfileView extends JPanel implements ActionListener, PropertyChang
     public final String viewName = "profile";
     private final ProfileViewModel profileViewModel;
     private final SymptomCheckerController symptomCheckerController;
+    private final PastDiagnosesController pastDiagnosisController;
     private final JButton symptomChecker;
+    private final JButton pastDiagnoses;
 
-    public ProfileView(ProfileViewModel profileViewModel, SymptomCheckerController symptomCheckerController) {
+    public ProfileView(ProfileViewModel profileViewModel, SymptomCheckerController symptomCheckerController,
+                       PastDiagnosesController pastDiagnosisController) {
         this.profileViewModel = profileViewModel;
         this.symptomCheckerController = symptomCheckerController;
+        this.pastDiagnosisController = pastDiagnosisController;
         setLayout(new BorderLayout());
 
         ProfileState profileState = this.profileViewModel.getState();
@@ -55,6 +59,8 @@ public class ProfileView extends JPanel implements ActionListener, PropertyChang
         symptomChecker = new JButton(profileViewModel.SYMPTOM_CHECKER_BUTTON_LABEL);
         buttonPanel.add(namePanel);
         buttonPanel.add(symptomChecker);
+        pastDiagnoses = new JButton(profileViewModel.PAST_DIAGNOSES_BUTTON_LABEL);
+        buttonPanel.add(pastDiagnoses);
         // Add buttons to the button panel
         buttonPanel.add(button1);
         buttonPanel.add(button2);
@@ -65,6 +71,16 @@ public class ProfileView extends JPanel implements ActionListener, PropertyChang
                     public void actionPerformed(ActionEvent evt) {
                         if (evt.getSource().equals(symptomChecker)) {
                             symptomCheckerController.execute();
+                        }
+                    }
+                }
+        );
+
+        pastDiagnoses.addActionListener(
+                new ActionListener() {
+                    public void actionPerformed(ActionEvent evt) {
+                        if (evt.getSource().equals(pastDiagnoses)) {
+                            pastDiagnosesController.execute();
                         }
                     }
                 }

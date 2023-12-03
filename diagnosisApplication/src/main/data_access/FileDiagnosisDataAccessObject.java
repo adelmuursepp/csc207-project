@@ -5,6 +5,7 @@ import main.entity.User;
 import main.use_case.diagnosis.DiagnosisFileDataAccessInterface;
 
 import java.io.*;
+import java.time.LocalDateTime;
 import java.util.*;
 
 public class FileDiagnosisDataAccessObject implements DiagnosisFileDataAccessInterface
@@ -15,8 +16,10 @@ public class FileDiagnosisDataAccessObject implements DiagnosisFileDataAccessInt
     private final List<DiagnosedIssue> diagnoses = new ArrayList<>();
     private String currentUser;
     private FileUserDataAccessObject fileUserDataAccessObject;
+    private final String csvPath;
 
     public FileDiagnosisDataAccessObject(String csvPath, FileUserDataAccessObject fileUserDataAccessObject) throws IOException {
+        this.csvPath = csvPath;
         csvFile = new File(csvPath);
         this.fileUserDataAccessObject = fileUserDataAccessObject;
         headers.put("username", 0);
@@ -66,6 +69,27 @@ public class FileDiagnosisDataAccessObject implements DiagnosisFileDataAccessInt
 
         } catch (IOException e) {
             throw new RuntimeException(e);
+        }
+    }
+
+    public HashMap<String, LocalDateTime> getPastDiagnoses() {
+        HashMap<String, LocalDateTime> pastDiagnoses = new HashMap<>();
+        try (BufferedReader br = new BufferedReader(new FileReader(this.csvPath))) {
+            String line;
+            while ((line = br.readLine()) != null) {
+                String[] data = line.split(",");
+
+                String username = data[0].trim();
+
+                if (currentUser.equals(username)) {
+                    String diagnosisName = data[1].trim();
+                    LocalDateTime diagnosisCreationTime = LocalDateTime.parse(data[2].trim());
+                    pastDiagnoses.put(diagnosisName, diagnosisCreationTime);
+                }
+            }
+            return pastDiagnoses;
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 }
