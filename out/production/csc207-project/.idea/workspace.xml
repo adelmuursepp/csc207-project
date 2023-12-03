@@ -4,66 +4,101 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9bc3920e-6f40-4898-b4da-c77f29cd6c20" name="Changes" comment="Unversioned files" />
+    <list default="true" id="a844ee4f-bd29-4dbe-9d48-fea13e021684" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/diagnosisApplication/src/main/data_access/APITokenProvider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_annotations_2_13_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_core_2_13_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_databind_2_13_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__commons_codec_commons_codec_1_11.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__commons_logging_commons_logging_1_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_httpcomponents_httpclient_4_5_13.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_httpcomponents_httpcore_4_4_13.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diagnosisApplication/src/main/data_access/MedicAPIDiagnosisDataAccessObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/diagnosisApplication/src/main/data_access/MedicAPIDiagnosisDataAccessObject.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="Git.Settings">
-    <option name="RECENT_BRANCH_BY_REPOSITORY">
-      <map>
-        <entry key="$PROJECT_DIR$" value="main" />
-      </map>
+  <component name="CodeStyleSettingsInfer">
+    <option name="done" value="true" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
     </option>
+  </component>
+  <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "kailimprice"
-  }
-}]]></component>
-  <component name="GithubPullRequestsUISettings">
-    <option name="selectedUrlAndAccountId">
-      <UrlAndAccount>
-        <option name="accountId" value="844b93dc-76b5-45ba-ab4b-e5f6870432e3" />
-        <option name="url" value="https://github.com/adelmuursepp/csc207-project.git" />
-      </UrlAndAccount>
-    </option>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/diagnosisApplication/src/main/interface_adapter/symptom_checker/SymptomCheckerController.java" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 7
-}]]></component>
-  <component name="ProjectId" id="2YszF9pJoDBk1gLAwSR8K2yhPk8" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectCodeStyleSettingsMigration">
+    <option name="version" value="2" />
+  </component>
+  <component name="ProjectId" id="2XUPeb7j18cZu7dSPwMJDkSmwsy" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "main",
-    "node.js.detected.package.eslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
-  }
-}]]></component>
-  <component name="RunManager">
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="main.app.Main" />
-      <module name="SymptomChecker" />
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/.idea" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.APITokenProvider">
+    <configuration name="APITokenProvider" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="diagnosisApplication.src.main.data_access.APITokenProvider" />
+      <module name="csc207-project" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="main.app.*" />
+          <option name="PATTERN" value="diagnosisApplication.src.main.data_access.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MedicAPIDiagnosisDataAccessObject (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="main.data_access.MedicAPIDiagnosisDataAccessObject" />
+      <module name="diagnosisApplication" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="main.data_access.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MedicAPIDiagnosisDataAccessObject" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="data_access.MedicAPIDiagnosisDataAccessObject" />
+      <module name="diagnosisApplication" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="main.data_access.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -73,89 +108,22 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Main" />
-        <item itemvalue="Application.Main" />
-        <item itemvalue="Application.Main" />
-        <item itemvalue="Application.Main" />
-        <item itemvalue="Application.Main" />
+        <item itemvalue="Application.APITokenProvider" />
+        <item itemvalue="Application.MedicAPIDiagnosisDataAccessObject (1)" />
+        <item itemvalue="Application.MedicAPIDiagnosisDataAccessObject" />
       </list>
     </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="9bc3920e-6f40-4898-b4da-c77f29cd6c20" name="Changes" comment="" />
-      <created>1701328968555</created>
+      <changelist id="a844ee4f-bd29-4dbe-9d48-fea13e021684" name="Changes" comment="" />
+      <created>1698680780507</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1701328968555</updated>
-      <workItem from="1701328970940" duration="17722000" />
+      <updated>1698680780507</updated>
+      <workItem from="1700937724801" duration="1419000" />
     </task>
-    <task id="LOCAL-00001" summary="tentative implementation of cancel button in login view">
-      <option name="closed" value="true" />
-      <created>1701331561628</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1701331561628</updated>
-    </task>
-    <task id="LOCAL-00002" summary="Completed implementation for working cancel button in login view">
-      <option name="closed" value="true" />
-      <created>1701332298416</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1701332298416</updated>
-    </task>
-    <task id="LOCAL-00003" summary="Changed a couple label text choices">
-      <option name="closed" value="true" />
-      <created>1701333112086</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1701333112086</updated>
-    </task>
-    <task id="LOCAL-00004" summary="Changed the &quot;Year of birth&quot; label and added a &quot;Sex&quot; Label">
-      <option name="closed" value="true" />
-      <created>1701333730774</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1701333730774</updated>
-    </task>
-    <task id="LOCAL-00005" summary="Tentative version of JPanel for Signup view but using GridLayout">
-      <option name="closed" value="true" />
-      <created>1701405348081</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1701405348081</updated>
-    </task>
-    <task id="LOCAL-00006" summary="Trying different version of grid layout">
-      <option name="closed" value="true" />
-      <created>1701466433686</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1701466433686</updated>
-    </task>
-    <task id="LOCAL-00007" summary="Unversioned files">
-      <option name="closed" value="true" />
-      <created>1701566117263</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1701566117263</updated>
-    </task>
-    <task id="LOCAL-00008" summary="Unversioned files">
-      <option name="closed" value="true" />
-      <created>1701566324960</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1701566324960</updated>
-    </task>
-    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -171,16 +139,5 @@
         </entry>
       </map>
     </option>
-  </component>
-  <component name="VcsManagerConfiguration">
-    <MESSAGE value="added unversioned file" />
-    <MESSAGE value="tentative implementation of cancel button in login view" />
-    <MESSAGE value="Completed implementation for working cancel button in login view" />
-    <MESSAGE value="Changed a couple label text choices" />
-    <MESSAGE value="Changed the &quot;Year of birth&quot; label and added a &quot;Sex&quot; Label" />
-    <MESSAGE value="Tentative version of JPanel for Signup view but using GridLayout" />
-    <MESSAGE value="Trying different version of grid layout" />
-    <MESSAGE value="Unversioned files" />
-    <option name="LAST_COMMIT_MESSAGE" value="Unversioned files" />
   </component>
 </project>

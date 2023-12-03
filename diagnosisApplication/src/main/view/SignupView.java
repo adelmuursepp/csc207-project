@@ -16,6 +16,8 @@ import java.awt.event.KeyListener;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 
+import static main.view.SymptomCheckerView.hexToColor;
+
 public class SignupView extends JPanel implements ActionListener, PropertyChangeListener {
     public final String viewName = "sign up";
 
@@ -25,7 +27,7 @@ public class SignupView extends JPanel implements ActionListener, PropertyChange
     private final JPasswordField repeatPasswordInputField = new JPasswordField(15);
     SpinnerModel spinnerModel = new SpinnerNumberModel(2020, 1900, 2020, 1);
     private final JSpinner yearSpinner = new JSpinner(spinnerModel);
-    String[] sexes = {"Male", "Female"};
+    String[] sexes = {"male", "female"};
     private final JComboBox sexComboBox = new JComboBox(sexes);
     private final SignupController signupController;
 
@@ -34,86 +36,38 @@ public class SignupView extends JPanel implements ActionListener, PropertyChange
 
     public SignupView(SignupController controller, SignupViewModel signupViewModel) {
 
+        setBackground(hexToColor("#B8D2E4"));
         this.signupController = controller;
         this.signupViewModel = signupViewModel;
         signupViewModel.addPropertyChangeListener(this);
 
-        //main panel
-        this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
-        this.add(Box.createVerticalStrut(30));
-
-        //inner box to hold in place
-        Box innerBox = Box.createVerticalBox();
-        innerBox.setBorder(BorderFactory.createLineBorder(Color.BLACK));
-        innerBox.setPreferredSize(new Dimension(350, 285));
-        innerBox.setMinimumSize(new Dimension(350, 285));
-        innerBox.setMaximumSize(new Dimension(350, 285));
-
-        //title
-        innerBox.add(Box.createVerticalStrut(10));
         JLabel title = new JLabel(SignupViewModel.TITLE_LABEL);
+        Font titleFont = new Font(title.getFont().getName(), Font.BOLD, title.getFont().getSize() + 1);
+        title.setFont(titleFont);
         title.setAlignmentX(Component.CENTER_ALIGNMENT);
-        innerBox.add(title);
-        innerBox.add(Box.createVerticalStrut(15));
 
-        //input fields
         LabelTextPanel usernameInfo = new LabelTextPanel(
                 new JLabel(SignupViewModel.USERNAME_LABEL), usernameInputField);
-        usernameInputField.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
-        innerBox.add(usernameInfo);
-        innerBox.add(Box.createVerticalStrut(0));
+        usernameInfo.setBackground(hexToColor("#B8D2E4"));
         LabelTextPanel passwordInfo = new LabelTextPanel(
                 new JLabel(SignupViewModel.PASSWORD_LABEL), passwordInputField);
-        passwordInputField.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
-        innerBox.add(passwordInfo);
-        innerBox.add(Box.createVerticalStrut(0));
+        passwordInfo.setBackground(hexToColor("#B8D2E4"));
         LabelTextPanel repeatPasswordInfo = new LabelTextPanel(
                 new JLabel(SignupViewModel.REPEAT_PASSWORD_LABEL), repeatPasswordInputField);
-        repeatPasswordInputField.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
-        innerBox.add(repeatPasswordInfo);
-        innerBox.add(Box.createVerticalStrut(5));
+        repeatPasswordInfo.setBackground(hexToColor("#B8D2E4"));
 
-
-        //panel for year and sex
         JPanel buttons = new JPanel();
-        buttons.add(Box.createVerticalStrut(5));
-
-        JLabel spinnerLabel = new JLabel("Year of birth:");
-        buttons.add(spinnerLabel);
+        buttons.setBackground(hexToColor("#B8D2E4"));
+        signUp = new JButton(SignupViewModel.SIGNUP_BUTTON_LABEL);
+        buttons.add(signUp);
         JSpinner year = new JSpinner(spinnerModel);
         buttons.add(year);
-
-        JLabel sexLabel = new JLabel("Sex:");
-        buttons.add(sexLabel);
+        JLabel spinnerLabel = new JLabel();
+        buttons.add(spinnerLabel);
         JComboBox sex = new JComboBox(sexes);
         buttons.add(sex);
-
-        innerBox.add(buttons);
-
-        innerBox.add(Box.createVerticalStrut(5));
-
-        //panel for buttons
-        JPanel buttons1 = new JPanel();
-        buttons1.setLayout(new BoxLayout(buttons1, BoxLayout.Y_AXIS));
-
-        signUp = new JButton(SignupViewModel.SIGNUP_BUTTON_LABEL);
-        buttons1.add(signUp);
-        buttons1.add(Box.createVerticalStrut(15));
-        signUp.setAlignmentX(Component.CENTER_ALIGNMENT);
-
-        JLabel loginLabel = new JLabel("Already have an account?");
-        buttons1.add(loginLabel);
-        loginLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
         login = new JButton(LoginViewModel.LOGIN_BUTTON_LABEL);
-        buttons1.add(login);
-        login.setAlignmentX(Component.CENTER_ALIGNMENT);
-
-        innerBox.add(buttons1);
-
-        innerBox.add(Box.createVerticalStrut(25));
-
-        this.add(innerBox);
-
+        buttons.add(login);
 
         login.addActionListener(
                 new ActionListener() {
@@ -130,8 +84,7 @@ public class SignupView extends JPanel implements ActionListener, PropertyChange
                 new ChangeListener() {
                     @Override
                     public void stateChanged(ChangeEvent e) {
-                        //commented out the part that made year label dynamic
-                        //spinnerLabel.setText("Year of birth: " + ((JSpinner)e.getSource()).getValue() );
+                        spinnerLabel.setText("Year of Birth " + ((JSpinner)e.getSource()).getValue() );
                         if (e.getSource() == year) {
                             SignupState currentState = signupViewModel.getState();
                             currentState.setYearOfBirth((Integer) year.getValue());
@@ -243,6 +196,14 @@ public class SignupView extends JPanel implements ActionListener, PropertyChange
                     }
                 }
         );
+
+        this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
+
+        this.add(title);
+        this.add(usernameInfo);
+        this.add(passwordInfo);
+        this.add(repeatPasswordInfo);
+        this.add(buttons);
     }
 
     /**
