@@ -618,7 +618,7 @@ public class SymptomCheckerView extends JPanel {
         );
 
         palpitations = new JCheckBox("Palpitations");
-        checkboxes1.add(palpitations);
+        checkboxes2.add(palpitations);
 
         palpitations.addActionListener(
                 new ActionListener() {
@@ -635,7 +635,7 @@ public class SymptomCheckerView extends JPanel {
         );
 
         pallor = new JCheckBox("Pallor");
-        checkboxes1.add(pallor);
+        checkboxes2.add(pallor);
 
         pallor.addActionListener(
             new ActionListener() {
