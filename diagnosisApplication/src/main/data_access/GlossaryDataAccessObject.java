@@ -68,8 +68,10 @@ public class GlossaryDataAccessObject implements GlossarySearchDataAccessInterfa
 
                 // Convert JSON to a list of HealthDiagnosis entities
                 List<String> topicsList = new ArrayList<>();
+                JsonNode glossaryNode = jsonNode.get("glossary");
 
-                for (JsonNode topicNode : jsonNode) {
+                for (JsonNode topicNode : glossaryNode) {
+                    System.out.println(topicNode);
                     String title = topicNode.get("title").toString();
                     topicsList.add(title);
                 }
