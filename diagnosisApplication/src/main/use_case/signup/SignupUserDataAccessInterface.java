@@ -8,4 +8,5 @@ public interface SignupUserDataAccessInterface {
 
     void save(User user);
 
+    void setCurrentUser(String username);
 }

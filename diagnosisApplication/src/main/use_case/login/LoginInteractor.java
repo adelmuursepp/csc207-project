@@ -11,6 +11,7 @@ public class LoginInteractor implements LoginInputBoundary {
                            LoginOutputBoundary loginOutputBoundary) {
         this.userDataAccessObject = userDataAccessInterface;
         this.loginPresenter = loginOutputBoundary;
+
     }
 
     @Override
@@ -26,6 +27,7 @@ public class LoginInteractor implements LoginInputBoundary {
             } else {
 
                 User user = userDataAccessObject.get(loginInputData.getUsername());
+                userDataAccessObject.setCurrentUser(loginInputData.getUsername());
 
                 LoginOutputData loginOutputData = new LoginOutputData(user.getName(), false);
                 loginPresenter.prepareSuccessView(loginOutputData);

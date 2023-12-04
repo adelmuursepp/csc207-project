@@ -1,5 +1,9 @@
 package main.entity;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.util.Date;
+
 public class DiagnosedIssue {
     private String icd;
     private String icdName;
@@ -8,6 +12,7 @@ public class DiagnosedIssue {
     private float ranking;
     private int id;
     private String name;
+    private LocalDateTime creationTime;
 
     public DiagnosedIssue(String icd, String icdName, String profName, float accuracy, float ranking, int id, String name) {
         this.icd = icd;
@@ -17,6 +22,7 @@ public class DiagnosedIssue {
         this.ranking = ranking;
         this.id = id;
         this.name = name;
+        this.creationTime = LocalDateTime.now();
     }
 
     public String getIcd() {
@@ -43,6 +49,6 @@ public class DiagnosedIssue {
         return this.name;
     }
 
-
+    public LocalDateTime getCreationTime() {return this.creationTime;}
 }
 
