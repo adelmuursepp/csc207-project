@@ -3,6 +3,7 @@ package main.app;
 import main.data_access.FileDiagnosisDataAccessObject;
 import main.data_access.FileUserDataAccessObject;
 import main.entity.CommonUserFactory;
+import main.interface_adapter.glossary.GlossaryViewModel;
 import main.interface_adapter.login.LoginViewModel;
 //import main.interface_adapter.logged_in.LoggedInViewModel;
 import main.interface_adapter.proposed_symptoms.ProposedSymptomsViewModel;
@@ -47,6 +48,7 @@ public class Main {
         new ViewManager(views,cardLayout, viewManagerModel);
 
         LoginViewModel loginViewModel = new LoginViewModel();
+        GlossaryViewModel glossaryViewModel = new GlossaryViewModel();
         SignupViewModel signupViewModel = new SignupViewModel();
         SymptomCheckerViewModel symptomCheckerViewModel = new SymptomCheckerViewModel();
         PastDiagnosesViewModel pastDiagnosesViewModel = new PastDiagnosesViewModel();
@@ -79,7 +81,7 @@ public class Main {
         views.add(loginView, loginView.viewName);
 
         SymptomCheckerView symptomCheckerView = SymptomCheckerUseCaseFactory.create(symptomCheckerViewModel,
-                diagnosisViewModel, profileViewModel, proposedSymptomsViewModel, viewManagerModel, userDataAccessObject, fileDiagnosisDataAccessObject);
+                diagnosisViewModel, profileViewModel, proposedSymptomsViewModel, glossaryViewModel, viewManagerModel, userDataAccessObject, fileDiagnosisDataAccessObject);
         views.add(symptomCheckerView, symptomCheckerView.viewName);
 
         DiagnosisView diagnosisView = DiagnosisUseCaseFactory.create(diagnosisViewModel, symptomCheckerViewModel,
@@ -97,6 +99,10 @@ public class Main {
         PastDiagnosesView pastDiagnosesView = PastDiagnosesUseCaseFactory.create(pastDiagnosesViewModel,
                 symptomCheckerViewModel, viewManagerModel);
         views.add(pastDiagnosesView, pastDiagnosesView.viewName);
+
+        GlossaryView glossaryView = GlossaryUseCaseFactory.create(viewManagerModel, glossaryViewModel,
+                symptomCheckerViewModel);
+        views.add(glossaryView, glossaryView.viewName);
 
         viewManagerModel.setActiveView(signupView.viewName);
         viewManagerModel.firePropertyChanged();

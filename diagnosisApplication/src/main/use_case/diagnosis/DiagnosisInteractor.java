@@ -16,11 +16,12 @@ public class DiagnosisInteractor implements DiagnosisInputBoundary {
     //assuming existance of diagnosis data access object
 //    final DiagnosisUserDataAccessObject userDataAccessObject;
     final DiagnosisOutputBoundary diagnosisPresenter;
+    final DiagnosisFileDataAccessInterface diagnosisFileDataAccessObject;
     private final DiagnosisUserDataAccessInterface medicAPIDiagnosisDataAccessObject;
-    private final DiagnosisFileDataAccessInterface diagnosisFileDataAccessObject;
-    public DiagnosisInteractor(
-            DiagnosisOutputBoundary diagnosisOutputBoundary, DiagnosisUserDataAccessInterface medicAPIDiagnosisDataAccessObject,
-            DiagnosisFileDataAccessInterface diagnosisFileDataAccessObject) {
+
+    public DiagnosisInteractor(DiagnosisOutputBoundary diagnosisOutputBoundary,
+                               DiagnosisUserDataAccessInterface medicAPIDiagnosisDataAccessObject,
+                               DiagnosisFileDataAccessInterface diagnosisFileDataAccessObject) {
 //        this.userDataAccessObject = userDataAccessObject;
         this.medicAPIDiagnosisDataAccessObject = medicAPIDiagnosisDataAccessObject;
         this.diagnosisFileDataAccessObject = diagnosisFileDataAccessObject;

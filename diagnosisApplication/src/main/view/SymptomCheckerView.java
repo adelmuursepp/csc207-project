@@ -3,6 +3,8 @@ package main.view;
 import main.interface_adapter.diagnosis.DiagnosisController;
 import main.interface_adapter.proposed_symptoms.ProposedSymptomsController;
 import main.interface_adapter.profile.ProfileController;
+import main.interface_adapter.glossary.GlossaryController;
+import main.interface_adapter.signup.SignupViewModel;
 import main.interface_adapter.symptom_checker.SymptomCheckerController;
 import main.interface_adapter.symptom_checker.SymptomCheckerState;
 import main.interface_adapter.symptom_checker.SymptomCheckerViewModel;
@@ -11,15 +13,19 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
+import java.util.List;
 
 
 public class SymptomCheckerView extends JPanel {
     public final String viewName = "symptom checker";
 
     private final SymptomCheckerViewModel symptomCheckerViewModel;
+    private  final GlossaryController glossaryController;
     private final JButton submit;
     private final JButton proposedSymptoms;
     private final JButton profile;
+    private final JButton glossary;
     private final JCheckBox cough;
     private final JCheckBox chestTightness;
     private final JCheckBox diarrhea;
@@ -69,13 +75,15 @@ public class SymptomCheckerView extends JPanel {
     }
 
     public SymptomCheckerView(SymptomCheckerViewModel symptomCheckerViewModel, DiagnosisController diagnosisController,
-                              ProposedSymptomsController proposedSymptomsController, ProfileController profileController)
+                              ProposedSymptomsController proposedSymptomsController, GlossaryController glossaryController,
+                              ProfileController profileController)
     {
         setBackground(hexToColor("#B8D2E4"));
         this.symptomCheckerViewModel = symptomCheckerViewModel;
         this.diagnosisController = diagnosisController;
         this.proposedSymptomsController = proposedSymptomsController;
         this.profileController = profileController;
+        this.glossaryController = glossaryController;
 
         //main panel
         this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
@@ -146,6 +154,8 @@ public class SymptomCheckerView extends JPanel {
         buttons.add(proposedSymptoms);
         profile = new JButton(SymptomCheckerViewModel.PROFILE_BUTTON_LABEL);
         buttons.add(profile);
+        glossary = new JButton("Glossary");
+        buttons.add(glossary);
         innerBox.add(buttons);
         innerBox.add(Box.createVerticalStrut(0));
 
@@ -154,8 +164,6 @@ public class SymptomCheckerView extends JPanel {
         // Checkbox ActionListeners
         submit.addActionListener(
                 new ActionListener() {
-
-                    @Override
                     public void actionPerformed(ActionEvent e) {
                         if (e.getSource().equals(submit)) {
                             SymptomCheckerState currentState = symptomCheckerViewModel.getState();
@@ -185,6 +193,23 @@ public class SymptomCheckerView extends JPanel {
                     public void actionPerformed(ActionEvent e) {
                         if (e.getSource().equals(profile)) {
                             profileController.execute();
+                        }
+                    }
+                }
+        );
+
+        glossary.addActionListener(
+                new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        if (e.getSource() == glossary) {
+                            try {
+                                glossaryController.execute();
+                            } catch (IOException ex) {
+                                throw new RuntimeException(ex);
+                            } catch (InterruptedException ex) {
+                                throw new RuntimeException(ex);
+                            }
                         }
                     }
                 }

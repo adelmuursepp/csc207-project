@@ -16,4 +16,5 @@ public class DiagnosisController {
         DiagnosisInputData diagnosisInputData = new DiagnosisInputData(checkedSymptoms);
         diagnosisUseCaseInteractor.execute(diagnosisInputData);
     }
+
 }

@@ -1,6 +1,5 @@
 package main.app;
 
-import main.data_access.FileUserDataAccessObject;
 import main.interface_adapter.login.LoginViewModel;
 import main.interface_adapter.signup.SignupController;
 import main.interface_adapter.signup.SignupPresenter;

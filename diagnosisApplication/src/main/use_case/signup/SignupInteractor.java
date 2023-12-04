@@ -40,5 +40,4 @@ public class SignupInteractor implements SignupInputBoundary {
     public void switchLogin() {
         userPresenter.prepareLoginView();
     }
-
 }

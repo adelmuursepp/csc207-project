@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/diagnosisApplication/SymptomChecker.iml" filepath="$PROJECT_DIR$/diagnosisApplication/SymptomChecker.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/csc207-project.iml" filepath="$PROJECT_DIR$/.idea/csc207-project.iml" />
     </modules>
   </component>
