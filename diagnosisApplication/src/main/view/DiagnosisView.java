@@ -5,12 +5,15 @@ import main.interface_adapter.diagnosis.DiagnosisViewModel;
 import main.interface_adapter.symptom_checker.SymptomCheckerController;
 
 import javax.swing.*;
+import javax.swing.plaf.ColorUIResource;
 import java.awt.*;
 import java.awt.event.*;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.util.HashMap;
 import java.util.List;
+
+import static main.view.SymptomCheckerView.hexToColor;
 
 public class DiagnosisView extends JPanel implements ActionListener, PropertyChangeListener {
 
@@ -23,15 +26,19 @@ public class DiagnosisView extends JPanel implements ActionListener, PropertyCha
 
     public DiagnosisView(DiagnosisViewModel diagnosisViewModel, SymptomCheckerController symptomCheckerController) {
 
+        setBackground(hexToColor("#B8D2E4"));
         this.diagnosisViewModel = diagnosisViewModel;
         this.symptomCheckerController = symptomCheckerController;
         diagnosisViewModel.addPropertyChangeListener(this);
 
         JLabel title = new JLabel(DiagnosisViewModel.TITLE_LABEL);
+        Font titleFont = new Font(title.getFont().getName(), Font.BOLD, title.getFont().getSize() + 1);
+        title.setFont(titleFont);
         title.setAlignmentX(CENTER_ALIGNMENT);
         title.setAlignmentY(TOP_ALIGNMENT);
 
         JPanel buttons = new JPanel();
+        buttons.setBackground(hexToColor("#B8D2E4"));
         buttons.setLayout(new BoxLayout(buttons, BoxLayout.LINE_AXIS));
         buttons.setAlignmentX(CENTER_ALIGNMENT);
         symptomChecker = new JButton(DiagnosisViewModel.SYMPTOM_CHECKER_BUTTON_LABEL);
@@ -68,26 +75,29 @@ public class DiagnosisView extends JPanel implements ActionListener, PropertyCha
         }
         else {
             JTabbedPane tabbedPane = new JTabbedPane();
+            tabbedPane.setBackground(hexToColor("#B8D2E4"));
 
             // This is the code to create and add the bar chart.
-            Float[] accuracies = new Float[n];
+            int[] accuracies = new int[n];
             String[] diagnoses = new String[n];
 
-            accuracies[0] = (Float) currentState.getDiagnosis1().get("Accuracy");
+            accuracies[0] = Math.round((Float) currentState.getDiagnosis1().get("Accuracy"));
             diagnoses[0] = (String) currentState.getDiagnosis1().get("Name") + " " +
-                    currentState.getDiagnosis1().get("Accuracy").toString() + "%";
+                    accuracies[0] + "%";
             if (n >= 2) {
-                accuracies[1] = (Float) currentState.getDiagnosis2().get("Accuracy");
+                accuracies[1] = Math.round((Float) currentState.getDiagnosis2().get("Accuracy"));
                 diagnoses[1] = (String) currentState.getDiagnosis2().get("Name") + " " +
-                        currentState.getDiagnosis1().get("Accuracy").toString() + "%";
+                         accuracies[1] + "%";
             }
             if (n == 3) {
-                accuracies[2] = (Float) currentState.getDiagnosis3().get("Accuracy");
+                accuracies[2] = Math.round((Float) currentState.getDiagnosis3().get("Accuracy"));
                 diagnoses[2] = (String) currentState.getDiagnosis3().get("Name") + " " +
-                        currentState.getDiagnosis1().get("Accuracy").toString() + "%";
+                        accuracies[2] + "%";
             }
             BarChart barChart = new BarChart(accuracies, diagnoses, "Diagnoses and Accuracies");
-            barChart.setPreferredSize(new Dimension(250, 300));
+            barChart.setPreferredSize(new Dimension(300, 250));
+            barChart.setBorder(BorderFactory.createLineBorder(Color.WHITE, 5));
+            barChart.setAlignmentX(CENTER_ALIGNMENT);
             tabbedPane.addTab("Bar Chart", barChart);
 
             // This is the code that adds the information panels.
@@ -98,9 +108,6 @@ public class DiagnosisView extends JPanel implements ActionListener, PropertyCha
             // JTextArea infoPanel = new JTextArea();
 
             for (int i = 0; i < n; i++) {
-                // JPanel information = new JPanel(false);
-                JTextArea infoPanel = new JTextArea();
-                infoPanel.setEnabled(false);
 
                 HashMap<String, Object> currentDiagnosis;
                 if (i == 2) {
@@ -110,15 +117,37 @@ public class DiagnosisView extends JPanel implements ActionListener, PropertyCha
                 } else {
                     currentDiagnosis = currentState.getDiagnosis1();
                 }
-                infoPanel.append(currentDiagnosis.get("Name").toString().toUpperCase() + " (" +
-                        currentDiagnosis.get("Accuracy") + "% likelihood".toUpperCase() + ")" + "\n");
-                infoPanel.append("       -" + "Professional Name: " + currentDiagnosis.get("ProfName") + "\n");
-                infoPanel.append("       -" + "ICD Number: " + currentDiagnosis.get("Icd") + "\n");
-                infoPanel.append("       -" + "ICD Name: " + currentDiagnosis.get("IcdName") + "\n");
-                infoPanel.append("   ~RECOMMENDED SPECIALISTS:" + "\n");
+
+                Box infoPanel = Box.createVerticalBox();
+                infoPanel.setPreferredSize(new Dimension(300, 250));
+                infoPanel.setMaximumSize(new Dimension(300, 250));
+                infoPanel.setMinimumSize(new Dimension(300, 250));
+                infoPanel.add(Box.createVerticalStrut(3));
+
+                JLabel diagTitle = new JLabel(currentDiagnosis.get("Name").toString().toUpperCase() + " (" +
+                        accuracies[i] + "% likelihood".toUpperCase() + ")");
+                Font diagFont = new Font(diagTitle.getFont().getName(), Font.BOLD, diagTitle.getFont().getSize() + 1);
+                diagTitle.setFont(diagFont);
+                infoPanel.add(diagTitle);
+                infoPanel.add(Box.createVerticalStrut(1));
+
+                infoPanel.add(new JLabel("       -" + "Professional Name: " + currentDiagnosis.get("ProfName")));
+                infoPanel.add(Box.createVerticalStrut(1));
+                infoPanel.add( new JLabel("       -" + "ICD Number: " + currentDiagnosis.get("Icd")));
+                infoPanel.add(Box.createVerticalStrut(1));
+                infoPanel.add( new JLabel("       -" + "ICD Name: " + currentDiagnosis.get("IcdName")));
+                infoPanel.add(Box.createVerticalStrut(2));
+
+                JLabel specTitle = new JLabel("   ~RECOMMENDED SPECIALISTS:");
+                infoPanel.add(Box.createVerticalStrut(1));
+                Font specFont = new Font(specTitle.getFont().getName(), Font.BOLD, specTitle.getFont().getSize());
+                specTitle.setFont(specFont);
+                infoPanel.add(specTitle);
                 for (String specialist : (List<String>) currentDiagnosis.get("Specializations")) {
-                    infoPanel.append("       -" + specialist + "\n");
+                    infoPanel.add(new JLabel("       -" + specialist));
+                    infoPanel.add(Box.createVerticalStrut(1));
                 }
+                infoPanel.add(Box.createVerticalStrut(2));
                 tabbedPane.addTab(currentDiagnosis.get("Name").toString().toUpperCase(), infoPanel);
             }
 
@@ -127,17 +156,20 @@ public class DiagnosisView extends JPanel implements ActionListener, PropertyCha
             }
             tabbedPane.setAlignmentX(CENTER_ALIGNMENT);
             tabbedPane.setAlignmentY(CENTER_ALIGNMENT);
-            tabbedPane.setPreferredSize(new Dimension(350, 400));
+            tabbedPane.setPreferredSize(new Dimension(450, 330));
+            tabbedPane.setMaximumSize(new Dimension(450, 330));
+            tabbedPane.setMinimumSize(new Dimension(450, 330));
+            tabbedPane.setBorder(BorderFactory.createLineBorder(Color.WHITE, 5));
             this.add(tabbedPane);
         }
     }
 
     private class BarChart extends JPanel {
-        private Float[] accuracies;
+        private int[] accuracies;
         private String[] diagnoses;
         private String title;
 
-        public BarChart(Float[] accuracies, String[] diagnoses, String title) {
+        public BarChart(int[] accuracies, String[] diagnoses, String title) {
             this.accuracies = accuracies;
             this.diagnoses = diagnoses;
             this.title = title;
@@ -149,9 +181,9 @@ public class DiagnosisView extends JPanel implements ActionListener, PropertyCha
                 return;
             }
 
-            double min = 0;
-            double max = 0;
-            for (Float accuracy : accuracies) {
+            int min = 0;
+            int max = 0;
+            for (int accuracy : accuracies) {
                 if (min > accuracy) {
                     min = accuracy;
                 }
@@ -161,15 +193,15 @@ public class DiagnosisView extends JPanel implements ActionListener, PropertyCha
             }
 
             // Create variables for the dimensions of the bar chart
-            Dimension dim = getSize();
-            int clientWidth = dim.width;
-            int clientHeight = dim.height;
+            // Dimension dim = getSize();
+            int clientWidth = 300;
+            int clientHeight = 250;
             int barWidth = clientWidth / accuracies.length;
 
             // Change to whatever font and/or size (this just creates font objects)
-            Font titleFont = new Font("Book Antiqua", Font.BOLD, 10);
+            Font titleFont = new Font("Book Antiqua", Font.BOLD, 12);
             FontMetrics titleFontMetrics = graphics.getFontMetrics(titleFont);
-            Font labelFont = new Font("Book Antiqua", Font.PLAIN, 15);
+            Font labelFont = new Font("Book Antiqua", Font.PLAIN, 10);
             FontMetrics labelFontMetrics = graphics.getFontMetrics(labelFont);
 
             // Set the title and label size and set the fonts; position title
@@ -200,7 +232,7 @@ public class DiagnosisView extends JPanel implements ActionListener, PropertyCha
                     height = -height;
                 }
                 // set colour of bars (fill)
-                graphics.setColor(Color.cyan);
+                graphics.setColor(hexToColor("#B8D2E4"));
                 graphics.fillRect(valueP, valueQ, barWidth - 2, height);
                 // set colour of bars (outline)
                 graphics.setColor(Color.black);

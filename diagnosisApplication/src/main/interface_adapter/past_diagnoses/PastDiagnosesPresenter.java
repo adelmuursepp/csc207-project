@@ -15,8 +15,7 @@ public class PastDiagnosesPresenter implements PastDiagnosesOutputBoundary {
     private final ViewManagerModel viewManagerModel;
     private final PastDiagnosesViewModel pastDiagnosesViewModel;
 
-    public PastDiagnosesPresenter(ViewManagerModel viewManagerModel,
-                                  PastDiagnosesViewModel pastDiagnosesViewModel) {
+    public PastDiagnosesPresenter(PastDiagnosesViewModel pastDiagnosesViewModel, ViewManagerModel viewManagerModel) {
         this.viewManagerModel = viewManagerModel;
         this.pastDiagnosesViewModel = pastDiagnosesViewModel;
     }

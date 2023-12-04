@@ -12,7 +12,15 @@ import main.interface_adapter.profile.ProfileController;
 import main.interface_adapter.profile.ProfilePresenter;
 import main.interface_adapter.profile.ProfileViewModel;
 import main.interface_adapter.signup.SignupViewModel;
+import main.interface_adapter.proposed_symptoms.ProposedSymptomsController;
+import main.interface_adapter.proposed_symptoms.ProposedSymptomsPresenter;
+import main.interface_adapter.proposed_symptoms.ProposedSymptomsViewModel;
 import main.interface_adapter.symptom_checker.SymptomCheckerViewModel;
+import main.use_case.diagnosis.DiagnosisUserDataAccessInterface;
+import main.use_case.proposed_symptoms.ProposedSymptomsAPIDataAccessInterface;
+import main.use_case.proposed_symptoms.ProposedSymptomsInputBoundary;
+import main.use_case.proposed_symptoms.ProposedSymptomsInteractor;
+import main.use_case.proposed_symptoms.ProposedSymptomsOutputBoundary;
 import main.use_case.diagnosis.*;
 import main.use_case.login.LoginInputBoundary;
 import main.use_case.login.LoginInteractor;
@@ -35,14 +43,17 @@ public class SymptomCheckerUseCaseFactory {
     private SymptomCheckerUseCaseFactory() {}
 
     public static SymptomCheckerView create(
-            SymptomCheckerViewModel symptomCheckerViewModel, DiagnosisViewModel diagnosisViewModel, ProfileViewModel profileViewModel,
-            ViewManagerModel viewManagerModel, ProfileUserDataAccessInterface profileUserDataAccessObject,
-            DiagnosisFileDataAccessInterface diagnosisFileDataAccessObject) {
-
+            SymptomCheckerViewModel symptomCheckerViewModel, DiagnosisViewModel diagnosisViewModel,
+            ProposedSymptomsViewModel proposedSymptomsViewModel, ProfileViewModel profileViewModel,
+            ProfileUserDataAccessInterface profileUserDataAccessObject,
+            DiagnosisFileDataAccessInterface diagnosisFileDataAccessObject, ViewManagerModel viewManagerModel) {
         try {
-            DiagnosisController diagnosisController = createDiagnosisUseCase(diagnosisViewModel, viewManagerModel, diagnosisFileDataAccessObject);
+            DiagnosisController diagnosisController = createDiagnosisUseCase(diagnosisViewModel,
+                    diagnosisFileDataAccessObject, viewManagerModel);
+            ProposedSymptomsController proposedSymptomsController = createProposedSymptomsUseCase(proposedSymptomsViewModel,viewManagerModel);
             ProfileController profileController = createProfileUseCase(profileViewModel, viewManagerModel, profileUserDataAccessObject);
-            return new SymptomCheckerView(symptomCheckerViewModel, diagnosisController, profileController);
+            return new SymptomCheckerView(symptomCheckerViewModel, diagnosisController, proposedSymptomsController, profileController);
+
         } catch (IOException e) {
             JOptionPane.showMessageDialog(null, "Could not open user data file.");
         }
@@ -51,9 +62,8 @@ public class SymptomCheckerUseCaseFactory {
     }
 
     private static DiagnosisController createDiagnosisUseCase(DiagnosisViewModel diagnosisViewModel,
-                                                              ViewManagerModel viewManagerModel,
-                                                              DiagnosisFileDataAccessInterface diagnosisFileDataAccessObject)
-            throws IOException {
+                                                              DiagnosisFileDataAccessInterface diagnosisFileDataAccessObject,
+                                                              ViewManagerModel viewManagerModel) throws IOException {
 
         // Notice how we pass this method's parameters to the Presenter.
         DiagnosisOutputBoundary diagnosisOutputBoundary = new DiagnosisPresenter(diagnosisViewModel, viewManagerModel);
@@ -66,6 +76,17 @@ public class SymptomCheckerUseCaseFactory {
 
 
         return new DiagnosisController(diagnosisInteractor);
+    }
+
+    private static ProposedSymptomsController createProposedSymptomsUseCase(ProposedSymptomsViewModel proposedSymptomsViewModel,
+                                                                            ViewManagerModel viewManagerModel)
+        throws IOException {
+        ProposedSymptomsOutputBoundary proposedSymptomsOutputBoundary = new ProposedSymptomsPresenter(proposedSymptomsViewModel, viewManagerModel);
+        ProposedSymptomsAPIDataAccessInterface medicAPIProposedSymptomsDataAccessInterface = new MedicAPIDiagnosisDataAccessObject();
+
+        ProposedSymptomsInputBoundary proposedSymptomsInteractor = new ProposedSymptomsInteractor(proposedSymptomsOutputBoundary,
+                medicAPIProposedSymptomsDataAccessInterface);
+        return  new ProposedSymptomsController(proposedSymptomsInteractor);
     }
 
     private static ProfileController createProfileUseCase(ProfileViewModel profileViewModel,
