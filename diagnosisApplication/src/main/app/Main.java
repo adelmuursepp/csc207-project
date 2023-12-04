@@ -78,7 +78,7 @@ public class Main {
         views.add(loginView, loginView.viewName);
 
         SymptomCheckerView symptomCheckerView = SymptomCheckerUseCaseFactory.create(symptomCheckerViewModel,
-                diagnosisViewModel, profileViewModel, viewManagerModel, userDataAccessObject, fileDiagnosisDataAccessObject);
+                diagnosisViewModel, profileViewModel, proposedSymptomsViewModel, viewManagerModel, userDataAccessObject, fileDiagnosisDataAccessObject);
         views.add(symptomCheckerView, symptomCheckerView.viewName);
 
         DiagnosisView diagnosisView = DiagnosisUseCaseFactory.create(diagnosisViewModel, symptomCheckerViewModel,
