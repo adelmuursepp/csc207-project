@@ -91,7 +91,7 @@ public class Main {
         views.add(proposedSymptomsView, proposedSymptomsView.viewName);
 
         ProfileView profileView = ProfileUseCaseFactory.create(profileViewModel, symptomCheckerViewModel, pastDiagnosesViewModel,
-                viewManagerModel, fileDiagnosisDataAccessObject);
+                fileDiagnosisDataAccessObject, viewManagerModel);
         views.add(profileView, profileView.viewName);
 
         PastDiagnosesView pastDiagnosesView = PastDiagnosesUseCaseFactory.create(pastDiagnosesViewModel,

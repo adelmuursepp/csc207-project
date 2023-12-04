@@ -49,11 +49,11 @@ public class SymptomCheckerUseCaseFactory {
             DiagnosisFileDataAccessInterface diagnosisFileDataAccessObject) {
 
         try {
-            DiagnosisController diagnosisController = createDiagnosisUseCase(diagnosisViewModel,
+            DiagnosisController diagnosisController = createDiagnosisUseCase(symptomCheckerViewModel, diagnosisViewModel,
                     diagnosisFileDataAccessObject, viewManagerModel);
             ProposedSymptomsController proposedSymptomsController = createProposedSymptomsUseCase(proposedSymptomsViewModel,viewManagerModel);
             ProfileController profileController = createProfileUseCase(profileViewModel, viewManagerModel, profileUserDataAccessObject);
-            return new SymptomCheckerView(symptomCheckerViewModel, diagnosisController, profileController);
+            return new SymptomCheckerView(symptomCheckerViewModel, diagnosisController, proposedSymptomsController, profileController);
 
         } catch (IOException e) {
             JOptionPane.showMessageDialog(null, "Could not open user data file.");
@@ -63,8 +63,8 @@ public class SymptomCheckerUseCaseFactory {
     }
 
     private static DiagnosisController createDiagnosisUseCase(SymptomCheckerViewModel symptomCheckerViewModel, DiagnosisViewModel diagnosisViewModel,
-                                                              ViewManagerModel viewManagerModel,
-                                                              DiagnosisFileDataAccessInterface diagnosisFileDataAccessObject)
+                                                              DiagnosisFileDataAccessInterface diagnosisFileDataAccessObject,
+                                                              ViewManagerModel viewManagerModel)
             throws IOException {
 
         // Notice how we pass this method's parameters to the Presenter.

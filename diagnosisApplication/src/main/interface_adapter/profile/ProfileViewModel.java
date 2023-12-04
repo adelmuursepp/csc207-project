@@ -25,4 +25,6 @@ public class ProfileViewModel extends ViewModel {
     }
 
     public ProfileState getState() {return  state;}
+
+    public void setState(ProfileState state) {this.state = state;}
 }

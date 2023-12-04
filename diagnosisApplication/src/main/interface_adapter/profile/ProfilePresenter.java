@@ -22,9 +22,8 @@ public class ProfilePresenter implements ProfileOutputBoundary {
         profileState.setUserSex(profileOutputData.getUserSex());
         profileState.setUserYearOfBirth(profileOutputData.getUserYearOfBirth());
         profileState.setUserCreationTime(profileOutputData.getUserCreationTime());
+        profileViewModel.setState(profileState);
         profileViewModel.firePropertyChanged();
-        System.out.println("Username from state");
-        System.out.println(profileState.getUsername());
 
         viewManagerModel.setActiveView(profileViewModel.getViewName());
         viewManagerModel.firePropertyChanged();

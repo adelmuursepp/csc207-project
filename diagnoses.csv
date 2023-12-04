@@ -1,4 +1,5 @@
 username,diagnosis_name,creation_time
-adel, "Giant cell arteritis", 2023-12-03T05:26:38.888744
-adel, "Inflammation of the liver", 2023-12-03T05:26:38.891044
-adel, "Breakbone fever", 2023-12-03T05:26:38.891287
+adel, "Flu", 2023-12-04T02:45:42.805490
+adel, "Cold", 2023-12-04T02:45:42.806936
+adel, "Measles", 2023-12-04T03:21:42.806936
+adel, "Drug side effect", 2023-12-04T03:22:42.806936

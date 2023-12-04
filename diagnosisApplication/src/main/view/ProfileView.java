@@ -22,6 +22,10 @@ public class ProfileView extends JPanel implements ActionListener, PropertyChang
     private final PastDiagnosesController pastDiagnosesController;
     private final JButton symptomChecker;
     private final JButton pastDiagnoses;
+    private JLabel username;
+    private JLabel password;
+    private JLabel userSex;
+    private JLabel yearOfBirth;
 
     public ProfileView(ProfileViewModel profileViewModel, SymptomCheckerController symptomCheckerController,
                        PastDiagnosesController pastDiagnosisController) {
@@ -30,6 +34,9 @@ public class ProfileView extends JPanel implements ActionListener, PropertyChang
         this.pastDiagnosesController = pastDiagnosisController;
 
         ProfileState profileState = this.profileViewModel.getState();
+
+        profileViewModel.addPropertyChangeListener(this);
+
 
         // Main panel
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
@@ -57,7 +64,7 @@ public class ProfileView extends JPanel implements ActionListener, PropertyChang
         Box usernameBox = Box.createHorizontalBox();
         userInfoBox.setPreferredSize(new Dimension(450, 50));
 
-        JLabel username = new JLabel("Username: " + profileState.getUsername());
+        this.username = new JLabel("Username: " + profileState.getUsername());
         username.setPreferredSize(new Dimension(225, 50));
         usernameBox.add(username);
 
@@ -72,7 +79,7 @@ public class ProfileView extends JPanel implements ActionListener, PropertyChang
         Box passwordBox = Box.createHorizontalBox();
         userInfoBox.setPreferredSize(new Dimension(450, 50));
 
-        JLabel password = new JLabel("Password: " + profileState.getUserPassword());
+        this.password = new JLabel("Password");
         password.setPreferredSize(new Dimension(225, 50));
         passwordBox.add(password);
 
@@ -87,7 +94,7 @@ public class ProfileView extends JPanel implements ActionListener, PropertyChang
         Box userSexBox = Box.createHorizontalBox();
         userSexBox.setPreferredSize(new Dimension(450, 50));
 
-        JLabel userSex = new JLabel("User Sex: " + profileState.getUserSex());
+        this.userSex = new JLabel("User Sex: " + profileState.getUserSex());
         userSex.setPreferredSize(new Dimension(225, 50));
         userSexBox.add(userSex);
 
@@ -102,7 +109,7 @@ public class ProfileView extends JPanel implements ActionListener, PropertyChang
         Box yearOfBirthBox = Box.createHorizontalBox();
         yearOfBirthBox.setPreferredSize(new Dimension(450, 50));
 
-        JLabel yearOfBirth = new JLabel("Year of Birth: " + profileState.getUserYearOfBirth());
+        this.yearOfBirth = new JLabel("Year of Birth: " + profileState.getUserYearOfBirth());
         yearOfBirth.setPreferredSize(new Dimension(225, 50));
         yearOfBirthBox.add(yearOfBirth);
 
@@ -171,13 +178,12 @@ public class ProfileView extends JPanel implements ActionListener, PropertyChang
 
     }
 
+
     @Override
     public void propertyChange(PropertyChangeEvent evt) {
         ProfileState profileState = (ProfileState) evt.getNewValue();
-        System.out.println(profileState.getUsername());
-
-
-
-
+        username.setText("Username: " + profileState.getUsername());
+        userSex.setText("User Sex: " + profileState.getUserSex());
+        yearOfBirth.setText("Year of Birth: " + profileState.getUserYearOfBirth());
     }
 }
