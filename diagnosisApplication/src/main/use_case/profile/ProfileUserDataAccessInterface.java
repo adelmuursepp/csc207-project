@@ -6,4 +6,6 @@ public interface ProfileUserDataAccessInterface {
     String getCurrentUser();
 
     User get(String currUserName);
+
+    void setCurrentUser(String username);
 }

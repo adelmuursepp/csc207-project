@@ -14,7 +14,7 @@ public class GlossaryInteractor implements GlossaryInputBoundary {
         this.glossaryPresenter = glossaryPresenter;
     }
     @Override
-    public void execute() throws IOException, InterruptedException {
+    public void execute(GlossaryInputData glossaryInputData) throws IOException, InterruptedException {
         List<String> topics = glossaryDataAccessObject.getTopics();
 
         GlossaryOutputData glossaryOutputData = new GlossaryOutputData(topics);

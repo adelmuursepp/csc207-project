@@ -1,6 +1,7 @@
 package main.interface_adapter.glossary;
 
 import main.use_case.glossary.GlossaryInputBoundary;
+import main.use_case.glossary.GlossaryInputData;
 
 import java.io.IOException;
 
@@ -13,6 +14,7 @@ public class GlossaryController {
     }
 
     public void execute() throws IOException, InterruptedException {
-        glossaryInteractor.execute();
+        GlossaryInputData glossaryInputData = new GlossaryInputData();
+        glossaryInteractor.execute(glossaryInputData);
     }
 }

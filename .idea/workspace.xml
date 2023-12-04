@@ -4,14 +4,120 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8e906823-9305-4926-9049-6cc3ab3f7c0e" name="Changes" comment="">
+    <list default="true" id="8e906823-9305-4926-9049-6cc3ab3f7c0e" name="Changes" comment="Merged obamacare into main">
+      <change afterPath="$PROJECT_DIR$/diagnosisApplication/diagnoses.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/diagnosisApplication/test/main/interface_adapter/diagnosis/DiagnosisControllerTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/diagnosisApplication/test/main/interface_adapter/glossary/GlossaryControllerTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/diagnosisApplication/test/main/interface_adapter/glossary_search/GlossarySearchControllerTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/diagnosisApplication/test/main/interface_adapter/login/LoginControllerTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/diagnosisApplication/test/main/interface_adapter/past_diagnoses/PastDiagnosesControllerTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/diagnosisApplication/test/main/interface_adapter/profile/ProfileControllerTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/diagnosisApplication/test/main/interface_adapter/proposed_symptoms/ProposedSymptomsControllerTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/diagnosisApplication/test/main/interface_adapter/signup/SignupControllerTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/diagnosisApplication/test/main/interface_adapter/symptom_checker/SymptomCheckerControllerTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/diagnosisApplication/test/main/use_case/glossary/GlossaryInteractorTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/diagnosisApplication/test/main/use_case/glossary_search/GlossarySearchInteractorTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/diagnosisApplication/test/main/use_case/login/LoginOutputDataTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/diagnosisApplication/test/main/use_case/past_diagnoses/PastDiagnosesOutputDataTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/diagnosisApplication/test/main/use_case/signup/SignupInputDataTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/diagnosisApplication/test/main/view/DiagnosisViewTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/diagnosisApplication/test/main/view/LoginViewTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/diagnosisApplication/test/main/view/SignupViewTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/diagnosisApplication/users.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diagnosisApplication/SymptomChecker.iml" beforeDir="false" afterPath="$PROJECT_DIR$/diagnosisApplication/SymptomChecker.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diagnosisApplication/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/diagnosisApplication/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diagnosisApplication/src/main/data_access/FileUserDataAccessObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/diagnosisApplication/src/main/data_access/FileUserDataAccessObject.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/diagnosisApplication/src/main/data_access/MedicAPIDiagnosisDataAccessObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/diagnosisApplication/src/main/data_access/MedicAPIDiagnosisDataAccessObject.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diagnosisApplication/src/main/interface_adapter/glossary/GlossaryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/diagnosisApplication/src/main/interface_adapter/glossary/GlossaryController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diagnosisApplication/src/main/interface_adapter/logged_in/LoggedInState.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/diagnosisApplication/src/main/interface_adapter/logged_in/LoggedInViewModel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/diagnosisApplication/src/main/use_case/glossary/GlossaryInputBoundary.java" beforeDir="false" afterPath="$PROJECT_DIR$/diagnosisApplication/src/main/use_case/glossary/GlossaryInputBoundary.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diagnosisApplication/src/main/use_case/glossary/GlossaryInteractor.java" beforeDir="false" afterPath="$PROJECT_DIR$/diagnosisApplication/src/main/use_case/glossary/GlossaryInteractor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diagnosisApplication/src/main/use_case/profile/ProfileUserDataAccessInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/diagnosisApplication/src/main/use_case/profile/ProfileUserDataAccessInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diagnosisApplication/src/main/view/LoggedInView.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/diagnosisApplication/target/classes/main/app/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/diagnosisApplication/target/classes/main/app/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diagnosisApplication/target/classes/main/app/SymptomCheckerUseCaseFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/diagnosisApplication/target/classes/main/app/SymptomCheckerUseCaseFactory.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diagnosisApplication/target/classes/main/data_access/FileUserDataAccessObject.class" beforeDir="false" afterPath="$PROJECT_DIR$/diagnosisApplication/target/classes/main/data_access/FileUserDataAccessObject.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diagnosisApplication/target/classes/main/data_access/InMemoryUserDataAccessObject.class" beforeDir="false" afterPath="$PROJECT_DIR$/diagnosisApplication/target/classes/main/data_access/InMemoryUserDataAccessObject.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diagnosisApplication/target/classes/main/data_access/MedicAPIDiagnosisDataAccessObject.class" beforeDir="false" afterPath="$PROJECT_DIR$/diagnosisApplication/target/classes/main/data_access/MedicAPIDiagnosisDataAccessObject.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diagnosisApplication/target/classes/main/entity/DiagnosedIssue.class" beforeDir="false" afterPath="$PROJECT_DIR$/diagnosisApplication/target/classes/main/entity/DiagnosedIssue.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diagnosisApplication/target/classes/main/interface_adapter/diagnosis/DiagnosisPresenter.class" beforeDir="false" afterPath="$PROJECT_DIR$/diagnosisApplication/target/classes/main/interface_adapter/diagnosis/DiagnosisPresenter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diagnosisApplication/target/classes/main/interface_adapter/glossary/GlossaryController.class" beforeDir="false" afterPath="$PROJECT_DIR$/diagnosisApplication/target/classes/main/interface_adapter/glossary/GlossaryController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diagnosisApplication/target/classes/main/interface_adapter/logged_in/LoggedInState.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/diagnosisApplication/target/classes/main/interface_adapter/logged_in/LoggedInViewModel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/diagnosisApplication/target/classes/main/interface_adapter/signup/SignupState.class" beforeDir="false" afterPath="$PROJECT_DIR$/diagnosisApplication/target/classes/main/interface_adapter/signup/SignupState.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diagnosisApplication/target/classes/main/interface_adapter/signup/SignupViewModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/diagnosisApplication/target/classes/main/interface_adapter/signup/SignupViewModel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diagnosisApplication/target/classes/main/interface_adapter/symptom_checker/SymptomCheckerViewModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/diagnosisApplication/target/classes/main/interface_adapter/symptom_checker/SymptomCheckerViewModel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diagnosisApplication/target/classes/main/use_case/diagnosis/DiagnosisInteractor.class" beforeDir="false" afterPath="$PROJECT_DIR$/diagnosisApplication/target/classes/main/use_case/diagnosis/DiagnosisInteractor.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diagnosisApplication/target/classes/main/use_case/glossary/GlossaryInputBoundary.class" beforeDir="false" afterPath="$PROJECT_DIR$/diagnosisApplication/target/classes/main/use_case/glossary/GlossaryInputBoundary.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diagnosisApplication/target/classes/main/use_case/glossary/GlossaryInteractor.class" beforeDir="false" afterPath="$PROJECT_DIR$/diagnosisApplication/target/classes/main/use_case/glossary/GlossaryInteractor.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diagnosisApplication/target/classes/main/use_case/login/LoginInteractor.class" beforeDir="false" afterPath="$PROJECT_DIR$/diagnosisApplication/target/classes/main/use_case/login/LoginInteractor.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diagnosisApplication/target/classes/main/use_case/login/LoginUserDataAccessInterface.class" beforeDir="false" afterPath="$PROJECT_DIR$/diagnosisApplication/target/classes/main/use_case/login/LoginUserDataAccessInterface.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diagnosisApplication/target/classes/main/use_case/signup/SignupInteractor.class" beforeDir="false" afterPath="$PROJECT_DIR$/diagnosisApplication/target/classes/main/use_case/signup/SignupInteractor.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diagnosisApplication/target/classes/main/use_case/signup/SignupUserDataAccessInterface.class" beforeDir="false" afterPath="$PROJECT_DIR$/diagnosisApplication/target/classes/main/use_case/signup/SignupUserDataAccessInterface.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diagnosisApplication/target/classes/main/view/DiagnosisView$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/diagnosisApplication/target/classes/main/view/DiagnosisView$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diagnosisApplication/target/classes/main/view/GlossaryView$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/diagnosisApplication/target/classes/main/view/GlossaryView$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diagnosisApplication/target/classes/main/view/GlossaryView$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/diagnosisApplication/target/classes/main/view/GlossaryView$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diagnosisApplication/target/classes/main/view/GlossaryView$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/diagnosisApplication/target/classes/main/view/GlossaryView$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diagnosisApplication/target/classes/main/view/GlossaryView$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/diagnosisApplication/target/classes/main/view/GlossaryView$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diagnosisApplication/target/classes/main/view/GlossaryView.class" beforeDir="false" afterPath="$PROJECT_DIR$/diagnosisApplication/target/classes/main/view/GlossaryView.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diagnosisApplication/target/classes/main/view/LoggedInView.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/diagnosisApplication/target/classes/main/view/LoginView$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/diagnosisApplication/target/classes/main/view/LoginView$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diagnosisApplication/target/classes/main/view/LoginView$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/diagnosisApplication/target/classes/main/view/LoginView$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diagnosisApplication/target/classes/main/view/LoginView$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/diagnosisApplication/target/classes/main/view/LoginView$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diagnosisApplication/target/classes/main/view/LoginView$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/diagnosisApplication/target/classes/main/view/LoginView$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diagnosisApplication/target/classes/main/view/LoginView.class" beforeDir="false" afterPath="$PROJECT_DIR$/diagnosisApplication/target/classes/main/view/LoginView.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diagnosisApplication/target/classes/main/view/SignupView$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/diagnosisApplication/target/classes/main/view/SignupView$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diagnosisApplication/target/classes/main/view/SignupView$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/diagnosisApplication/target/classes/main/view/SignupView$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diagnosisApplication/target/classes/main/view/SignupView$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/diagnosisApplication/target/classes/main/view/SignupView$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diagnosisApplication/target/classes/main/view/SignupView$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/diagnosisApplication/target/classes/main/view/SignupView$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diagnosisApplication/target/classes/main/view/SignupView$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/diagnosisApplication/target/classes/main/view/SignupView$5.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diagnosisApplication/target/classes/main/view/SignupView$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/diagnosisApplication/target/classes/main/view/SignupView$6.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diagnosisApplication/target/classes/main/view/SignupView$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/diagnosisApplication/target/classes/main/view/SignupView$7.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diagnosisApplication/target/classes/main/view/SignupView.class" beforeDir="false" afterPath="$PROJECT_DIR$/diagnosisApplication/target/classes/main/view/SignupView.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diagnosisApplication/target/classes/main/view/SymptomCheckerView$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/diagnosisApplication/target/classes/main/view/SymptomCheckerView$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diagnosisApplication/target/classes/main/view/SymptomCheckerView$10.class" beforeDir="false" afterPath="$PROJECT_DIR$/diagnosisApplication/target/classes/main/view/SymptomCheckerView$10.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diagnosisApplication/target/classes/main/view/SymptomCheckerView$11.class" beforeDir="false" afterPath="$PROJECT_DIR$/diagnosisApplication/target/classes/main/view/SymptomCheckerView$11.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diagnosisApplication/target/classes/main/view/SymptomCheckerView$12.class" beforeDir="false" afterPath="$PROJECT_DIR$/diagnosisApplication/target/classes/main/view/SymptomCheckerView$12.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diagnosisApplication/target/classes/main/view/SymptomCheckerView$13.class" beforeDir="false" afterPath="$PROJECT_DIR$/diagnosisApplication/target/classes/main/view/SymptomCheckerView$13.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diagnosisApplication/target/classes/main/view/SymptomCheckerView$14.class" beforeDir="false" afterPath="$PROJECT_DIR$/diagnosisApplication/target/classes/main/view/SymptomCheckerView$14.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diagnosisApplication/target/classes/main/view/SymptomCheckerView$15.class" beforeDir="false" afterPath="$PROJECT_DIR$/diagnosisApplication/target/classes/main/view/SymptomCheckerView$15.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diagnosisApplication/target/classes/main/view/SymptomCheckerView$16.class" beforeDir="false" afterPath="$PROJECT_DIR$/diagnosisApplication/target/classes/main/view/SymptomCheckerView$16.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diagnosisApplication/target/classes/main/view/SymptomCheckerView$17.class" beforeDir="false" afterPath="$PROJECT_DIR$/diagnosisApplication/target/classes/main/view/SymptomCheckerView$17.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diagnosisApplication/target/classes/main/view/SymptomCheckerView$18.class" beforeDir="false" afterPath="$PROJECT_DIR$/diagnosisApplication/target/classes/main/view/SymptomCheckerView$18.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diagnosisApplication/target/classes/main/view/SymptomCheckerView$19.class" beforeDir="false" afterPath="$PROJECT_DIR$/diagnosisApplication/target/classes/main/view/SymptomCheckerView$19.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diagnosisApplication/target/classes/main/view/SymptomCheckerView$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/diagnosisApplication/target/classes/main/view/SymptomCheckerView$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diagnosisApplication/target/classes/main/view/SymptomCheckerView$20.class" beforeDir="false" afterPath="$PROJECT_DIR$/diagnosisApplication/target/classes/main/view/SymptomCheckerView$20.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diagnosisApplication/target/classes/main/view/SymptomCheckerView$21.class" beforeDir="false" afterPath="$PROJECT_DIR$/diagnosisApplication/target/classes/main/view/SymptomCheckerView$21.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diagnosisApplication/target/classes/main/view/SymptomCheckerView$22.class" beforeDir="false" afterPath="$PROJECT_DIR$/diagnosisApplication/target/classes/main/view/SymptomCheckerView$22.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diagnosisApplication/target/classes/main/view/SymptomCheckerView$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/diagnosisApplication/target/classes/main/view/SymptomCheckerView$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diagnosisApplication/target/classes/main/view/SymptomCheckerView$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/diagnosisApplication/target/classes/main/view/SymptomCheckerView$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diagnosisApplication/target/classes/main/view/SymptomCheckerView$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/diagnosisApplication/target/classes/main/view/SymptomCheckerView$5.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diagnosisApplication/target/classes/main/view/SymptomCheckerView$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/diagnosisApplication/target/classes/main/view/SymptomCheckerView$6.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diagnosisApplication/target/classes/main/view/SymptomCheckerView$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/diagnosisApplication/target/classes/main/view/SymptomCheckerView$7.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diagnosisApplication/target/classes/main/view/SymptomCheckerView$8.class" beforeDir="false" afterPath="$PROJECT_DIR$/diagnosisApplication/target/classes/main/view/SymptomCheckerView$8.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diagnosisApplication/target/classes/main/view/SymptomCheckerView$9.class" beforeDir="false" afterPath="$PROJECT_DIR$/diagnosisApplication/target/classes/main/view/SymptomCheckerView$9.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diagnosisApplication/target/classes/main/view/SymptomCheckerView.class" beforeDir="false" afterPath="$PROJECT_DIR$/diagnosisApplication/target/classes/main/view/SymptomCheckerView.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diagnosisApplication/test/app/MainTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/diagnosisApplication/test/main/app/MainTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diagnosisApplication/test/main/use_case/diagnosis/DiagnosisInteractorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/diagnosisApplication/test/main/use_case/diagnosis/DiagnosisInteractorTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diagnosisApplication/test/main/use_case/login/LoginInteractorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/diagnosisApplication/test/main/use_case/login/LoginInteractorTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diagnosisApplication/test/main/use_case/past_diagnoses/PastDiagnosesInteractorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/diagnosisApplication/test/main/use_case/past_diagnoses/PastDiagnosesInteractorTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diagnosisApplication/test/main/use_case/profile/ProfileInteractorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/diagnosisApplication/test/main/use_case/profile/ProfileInteractorTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diagnosisApplication/test/main/use_case/proposed_symptoms/ProposedSymptomsInteractorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/diagnosisApplication/test/main/use_case/proposed_symptoms/ProposedSymptomsInteractorTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diagnosisApplication/test/main/use_case/signup/SignupInteractorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/diagnosisApplication/test/main/use_case/signup/SignupInteractorTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JUnit4 Test Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -19,10 +125,10 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "customColor": "",
-  "associatedIndex": 1
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 1
+}</component>
   <component name="ProjectId" id="2Z3vbtIqFKlRPO6DDACLRAsaz2h" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -36,28 +142,118 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "obamacare",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit4",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4": "",
+    "git-widget-placeholder": "main",
     "node.js.selected.package.tslint": "(autodetect)",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RunManager">
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="main.app.Main" />
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/diagnosisApplication/test/main" />
+    </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="main.view" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="main.interface_adapter.symptom_checker" />
+      <recent name="main.use_case.signup" />
+      <recent name="main.interface_adapter.proposed_symptoms" />
+      <recent name="main.use_case.past_diagnoses" />
+      <recent name="main.interface_adapter.past_diagnoses" />
+    </key>
+  </component>
+  <component name="RunManager" selected="JUnit.SymptomCheckerInteractorTest.execute">
+    <configuration name="SignupInputDataTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="SymptomChecker" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="main.app.*" />
+          <option name="PATTERN" value="main.use_case.signup.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <option name="PACKAGE_NAME" value="main.use_case.signup" />
+      <option name="MAIN_CLASS_NAME" value="main.use_case.signup.SignupInputDataTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SignupInteractorTest.execute" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="SymptomChecker" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="main.use_case.signup.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="main.use_case.signup" />
+      <option name="MAIN_CLASS_NAME" value="main.use_case.signup.SignupInteractorTest" />
+      <option name="METHOD_NAME" value="execute" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SignupInteractorTest.passwordNoMatch" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="SymptomChecker" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="main.use_case.signup.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="main.use_case.signup" />
+      <option name="MAIN_CLASS_NAME" value="main.use_case.signup.SignupInteractorTest" />
+      <option name="METHOD_NAME" value="passwordNoMatch" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SymptomCheckerControllerTest.execute" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="SymptomChecker" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="main.interface_adapter.symptom_checker.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="main.interface_adapter.symptom_checker" />
+      <option name="MAIN_CLASS_NAME" value="main.interface_adapter.symptom_checker.SymptomCheckerControllerTest" />
+      <option name="METHOD_NAME" value="execute" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SymptomCheckerInteractorTest.execute" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="SymptomChecker" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="main.use_case.symptom_checker.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="main.use_case.symptom_checker" />
+      <option name="MAIN_CLASS_NAME" value="main.use_case.symptom_checker.SymptomCheckerInteractorTest" />
+      <option name="METHOD_NAME" value="execute" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Main" />
+        <item itemvalue="JUnit.SymptomCheckerInteractorTest.execute" />
+        <item itemvalue="JUnit.SymptomCheckerControllerTest.execute" />
+        <item itemvalue="JUnit.SignupInteractorTest.execute" />
+        <item itemvalue="JUnit.SignupInteractorTest.passwordNoMatch" />
+        <item itemvalue="JUnit.SignupInputDataTest" />
       </list>
     </recent_temporary>
   </component>
@@ -77,6 +273,97 @@
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <option name="LAST_COMMIT_MESSAGE" value="" />
+    <MESSAGE value="Merged obamacare into main" />
+    <option name="LAST_COMMIT_MESSAGE" value="Merged obamacare into main" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/csc207_project$GlossaryInteractorTest_execute.ic" NAME="GlossaryInteractorTest.execute Coverage Results" MODIFIED="1701690805842" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>main.use_case.glossary.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/csc207_project$SignupInteractorTest_passwordNoMatch.ic" NAME="SignupInteractorTest.passwordNoMatch Coverage Results" MODIFIED="1701696176872" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>main.use_case.signup.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/csc207_project$LoginOutputDataTest.ic" NAME="LoginOutputDataTest Coverage Results" MODIFIED="1701694351174" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>main.use_case.login.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/csc207_project$Main.ic" NAME="Main Coverage Results" MODIFIED="1701677841634" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>main.app.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/csc207_project$ProposedSymptomsInteractorTest_execute.ic" NAME="ProposedSymptomsInteractorTest.execute Coverage Results" MODIFIED="1701695599537" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>main.use_case.proposed_symptoms.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/csc207_project$SignupControllerTest_execute.ic" NAME="SignupControllerTest.execute Coverage Results" MODIFIED="1701692326281" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>main.interface_adapter.signup.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/csc207_project$ProfileInteractorTest_execute.ic" NAME="ProfileInteractorTest.execute Coverage Results" MODIFIED="1701693812060" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>main.use_case.profile.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/csc207_project$LoginInteractorTest_switchSignUp.ic" NAME="LoginInteractorTest.switchSignUp Coverage Results" MODIFIED="1701692697032" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>main.use_case.login.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/csc207_project$GlossarySearchControllerTest_execute.ic" NAME="GlossarySearchControllerTest.execute Coverage Results" MODIFIED="1701691271628" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>main.interface_adapter.glossary_search.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/csc207_project$SignupViewTest_isLoginView.ic" NAME="SignupViewTest.isLoginView Coverage Results" MODIFIED="1701688156687" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>main.view.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/csc207_project$DiagnosisUseCaseFactoryTest.ic" NAME="DiagnosisUseCaseFactoryTest Coverage Results" MODIFIED="1701683649308" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>main.app.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/csc207_project$LoginControllerTest.ic" NAME="LoginControllerTest Coverage Results" MODIFIED="1701692504067" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>main.interface_adapter.login.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/csc207_project$PastDiagnosesControllerTest.ic" NAME="PastDiagnosesControllerTest Coverage Results" MODIFIED="1701693186386" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>main.interface_adapter.past_diagnoses.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/csc207_project$DiagnosisInteractorTest_execute.ic" NAME="DiagnosisInteractorTest.execute Coverage Results" MODIFIED="1701690200322" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>main.use_case.diagnosis.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/csc207_project$SignupInteractorTest.ic" NAME="SignupInteractorTest Coverage Results" MODIFIED="1701692458126" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>main.use_case.signup.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/csc207_project$GlossaryControllerTest_execute.ic" NAME="GlossaryControllerTest.execute Coverage Results" MODIFIED="1701690495753" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>main.interface_adapter.glossary.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/csc207_project$SignupControllerTest_switchLogin.ic" NAME="SignupControllerTest.switchLogin Coverage Results" MODIFIED="1701692398327" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>main.interface_adapter.signup.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/csc207_project$ProfileControllerTest_execute.ic" NAME="ProfileControllerTest.execute Coverage Results" MODIFIED="1701693748467" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>main.interface_adapter.profile.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/csc207_project$LoginInteractorTest_userNoExist.ic" NAME="LoginInteractorTest.userNoExist Coverage Results" MODIFIED="1701694492745" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>main.use_case.login.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/csc207_project$PastDiagnosesInteractorTest_execute.ic" NAME="PastDiagnosesInteractorTest.execute Coverage Results" MODIFIED="1701694791441" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>main.use_case.past_diagnoses.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/csc207_project$GlossarySearchInteractorTest_execute.ic" NAME="GlossarySearchInteractorTest.execute Coverage Results" MODIFIED="1701691362071" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>main.use_case.glossary_search.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/csc207_project$SignupInputDataTest.ic" NAME="SignupInputDataTest Coverage Results" MODIFIED="1701695931816" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>main.use_case.signup.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/csc207_project$LoginInteractorTest_execute.ic" NAME="LoginInteractorTest.execute Coverage Results" MODIFIED="1701692685685" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>main.use_case.login.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/csc207_project$LoginInteractorTest_wrongPassword.ic" NAME="LoginInteractorTest.wrongPassword Coverage Results" MODIFIED="1701694587582" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>main.use_case.login.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/csc207_project$DiagnosisControllerTest_execute.ic" NAME="DiagnosisControllerTest.execute Coverage Results" MODIFIED="1701689776434" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>main.interface_adapter.diagnosis.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/csc207_project$All_in_SymptomChecker.ic" NAME="All in SymptomChecker Coverage Results" MODIFIED="1701690863076" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/csc207_project$SignupInteractorTest_execute.ic" NAME="SignupInteractorTest.execute Coverage Results" MODIFIED="1701696212831" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>main.use_case.signup.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/csc207_project$PastDiagnosesOutputDataTest_getPastDiagnoses.ic" NAME="PastDiagnosesOutputDataTest.getPastDiagnoses Coverage Results" MODIFIED="1701695216362" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>main.use_case.past_diagnoses.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/csc207_project$ProposedSymptomsControllerTest_execute.ic" NAME="ProposedSymptomsControllerTest.execute Coverage Results" MODIFIED="1701695484429" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>main.interface_adapter.proposed_symptoms.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/csc207_project$LoginControllerTest_execute.ic" NAME="LoginControllerTest.execute Coverage Results" MODIFIED="1701691854534" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>main.interface_adapter.login.*</FILTER>
+    </SUITE>
   </component>
 </project>
