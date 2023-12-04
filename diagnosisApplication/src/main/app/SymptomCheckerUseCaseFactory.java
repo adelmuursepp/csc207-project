@@ -16,6 +16,11 @@ import main.interface_adapter.proposed_symptoms.ProposedSymptomsPresenter;
 import main.interface_adapter.proposed_symptoms.ProposedSymptomsViewModel;
 import main.interface_adapter.signup.SignupViewModel;
 import main.interface_adapter.symptom_checker.SymptomCheckerViewModel;
+import main.use_case.diagnosis.DiagnosisUserDataAccessInterface;
+import main.use_case.proposed_symptoms.ProposedSymptomsAPIDataAccessInterface;
+import main.use_case.proposed_symptoms.ProposedSymptomsInputBoundary;
+import main.use_case.proposed_symptoms.ProposedSymptomsInteractor;
+import main.use_case.proposed_symptoms.ProposedSymptomsOutputBoundary;
 import main.use_case.diagnosis.*;
 import main.use_case.login.LoginInputBoundary;
 import main.use_case.login.LoginInteractor;
@@ -25,10 +30,6 @@ import main.use_case.profile.ProfileInputBoundary;
 import main.use_case.profile.ProfileInteractor;
 import main.use_case.profile.ProfileOutputBoundary;
 import main.use_case.profile.ProfileUserDataAccessInterface;
-import main.use_case.proposed_symptoms.ProposedSymptomsAPIDataAccessInterface;
-import main.use_case.proposed_symptoms.ProposedSymptomsInputBoundary;
-import main.use_case.proposed_symptoms.ProposedSymptomsInteractor;
-import main.use_case.proposed_symptoms.ProposedSymptomsOutputBoundary;
 import main.view.SymptomCheckerView;
 import main.interface_adapter.diagnosis.DiagnosisController;
 import main.interface_adapter.diagnosis.DiagnosisViewModel;
@@ -48,10 +49,12 @@ public class SymptomCheckerUseCaseFactory {
             DiagnosisFileDataAccessInterface diagnosisFileDataAccessObject) {
 
         try {
-            DiagnosisController diagnosisController = createDiagnosisUseCase(diagnosisViewModel, viewManagerModel, diagnosisFileDataAccessObject);
+            DiagnosisController diagnosisController = createDiagnosisUseCase(diagnosisViewModel,
+                    diagnosisFileDataAccessObject, viewManagerModel);
+            ProposedSymptomsController proposedSymptomsController = createProposedSymptomsUseCase(proposedSymptomsViewModel,viewManagerModel);
             ProfileController profileController = createProfileUseCase(profileViewModel, viewManagerModel, profileUserDataAccessObject);
-            ProposedSymptomsController proposedSymptomsController = createProposedSymptomsUseCase(proposedSymptomsViewModel, viewManagerModel);
-            return new SymptomCheckerView(symptomCheckerViewModel, diagnosisController, profileController, proposedSymptomsController);
+            return new SymptomCheckerView(symptomCheckerViewModel, diagnosisController, profileController);
+
         } catch (IOException e) {
             JOptionPane.showMessageDialog(null, "Could not open user data file.");
         }
@@ -59,7 +62,7 @@ public class SymptomCheckerUseCaseFactory {
         return null;
     }
 
-    private static DiagnosisController createDiagnosisUseCase(DiagnosisViewModel diagnosisViewModel,
+    private static DiagnosisController createDiagnosisUseCase(SymptomCheckerViewModel symptomCheckerViewModel, DiagnosisViewModel diagnosisViewModel,
                                                               ViewManagerModel viewManagerModel,
                                                               DiagnosisFileDataAccessInterface diagnosisFileDataAccessObject)
             throws IOException {
@@ -87,12 +90,14 @@ public class SymptomCheckerUseCaseFactory {
 
     private static ProposedSymptomsController createProposedSymptomsUseCase(ProposedSymptomsViewModel proposedSymptomsViewModel,
                                                                             ViewManagerModel viewManagerModel)
-            throws IOException {
+        throws IOException {
         ProposedSymptomsOutputBoundary proposedSymptomsOutputBoundary = new ProposedSymptomsPresenter(proposedSymptomsViewModel, viewManagerModel);
         ProposedSymptomsAPIDataAccessInterface medicAPIProposedSymptomsDataAccessInterface = new MedicAPIDiagnosisDataAccessObject();
 
         ProposedSymptomsInputBoundary proposedSymptomsInteractor = new ProposedSymptomsInteractor(proposedSymptomsOutputBoundary,
                 medicAPIProposedSymptomsDataAccessInterface);
         return  new ProposedSymptomsController(proposedSymptomsInteractor);
+
     }
+
 }

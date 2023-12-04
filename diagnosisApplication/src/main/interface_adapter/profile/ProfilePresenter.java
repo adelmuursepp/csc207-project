@@ -18,6 +18,7 @@ public class ProfilePresenter implements ProfileOutputBoundary {
         System.out.println("Username in presenter in profileoutputdata");
         System.out.println(profileOutputData.getUsername());
         profileState.setUsername(profileOutputData.getUsername());
+        profileState.setUserPassword(profileOutputData.getUserPassword());
         profileState.setUserSex(profileOutputData.getUserSex());
         profileState.setUserYearOfBirth(profileOutputData.getUserYearOfBirth());
         profileState.setUserCreationTime(profileOutputData.getUserCreationTime());

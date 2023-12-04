@@ -29,47 +29,13 @@ public class SignupView extends JPanel implements ActionListener, PropertyChange
     private final JPasswordField passwordInputField = new JPasswordField(15);
     private final JPasswordField repeatPasswordInputField = new JPasswordField(15);
     SpinnerModel spinnerModel = new SpinnerNumberModel(2020, 1900, 2020, 1);
-
-    private final JSpinner yearSpinner = createNoCommaJSpinner();
+    private final JSpinner yearSpinner = new JSpinner(spinnerModel);
     String[] sexes = {"Male", "Female"};
     private final JComboBox sexComboBox = new JComboBox(sexes);
     private final SignupController signupController;
 
     private final JButton signUp;
     private final JButton login;
-
-    private static JSpinner createNoCommaJSpinner() {
-        SpinnerNumberModel model = new SpinnerNumberModel(2000, 1900, 2020, 1); // Adjust the range as needed
-        JSpinner spinner = new JSpinner(model);
-
-        JFormattedTextField textField = ((JSpinner.DefaultEditor) spinner.getEditor()).getTextField();
-
-        // Set a custom formatter without commas
-        textField.setFormatterFactory(new NoCommaFormatterFactory());
-
-        return spinner;
-    }
-
-    private static class NoCommaFormatterFactory extends JFormattedTextField.AbstractFormatterFactory {
-        @Override
-        public JFormattedTextField.AbstractFormatter getFormatter(JFormattedTextField tf) {
-            return new NoCommaFormatter();
-        }
-    }
-
-    private static class NoCommaFormatter extends JFormattedTextField.AbstractFormatter {
-        @Override
-        public Object stringToValue(String text) {
-            // Remove commas from the input text
-            return text.replaceAll(",", "");
-        }
-
-        @Override
-        public String valueToString(Object value) {
-            // Convert the value to a string
-            return value.toString();
-        }
-    }
 
     public SignupView(SignupController controller, SignupViewModel signupViewModel) {
 
@@ -125,6 +91,7 @@ public class SignupView extends JPanel implements ActionListener, PropertyChange
 
         JLabel spinnerLabel = new JLabel("Year of birth:");
         buttons.add(spinnerLabel);
+
         JSpinner year = new JSpinner(spinnerModel);
         JSpinner.NumberEditor editor = new JSpinner.NumberEditor(year, "#");
         year.setEditor(editor);//removes comma hooray!

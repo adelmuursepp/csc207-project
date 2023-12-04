@@ -21,11 +21,12 @@ public class ProfileInteractor implements ProfileInputBoundary {
         System.out.println("Curr username");
         System.out.println(currUsername);
         User currUser = userDataAccessObject.get(currUsername);
+        String currUserPassword = currUser.getPassword();
         String currUserSex = currUser.getSex();
         Integer currUserYearOfBirth = currUser.getYearOfBirth();
         LocalDateTime currUserCreationTime = currUser.getCreationTime();
 
-        ProfileOutputData profileOutputData = new ProfileOutputData(currUsername, currUserSex, currUserYearOfBirth, currUserCreationTime);
+        ProfileOutputData profileOutputData = new ProfileOutputData(currUsername, currUserSex, currUserPassword, currUserYearOfBirth, currUserCreationTime);
         profilePresenter.prepareProfileView(profileOutputData);
     }
 }

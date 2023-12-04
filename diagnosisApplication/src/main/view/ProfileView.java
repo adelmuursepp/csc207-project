@@ -13,6 +13,8 @@ import java.awt.event.ActionListener;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 
+import static main.view.SymptomCheckerView.hexToColor;
+
 public class ProfileView extends JPanel implements ActionListener, PropertyChangeListener {
     public final String viewName = "profile";
     private final ProfileViewModel profileViewModel;
@@ -26,46 +28,116 @@ public class ProfileView extends JPanel implements ActionListener, PropertyChang
         this.profileViewModel = profileViewModel;
         this.symptomCheckerController = symptomCheckerController;
         this.pastDiagnosesController = pastDiagnosisController;
-        setLayout(new BorderLayout());
 
         ProfileState profileState = this.profileViewModel.getState();
 
-        // Create components
-        JLabel profileLabel = new JLabel("Profile Name");
-        JPanel buttonPanel = new JPanel();
-        JPanel namePanel = new JPanel();
+        // Main panel
+        setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
+        this.add(Box.createVerticalStrut(30));
+        this.setBackground(hexToColor("#B8D2E4"));
 
-        String username = profileState.getUsername();
-        System.out.println("The current user name in view");
-        System.out.println(username);
-        JLabel usernameLabel = new JLabel(username);
-        namePanel.add(usernameLabel);
-        JButton button1 = new JButton("Button 1");
-        JButton button2 = new JButton("Button 2");
-        JButton button3 = new JButton("Button 3");
+        // userInfoBox box for user info
+        Box userInfoBox = Box.createVerticalBox();
+        userInfoBox.setBorder(BorderFactory.createLineBorder(Color.WHITE));
+        userInfoBox.setPreferredSize(new Dimension(450, 300));
+        userInfoBox.setMinimumSize(new Dimension(450, 300));
+        userInfoBox.setMaximumSize(new Dimension(450, 300));
+        userInfoBox.setAlignmentX(CENTER_ALIGNMENT);
+        userInfoBox.setBackground(hexToColor("#B8D2E4"));
 
-        // Add components to the main frame
-        add(profileLabel, BorderLayout.WEST);
-        add(buttonPanel, BorderLayout.EAST);
+        // Title
+        JLabel title = new JLabel(ProfileViewModel.TITLE_LABEL);
+        Font titleFont = new Font(title.getFont().getName(), Font.BOLD, title.getFont().getSize() + 1);
+        title.setFont(titleFont);
+        title.setAlignmentX(Component.CENTER_ALIGNMENT);
 
-        // Set layout manager for the button panel
-        buttonPanel.setLayout(new BoxLayout(buttonPanel, BoxLayout.Y_AXIS));
+        // Username info and change button
+        userInfoBox.add(Box.createVerticalStrut(12));
+
+        Box usernameBox = Box.createHorizontalBox();
+        userInfoBox.setPreferredSize(new Dimension(450, 50));
+
+        JLabel username = new JLabel("Username: " + profileState.getUsername());
+        username.setPreferredSize(new Dimension(225, 50));
+        usernameBox.add(username);
+
+        JButton changeUsername = new JButton(ProfileViewModel.CHANGE_USERNAME_BUTTON_LABEL);
+        usernameBox.add(changeUsername);
+
+        userInfoBox.add(usernameBox);
+
+        // Password info and change button
+        userInfoBox.add(Box.createVerticalStrut(10));
+
+        Box passwordBox = Box.createHorizontalBox();
+        userInfoBox.setPreferredSize(new Dimension(450, 50));
+
+        JLabel password = new JLabel("Password: " + profileState.getUserPassword());
+        password.setPreferredSize(new Dimension(225, 50));
+        passwordBox.add(password);
+
+        JButton changePassword = new JButton(ProfileViewModel.CHANGE_PASSWORD_BUTTON_LABEL);
+        passwordBox.add(changePassword);
+
+        userInfoBox.add(passwordBox);
+
+        // Sex info and change button
+        userInfoBox.add(Box.createVerticalStrut(10));
+
+        Box userSexBox = Box.createHorizontalBox();
+        userSexBox.setPreferredSize(new Dimension(450, 50));
+
+        JLabel userSex = new JLabel("User Sex: " + profileState.getUserSex());
+        userSex.setPreferredSize(new Dimension(225, 50));
+        userSexBox.add(userSex);
+
+        JButton changeSex = new JButton(ProfileViewModel.CHANGE_SEX_BUTTON_LABEL);
+        userSexBox.add(changeSex);
+
+        userInfoBox.add(userSexBox);
+
+        // Year of Birth info and change button
+        userInfoBox.add(Box.createVerticalStrut(10));
+
+        Box yearOfBirthBox = Box.createHorizontalBox();
+        yearOfBirthBox.setPreferredSize(new Dimension(450, 50));
+
+        JLabel yearOfBirth = new JLabel("Year of Birth: " + profileState.getUserYearOfBirth());
+        yearOfBirth.setPreferredSize(new Dimension(225, 50));
+        yearOfBirthBox.add(yearOfBirth);
+
+        JButton changeYearOfBirth = new JButton(ProfileViewModel.CHANGE_YEAR_OF_BIRTH_BUTTON_LABEL);
+        yearOfBirthBox.add(changeYearOfBirth);
+
+        userInfoBox.add(yearOfBirthBox);
+
+        // Other buttons box
+        Box otherButtonsBox = Box.createVerticalBox();
+        otherButtonsBox.setPreferredSize(new Dimension(450, 100));
+        otherButtonsBox.setMinimumSize(new Dimension(450, 100));
+        otherButtonsBox.setMaximumSize(new Dimension(450, 100));
+        otherButtonsBox.setBackground(hexToColor("#B8D2E4"));
+        otherButtonsBox.setAlignmentX(CENTER_ALIGNMENT);
+
+        // Other buttons
+        JPanel otherButtons = new JPanel();
+        otherButtons.setLayout(new BoxLayout(otherButtons, BoxLayout.Y_AXIS));
+        otherButtons.setPreferredSize(new Dimension(350, 100));
+        otherButtons.setAlignmentX(CENTER_ALIGNMENT);
+        otherButtons.setBackground(hexToColor("#B8D2E4"));
+        otherButtonsBox.add(otherButtons);
 
 
-
-
-        JLabel title = new JLabel(profileViewModel.TITLE_LABEL);
-
-//        JPanel buttons = new JPanel();
-        symptomChecker = new JButton(profileViewModel.SYMPTOM_CHECKER_BUTTON_LABEL);
-        buttonPanel.add(namePanel);
-        buttonPanel.add(symptomChecker);
+        otherButtonsBox.add(Box.createVerticalStrut(10));
         pastDiagnoses = new JButton(profileViewModel.PAST_DIAGNOSES_BUTTON_LABEL);
-        buttonPanel.add(pastDiagnoses);
-        // Add buttons to the button panel
-        buttonPanel.add(button1);
-        buttonPanel.add(button2);
-        buttonPanel.add(button3);
+        pastDiagnoses.setAlignmentX(CENTER_ALIGNMENT);
+        otherButtons.add(pastDiagnoses);
+
+        otherButtonsBox.add(Box.createVerticalStrut(10));
+        symptomChecker = new JButton(profileViewModel.SYMPTOM_CHECKER_BUTTON_LABEL);
+        symptomChecker.setAlignmentX(CENTER_ALIGNMENT);
+        otherButtons.add(symptomChecker);
+
         symptomChecker.addActionListener(
 
                 new ActionListener() {
@@ -88,7 +160,10 @@ public class ProfileView extends JPanel implements ActionListener, PropertyChang
         );
 
         this.add(title);
-//        this.add(buttons);
+        this.add(Box.createVerticalStrut(30));
+        this.add(userInfoBox);
+        this.add(Box.createVerticalStrut(30));
+        this.add(otherButtonsBox);
     }
 
     @Override

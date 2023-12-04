@@ -1,5 +1,6 @@
 package main.app;
 
+import main.data_access.FileDiagnosisDataAccessObject;
 import main.interface_adapter.ViewManagerModel;
 import main.interface_adapter.diagnosis.DiagnosisViewModel;
 import main.interface_adapter.past_diagnoses.PastDiagnosesController;
@@ -29,14 +30,14 @@ public class ProfileUseCaseFactory {
     public static ProfileView create(ProfileViewModel profileViewModel,
                                      SymptomCheckerViewModel symptomCheckerViewModel,
                                      PastDiagnosesViewModel pastDiagnosesViewModel,
-                                     ViewManagerModel viewManagerModel,
-    DiagnosisFileDataAccessInterface fileDiagnosisDataAccessObject) {
+                                     DiagnosisFileDataAccessInterface diagnosisDataAccessObject,
+                                     ViewManagerModel viewManagerModel) {
 
         try {
             SymptomCheckerController symptomCheckerController = createSymptomCheckerUseCase(symptomCheckerViewModel,
                     viewManagerModel);
             PastDiagnosesController pastDiagnosesController = createPastDiagnosesUseCase(pastDiagnosesViewModel,
-                    viewManagerModel, fileDiagnosisDataAccessObject);
+                    diagnosisDataAccessObject, viewManagerModel);
             return new ProfileView(profileViewModel,
                     symptomCheckerController, pastDiagnosesController);
         } catch (IOException e) {
@@ -60,12 +61,16 @@ public class ProfileUseCaseFactory {
     }
 
     private static PastDiagnosesController createPastDiagnosesUseCase(PastDiagnosesViewModel pastDiagnosesViewModel,
-                                                                      ViewManagerModel viewManagerModel,
-                                                                      DiagnosisFileDataAccessInterface diagnosesFileDataAccessObject) {
+                                                                      DiagnosisFileDataAccessInterface diagnosisDataAcessObject,
+                                                                      ViewManagerModel viewManagerModel) {
 
-        PastDiagnosesOutputBoundary pastDiagnosesPresenter = new PastDiagnosesPresenter(viewManagerModel, pastDiagnosesViewModel);
+        PastDiagnosesOutputBoundary pastDiagnosesPresenter = new PastDiagnosesPresenter(pastDiagnosesViewModel,
+                viewManagerModel);
 
-        PastDiagnosesInputBoundary pastDiagnosesInteractor = new PastDiagnosesInteractor(pastDiagnosesPresenter, diagnosesFileDataAccessObject);
+        DiagnosisFileDataAccessInterface diagnosisDataAccessObject = diagnosisDataAcessObject;
+
+        PastDiagnosesInputBoundary pastDiagnosesInteractor = new PastDiagnosesInteractor(pastDiagnosesPresenter,
+                diagnosisDataAccessObject);
 
         return new PastDiagnosesController(pastDiagnosesInteractor);
     }

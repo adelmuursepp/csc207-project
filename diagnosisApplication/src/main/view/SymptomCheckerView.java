@@ -18,8 +18,8 @@ public class SymptomCheckerView extends JPanel {
 
     private final SymptomCheckerViewModel symptomCheckerViewModel;
     private final JButton submit;
-    private final JButton profile;
     private final JButton proposedSymptoms;
+    private final JButton profile;
     private final JCheckBox cough;
     private final JCheckBox chestTightness;
     private final JCheckBox diarrhea;
@@ -69,13 +69,13 @@ public class SymptomCheckerView extends JPanel {
     }
 
     public SymptomCheckerView(SymptomCheckerViewModel symptomCheckerViewModel, DiagnosisController diagnosisController,
-                              ProfileController profileController, ProposedSymptomsController proposedSymptomsController)
+                              ProposedSymptomsController proposedSymptomsController, ProfileController profileController)
     {
         setBackground(hexToColor("#B8D2E4"));
         this.symptomCheckerViewModel = symptomCheckerViewModel;
         this.diagnosisController = diagnosisController;
-        this.profileController = profileController;
         this.proposedSymptomsController = proposedSymptomsController;
+        this.profileController = profileController;
 
         //main panel
         this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
@@ -91,7 +91,6 @@ public class SymptomCheckerView extends JPanel {
         innerBox.setBackground(hexToColor("#B8D2E4"));
 
         //title
-        profile = new JButton(SymptomCheckerViewModel.PROFILE_BUTTON_LABEL);
         JLabel title = new JLabel(SymptomCheckerViewModel.TITLE_LABEL);
         Font titleFont = new Font(title.getFont().getName(), Font.BOLD, title.getFont().getSize() + 1);
         title.setFont(titleFont);
@@ -145,6 +144,8 @@ public class SymptomCheckerView extends JPanel {
         buttons.add(submit);
         proposedSymptoms = new JButton(SymptomCheckerViewModel.PROPOSED_SYMPTOMS_BUTTON_LABEL);
         buttons.add(proposedSymptoms);
+        profile = new JButton(SymptomCheckerViewModel.PROFILE_BUTTON_LABEL);
+        buttons.add(profile);
         innerBox.add(buttons);
         innerBox.add(Box.createVerticalStrut(0));
 
@@ -165,21 +166,6 @@ public class SymptomCheckerView extends JPanel {
                 }
         );
 
-        profile.addActionListener(
-                new ActionListener() {
-
-                    @Override
-                    public void actionPerformed(ActionEvent e) {
-                        if (e.getSource().equals(profile)) {
-                            profileController.execute();
-                        }
-                    }
-                }
-        );
-
-        this.add(profile);
-        this.add(title);
-        this.add(buttons);
         proposedSymptoms.addActionListener(
                 new ActionListener() {
                     @Override
@@ -187,6 +173,18 @@ public class SymptomCheckerView extends JPanel {
                         if (e.getSource().equals(proposedSymptoms)) {
                             SymptomCheckerState currentState = symptomCheckerViewModel.getState();
                             proposedSymptomsController.execute(currentState.getCheckedSymptoms());
+                        }
+                    }
+                }
+        );
+
+        profile.addActionListener(
+                new ActionListener() {
+
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        if (e.getSource().equals(profile)) {
+                            profileController.execute();
                         }
                     }
                 }
@@ -312,7 +310,7 @@ public class SymptomCheckerView extends JPanel {
         );
 
         diarrhea = new JCheckBox("Diarrhea");
-        checkboxes1.add(diarrhea);
+        checkboxes2.add(diarrhea);
 
         diarrhea.addActionListener(
                 new ActionListener() {
@@ -346,7 +344,7 @@ public class SymptomCheckerView extends JPanel {
         );
 
         dizziness = new JCheckBox("Dizziness");
-        checkboxes1.add(dizziness);
+        checkboxes2.add(dizziness);
 
         dizziness.addActionListener(
                 new ActionListener() {
@@ -618,7 +616,7 @@ public class SymptomCheckerView extends JPanel {
         );
 
         palpitations = new JCheckBox("Palpitations");
-        checkboxes2.add(palpitations);
+        checkboxes1.add(palpitations);
 
         palpitations.addActionListener(
                 new ActionListener() {
@@ -635,7 +633,7 @@ public class SymptomCheckerView extends JPanel {
         );
 
         pallor = new JCheckBox("Pallor");
-        checkboxes2.add(pallor);
+        checkboxes1.add(pallor);
 
         pallor.addActionListener(
             new ActionListener() {

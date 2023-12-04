@@ -6,6 +6,10 @@ import main.interface_adapter.ViewModel;
 
 public class ProfileViewModel extends ViewModel {
     public static final String TITLE_LABEL = "Profile View";
+    public static final String CHANGE_USERNAME_BUTTON_LABEL = "Change Username";
+    public static final String CHANGE_PASSWORD_BUTTON_LABEL = "Change Password";
+    public static final String CHANGE_SEX_BUTTON_LABEL = "Change User Sex";
+    public static final String CHANGE_YEAR_OF_BIRTH_BUTTON_LABEL = "Change Year of Birth";
     public static final String SYMPTOM_CHECKER_BUTTON_LABEL = "Return to Symptom Checker";
     public static final String PAST_DIAGNOSES_BUTTON_LABEL = "See Past Diagnoses";
     private ProfileState state = new ProfileState();
