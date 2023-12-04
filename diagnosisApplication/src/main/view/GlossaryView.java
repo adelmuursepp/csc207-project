@@ -158,12 +158,18 @@ public class GlossaryView extends JPanel implements ActionListener, PropertyChan
 
     private static JInternalFrame getContentFrame(GlossaryState state) {
         JInternalFrame contentFrame = new JInternalFrame("Results", true, true, true, true);
+        contentFrame.setSize(400, 300);
         JTextArea content = new JTextArea(state.getContent(), 5, 20);
+        JEditorPane editorPane = new JEditorPane();
+        editorPane.setContentType("text/html");
+        editorPane.setText(state.getContent());
+        editorPane.setEditable(false);
+
         // content.setFont(new Font("Serif", Font.ITALIC, 16));
         content.setLineWrap(true);
         content.setWrapStyleWord(true);
         content.setEnabled(false);
-        JScrollPane contentScroller = new JScrollPane(content);
+        JScrollPane contentScroller = new JScrollPane(editorPane);
         contentFrame.setContentPane(contentScroller);
         contentFrame.pack();
         return contentFrame;
