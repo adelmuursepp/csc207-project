@@ -16,6 +16,7 @@ public class DiagnosisInteractor implements DiagnosisInputBoundary {
     //assuming existance of diagnosis data access object
 //    final DiagnosisUserDataAccessObject userDataAccessObject;
     final DiagnosisOutputBoundary diagnosisPresenter;
+    final DiagnosisFileDataAccessInterface diagnosisFileDataAccessObject;
     private final DiagnosisUserDataAccessInterface medicAPIDiagnosisDataAccessObject;
 
     public DiagnosisInteractor(DiagnosisOutputBoundary diagnosisOutputBoundary,
