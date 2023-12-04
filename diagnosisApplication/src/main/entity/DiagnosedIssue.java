@@ -41,10 +41,6 @@ public class DiagnosedIssue {
         return this.accuracy;
     }
 
-    public float getRanking() {
-        return this.ranking;
-    }
-
     public String getName() {
         return this.name;
     }
