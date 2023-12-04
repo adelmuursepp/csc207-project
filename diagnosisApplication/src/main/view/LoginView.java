@@ -15,6 +15,8 @@ import java.awt.event.KeyListener;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 
+import static main.view.SymptomCheckerView.hexToColor;
+
 public class LoginView extends JPanel implements ActionListener, PropertyChangeListener {
 
     public final String viewName = "log in";
@@ -32,23 +34,57 @@ public class LoginView extends JPanel implements ActionListener, PropertyChangeL
 
     public LoginView(LoginViewModel loginViewModel, LoginController controller) {
 
+        setBackground(hexToColor("#B8D2E4"));
         this.loginController = controller;
         this.loginViewModel = loginViewModel;
         this.loginViewModel.addPropertyChangeListener(this);
 
-        JLabel title = new JLabel("Login Screen");
+        //main panel
+        this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
+        this.add(Box.createVerticalStrut(60));
+
+        //inner box to hold in place
+        Box innerBox = Box.createVerticalBox();
+        innerBox.setBorder(BorderFactory.createLineBorder(Color.WHITE));
+        innerBox.setPreferredSize(new Dimension(350, 150));
+        innerBox.setMinimumSize(new Dimension(350, 200));
+        innerBox.setMaximumSize(new Dimension(350, 200));
+        setBackground(hexToColor("#B8D2E4"));
+
+        //title
+        innerBox.add(Box.createVerticalStrut(15));
+        JLabel title = new JLabel("Login");
         title.setAlignmentX(Component.CENTER_ALIGNMENT);
+        Font titleFont = new Font(title.getFont().getName(), Font.BOLD, title.getFont().getSize() + 1);
+        title.setFont(titleFont);
+        innerBox.add(title);
+        innerBox.add(Box.createVerticalStrut(20));
 
+        //username and password
         LabelTextPanel usernameInfo = new LabelTextPanel(
-                new JLabel("Username"), usernameInputField);
-        LabelTextPanel passwordInfo = new LabelTextPanel(
-                new JLabel("Password"), passwordInputField);
+                new JLabel("Username:"), usernameInputField);
+        usernameInfo.setBackground(hexToColor("#B8D2E4"));
+        innerBox.add(usernameInfo);
+        innerBox.add(usernameErrorField);
 
+        LabelTextPanel passwordInfo = new LabelTextPanel(
+                new JLabel("Password:"), passwordInputField);
+        passwordInfo.setBackground(hexToColor("#B8D2E4"));
+        innerBox.add(passwordInfo);
+        innerBox.add(passwordErrorField);
+        innerBox.add(Box.createVerticalStrut(15));
+
+        //buttons
         JPanel buttons = new JPanel();
+        buttons.setBackground(hexToColor("#B8D2E4"));
         logIn = new JButton(loginViewModel.LOGIN_BUTTON_LABEL);
         buttons.add(logIn);
         cancel = new JButton(loginViewModel.CANCEL_BUTTON_LABEL);
         buttons.add(cancel);
+        innerBox.add(buttons);
+        innerBox.add(Box.createVerticalStrut(20));
+
+        this.add(innerBox);
 
         logIn.addActionListener(
 
@@ -111,13 +147,6 @@ public class LoginView extends JPanel implements ActionListener, PropertyChangeL
                     public void keyReleased(KeyEvent e) {
                     }
                 });
-
-        this.add(title);
-        this.add(usernameInfo);
-        this.add(usernameErrorField);
-        this.add(passwordInfo);
-        this.add(passwordErrorField);
-        this.add(buttons);
     }
 
     public void actionPerformed(ActionEvent evt) {

@@ -4,6 +4,8 @@ import main.interface_adapter.ViewManagerModel;
 import main.use_case.diagnosis.DiagnosisOutputBoundary;
 import main.use_case.diagnosis.DiagnosisOutputData;
 
+import java.util.List;
+
 public class DiagnosisPresenter implements DiagnosisOutputBoundary {
     private final DiagnosisViewModel diagnosisViewModel;
     private final ViewManagerModel viewManagerModel;
@@ -14,7 +16,7 @@ public class DiagnosisPresenter implements DiagnosisOutputBoundary {
     }
     @Override
     public void prepareDiagnosisView(DiagnosisOutputData outputData) {
-       DiagnosisState diagnosisState = diagnosisViewModel.getState();
+       DiagnosisState diagnosisState = new DiagnosisState();
 
        diagnosisState.setDiagnosis1(outputData.getDiagnosis1());
 
@@ -25,7 +27,9 @@ public class DiagnosisPresenter implements DiagnosisOutputBoundary {
        if (outputData.getDiagnosis3() != null) {
            diagnosisState.setDiagnosis3(outputData.getDiagnosis3());
        }
-        this.diagnosisViewModel.firePropertyChanged();
+
+       diagnosisViewModel.setState(diagnosisState);
+       this.diagnosisViewModel.firePropertyChanged();
 
        viewManagerModel.setActiveView(diagnosisViewModel.getViewName());
        this.viewManagerModel.firePropertyChanged();

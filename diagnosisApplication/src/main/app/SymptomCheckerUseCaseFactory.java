@@ -6,11 +6,18 @@ import main.entity.CommonUserFactory;
 import main.entity.UserFactory;
 import main.interface_adapter.ViewManagerModel;
 import main.interface_adapter.diagnosis.DiagnosisPresenter;
+import main.interface_adapter.proposed_symptoms.ProposedSymptomsController;
+import main.interface_adapter.proposed_symptoms.ProposedSymptomsPresenter;
+import main.interface_adapter.proposed_symptoms.ProposedSymptomsViewModel;
 import main.interface_adapter.glossary.GlossaryController;
 import main.interface_adapter.glossary.GlossaryPresenter;
 import main.interface_adapter.glossary.GlossaryViewModel;
 import main.interface_adapter.symptom_checker.SymptomCheckerViewModel;
 import main.use_case.diagnosis.DiagnosisUserDataAccessInterface;
+import main.use_case.proposed_symptoms.ProposedSymptomsAPIDataAccessInterface;
+import main.use_case.proposed_symptoms.ProposedSymptomsInputBoundary;
+import main.use_case.proposed_symptoms.ProposedSymptomsInteractor;
+import main.use_case.proposed_symptoms.ProposedSymptomsOutputBoundary;
 import main.use_case.glossary.GlossaryDataAccessInterface;
 import main.use_case.glossary.GlossaryInputBoundary;
 import main.use_case.glossary.GlossaryInteractor;
@@ -31,13 +38,16 @@ public class SymptomCheckerUseCaseFactory {
     private SymptomCheckerUseCaseFactory() {}
 
     public static SymptomCheckerView create(
-            SymptomCheckerViewModel symptomCheckerViewModel, DiagnosisViewModel diagnosisViewModel,
-            GlossaryViewModel glossaryViewModel, ViewManagerModel viewManagerModel) {
+            SymptomCheckerViewModel symptomCheckerViewModel, DiagnosisViewModel diagnosisViewModel, ProposedSymptomsViewModel
+            proposedSymptomsViewModel, GlossaryViewModel glossaryViewModel, ViewManagerModel viewManagerModel) {
 
         try {
             DiagnosisController diagnosisController = createDiagnosisUseCase(diagnosisViewModel, viewManagerModel);
+            ProposedSymptomsController proposedSymptomsController = createProposedSymptomsUseCase(proposedSymptomsViewModel,viewManagerModel);
             GlossaryController glossaryController = createGlossaryUseCase(viewManagerModel, glossaryViewModel);
-            return new SymptomCheckerView(symptomCheckerViewModel, diagnosisController, glossaryController);
+            return new SymptomCheckerView(symptomCheckerViewModel, diagnosisController, proposedSymptomsController,
+                    glossaryController);
+
         } catch (IOException e) {
             JOptionPane.showMessageDialog(null, "Could not open user data file.");
         }
@@ -46,7 +56,8 @@ public class SymptomCheckerUseCaseFactory {
     }
 
     private static DiagnosisController createDiagnosisUseCase(DiagnosisViewModel diagnosisViewModel,
-                                                              ViewManagerModel viewManagerModel) throws IOException {
+                                                              ViewManagerModel viewManagerModel)
+            throws IOException {
 
         // Notice how we pass this method's parameters to the Presenter.
         DiagnosisOutputBoundary diagnosisOutputBoundary = new DiagnosisPresenter(diagnosisViewModel, viewManagerModel);
@@ -59,6 +70,17 @@ public class SymptomCheckerUseCaseFactory {
 
 
         return new DiagnosisController(diagnosisInteractor);
+    }
+
+    private static ProposedSymptomsController createProposedSymptomsUseCase(ProposedSymptomsViewModel proposedSymptomsViewModel,
+                                                                            ViewManagerModel viewManagerModel)
+        throws IOException {
+        ProposedSymptomsOutputBoundary proposedSymptomsOutputBoundary = new ProposedSymptomsPresenter(proposedSymptomsViewModel, viewManagerModel);
+        ProposedSymptomsAPIDataAccessInterface medicAPIProposedSymptomsDataAccessInterface = new MedicAPIDiagnosisDataAccessObject();
+
+        ProposedSymptomsInputBoundary proposedSymptomsInteractor = new ProposedSymptomsInteractor(proposedSymptomsOutputBoundary,
+                medicAPIProposedSymptomsDataAccessInterface);
+        return  new ProposedSymptomsController(proposedSymptomsInteractor);
     }
 
     private static GlossaryController createGlossaryUseCase(ViewManagerModel viewManagerModel,
