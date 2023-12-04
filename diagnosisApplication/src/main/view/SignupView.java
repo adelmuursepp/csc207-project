@@ -8,6 +8,7 @@ import main.interface_adapter.signup.SignupViewModel;
 import javax.swing.*;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
+import javax.swing.text.NumberFormatter;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -15,6 +16,8 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
 
 import static main.view.SymptomCheckerView.hexToColor;
 
@@ -88,10 +91,12 @@ public class SignupView extends JPanel implements ActionListener, PropertyChange
 
         JLabel spinnerLabel = new JLabel("Year of birth:");
         buttons.add(spinnerLabel);
+
         JSpinner year = new JSpinner(spinnerModel);
         JSpinner.NumberEditor editor = new JSpinner.NumberEditor(year, "#");
         year.setEditor(editor);//removes comma hooray!
         buttons.add(year);
+//        buttons.add(yearSpinner);
 
         JLabel sexLabel = new JLabel("Sex:");
         buttons.add(sexLabel);

@@ -1,15 +1,21 @@
 package main.app;
 
+import main.data_access.FileDiagnosisDataAccessObject;
 import main.data_access.FileUserDataAccessObject;
 import main.entity.CommonUserFactory;
 import main.interface_adapter.login.LoginViewModel;
 //import main.interface_adapter.logged_in.LoggedInViewModel;
 import main.interface_adapter.proposed_symptoms.ProposedSymptomsViewModel;
+import main.interface_adapter.past_diagnoses.PastDiagnosesViewModel;
+import main.interface_adapter.profile.ProfileViewModel;
+import main.interface_adapter.proposed_symptoms.ProposedSymptomsViewModel;
 import main.interface_adapter.signup.SignupViewModel;
 import main.interface_adapter.ViewManagerModel;
 import main.interface_adapter.symptom_checker.SymptomCheckerController;
+import main.use_case.diagnosis.DiagnosisFileDataAccessInterface;
 import main.use_case.login.LoginUserDataAccessInterface;
 //import main.view.LoggedInView;
+import main.use_case.profile.ProfileUserDataAccessInterface;
 import main.view.*;
 import main.interface_adapter.symptom_checker.SymptomCheckerViewModel;
 import main.interface_adapter.diagnosis.DiagnosisViewModel;
@@ -43,12 +49,21 @@ public class Main {
         LoginViewModel loginViewModel = new LoginViewModel();
         SignupViewModel signupViewModel = new SignupViewModel();
         SymptomCheckerViewModel symptomCheckerViewModel = new SymptomCheckerViewModel();
+        PastDiagnosesViewModel pastDiagnosesViewModel = new PastDiagnosesViewModel();
         DiagnosisViewModel diagnosisViewModel = new DiagnosisViewModel();
+        ProfileViewModel profileViewModel = new ProfileViewModel();
         ProposedSymptomsViewModel proposedSymptomsViewModel = new ProposedSymptomsViewModel();
 
         FileUserDataAccessObject userDataAccessObject;
         try {
             userDataAccessObject = new FileUserDataAccessObject("./users.csv", new CommonUserFactory());
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+        FileDiagnosisDataAccessObject fileDiagnosisDataAccessObject;
+        try {
+            fileDiagnosisDataAccessObject = new FileDiagnosisDataAccessObject("./diagnoses.csv", userDataAccessObject);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -64,7 +79,7 @@ public class Main {
         views.add(loginView, loginView.viewName);
 
         SymptomCheckerView symptomCheckerView = SymptomCheckerUseCaseFactory.create(symptomCheckerViewModel,
-                diagnosisViewModel, proposedSymptomsViewModel, viewManagerModel);
+                diagnosisViewModel, profileViewModel, proposedSymptomsViewModel, viewManagerModel, userDataAccessObject, fileDiagnosisDataAccessObject);
         views.add(symptomCheckerView, symptomCheckerView.viewName);
 
         DiagnosisView diagnosisView = DiagnosisUseCaseFactory.create(diagnosisViewModel, symptomCheckerViewModel,
@@ -74,6 +89,14 @@ public class Main {
         ProposedSymptomsView proposedSymptomsView = ProposedSymptomsUseCaseFactory.create(proposedSymptomsViewModel, symptomCheckerViewModel,
                 viewManagerModel);
         views.add(proposedSymptomsView, proposedSymptomsView.viewName);
+
+        ProfileView profileView = ProfileUseCaseFactory.create(profileViewModel, symptomCheckerViewModel, pastDiagnosesViewModel,
+                fileDiagnosisDataAccessObject, viewManagerModel);
+        views.add(profileView, profileView.viewName);
+
+        PastDiagnosesView pastDiagnosesView = PastDiagnosesUseCaseFactory.create(pastDiagnosesViewModel,
+                symptomCheckerViewModel, viewManagerModel);
+        views.add(pastDiagnosesView, pastDiagnosesView.viewName);
 
         viewManagerModel.setActiveView(signupView.viewName);
         viewManagerModel.firePropertyChanged();
