@@ -19,6 +19,8 @@ import java.beans.PropertyChangeListener;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
 
+import static main.view.SymptomCheckerView.hexToColor;
+
 public class SignupView extends JPanel implements ActionListener, PropertyChangeListener {
     public final String viewName = "sign up";
 
@@ -78,46 +80,56 @@ public class SignupView extends JPanel implements ActionListener, PropertyChange
         //main panel
         this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
         this.add(Box.createVerticalStrut(30));
+        this.setBackground(hexToColor("#B8D2E4"));
 
         //inner box to hold in place
         Box innerBox = Box.createVerticalBox();
-        innerBox.setBorder(BorderFactory.createLineBorder(Color.BLACK));
-        innerBox.setPreferredSize(new Dimension(350, 285));
-        innerBox.setMinimumSize(new Dimension(350, 285));
-        innerBox.setMaximumSize(new Dimension(350, 285));
+        innerBox.setBorder(BorderFactory.createLineBorder(Color.WHITE));
+        innerBox.setPreferredSize(new Dimension(350, 300));
+        innerBox.setMinimumSize(new Dimension(350, 300));
+        innerBox.setMaximumSize(new Dimension(350, 300));
+        innerBox.setBackground(hexToColor("#B8D2E4"));
 
         //title
         innerBox.add(Box.createVerticalStrut(10));
+
         JLabel title = new JLabel(SignupViewModel.TITLE_LABEL);
+        Font titleFont = new Font(title.getFont().getName(), Font.BOLD, title.getFont().getSize() + 1);
+        title.setFont(titleFont);
         title.setAlignmentX(Component.CENTER_ALIGNMENT);
         innerBox.add(title);
+
         innerBox.add(Box.createVerticalStrut(15));
 
         //input fields
         LabelTextPanel usernameInfo = new LabelTextPanel(
                 new JLabel(SignupViewModel.USERNAME_LABEL), usernameInputField);
-        usernameInputField.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
+        usernameInfo.setBackground(hexToColor("#B8D2E4"));
         innerBox.add(usernameInfo);
-        innerBox.add(Box.createVerticalStrut(0));
+
         LabelTextPanel passwordInfo = new LabelTextPanel(
                 new JLabel(SignupViewModel.PASSWORD_LABEL), passwordInputField);
-        passwordInputField.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
+        passwordInfo.setBackground(hexToColor("#B8D2E4"));
         innerBox.add(passwordInfo);
-        innerBox.add(Box.createVerticalStrut(0));
+
         LabelTextPanel repeatPasswordInfo = new LabelTextPanel(
                 new JLabel(SignupViewModel.REPEAT_PASSWORD_LABEL), repeatPasswordInputField);
-        repeatPasswordInputField.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
+        repeatPasswordInfo.setBackground(hexToColor("#B8D2E4"));
         innerBox.add(repeatPasswordInfo);
         innerBox.add(Box.createVerticalStrut(5));
 
-
         //panel for year and sex
         JPanel buttons = new JPanel();
+        buttons.setBackground(hexToColor("#B8D2E4"));
         buttons.add(Box.createVerticalStrut(5));
 
         JLabel spinnerLabel = new JLabel("Year of birth:");
         buttons.add(spinnerLabel);
-        buttons.add(yearSpinner);
+        JSpinner year = new JSpinner(spinnerModel);
+        JSpinner.NumberEditor editor = new JSpinner.NumberEditor(year, "#");
+        year.setEditor(editor);//removes comma hooray!
+        buttons.add(year);
+//        buttons.add(yearSpinner);
 
         JLabel sexLabel = new JLabel("Sex:");
         buttons.add(sexLabel);
@@ -125,31 +137,29 @@ public class SignupView extends JPanel implements ActionListener, PropertyChange
         buttons.add(sex);
 
         innerBox.add(buttons);
-
         innerBox.add(Box.createVerticalStrut(5));
 
         //panel for buttons
         JPanel buttons1 = new JPanel();
         buttons1.setLayout(new BoxLayout(buttons1, BoxLayout.Y_AXIS));
+        buttons1.setBackground(hexToColor("#B8D2E4"));
 
         signUp = new JButton(SignupViewModel.SIGNUP_BUTTON_LABEL);
+        signUp.setAlignmentX(Component.CENTER_ALIGNMENT);
         buttons1.add(signUp);
         buttons1.add(Box.createVerticalStrut(15));
-        signUp.setAlignmentX(Component.CENTER_ALIGNMENT);
 
         JLabel loginLabel = new JLabel("Already have an account?");
-        buttons1.add(loginLabel);
         loginLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
+        buttons1.add(loginLabel);
         login = new JButton(LoginViewModel.LOGIN_BUTTON_LABEL);
-        buttons1.add(login);
         login.setAlignmentX(Component.CENTER_ALIGNMENT);
+        buttons1.add(login);
 
         innerBox.add(buttons1);
-
         innerBox.add(Box.createVerticalStrut(25));
 
         this.add(innerBox);
-
 
         login.addActionListener(
                 new ActionListener() {
@@ -162,15 +172,15 @@ public class SignupView extends JPanel implements ActionListener, PropertyChange
                 }
         );
 
-        yearSpinner.addChangeListener(
+        year.addChangeListener(
                 new ChangeListener() {
                     @Override
                     public void stateChanged(ChangeEvent e) {
                         //commented out the part that made year label dynamic
-                        //spinnerLabel.setText("Year of birth: " + ((JSpinner)e.getSource()).getValue() );
-                        if (e.getSource() == yearSpinner) {
+                        //spinnerLabel.setText("Year of Birth " + ((JSpinner)e.getSource()).getValue() );
+                        if (e.getSource() == year) {
                             SignupState currentState = signupViewModel.getState();
-                            currentState.setYearOfBirth((Integer) yearSpinner.getValue());
+                            currentState.setYearOfBirth((Integer) year.getValue());
 
                         }
                     }

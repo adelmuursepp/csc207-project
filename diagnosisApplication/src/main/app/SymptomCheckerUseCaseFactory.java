@@ -42,7 +42,7 @@ public class SymptomCheckerUseCaseFactory {
         try {
             DiagnosisController diagnosisController = createDiagnosisUseCase(diagnosisViewModel, viewManagerModel, diagnosisFileDataAccessObject);
             ProfileController profileController = createProfileUseCase(profileViewModel, viewManagerModel, profileUserDataAccessObject);
-            return new SymptomCheckerView(symptomCheckerViewModel, diagnosisController, profileController);
+            return new SymptomCheckerView(symptomCheckerViewModel, diagnosisController, profileController, proposedSymptomsController);
         } catch (IOException e) {
             JOptionPane.showMessageDialog(null, "Could not open user data file.");
         }

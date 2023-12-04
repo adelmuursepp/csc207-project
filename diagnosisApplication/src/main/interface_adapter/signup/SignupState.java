@@ -18,6 +18,8 @@ public class SignupState {
         passwordError = copy.passwordError;
         repeatPassword = copy.repeatPassword;
         repeatPasswordError = copy.repeatPasswordError;
+        sex = copy.sex;
+        yearOfBirth = copy.yearOfBirth;
     }
 
     // Because of the previous copy constructor, the default constructor must be explicit.

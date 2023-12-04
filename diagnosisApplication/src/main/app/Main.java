@@ -7,6 +7,7 @@ import main.interface_adapter.login.LoginViewModel;
 //import main.interface_adapter.logged_in.LoggedInViewModel;
 import main.interface_adapter.past_diagnoses.PastDiagnosesViewModel;
 import main.interface_adapter.profile.ProfileViewModel;
+import main.interface_adapter.proposed_symptoms.ProposedSymptomsViewModel;
 import main.interface_adapter.signup.SignupViewModel;
 import main.interface_adapter.ViewManagerModel;
 import main.interface_adapter.symptom_checker.SymptomCheckerController;
@@ -31,8 +32,8 @@ public class Main {
         //Main Application Window.
         JFrame application = new JFrame("Bootleg WebMD");
         application.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        application.setPreferredSize(new Dimension(600, 400));
-        application.setMinimumSize(new Dimension(600, 400));
+        application.setPreferredSize(new Dimension(700, 420));
+        application.setMinimumSize(new Dimension(700, 420));
 
         CardLayout cardLayout = new CardLayout();
 
@@ -50,6 +51,7 @@ public class Main {
         PastDiagnosesViewModel pastDiagnosesViewModel = new PastDiagnosesViewModel();
         DiagnosisViewModel diagnosisViewModel = new DiagnosisViewModel();
         ProfileViewModel profileViewModel = new ProfileViewModel();
+        ProposedSymptomsViewModel proposedSymptomsViewModel = new ProposedSymptomsViewModel();
 
         FileUserDataAccessObject userDataAccessObject;
         try {
@@ -82,6 +84,10 @@ public class Main {
         DiagnosisView diagnosisView = DiagnosisUseCaseFactory.create(diagnosisViewModel, symptomCheckerViewModel,
                 viewManagerModel);
         views.add(diagnosisView, diagnosisView.viewName);
+
+        ProposedSymptomsView proposedSymptomsView = ProposedSymptomsUseCaseFactory.create(proposedSymptomsViewModel, symptomCheckerViewModel,
+                viewManagerModel);
+        views.add(proposedSymptomsView, proposedSymptomsView.viewName);
 
         ProfileView profileView = ProfileUseCaseFactory.create(profileViewModel, symptomCheckerViewModel, pastDiagnosesViewModel,
                 viewManagerModel, fileDiagnosisDataAccessObject);
