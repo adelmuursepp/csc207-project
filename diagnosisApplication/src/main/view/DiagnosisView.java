@@ -75,7 +75,6 @@ public class DiagnosisView extends JPanel implements ActionListener, PropertyCha
         }
         else {
             JTabbedPane tabbedPane = new JTabbedPane();
-            tabbedPane.setBackground(hexToColor("#B8D2E4"));
 
             // This is the code to create and add the bar chart.
             int[] accuracies = new int[n];
@@ -96,7 +95,7 @@ public class DiagnosisView extends JPanel implements ActionListener, PropertyCha
             }
             BarChart barChart = new BarChart(accuracies, diagnoses, "Diagnoses and Accuracies");
             barChart.setPreferredSize(new Dimension(300, 250));
-            barChart.setBorder(BorderFactory.createLineBorder(Color.WHITE, 5));
+            barChart.setBorder(BorderFactory.createLineBorder(Color.WHITE, 1));
             barChart.setAlignmentX(CENTER_ALIGNMENT);
             tabbedPane.addTab("Bar Chart", barChart);
 
