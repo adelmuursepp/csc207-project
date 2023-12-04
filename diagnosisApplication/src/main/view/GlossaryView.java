@@ -2,6 +2,7 @@ package main.view;
 
 import javax.swing.*;
 import javax.swing.text.JTextComponent;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
@@ -15,7 +16,10 @@ import java.util.List;
 import main.interface_adapter.glossary.GlossaryState;
 import main.interface_adapter.glossary.GlossaryViewModel;
 import main.interface_adapter.glossary_search.GlossarySearchController;
+import main.interface_adapter.signup.SignupViewModel;
 import main.interface_adapter.symptom_checker.SymptomCheckerController;
+
+import static main.view.SymptomCheckerView.hexToColor;
 
 public class GlossaryView extends JPanel implements ActionListener, PropertyChangeListener {
 
@@ -30,7 +34,6 @@ public class GlossaryView extends JPanel implements ActionListener, PropertyChan
     private final JButton back;
     private JList<String> topicsList = new JList<>(new DefaultListModel<>());
     private JScrollPane listScroller = new JScrollPane(topicsList);
-    private Icon icon;
 
     public GlossaryView(GlossaryViewModel glossaryViewModel, GlossarySearchController glossarySearchController,
                         SymptomCheckerController symptomCheckerController) {
@@ -40,19 +43,52 @@ public class GlossaryView extends JPanel implements ActionListener, PropertyChan
         this.symptomCheckerController = symptomCheckerController;
         glossaryViewModel.addPropertyChangeListener(this);
 
-        JLabel title = new JLabel(GlossaryViewModel.TITLE_LABEL);
-        title.setAlignmentX(CENTER_ALIGNMENT);
+        //main panel
+        this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
+        this.add(Box.createVerticalStrut(30));
+        this.setBackground(hexToColor("#B8D2E4"));
 
+        //inner box to hold in place
+        Box innerBox = Box.createVerticalBox();
+        innerBox.setBorder(BorderFactory.createLineBorder(Color.WHITE));
+        innerBox.setPreferredSize(new Dimension(400, 250));
+        innerBox.setMinimumSize(new Dimension(400, 250));
+        innerBox.setMaximumSize(new Dimension(400, 250));
+        innerBox.setBackground(hexToColor("#B8D2E4"));
+
+        //title
+        innerBox.add(Box.createVerticalStrut(10));
+
+        JLabel title = new JLabel(GlossaryViewModel.TITLE_LABEL);
+        Font titleFont = new Font(title.getFont().getName(), Font.BOLD, title.getFont().getSize() + 1);
+        title.setFont(titleFont);
+        title.setAlignmentX(Component.CENTER_ALIGNMENT);
+        innerBox.add(title);
+
+        innerBox.add(Box.createVerticalStrut(10));
+
+        // Search bar
         LabelTextPanel searchInfo = new LabelTextPanel(
                 new JLabel("Type a topic from the list"), searchInputField);
+        searchInfo.setBackground(hexToColor("#B8D2E4"));
+        searchInfo.setAlignmentX(CENTER_ALIGNMENT);
+        searchInfo.setPreferredSize(new Dimension(400, 50));
+        innerBox.add(searchInfo);
+        innerBox.add(Box.createVerticalStrut(5));
 
+        // Buttons
         JPanel buttons = new JPanel();
+        buttons.setBackground(hexToColor("#B8D2E4"));
+        buttons.setPreferredSize(new Dimension(350, 50));
         topics = new JButton(GlossaryViewModel.TOPICS_BUTTON_LABEL);
         buttons.add(topics);
         search = new JButton(GlossaryViewModel.SEARCH_BUTTON_LABEL);
         buttons.add(search);
         back = new JButton(GlossaryViewModel.BACK_BUTTON_LABEL);
         buttons.add(back);
+        buttons.setAlignmentX(CENTER_ALIGNMENT);
+        innerBox.add(buttons);
+        innerBox.add(Box.createVerticalStrut(5));
 
         search.addActionListener(
                 new ActionListener() {
@@ -119,9 +155,7 @@ public class GlossaryView extends JPanel implements ActionListener, PropertyChan
 
         this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 
-        this.add(title);
-        this.add(searchInfo);
-        this.add(buttons);
+        this.add(innerBox);
 
     }
 
@@ -139,28 +173,44 @@ public class GlossaryView extends JPanel implements ActionListener, PropertyChan
             for (String topic : GlossaryState.getTopics()) {
                 listModel.addElement(topic);
             }
+
+            Box topicsBox = Box.createVerticalBox();
+            topicsBox.setPreferredSize(new Dimension(300, 100));
+            topicsBox.setMinimumSize(new Dimension(300, 100));
+            topicsBox.setMaximumSize(new Dimension(300, 100));
+            topicsBox.setBackground(hexToColor("#B8D2E4"));
+            topicsBox.setAlignmentX(CENTER_ALIGNMENT);
+
             topicsList = new JList<>(listModel);
             topicsList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
             topicsList.setLayoutOrientation(JList.HORIZONTAL_WRAP);
             topicsList.setVisibleRowCount(-1);
+            topicsList.setAlignmentX(CENTER_ALIGNMENT);
 
             listScroller = new JScrollPane(topicsList);
-            // listScroller.setPreferredSize(new Dimesnion(250, 80));
-            this.add(listScroller);
+            listScroller.setPreferredSize(new Dimension(300, 100));
+            listScroller.setBackground(hexToColor("#B8D2E4"));
+            listScroller.setAlignmentX(CENTER_ALIGNMENT);
+            topicsBox.add(listScroller);
+            this.add(topicsBox);
         }
         // Make the popup window for the search results
         if (!state.getSearch().isEmpty()) {
             JInternalFrame contentFrame = getContentFrame(state);
+            contentFrame.setAlignmentX(CENTER_ALIGNMENT);
             this.add(contentFrame);
-            contentFrame.show();
+            contentFrame.toFront();
+            contentFrame.setVisible(true);
         }
     }
 
     private static JInternalFrame getContentFrame(GlossaryState state) {
         JInternalFrame contentFrame = new JInternalFrame("Results", true, true, true, true);
-        contentFrame.setSize(400, 300);
+        contentFrame.setSize(300, 250);
+        contentFrame.setBackground(hexToColor("#B8D2E4"));
         JTextArea content = new JTextArea(state.getContent(), 5, 20);
         JEditorPane editorPane = new JEditorPane();
+        editorPane.setPreferredSize(new Dimension(280, 180));
         editorPane.setContentType("text/html");
         editorPane.setText(state.getContent());
         editorPane.setEditable(false);
@@ -170,6 +220,8 @@ public class GlossaryView extends JPanel implements ActionListener, PropertyChan
         content.setWrapStyleWord(true);
         content.setEnabled(false);
         JScrollPane contentScroller = new JScrollPane(editorPane);
+        contentScroller.setPreferredSize(new Dimension(280, 180));
+        contentScroller.setBackground(hexToColor("#B8D2E4"));
         contentFrame.setContentPane(contentScroller);
         contentFrame.pack();
         return contentFrame;
