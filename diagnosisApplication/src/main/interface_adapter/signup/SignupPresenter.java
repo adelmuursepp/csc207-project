@@ -40,7 +40,7 @@ public class SignupPresenter implements SignupOutputBoundary {
 
     /**
      * Set up the error in the SignupState to present an error when the sign up encounters an error.
-     * @param error
+     * @param error an error state for the SignupState to return an error
      */
     @Override
     public void prepareFailView(String error) {

@@ -18,6 +18,14 @@ public class SignupInteractor implements SignupInputBoundary {
         this.userFactory = userFactory;
     }
 
+    /**
+     *Checks if the username is unique and if the password and repeat password match in the sign up fields
+     * and if both conditions are met, take the current time and uses the
+     * UserFactory to create a new user with attributes given in the sign up fields
+     * and saved to the csv, then calls the presenter to move onto the SymptomCheckerView.
+     * @param signupInputData the package of the information contained in the fields of the sign up view to be saved
+     *                        as user attributes.
+     */
     @Override
     public void execute(SignupInputData signupInputData) {
         if (userDataAccessObject.existsByName(signupInputData.getUsername())) {
@@ -36,6 +44,10 @@ public class SignupInteractor implements SignupInputBoundary {
         }
     }
 
+    /**
+     * Calls the presenter to change the active view from SignupView to the LoginView.
+     *
+     */
     public void switchLogin() {
         userPresenter.prepareLoginView();
     }
