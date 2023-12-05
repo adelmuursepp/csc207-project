@@ -26,21 +26,22 @@ public class SignupPresenter implements SignupOutputBoundary {
         this.symptomCheckerViewModel = symptomCheckerViewModel;
     }
 
+    /**
+     * Triggers the viewManagerModel to change the active view from the SignupView to
+     * the SymptomCheckerView when sign up is successful.
+     *
+     */
     @Override
-    public void prepareSuccessView(SignupOutputData response) {
-        // On success, switch to the login view.
-        LocalDateTime responseTime = LocalDateTime.parse(response.getCreationTime());
-        response.setCreationTime(responseTime.format(DateTimeFormatter.ofPattern("hh:mm:ss")));
-
-        LoginState loginState = loginViewModel.getState();
-        loginState.setUsername(response.getUsername());
-        this.loginViewModel.setState(loginState);
-        loginViewModel.firePropertyChanged();
+    public void prepareSuccessView() {
 
         viewManagerModel.setActiveView(symptomCheckerViewModel.getViewName());
         viewManagerModel.firePropertyChanged();
     }
 
+    /**
+     * Set up the error in the SignupState to present an error when the sign up encounters an error.
+     * @param error
+     */
     @Override
     public void prepareFailView(String error) {
         SignupState signupState = signupViewModel.getState();
@@ -48,6 +49,11 @@ public class SignupPresenter implements SignupOutputBoundary {
         signupViewModel.firePropertyChanged();
     }
 
+    /**
+     * Uses the viewManagerModel to switch the current view from the SignupView to the
+     * LoginView
+     *
+     */
     public void prepareLoginView() {
         viewManagerModel.setActiveView(loginViewModel.getViewName());
         viewManagerModel.firePropertyChanged();
