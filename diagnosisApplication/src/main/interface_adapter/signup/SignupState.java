@@ -79,12 +79,4 @@ public class SignupState {
     public Integer getYearOfBirth() { return yearOfBirth; }
 
 
-    @Override
-    public String toString() {
-        return "SignupState{" +
-                "username='" + username + '\'' +
-                ", password='" + password + '\'' +
-                ", repeatPassword='" + repeatPassword + '\'' +
-                '}';
-    }
 }
