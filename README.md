@@ -28,8 +28,10 @@ There are two examples of Java API example calls in the repository.
 
 ## Hoppscotch Test
 This is the result of putting the url from the Java code example in Hoppscotch
-<<<<<<< HEAD
+
 ![Hoppscotch-ex.png](..%2F..%2F..%2FDownloads%2FScreenshot%202023-09-29%20231157.png)
+
+Initial focus areas:
 
 
 Nivadhini - Supervise coding. Design clean architecture.
