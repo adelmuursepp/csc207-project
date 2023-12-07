@@ -31,12 +31,16 @@ public class SymptomCheckerViewModel extends ViewModel {
 
     /**
      * Allows the view model to update the state by setting this.state to state
-     * @param state a new state of the view model to update to
+     * @param state a new state to update to
      */
     public void setState(SymptomCheckerState state) {
         this.state = state;
     }
 
+    /**
+     * Gets the current state of the symptom checker
+     * @return current SymptomCheckerState of the application saved in the SymptomCheckerViewModel
+     */
     public SymptomCheckerState getState() {
         return state;
     }
