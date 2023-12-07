@@ -16,17 +16,39 @@ public class SignupInputData {
         this.yearOfBirth = yearOfBirth;
     }
 
-    String getUsername() {
+    /**
+     * Getter function for the username field in the sign up
+     * @return string representation of the profile username
+     */
+    public String getUsername() {
         return username;
     }
 
-    String getPassword() {
+    /**
+     * Getter function for the password field in the sign up
+     * @return string representation of the profile password
+     */
+    public String getPassword() {
         return password;
     }
 
+    /**
+     * Getter function for the repeat password field in the sign up
+     * @return string representation of the repeated password field
+     */
     public String getRepeatPassword() {
         return repeatPassword;
     }
+
+    /**
+     * Getter function for the sex combobox in the sign up
+     * @return string representation of the sex of the profile
+     */
     public String getSex() { return sex; }
+
+    /**
+     * Getter function for the year of birth in the sign up
+     * @return integer representation of year of birth ranging from 1900 to 2023
+     */
     public Integer getYearOfBirth() { return yearOfBirth; }
 }

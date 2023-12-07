@@ -29,6 +29,10 @@ public class SymptomCheckerViewModel extends ViewModel {
         support.addPropertyChangeListener(listener);
     }
 
+    /**
+     * Allows the view model to update the state by setting this.state to state
+     * @param state a new state of the view model to update to
+     */
     public void setState(SymptomCheckerState state) {
         this.state = state;
     }

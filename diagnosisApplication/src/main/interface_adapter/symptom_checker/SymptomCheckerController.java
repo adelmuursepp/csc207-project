@@ -12,6 +12,9 @@ public class SymptomCheckerController {
         this.symptomCheckerInteractor = symptomCheckerInteractor;
     }
 
+    /**
+     * Sends symptom checker input data to the interactor to be used in the API call.
+     */
     public void execute() {
         SymptomCheckerInputData symptomCheckerInputData = new SymptomCheckerInputData();
         symptomCheckerInteractor.execute(symptomCheckerInputData);
